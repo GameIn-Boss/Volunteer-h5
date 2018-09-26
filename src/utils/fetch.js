@@ -70,7 +70,8 @@ export default function request(requestUrl, requestOptions = {}) {
       ? `${location.lng}-${location.lat}`
       : '116.314820-40.065560',
     'X-unique-key': window.uniqueKey || 'demo',
-    'X-city': `${encodeURI(city)}`
+    'X-city': `${encodeURI(city)}`,
+    'X-platform-code': window.platformCode || ''
   };
   // 自定义头必须设置 mode 为 cors
   options.mode = 'cors';
@@ -164,15 +165,4 @@ export default function request(requestUrl, requestOptions = {}) {
         reject(error);
       });
   });
-
-  // TODO: 如果没有经纬度信息则需要调用微信 JSSDK 获取经纬度之后再发起请求，对调用者透明 return fetch(url, options)
-  //       .then(response => response.json())           .then((json) => {
-  // store.dispatch(removeAysncTask());             if (('error_code' in json) &&
-  // json.error_code === 0) {               if (options.successWords) {
-  //    Alert.success(options.successWords); console.log('请求成功-', json);
-  //     }               return json;      }             console.log('请求返回失败-',
-  // json); Alert.error('请求发送失败');             return Promise.reject(json);
-  //    })          .catch((error) => {             //
-  // store.dispatch(removeAysncTask()); Alert.error(`请求发送失败：${error}`);
-  //  console.log('请求失败-', error);      });
 }

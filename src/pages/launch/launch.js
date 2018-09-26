@@ -18,12 +18,12 @@ import WXShare from '../../components/share';
 import MyPage from '../my/my';
 import { requestUserInfo } from '../../stores/common';
 
-const TAB_URL_MAPS = {
-  '/': <HomePage />,
-  '/signin': <SigninPage />,
-  '/my': <MyPage />,
-  '/signin/password': <PasswordPage />,
-};
+// const TAB_URL_MAPS = {
+//   '/': <HomePage />,
+//   '/signin': <SigninPage />,
+//   '/my': <MyPage />,
+//   '/signin/password': <PasswordPage />,
+// };
 
 class LaunchPage extends React.Component {
 
@@ -31,86 +31,97 @@ class LaunchPage extends React.Component {
     super(props);
     autoBind(this);
 
-    this.state = {
-      page: this.getTabName(this.props),
-    };
+    // this.state = {
+    //   page: this.getTabName(this.props),
+    // };
   }
 
   componentWillMount() {
-    if (!this.props.user.id) {
-      this.props.requestUserInfo(true);
-    }
+    // if (!this.props.user.id) {
+    //   this.props.requestUserInfo(true);
+    // }
   }
 
   componentDidMount() {
-    wx.ready(() => {
-      WXShare();
-    });
+    // wx.ready(() => {
+    //   WXShare();
+    // });
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      ...this.state,
-      page: this.getTabName(nextProps),
-    });
+    // this.setState({
+    //   ...this.state,
+    //   page: this.getTabName(nextProps),
+    // });
   }
 
   componentWillUnmount() {
 
   }
 
-  getTabName(props) {
-    return TAB_URL_MAPS[(props || this.props).route.path];
-  }
+  // getTabName(props) {
+  //   return TAB_URL_MAPS[(props || this.props).route.path];
+  //   // return null;
+  // }
 
+  // render() {
+  //   const { page } = this.state;
+  //   const { path } = this.props.route;
+
+  //   return (
+  //     <div className="page-launch">
+  //       <div className="content">
+  //         {page}
+  //       </div>
+  //       <ul className="tabs">
+  //         <li>
+  //           <Link to="/">
+  //             <div
+  //               className={classnames({
+  //                 'tab-icon': true,
+  //                 'tab-icon-home': true,
+  //                 active: path === '/',
+  //               })}
+  //             />
+  //             <span>首页</span>
+  //           </Link>
+  //         </li>
+  //         <li>
+  //           <Link to="/signin">
+  //             <div
+  //               className={classnames({
+  //                 'tab-icon': true,
+  //                 'tab-icon-signin': true,
+  //                 active: path === '/signin',
+  //               })}
+  //             />
+  //             <span>签到打卡</span>
+  //           </Link>
+  //         </li>
+  //         <li>
+  //           <Link to="/my">
+  //             <div
+  //               className={classnames({
+  //                 'tab-icon': true,
+  //                 'tab-icon-me': true,
+  //                 active: path === '/my',
+  //               })}
+  //             />
+  //             <span>个人中心</span>
+  //           </Link>
+  //         </li>
+  //       </ul>
+  //       <div className="line1px" style={{ width: '100%', position: 'absolute', bottom: '49px', left: '0' }} />
+  //     </div>
+  //   );
+  // }
   render() {
-    const { page } = this.state;
-    const { path } = this.props.route;
-
     return (
       <div className="page-launch">
         <div className="content">
-          {page}
+            <HomePage />
         </div>
-        <ul className="tabs">
-          <li>
-            <Link to="/">
-              <div
-                className={classnames({
-                  'tab-icon': true,
-                  'tab-icon-home': true,
-                  active: path === '/',
-                })}
-              />
-              <span>首页</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/signin">
-              <div
-                className={classnames({
-                  'tab-icon': true,
-                  'tab-icon-signin': true,
-                  active: path === '/signin',
-                })}
-              />
-              <span>签到打卡</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/my">
-              <div
-                className={classnames({
-                  'tab-icon': true,
-                  'tab-icon-me': true,
-                  active: path === '/my',
-                })}
-              />
-              <span>个人中心</span>
-            </Link>
-          </li>
-        </ul>
-        <div className="line1px" style={{ width: '100%', position: 'absolute', bottom: '49px', left: '0' }} />
+      
       </div>
     );
   }
