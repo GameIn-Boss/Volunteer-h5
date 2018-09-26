@@ -193,3 +193,13 @@
   width: 100%;
   height: 44px;
 }
+
+.header-bar .component-search-bar{
+  margin:0;
+}
+.page-home .slick-dots li button:before{
+  color: #fff;
+}
+.page-home .slick-dots li.slick-active button:before{
+  color: #fff;
+}

@@ -12,11 +12,11 @@ import './search.css';
 import Link from '../../../components/link/link';
 import history from '../../history';
 import TabItem from '../components/tab';
-import TEAMPAGE from '../../team/search/search';
+import PLATFROMPAGE from '../../platfrom/search/search';
 import PROJECTPAGE from '../../project/search/search';
 
 const TAB_URL_MAPS = {
-  team: <TEAMPAGE />,
+  team: <PLATFROMPAGE />,
   project: <PROJECTPAGE />,
 };
 class homesearch extends React.Component {
@@ -25,7 +25,7 @@ class homesearch extends React.Component {
     super(props);
     autoBind(this);
     this.state = {
-      title: ['项目搜索', '团队搜索'],
+      title: ['项目搜索', '机构搜索'],
       current: 0,
     };
   }
@@ -65,7 +65,7 @@ class homesearch extends React.Component {
               'page-homesearch-content-main-current': this.state.current,
             })}
           >
-            <TEAMPAGE />
+            <PLATFROMPAGE />
           </div>
         </div>
       </div>
