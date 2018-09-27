@@ -5,7 +5,7 @@
     "chunk": "main"
   },
   {
-    "path": "/platfrom/detail",
+    "path": "/platfrom/detail/:Id",
     "page": "./pages/platfrom/information/detail",
     "chunk": "main"
   },
