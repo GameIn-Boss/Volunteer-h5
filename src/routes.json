@@ -5,6 +5,41 @@
     "chunk": "main"
   },
   {
+    "path": "/platfrom/detail",
+    "page": "./pages/platfrom/information/detail",
+    "chunk": "main"
+  },
+  {
+    "path": "/platfrom/information",
+    "page": "./pages/platfrom/information/index",
+    "chunk": "main"
+  },
+  {
+    "path": "/platfrom/list",
+    "page": "./pages/platfrom/list/list",
+    "chunk": "main"
+  },
+  {
+    "path": "/platfrom/list/type/:type/category/:category/target/:target",
+    "page": "./pages/platfrom/list/list",
+    "chunk": "main"
+  },
+  {
+    "path": "/platfrom/detail/:teamId",
+    "page": "./pages/platfrom/detail/detail",
+    "chunk": "main"
+  },
+  {
+    "path": "/platfrom/detail/:teamId/:lastId",
+    "page": "./pages/platfrom/detail/detail",
+    "chunk": "main"
+  },
+  {
+    "path": "/platfrom/search",
+    "page": "./pages/platfrom/search/search",
+    "chunk": "main"
+  },
+  {
     "path": "/shop",
     "page": "./pages/shop/index",
     "chunk": "main"

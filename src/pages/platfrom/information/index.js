@@ -3,21 +3,37 @@ import autoBind from 'react-autobind';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import './index.css';
-import Teams from '../../../components/platfroms/index';
 import { isWindowReachBottom } from '../../../utils/funcs';
 import history from '../../history';
 
 import {
   requestSearch,
-} from './search.store';
-
+} from './index.store';
+import { Dialog } from 'react-weui';
+import 'weui/dist/style/weui.css';
+import 'react-weui/build/packages/react-weui.css';
 class TeamSearchPage extends React.Component {
 
   constructor(props) {
     super(props);
     autoBind(this);
-
+    this.state = ({
+      showDialog: true,
+    })
     this.keyword = '';
+    this.dialog = {
+      title: '查询错误',
+      buttons: [
+        {
+          type: 'primary',
+          label: '确认',
+          onClick: () => {
+            this.setState({ ...this.state, showDialog: false });
+
+          },
+        },
+      ],
+    };
   }
 
   componentWillMount() {
@@ -80,33 +96,27 @@ class TeamSearchPage extends React.Component {
 
   render() {
     const { list: { data: listData, keyword } } = this.props;
-    const showLoadingMore = listData && (keyword === this.keyword) &&
-    listData.page && (listData.page.current_page < listData.page.total_page);
 
     return (
       <div className="page-team-search">
-        <div className="header"  onClick={this.handleSearch}>
+        <div className="header" onClick={this.handleSearch}>
           <div className="search-bar-container">
             <form onSubmit={this.handleSearch} className="component-search-bar">
-              <input ref={(el) => { this.searchInput = el; }} onBlur={this.handleSearch} className="input" placeholder="搜索机构" autofocus="autofocus" />
+              <input ref={(el) => { this.searchInput = el; }} onBlur={this.handleSearch} className="input" placeholder="请输入身份证号" />
             </form>
-            <button onClick={this.handleCancelSearch}>取消</button>
+            <button onClick={this.handleSearch}>查询</button>
           </div>
         </div>
         <div className="line1px" />
         <div className="body">
-          <div className="team-list">
-            <Teams teams={listData && keyword === this.keyword ? listData.list : null} />
-          </div>
-          {
-          showLoadingMore
-          ?
-            <div className="component-loading-more">
-              <img src="/images/icon_loading.png" alt="loading" />
-            正在加载
-          </div>
-          : null
-        }
+
+          <Dialog type="ios" title={this.dialog.title} buttons={this.dialog.buttons} show={this.state.showDialog}>
+            <div className="dialog-container">
+              <img src="../images/shop/information.png" />
+              <div className="dialog-container-title">没有查到相应的志愿服务信息哦～</div>
+              <div className="dialog-container-container">建议：您可以联系您注册过的志愿服务机构，对账号进行实名认证后再次进行查询。</div>
+            </div>
+          </Dialog>
         </div>
       </div>
     );
