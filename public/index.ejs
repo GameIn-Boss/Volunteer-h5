@@ -36,6 +36,9 @@
     window.apiHost='http://api.volunteer.alpha.flashdiet.cn';
     // window.apiHost ="http://api.volzdx.cn";
 
+
+    // 平台标识字段,所有请求均需要此字段，取window.platformCode 请求头带此字段
+    window.platformCode='rlNbWJayg5';
     // server 端下发 token
     window.token = null;
     window.orgInfo = {
@@ -54,15 +57,15 @@
                     "icon": "http://alpha.api.volunteer.tmallwo.com/image/uploads/2017-10/999161507952198.png"
                 },
                 {
-                    "label": "shop",
-                    "key": "volunteer_feedback",
+                    "label": "志愿机构",
+                    "key": "volunteer_platform",
                     "icon": "http://alpha.api.volunteer.tmallwo.com/image/uploads/2017-10/918461507952580.png"
                 }
             ],
             [
                 {
-                    "label": "志愿回馈",
-                    "key": "good_example",
+                    "label": "志愿攻略",
+                    "key": "volunteer_strategy",
                     "icon": "http://alpha.api.volunteer.tmallwo.com/image/uploads/2017-10/323921507952861.png"
                 },
                 {
@@ -71,10 +74,15 @@
                     "icon": "http://alpha.api.volunteer.tmallwo.com/image/uploads/2017-10/942591507952733.png"
                 },
                 {
+                    "label": "信息查询",
+                    "key": "volunteer_info",
+                    "icon": "http://alpha.api.volunteer.tmallwo.com/image/uploads/2017-10/918461507952580.png"
+                },
+                {
                     "label": "服务中心",
                     "key": "help_center",
                     "icon": "http://alpha.api.volunteer.tmallwo.com/image/uploads/2017-10/583531507952882.png"
-                },
+                }
             ]
         ],
         'org_info':"<p>Test 123</p>",
