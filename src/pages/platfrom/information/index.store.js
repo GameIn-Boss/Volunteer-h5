@@ -6,7 +6,7 @@ export const requestSearch = data => ({
     more: data.more,
     keyword: data.name,
   },
-  payload: fetch('/team', { method: 'GET', data, loading: !data.more }),
+  payload: fetch('/platform/volunteer', { method: 'GET', data, loading: !data.more }),
 });
 
 export default (state = {

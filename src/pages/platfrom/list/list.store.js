@@ -5,7 +5,7 @@ export const requestTeamList = data => ({
   meta: {
     more: data.more,
   },
-  payload: fetch('/team', { method: 'GET', data, loading: !data.more }),
+  payload: fetch('/platform/org', { method: 'GET', data, loading: !data.more }),
 });
 
 export default (state = {
