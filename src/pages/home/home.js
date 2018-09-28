@@ -231,31 +231,7 @@ class HomePage extends React.Component {
           {this.renderAnnounceComponent()}
         </div>
         <div className="page-home-body">
-          {window.orgInfo ?
-            <Menus menus={window.orgInfo.module_settings} /> : null}
-          {
-            !home.data
-              ?
-              null
-              :
-              <div>
-              
-                {
-                  home.data && home.data.sanlitun ?
-                    null
-                    :
-                    <div className="menus-activity">
-                      <Link to="/project/list/type/1/category/1000/target/1000">
-                        <img src="/images/activities_nearby.png" alt="附近" />
-                      </Link>
-                      <Link to="/project/list/type/0/category/1000/target/1000">
-                        <img src="/images/activities_new.png" alt="最新" />
-                      </Link>
-                      <Link to="/project/list/type/2/category/1000/target/1000">
-                        <img src="/images/activities_hot.png" alt="最热" />
-                      </Link>
-                    </div>
-                }
+          {window.orgInfo ? <Menus menus={window.orgInfo.module_settings} /> : null}
                 <div className="project-list">
                   <div className="list-header">
                     <div className="main-label">
