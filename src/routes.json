@@ -5,6 +5,11 @@
     "chunk": "main"
   },
   {
+    "path": "/homesearch",
+    "page": "./pages/home/subpage/search",
+    "chunk": "main"
+  },
+  {
     "path": "/platfrom/detail/:Id",
     "page": "./pages/platfrom/information/detail",
     "chunk": "main"
@@ -127,6 +132,26 @@
   {
     "path": "/announcee/detail/:Id",
     "page": "./pages/announce/detail",
+    "chunk": "main"
+  },
+  {
+    "path": "/my/service",
+    "page": "./pages/my/service/service",
+    "chunk": "main"
+  },
+  {
+    "path": "/my/service/introduce",
+    "page": "./pages/my/service/introduce",
+    "chunk": "main"
+  },
+  {
+    "path": "/my/service/help",
+    "page": "./pages/my/service/help",
+    "chunk": "main"
+  },
+  {
+    "path": "/my/service/center",
+    "page": "./pages/my/service/center",
     "chunk": "main"
   }
 ]

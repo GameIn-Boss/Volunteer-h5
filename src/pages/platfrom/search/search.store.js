@@ -1,12 +1,12 @@
 import fetch from '../../../utils/fetch';
 
 export const requestSearch = data => ({
-  type: 'TEAM_SEARCH',
+  type: 'PLATFORM_SEARCH',
   meta: {
     more: data.more,
     keyword: data.name,
   },
-  payload: fetch('/team', { method: 'GET', data, loading: !data.more }),
+  payload: fetch('/platform/org', { method: 'GET', data, loading: !data.more }),
 });
 
 export default (state = {
@@ -20,13 +20,13 @@ export default (state = {
   const { data: payloadData } = action.payload || {};
 
   switch (action.type) {
-    case 'TEAM_SEARCH_PENDING':
+    case 'PLATFORM_SEARCH_PENDING':
       return {
         ...state,
         fetching: true,
         failed: false,
       };
-    case 'TEAM_SEARCH_FULFILLED':
+    case 'PLATFORM_SEARCH_FULFILLED':
       if (!more || !state.data) {
         data = payloadData;
       } else {
@@ -43,7 +43,7 @@ export default (state = {
         data,
         keyword: action.meta.keyword,
       };
-    case 'TEAM_SEARCH_REJECTED':
+    case 'PLATFORM_SEARCH_REJECTED':
       return {
         ...state,
         failed: true,

@@ -5,7 +5,7 @@ import fetch from '../../../utils/fetch';
  * @param {string} teamId
  */
 export const requestTeamDetail = teamId => ({
-  type: 'TEAM_DETAIL',
+  type: 'PLATFORM_DETAIL',
   meta: {
     id: teamId,
   },
@@ -16,7 +16,7 @@ export const requestTeamDetail = teamId => ({
  * 团队项目
  */
 export const requestTeamProjectList = teamId => ({
-  type: 'TEAM_PROJECT_LIST',
+  type: 'PLATFORM_PROJECT_LIST',
   payload: fetch('/project', { method: 'GET', data: { team_id: teamId, page_size: 1000 } }),
 });
 
@@ -25,7 +25,7 @@ export const requestTeamProjectList = teamId => ({
  * 团队收藏 Action
  */
 export const collectTeam = teamId => ({
-  type: 'TEAM_COLLECT',
+  type: 'PLATFORM_COLLECT',
   payload: fetch('/user/collection', {
     data: {
       id: teamId,
@@ -36,7 +36,7 @@ export const collectTeam = teamId => ({
 });
 
 export const unCollectTeam = teamId => ({
-  type: 'TEAM_UNCOLLECT',
+  type: 'PLATFORM_UNCOLLECT',
   payload: fetch('/user/uncollection', {
     data: {
       id: teamId,
@@ -50,7 +50,7 @@ export const unCollectTeam = teamId => ({
  * 团队加入/退出 Action
  */
 export const joinTeam = (teamId, detailData) => ({
-  type: 'TEAM_JOIN',
+  type: 'PLATFORM_JOIN',
   meta: {
     joinType: detailData.join_type,
   },
@@ -64,7 +64,7 @@ export const joinTeam = (teamId, detailData) => ({
 });
 
 export const quitTeam = teamId => ({
-  type: 'TEAM_QUIT',
+  type: 'PLATFORM_QUIT',
   payload: fetch(`/team/join/${teamId}`, {
     data: {
       id: teamId,
@@ -79,7 +79,7 @@ export const quitTeam = teamId => ({
  */
 
 export const saveTeamTabIndex = (tabTeamIndex, lastTeamId) => ({
-  type: 'SWITCH_TEAM_TAB',
+  type: 'SWITCH_PLATFORM_TAB',
   payload: { tabTeamIndex, lastTeamId },
 });
 
@@ -94,14 +94,14 @@ export default (state = {
   projects: null,
 }, action) => {
   switch (action.type) {
-    case 'TEAM_DETAIL_PENDING':
+    case 'PLATFORM_DETAIL_PENDING':
       return {
         ...state,
         fetching: true,
         fetchingId: action.meta.id,
         failed: false,
       };
-    case 'TEAM_DETAIL_FULFILLED':
+    case 'PLATFORM_DETAIL_FULFILLED':
       return {
         ...state,
         fetching: false,
@@ -109,19 +109,19 @@ export default (state = {
         failed: false,
         team: action.payload && action.payload.data,
       };
-    case 'TEAM_DETAIL_REJECTED':
+    case 'PLATFORM_DETAIL_REJECTED':
       return {
         ...state,
         failed: true,
         fetchingId: action.meta.id,
         fetching: false,
       };
-    case 'TEAM_PROJECT_LIST_FULFILLED':
+    case 'PLATFORM_PROJECT_LIST_FULFILLED':
       return {
         ...state,
         projects: action.payload && action.payload.data,
       };
-    case 'TEAM_COLLECT_FULFILLED':
+    case 'PLATFORM_COLLECT_FULFILLED':
       return {
         ...state,
         team: {
@@ -129,7 +129,7 @@ export default (state = {
           collection_status: 1,
         },
       };
-    case 'TEAM_UNCOLLECT_FULFILLED':
+    case 'PLATFORM_UNCOLLECT_FULFILLED':
       return {
         ...state,
         team: {
@@ -137,7 +137,7 @@ export default (state = {
           collection_status: 0,
         },
       };
-    case 'TEAM_JOIN_FULFILLED':
+    case 'PLATFORM_JOIN_FULFILLED':
       return {
         ...state,
         team: {
@@ -147,7 +147,7 @@ export default (state = {
           join_status: action.meta.joinType === 1 ? 1 : 0,
         },
       };
-    case 'TEAM_QUIT_FULFILLED':
+    case 'PLATFORM_QUIT_FULFILLED':
       return {
         ...state,
         team: {
@@ -157,7 +157,7 @@ export default (state = {
           join_status: -1,
         },
       };
-    case 'SWITCH_TEAM_TAB':
+    case 'SWITCH_PLATFORM_TAB':
       return {
         ...state,
         tabTeamIndex: action.payload.tabTeamIndex,

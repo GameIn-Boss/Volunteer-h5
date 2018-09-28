@@ -1,7 +1,7 @@
 import fetch from '../../../utils/fetch';
 
 export const requestTeamList = data => ({
-  type: 'TEAM_LIST',
+  type: 'PLATFORM_LIST',
   meta: {
     more: data.more,
   },
@@ -18,13 +18,13 @@ export default (state = {
   const { data: payloadData } = action.payload || {};
 
   switch (action.type) {
-    case 'TEAM_LIST_PENDING':
+    case 'PLATFORM_LIST_PENDING':
       return {
         ...state,
         fetching: true,
         failed: false,
       };
-    case 'TEAM_LIST_FULFILLED':
+    case 'PLATFORM_LIST_FULFILLED':
       if (!more || !state.data) {
         data = payloadData;
       } else {
@@ -40,7 +40,7 @@ export default (state = {
         failed: false,
         data,
       };
-    case 'TEAM_LIST_REJECTED':
+    case 'PLATFORM_LIST_REJECTED':
       return {
         ...state,
         failed: true,
