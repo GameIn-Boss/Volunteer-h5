@@ -125,7 +125,7 @@ TeamListPage.propTypes = {
   }),
 };
 
-TeamListPage.title = '志愿团队';
+TeamListPage.title = '志愿机构';
 
 export default connect(
   state => ({

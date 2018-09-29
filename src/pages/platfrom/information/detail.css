@@ -115,9 +115,6 @@
   .page-platfrom-information-detail .main .bottom{
     margin-bottom: 20px;
   }
-  .page-platfrom-information-detail .main .top{
-      padding-top: 20px;
-  }
   .page-platfrom-information-detail .img{
       width: 375px;
       position: absolute;
@@ -135,4 +132,23 @@
     position: absolute;
     bottom: 20px;
     right: 20px;
+  }
+
+  .page-view-container{
+      display: flex;
+      justify-content: space-around;
+  }
+  .page-view-container div{
+      width: 50%;
+      position: relative;
+      z-index: 3;
+      overflow: hidden;
+  }
+  .page-view-container div img{
+    width: 100%;
+    opacity: 0;
+    position: absolute;
+    z-index: 10001;
+    top: 0;
+    left: 0;
   }

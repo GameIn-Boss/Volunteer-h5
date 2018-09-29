@@ -153,5 +153,10 @@
     "path": "/my/service/center",
     "page": "./pages/my/service/center",
     "chunk": "main"
+  },
+  {
+    "path": "/my/certificate/:Id",
+    "page": "./pages/my/certificate/certificate",
+    "chunk": "main"
   }
 ]

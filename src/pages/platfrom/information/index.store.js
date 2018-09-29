@@ -3,10 +3,9 @@ import fetch from '../../../utils/fetch';
 export const requestSearch = data => ({
   type: 'PLATFORM_INFORMATIONSEARCH',
   meta: {
-    more: data.more,
-    keyword: data.name,
+    id_number: data.id_number,
   },
-  payload: fetch('/platform/volunteer', { method: 'GET', data, loading: !data.more }),
+  payload: fetch('/platform/volunteer', { method: 'GET', data}),
 });
 
 export default (state = {
@@ -15,40 +14,29 @@ export default (state = {
   keyword: null,
   data: null,
 }, action) => {
-  let data;
-  const { more } = action.meta || {};
-  const { data: payloadData } = action.payload || {};
-
   switch (action.type) {
     case 'PLATFORM_INFORMATIONSEARCH_PENDING':
       return {
         ...state,
         fetching: true,
         failed: false,
+        keyword:action.meta.id_number,
       };
     case 'PLATFORM_INFORMATIONSEARCH_FULFILLED':
-      if (!more || !state.data) {
-        data = payloadData;
-      } else {
-        data = {
-          list: state.data.list.concat(payloadData.list),
-          page: payloadData.page,
-        };
-      }
-
+    
       return {
         ...state,
         fetching: false,
         failed: false,
-        data,
-        keyword: action.meta.keyword,
+        data:action.payload && action.payload.data,
+        keyword:action.meta.id_number,
       };
     case 'PLATFORM_INFORMATIONSEARCH_REJECTED':
       return {
         ...state,
         failed: true,
         fetching: false,
-        keyword: action.meta.keyword,
+        keyword:action.meta.id_number,
       };
     default:
       return state;

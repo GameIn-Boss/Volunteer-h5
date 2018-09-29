@@ -160,7 +160,7 @@ export const requestClaimProjectList = data => ({
   meta: {
     more: data.more,
   },
-  payload: fetch('/claim', { method: 'GET', data, loading: !data.more }),
+  payload: fetch('/platform/claim', { method: 'GET', data, loading: !data.more }),
 });
 
 const ClaimListReducer = (state = {

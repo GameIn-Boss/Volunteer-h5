@@ -38,7 +38,7 @@ class Teams extends React.Component {
       <ul className="component-teams">
         {
           teams.map(team => (<li key={team.id}>
-            <Link to={`/team/detail/${team.id}`}>
+            <Link to={`${team.href}`}>
               <Images src={team.logo} size={{ width: 86, radius: 4 }} className="logo"/>
               <div className="team-name-container">
                 <div className="team-name">
@@ -47,10 +47,13 @@ class Teams extends React.Component {
                   </div>
 
                 </div>
-                <div className="team-introduce">简介：中国青年志愿者协会成立于1994年12月5日，是由志愿从事社会公益事...</div>
+                {
+                  team.org_info_without_tags? <div className="team-introduce">简介：{team.org_info_without_tags}</div>:null
+                }
+               
                 <div className="team-info">
-                  <span>项目数量：{team.reward_time}</span>
-                  <span>累计时长: {team.team_size}</span>
+                  <span>项目数量：{team.project}</span>
+                  <span>累计时长: {team.reward_time}</span>
                 </div>
               </div>
             </Link>
