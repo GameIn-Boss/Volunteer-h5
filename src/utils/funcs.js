@@ -57,36 +57,23 @@ export function getLocation(success, fail, noCache) {
   }
 
   if (!cachedLoc) {
-    window.wx.ready(() => {
-      wx.getLocation({
-        type: 'gcj02', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
-        success: (res) => {
-          const lat = res.latitude; // 纬度，浮点数，范围为90 ~ -90
-          const lng = res.longitude; // 经度，浮点数，范围为180 ~ -180
-          const expires = Date.now() + (5 * 60 * 1000); // 5分钟过期
+    navigator.geolocation.getCurrentPosition(function (position) {
+      const lat = position.coords.latitude; // 纬度，浮点数，范围为90 ~ -90
+      const lng = position.coords.longitude; // 经度，浮点数，范围为180 ~ -180
+      const expires = Date.now() + (5 * 60 * 1000); // 5分钟过期
 
-          console.log('获取新位置成功', res);
-
-          localStorage.setItem('location', JSON.stringify({
-            lat,
-            lng,
-            expires,
-          }));
-
-          if (success) {
-            success({
-              lat,
-              lng,
-            });
-          }
-        },
-        fail: (error) => {
-          if (fail) {
-            fail(error);
-          }
-        },
+      localStorage.setItem('location', JSON.stringify({
+        lat,
+        lng,
+        expires,
+      }));
+      success({
+        lat,
+        lng,
       });
+
     });
+
   } else if (success) {
     success({
       lat: cachedLoc.lat,
