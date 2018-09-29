@@ -92,7 +92,7 @@ class HomePage extends React.Component {
   }
   renderSlick() {
     const { home } = this.props;
-    const orgCode = window.orgCode;
+    const orgCode = window.platformCode;
     if (!home.data || !home.data.banner) {
       return <div className="slick-container slick-container-empty" />;
     }
@@ -143,7 +143,7 @@ class HomePage extends React.Component {
           {this.renderAnnounceComponent()}
         </div>
         <div className="page-home-body">
-          {window.orgInfo ? <Menus menus={window.orgInfo.module_settings} /> : null}
+          {window.platformInfo ? <Menus menus={window.platformInfo.module_settings} /> : null}
           <div className="project-list">
             <div className="list-header">
               <div className="main-label">

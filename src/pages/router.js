@@ -105,7 +105,7 @@ function resolve(routes, context) {
         if (Page.title) {
           document.title = Page.title;
         } else {
-          document.title = window.orgInfo ? window.orgInfo.name : '';
+          document.title = window.platformInfo ? window.platformInfo.name : '';
         }
 
         return (<Page

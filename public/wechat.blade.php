@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="x5-orientation"content="portrait">
-  <meta name="last-build-time" content="Thu Sep 27 2018 12:07:46 GMT+0800 (GMT+08:00)">
+  <meta name="last-build-time" content="Sat Sep 29 2018 18:47:06 GMT+0800 (GMT+08:00)">
   <!--link rel="apple-touch-icon" href="apple-touch-icon.png"-->
   <script>
     var designWidth = 375;
@@ -51,10 +51,10 @@
     window.goodAt = {!! $gootAt !!};
 
     // server 下发的机构信息
-    window.orgInfo = {!! $orgInfo !!};
+    window.platformInfo = {!! $orgInfo !!};
 
     // server 下发的机构编号
-    window.orgCode = '{!! $orgCode !!}';
+    window.platformCode = '{!! $orgCode !!}';
 
     if (window.wxConfig) {
       try{
@@ -68,7 +68,7 @@
       }
     }
 
-    window.orgInfo && (document.title = window.orgInfo.name);
+    window.platformInfo && (document.title = window.platformInfo.name);
   </script>
   <script>
   var _hmt = _hmt || [];
@@ -87,7 +87,7 @@
   <div id="container">
   </div>
   <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
-  <script src="/dist/main.37576fe3cd0622ae997a.js"></script>
+  <script src="/dist/main.4ea1a312d247e5ec3739.js"></script>
 </body>
 
 </html>

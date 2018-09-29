@@ -64,14 +64,13 @@ export default function request(requestUrl, requestOptions = {}) {
     // 授权 token
     'X-auth-token': getToken() || '',
     // 机构代码
-    'X-org-code': window.orgCode,
+    'x-platform-code': window.platformCode,
     // 经纬度 经度-纬度
     'X-location': location
       ? `${location.lng}-${location.lat}`
       : '116.314820-40.065560',
     'X-unique-key': window.uniqueKey || 'demo',
     'X-city': `${encodeURI(city)}`,
-    'X-platform-code': window.platformCode || ''
   };
   // 自定义头必须设置 mode 为 cors
   options.mode = 'cors';

@@ -25,8 +25,8 @@ class TeamSearchPage extends React.Component {
       dataUrl: '',
       showSingle: false,
     })
-    this.certCachet = window.orgInfo.cert_cachet || '/images/my/zdx.png';
-    this.certAuthOrg = window.orgInfo.cert_auth_org || '和众泽益志愿服务中心';
+    this.certCachet = window.platformInfo.cert_cachet || '/images/my/zdx.png';
+    this.certAuthOrg = window.platformInfo.cert_auth_org || '和众泽益志愿服务中心';
   }
 
   componentWillMount() {
@@ -46,7 +46,7 @@ class TeamSearchPage extends React.Component {
   }
   htm2Click = () => {
     var that = this;
-    var shareContent = this.refs['LaunchContentA'];
+    var shareContent = this.refs['LaunchContent'];
     var width = shareContent.offsetWidth;
     var height = shareContent.offsetHeight;
     var canvas = document.createElement('canvas');
@@ -79,27 +79,9 @@ class TeamSearchPage extends React.Component {
       return null
     }
     const { data } = detail;
-    const BackButtonStyle = {
-      display: 'inline-block',
-      width: 'auto',
-      color: 'white',
-      border: 'none',
-      position: 'absolute',
-      top: '5px',
-      left: '15px'
-    };
-    const BackButtonStyleA = {
-      display: 'inline-block',
-      width: 'auto',
-      color: 'white',
-      border: 'none',
-      position: 'absolute',
-      top: '-9px',
-      right: '15px',
-      zIndex: '5'
-    };
+
     return (
-      <div className="page-platfrom-information-detail" ref="LaunchContentA">
+      <div className="page-platfrom-information-detail">
         <div className="page-platfrom-information-detail-top">
           <Link to={`/my/certificate/${this.Id}`}>
             <div className="btn">生成证书</div>
@@ -153,7 +135,7 @@ class TeamSearchPage extends React.Component {
                 data.project_list.map((item) => {
                   return (
                     <div style={{ paddingTop: '20' }}>
-                      <div className="main-item-fonts">注册平台：{item.org_info.name}</div>
+                      <div className="main-item-fonts">注册平台：{item.org.name}</div>
                       <div className="main-item-fonts">项目名称：{item.project.name}</div>
                       <div className="main-item-fonts">发起团队：{item.project.team.name}</div>
                       <div className="main-item-fonts bottom">获得时长：{item.reward_time}小时</div>

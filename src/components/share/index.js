@@ -4,7 +4,7 @@ import Alert from 'react-s-alert';
 import { USING_HISTORY_HASH } from '../../pages/history';
 
 /*
- * window.orgInfo 由后端直接输出到页面中
+ * window.platformInfo 由后端直接输出到页面中
  * {
  *    name: '',
  *    logo: '',
@@ -23,7 +23,7 @@ const WXS = (option = {}) => {
   if (!window.wx) {
     return;
   }
-  const orgInfo = window.orgInfo || {
+  const orgInfo = window.platformInfo || {
     name: '志多星',
     logo: '',
   };
@@ -37,7 +37,7 @@ const WXS = (option = {}) => {
     && location.hash.indexOf('#/') === 0) {
     shareUrl = `${location.protocol}//${location.host}/${location.hash.replace(/^#\//g, '')}`;
   }
-  const orgCode= window.orgCode;
+  const orgCode= window.platformCode;
   let desxName ='文明点亮你我，志愿感动社会';
   if( orgCode == 'qM7e5Ba2vp'){
     desxName = '志愿小金人，用爱传温暖！'

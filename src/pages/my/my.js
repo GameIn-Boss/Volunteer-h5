@@ -21,8 +21,8 @@ import './my.css';
 import Avatar from '../../components/avatar/avatar';
 
 // 机构码
-const orgCode = window.orgCode;
-const scoreName = window.orgInfo.score_name;
+const orgCode = window.platformCode;
+const scoreName = window.platformInfo.score_name;
 
 class MyPage extends React.Component {
 

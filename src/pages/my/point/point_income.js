@@ -14,7 +14,7 @@ import './point.css';
 import { scoreAction } from '../my.store';
 
 import POINTITEM from './component/pointItem';
-const scoreName = window.orgInfo.score_name;
+const scoreName = window.platformInfo.score_name;
 
 class PointIncome extends React.Component {
 
