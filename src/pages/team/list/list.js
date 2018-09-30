@@ -49,7 +49,11 @@ class TeamListPage extends React.Component {
       service_object: window.serviceTarget[category],
     };
     this.requestList(false);
-    this.props.getAreaCity(JSON.parse(localStorage.provinceAndCityName).city);
+    if(localStorage.provinceAndCityName){
+      this.props.getAreaCity(JSON.parse(localStorage.provinceAndCityName).city);
+    }
+    
+    
   }
 
   componentDidMount() {
@@ -76,8 +80,8 @@ class TeamListPage extends React.Component {
     const { type: ntype, category: ncategory, target: ntarget } = nextprops.route.params;
 
     if ((type === ntype) &&
-        (category === ncategory) &&
-        (target === ntarget)) {
+      (category === ncategory) &&
+      (target === ntarget)) {
       return;
     }
 
@@ -125,12 +129,10 @@ class TeamListPage extends React.Component {
 
   requestList(more) {
     const { list: { data: listData, fetching } } = this.props;
-
     if (fetching ||
       (more && (!listData || listData.page.current_page >= listData.page.total_page))) {
       return;
     }
-
     this.props.requestTeamList({
       ...this.selectedOption,
       current_page: more ? listData.page.current_page + 1 : 1,
@@ -141,9 +143,9 @@ class TeamListPage extends React.Component {
   render() {
     const { list: { data: listData } } = this.props;
     const { area: { data: areaData } } = this.props;
-
+    
     const showLoadingMore = listData &&
-        listData.page && (listData.page.current_page < listData.page.total_page);
+      listData.page && (listData.page.current_page < listData.page.total_page);
     let { type, category, target } = this.props.route.params;
 
 
@@ -155,7 +157,7 @@ class TeamListPage extends React.Component {
         <div className="header">
           <div className="search-bar-container">
             <Link className="component-search-bar" to="/team/search">
-              <input className="input" placeholder="搜索团队"  disabled="disabled" />
+              <input className="input" placeholder="搜索团队" disabled="disabled" />
             </Link>
           </div>
         </div>
@@ -178,17 +180,17 @@ class TeamListPage extends React.Component {
           </div>
           {
             showLoadingMore
-            ?
+              ?
               <div className="component-loading-more">
                 <img src="/images/icon_loading.png" alt="loading" />
-              正在加载
+                正在加载
             </div>
-            : null
+              : null
           }
-         
+
         </div>
 
-        
+
       </div>
     );
   }

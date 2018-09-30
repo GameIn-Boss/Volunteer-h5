@@ -48,20 +48,21 @@ export function getLocation(success, fail, noCache) {
     });
     return;
   }
-
   let cachedLoc = localStorage.getItem('location');
   cachedLoc = cachedLoc ? JSON.parse(cachedLoc) : cachedLoc;
-
+  console.log(53)
   if ((cachedLoc && cachedLoc.expires <= Date.now()) || noCache === true) {
     cachedLoc = null;
   }
 
   if (!cachedLoc) {
+    console.log(59)
     navigator.geolocation.getCurrentPosition(function (position) {
+      alert(`${JSON.stringify(position)}`)
       const lat = position.coords.latitude; // 纬度，浮点数，范围为90 ~ -90
       const lng = position.coords.longitude; // 经度，浮点数，范围为180 ~ -180
       const expires = Date.now() + (5 * 60 * 1000); // 5分钟过期
-
+      console.log(position)
       localStorage.setItem('location', JSON.stringify({
         lat,
         lng,
@@ -73,6 +74,7 @@ export function getLocation(success, fail, noCache) {
       });
 
     });
+    console.log(77)
 
   } else if (success) {
     success({
@@ -94,7 +96,7 @@ export function getCity(success, fail) {
     success(JSON.parse(localStorage.getItem('provinceAndCityName')).city || '北京');
     return;
   }
-
+  console.log(98)
   getLocation((loc) => {
     const geocoder = new qq.maps.Geocoder({
       complete: (result) => {

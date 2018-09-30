@@ -41,14 +41,18 @@ class HomePage extends React.Component {
       this.props.saveCity(JSON.parse(localStorage.getItem('provinceAndCityName')).city.replace('市', ''));
     } else {
       getCity((city) => {
+        this.setState({
+          ...this.state,
+          city,
+        });
         this.props.requestHomeData();
         this.props.saveCity(city);
+        this.props.getAreaCity(city);
       }, () => {
+        Alert.error('定位失败，请确认同意定位授权');
         this.props.requestHomeData();
       });
     }
-
-    this.props.requestHomeData();
   }
 
   componentWillReceiveProps() {
