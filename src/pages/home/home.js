@@ -81,7 +81,7 @@ class HomePage extends React.Component {
   }
   renderAnnounceComponent() {
     const { home } = this.props;
-    if (home.data && !home.data.news) {
+    if (home.data || !home.data.news) {
       return null
     }
     return (

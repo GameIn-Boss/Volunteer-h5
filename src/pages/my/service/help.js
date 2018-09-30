@@ -31,7 +31,7 @@ class Help extends React.Component {
   componentWillUnmount() {}
 
   render() {
-    const content = window.platformInfo.org_manual;
+    const content = window.platformInfo.platform_manual;
     return (
       <div
         className="page-help-style" dangerouslySetInnerHTML={{

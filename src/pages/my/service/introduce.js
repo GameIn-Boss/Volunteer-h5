@@ -31,7 +31,7 @@ class Introduce extends React.Component {
   componentWillUnmount() {}
 
   render() {
-    const content = window.platformInfo.org_info;
+    const content = window.platformInfo.platform_info;
     return (
       <div
         className="page-introduce-style" dangerouslySetInnerHTML={{
