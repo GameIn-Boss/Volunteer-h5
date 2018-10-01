@@ -126,7 +126,7 @@ TeamSearchPage.propTypes = {
   }),
 };
 
-TeamSearchPage.title = '搜索志愿项目';
+TeamSearchPage.title = '搜索志愿机构';
 
 export default connect(
   state => ({

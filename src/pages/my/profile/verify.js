@@ -132,7 +132,7 @@ class Verify extends React.Component {
             city: 0,
             county: 0,
             extendsArray: {},
-            winOrgInfo: window.orgInfo.custom_config
+            winOrgInfo: window.platformInfo.custom_config
         });
         this.CustomChildren = ({extra, onClick}) => (
 

@@ -4,7 +4,7 @@ import { API_HOST } from '../../utils/config';
 
 export const requestHomeData = () => ({
   type: 'HOME_DATA',
-  payload: fetch('/index', { method: 'GET' }),
+  payload: fetch('/platform/index', { method: 'GET' }),
 });
 
 export const saveCity = city => ({

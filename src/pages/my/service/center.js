@@ -34,8 +34,8 @@ class Center extends React.Component {
 
 
   render() {
-    const content = window.orgInfo.org_service;
-    const phone = window.orgInfo.org_service_tel;
+    const content = window.platformInfo.platform_service;
+    const phone = window.platformInfo.platform_service_tel;
     return (
       <div className="page-center-container">
         <div

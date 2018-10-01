@@ -9,17 +9,11 @@ const DEFAULT_LINK = '/building';
 const MODULE_LINK = {
   volunteer_project: '/project/list',
   volunteer_team: '/team/list',
-  reward_history: '/my/duration/applys',
+  volunteer_platform:'/platfrom/list',
   help_center: '/my/service',
-  联盟互动: 'https://buluo.qq.com/p/barindex.html?bid=334308&from=wechat',
   volunteer_strategy: 'http://m.guide.volunteerzhiduoxing.cn',
-  1234: 'http://sanlitunweb.parkingkj.com/showhtml/sayvillage.html',
-  // volunteer_feedback: `http://${location.host}/tmall`,
-  volunteer_feedback: '/shop',
-  volunteer_ensure: '/ensure',
-  good_example: '/sanlitun/starModel',
   claim_project: '/sanlitun/projectClaim/list',
-  community_interact: '/my/circlevisits',
+  volunteer_info:'/platfrom/information',
 };
 
 class Menus extends React.Component {

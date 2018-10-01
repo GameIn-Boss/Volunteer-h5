@@ -30,7 +30,7 @@ class Agree extends React.Component {
   componentWillUnmount() {}
 
   render() {
-    if( window.orgCode == 'joQeZJepZV'){
+    if( window.platformCode == 'joQeZJepZV'){
       return null
     }
     return (
@@ -392,7 +392,7 @@ class Agree extends React.Component {
 }
 
 
-if( window.orgCode == 'joQeZJepZV'){
+if( window.platformCode == 'joQeZJepZV'){
   Agree.title = '长春志愿者用户协议';
 }else{
   Agree.title = '志多星协议';

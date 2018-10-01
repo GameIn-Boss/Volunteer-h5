@@ -51,10 +51,10 @@ class Entry extends React.Component {
         </div>
         <div className="page-entry-team" />
         <div className="page-entry-team-box">
-          <a href={`${ADMIN_HOST}/login/${window.orgCode}`}>
+          <a href={`${ADMIN_HOST}/login/${window.platformCode}`}>
             <div className="page-entry-team-btn" />
           </a>
-          <a href={`${ADMIN_HOST}/register/${window.orgCode}`}>
+          <a href={`${ADMIN_HOST}/register/${window.platformCode}`}>
             <div className="page-entry-team-btn" />
           </a>
         </div>

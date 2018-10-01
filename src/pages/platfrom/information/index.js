@@ -3,21 +3,39 @@ import autoBind from 'react-autobind';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import './index.css';
-import Teams from '../../../components/platfroms/index';
 import { isWindowReachBottom } from '../../../utils/funcs';
 import history from '../../history';
 
 import {
   requestSearch,
-} from './search.store';
-
+} from './index.store';
+import { Dialog } from 'react-weui';
+import 'weui/dist/style/weui.css';
+import 'react-weui/build/packages/react-weui.css';
 class TeamSearchPage extends React.Component {
 
   constructor(props) {
     super(props);
     autoBind(this);
-
+    this.state = ({
+      showDialog: false,
+      keyword:''
+    })
     this.keyword = '';
+    this.dialog = {
+      title: '查询错误',
+      buttons: [
+        {
+          type: 'primary',
+          label: '确认',
+          onClick: () => {
+            this.keyword = '';
+            this.setState({ ...this.state, showDialog: false,keyword:''});
+
+          },
+        },
+      ],
+    };
   }
 
   componentWillMount() {
@@ -25,37 +43,44 @@ class TeamSearchPage extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
 
     this.searchInput.focus();
 
   }
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(nextProps) {
+    const { list: Llist } = this.props;
+    const { list: Nlist } = nextProps;
+    if (Llist.fetching && !Llist.failed && !Nlist.fetching && !Nlist.failed) {
+      if (Nlist.data && Nlist.data.project_list) {
+        // // 成功跳转
+        history.push(`/platfrom/detail/${Nlist.data.volunteer_info.id_number}`)
+      } else {
+        // 失败打开
+        this.setState({
+          showDialog: true
+        })
+      }
+
+
+
+    }
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
   }
 
-  handleScroll() {
-    if (isWindowReachBottom(50)) {
-      this.search(true);
-    }
-  }
+
 
   search(more) {
     const { list: { data: listData, fetching } } = this.props;
 
-    if (fetching ||
-      (more && (!listData || listData.page.current_page >= listData.page.total_page))) {
+    if (fetching) {
       return;
     }
 
     this.props.requestSearch({
-      name: this.keyword,
-      current_page: more ? listData.page.current_page + 1 : 1,
-      more,
+      id_number: this.keyword,
     });
   }
 
@@ -68,7 +93,7 @@ class TeamSearchPage extends React.Component {
     }
 
     this.keyword = newKeyword;
-
+ 
     this.search();
   }
 
@@ -78,35 +103,32 @@ class TeamSearchPage extends React.Component {
   }
   /* eslint-enable */
 
+  onChange(event) {
+    this.setState({keyword: event.target.value});
+  }
   render() {
     const { list: { data: listData, keyword } } = this.props;
-    const showLoadingMore = listData && (keyword === this.keyword) &&
-    listData.page && (listData.page.current_page < listData.page.total_page);
 
     return (
       <div className="page-team-search">
-        <div className="header"  onClick={this.handleSearch}>
+        <div className="header" onClick={this.handleSearch}>
           <div className="search-bar-container">
             <form onSubmit={this.handleSearch} className="component-search-bar">
-              <input ref={(el) => { this.searchInput = el; }} onBlur={this.handleSearch} className="input" placeholder="搜索机构" autofocus="autofocus" />
+              <input ref={(el) => { this.searchInput = el; }}  value={this.state.keyword} onChange={this.onChange}  onBlur={this.handleSearch} className="input" placeholder="请输入身份证号" />
             </form>
-            <button onClick={this.handleCancelSearch}>取消</button>
+            <button onClick={this.handleSearch}>查询</button>
           </div>
         </div>
         <div className="line1px" />
         <div className="body">
-          <div className="team-list">
-            <Teams teams={listData && keyword === this.keyword ? listData.list : null} />
-          </div>
-          {
-          showLoadingMore
-          ?
-            <div className="component-loading-more">
-              <img src="/images/icon_loading.png" alt="loading" />
-            正在加载
-          </div>
-          : null
-        }
+
+          <Dialog type="ios" title={this.dialog.title} buttons={this.dialog.buttons} show={this.state.showDialog}>
+            <div className="dialog-container">
+              <img src="../images/shop/information.png" />
+              <div className="dialog-container-title">没有查到相应的志愿服务信息哦～</div>
+              <div className="dialog-container-container">建议：您可以联系您注册过的志愿服务机构，对账号进行实名认证后再次进行查询。</div>
+            </div>
+          </Dialog>
         </div>
       </div>
     );
@@ -126,12 +148,11 @@ TeamSearchPage.propTypes = {
   }),
 };
 
-TeamSearchPage.title = '搜索志愿项目';
+TeamSearchPage.title = '信息查询';
 
 export default connect(
   state => ({
-    list: state.platfrom.search,
-    user: state.user,
+    list: state.platfrom.information,
   }),
   dispatch => bindActionCreators({
     requestSearch,

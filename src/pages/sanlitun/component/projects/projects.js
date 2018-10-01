@@ -49,7 +49,7 @@ class Projects extends React.Component {
                 <Avatar src={project.logo} size={{ width: 30, radius: 4 }} />
                 <div className="sanlitun-org-name">{project.team_name}</div>
               </a>
-              <Link to={`/sanlitun/projectClaim/detail/${project.id}`} className="project-sanlitun-main">
+              <Link to={`${project.org_info.href}/sanlitun/projectClaim/detail/${project.id}`} className="project-sanlitun-main">
                 <Image
                   className="sanlitun-image"
                   src={project.cover}

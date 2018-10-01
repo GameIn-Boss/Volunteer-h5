@@ -1,0 +1,154 @@
+.page-platfrom-information-detail{
+    position: relative;
+}
+.page-platfrom-information-detail-top{
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding:15px 0 15px 144px;
+    display: flex;
+    background-color: #fff;
+    z-index: 99;
+}
+.page-platfrom-information-detail-top .btn{
+    padding: 4px 8px;
+    border: 1px solid #6AC6F8;
+    border-radius: 50px;
+    font-size: 14px;
+    color: #6AC6F8;
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+    z-index: 5;
+}
+.page-platfrom-information-detail-top .btn:nth-child(1){
+    margin-right: 15px;
+}
+.page-platfrom-information-detail .takeup{
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+}
+.page-platfrom-information-detail .content .information{
+    width: 100%;
+}
+.page-platfrom-information-detail .content .information-top{
+    display: flex;
+    width: 100%;
+    padding: 0 16px 24px;
+
+}
+.page-platfrom-information-detail .content .information-top .information-main{
+    flex: 1;
+}
+.page-platfrom-information-detail .content .information-top  .information-main-name-container{
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 18px;
+}
+.page-platfrom-information-detail .content .information-top .information-main-name{
+    font-size: 23px;
+    color: #484848;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.page-platfrom-information-detail .content .information-top  .information-main-name-container img{
+    width: 16px;
+    height: 18px;
+    padding-bottom: 2px;
+}
+.page-platfrom-information-detail .content .information-top .information-main-name-container-fonts{
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #666666;
+}
+.page-platfrom-information-detail-top-item-container{
+    width: 100%;
+    display: flex;
+    /* height: 86px; */
+}
+.page-platfrom-information-detail-top-item{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+
+  .page-platfrom-information-detail-top-item{
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+  }
+  .page-platfrom-information-detail-top-item-top{
+    text-align: center;
+    font-size: 13px;
+    color: #151515;
+    letter-spacing: 0;
+    line-height: 14px;
+  }
+  .page-platfrom-information-detail-top-item-num{
+    font-size: 20px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 14px;
+  }
+  .page-platfrom-information-detail-top-item-bottom{
+    font-size: 13px;
+    color: #999;
+    letter-spacing: 0;
+    line-height: 14px;
+    text-align: center;
+  }
+  .page-platfrom-information-detail .main{
+      padding: 0 16px;
+      width: 100%;
+  }
+  .page-platfrom-information-detail .main .main-item-fonts {
+    font-size: 15px;
+    color: #484848;
+    margin-bottom: 12px;
+  }
+  .page-platfrom-information-detail .main .bottom{
+    margin-bottom: 20px;
+  }
+  .page-platfrom-information-detail .img{
+      width: 375px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 99;
+      visibility: hidden;
+  }
+  .page-platfrom-information-detail .content{
+      position: relative;
+  }
+
+  .page-platfrom-information-detail  .certCachet{
+    width: 160px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .page-view-container{
+      display: flex;
+      justify-content: space-around;
+  }
+  .page-view-container div{
+      width: 50%;
+      position: relative;
+      z-index: 3;
+      overflow: hidden;
+  }
+  .page-view-container div img{
+    width: 100%;
+    opacity: 0;
+    position: absolute;
+    z-index: 10001;
+    top: 0;
+    left: 0;
+  }
