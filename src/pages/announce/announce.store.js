@@ -50,7 +50,7 @@ const announceDetailReducer = (state = {
 
 export const announceAction = data => ({
   type: 'ANNOUNCE_DATA',
-  payload: fetch('/news/list', { method: 'GET', data, loading: !data.more }),
+  payload: fetch('/platform/news', { method: 'GET', data, loading: !data.more }),
 });
 const announceReducer = (state = {
   fetching: false,

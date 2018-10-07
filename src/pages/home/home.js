@@ -15,7 +15,7 @@ import Menus from '../../components/menus/menus';
 import Announcement from '../../components/announcement/announcement';
 import { getCity } from '../../utils/funcs';
 import { requestHomeData, saveCity, getAreaCity } from './home.store';
-
+import { announceAction } from '../announce/announce.store';
 class HomePage extends React.Component {
 
   constructor(props) {
@@ -36,9 +36,11 @@ class HomePage extends React.Component {
   }
 
   componentWillMount() {
+   
     if (localStorage.getItem('provinceAndCityName') != null) {
       this.props.requestHomeData();
       this.props.saveCity(JSON.parse(localStorage.getItem('provinceAndCityName')).city.replace('市', ''));
+    
     } else {
       getCity((city) => {
         this.setState({
@@ -53,6 +55,7 @@ class HomePage extends React.Component {
         this.props.requestHomeData();
       });
     }
+  
   }
 
   componentWillReceiveProps() {
@@ -180,8 +183,9 @@ HomePage.propTypes = {
       })),
       project: PropTypes.arrayOf(PropTypes.shape({})),
       sanlitun: PropTypes.number,
-    }),
+    }), 
     city: PropTypes.string,
+    announceAction: PropTypes.func,
   }),
 };
 
@@ -192,5 +196,5 @@ export default connect(
     area: state.home.getAreaCity,
   }),
   //
-  dispatch => bindActionCreators({ requestHomeData, saveCity, getAreaCity }, dispatch),
+  dispatch => bindActionCreators({ requestHomeData, saveCity, getAreaCity,announceAction }, dispatch),
 )(HomePage);
