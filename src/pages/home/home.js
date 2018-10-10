@@ -36,12 +36,29 @@ class HomePage extends React.Component {
   }
 
   componentWillMount() {
-   
+    // var geolocation = new qq.maps.Geolocation("VF3BZ-JJM34-7EIUV-XT3QF-C3V2V-VLF7H", "myapp");
+    // alert(`${JSON.stringify(geolocation)}`)
+    // var options = {timeout: 8000};
+    // geolocation.getLocation(function(position){
+    //   alert(`${JSON.stringify(position)}`)
+    //   const lat = position.coords.lat; // 纬度，浮点数，范围为90 ~ -90
+    //   const lng = position.coords.lng; // 经度，浮点数，范围为180 ~ -180
+    //   const expires = Date.now() + (5 * 60 * 1000); // 5分钟过期
+
+    //   localStorage.setItem('location', JSON.stringify({
+    //     lat,
+    //     lng,
+    //     expires,
+    //   }));
+     
+    // }, options)
+
     if (localStorage.getItem('provinceAndCityName') != null) {
       this.props.requestHomeData();
       this.props.saveCity(JSON.parse(localStorage.getItem('provinceAndCityName')).city.replace('市', ''));
     
     } else {
+
       getCity((city) => {
         this.setState({
           ...this.state,
@@ -52,6 +69,7 @@ class HomePage extends React.Component {
         this.props.getAreaCity(city);
       }, () => {
         Alert.error('定位失败，请确认同意定位授权');
+        alert('定位失败，请确认同意定位授权')
         this.props.requestHomeData();
       });
     }
@@ -84,7 +102,7 @@ class HomePage extends React.Component {
   }
   renderAnnounceComponent() {
     const { home } = this.props;
-    if (home.data || !home.data.news) {
+    if (!home.data && !home.data.news) {
       return null
     }
     return (
