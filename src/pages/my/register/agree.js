@@ -35,12 +35,12 @@ class Agree extends React.Component {
     }
     return (
       <div className="page-introduce">
-        <h5 className="page-introduce-subtitle page-introduce-take-up">志多星软件用户使用协议</h5>
+        <h5 className="page-introduce-subtitle page-introduce-take-up">鼓楼微文明软件用户使用协议</h5>
 
 
         <h5 className="page-introduce-title">导言</h5>
         <div className="page-introduce-content page-introduce-take-up">
-          <div className="page-introduce-content">欢迎您使用志多星志愿服务管理平台软件（以下简称“本软件”）及服务！本软件由北京志多星科技有限公司开发（以下简称“志多星”）。</div>
+          <div className="page-introduce-content">欢迎您使用鼓楼微文明志愿服务管理平台软件（以下简称“本软件”）及服务！本软件由北京鼓楼微文明科技有限公司开发（以下简称“鼓楼微文明”）。</div>
 
           <div className="page-introduce-content">本软件在此特别提醒您（志愿者）在注册成为用户之前，请认真阅读本《用户协议》（以下简称“协议”），确保用户充分理解本协议中各条款。请您审慎阅读、充分理解各条款内容，特别是免除或者限制责任的条款并选择接受或不接受。除非您接受本协议所有条款，否则您无权注册、登录或使用本协议所涉服务。您的注册、登录、使用等行为将视为对本协议的接受，并同意接受本协议各项条款的约束。</div>
 
@@ -64,7 +64,7 @@ class Agree extends React.Component {
 
           <div className="page-introduce-content">1、 服务的内容</div>
 
-          <div className="page-introduce-content">1.1 本软件是免费提供志愿者注册及组织创建的管理功能平台，其注册资料的真实性、有效性由活动的发布方保证。本软件或志多星不承担任何保证责任。</div>
+          <div className="page-introduce-content">1.1 本软件是免费提供志愿者注册及组织创建的管理功能平台，其注册资料的真实性、有效性由活动的发布方保证。本软件或鼓楼微文明不承担任何保证责任。</div>
 
           <div className="page-introduce-content">1.2 本软件是免费提供活动发布、活动报名等功能的平台，活动的真实性、有效性由各上级主管部门审批。</div>
 
@@ -395,7 +395,7 @@ class Agree extends React.Component {
 if( window.orgCode == 'joQeZJepZV'){
   Agree.title = '长春志愿者用户协议';
 }else{
-  Agree.title = '志多星协议';
+  Agree.title = '鼓楼微文明协议';
 }
 Agree.propTypes = {
 };

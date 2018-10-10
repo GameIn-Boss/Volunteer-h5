@@ -267,7 +267,7 @@ class Register extends React.Component {
         <div className="page-register-agree">
           提交代表已阅读
           <Link to="/my/agree">
-            <span className="page-register-agreement">《志多星用户协议》</span>
+            <span className="page-register-agreement">《鼓楼微文明用户协议》</span>
           </Link>
         </div>
 

@@ -108,7 +108,7 @@ class Certificate extends React.Component {
           </div>
           <div className="page-certificate-container-bottom-infobox">
             <div className="page-certificate-container-bussiness">认证机构：{this.certAuthOrg}</div>
-            <div className="page-certificate-container-teachsupport">技术支持：志多星</div>
+            <div className="page-certificate-container-teachsupport">技术支持：鼓楼微文明</div>
               {this.certCachet ? <img src={this.certCachet} alt="" className="first" /> : <div />}
               {window.orgCode ==  'qM7e5Ba2vp' ? <img src='/images/my/zdx.png' className="second" />:null}
           </div>
