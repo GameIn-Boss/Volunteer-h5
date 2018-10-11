@@ -26,7 +26,7 @@ class TeamSearchPage extends React.Component {
       showSingle: false,
     })
     this.certCachet = window.platformInfo.cert_cachet || '/images/my/zdx.png';
-    this.certAuthOrg = window.platformInfo.cert_auth_org || '和众泽益志愿服务中心';
+    this.certAuthOrg = window.platformInfo.cert_auth_platform || '和众泽益志愿服务中心';
   }
 
   componentWillMount() {

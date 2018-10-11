@@ -27,9 +27,9 @@ class Certificate extends React.Component {
     this.Id = props.route.params.Id;
     this.BussinessInfo = window.platformInfo.name || '和众泽益志愿服务中心';
     this.certTitle = window.platformInfo.cert_title || '和众泽益';
-    this.certOrg = window.platformInfo.cert_org || '和众泽益';
+    this.certOrg = window.platformInfo.cert_platform || '和众泽益';
     this.certCachet = window.platformInfo.cert_cachet || '/images/my/zdx.png';
-    this.certAuthOrg = window.platformInfo.cert_auth_org || '和众泽益志愿服务中心';
+    this.certAuthOrg = window.platformInfo.cert_auth_platform || '和众泽益志愿服务中心';
     this.state = {
       register:'',
       now:'',
