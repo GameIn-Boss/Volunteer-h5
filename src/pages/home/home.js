@@ -102,7 +102,7 @@ class HomePage extends React.Component {
   }
   renderAnnounceComponent() {
     const { home } = this.props;
-    if (!home.data && !home.data.news) {
+    if (!home.data || !home.data.news) {
       return null
     }
     return (
@@ -137,13 +137,14 @@ class HomePage extends React.Component {
                 url = item.href;
 
 
-              } else if (mode === 2) {
-                // 项目
-                url = `/project/detail/${item.jump_id}`;
-              } else if (mode === 3) {
-                // 团队
-                url = `/team/detail/${item.jump_id}`;
               }
+              //  else if (mode === 2) {
+              //   // 项目
+              //   url = `/project/detail/${item.jump_id}`;
+              // } else if (mode === 3) {
+              //   // 团队
+              //   url = `/team/detail/${item.jump_id}`;
+              // }
 
               return (<Link key={item.id} to={url}>
                 <Image src={item.photo} className="image" resize={{ width: 1500 }} />
