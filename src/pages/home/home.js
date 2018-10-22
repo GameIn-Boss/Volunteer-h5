@@ -105,13 +105,16 @@ class HomePage extends React.Component {
     if (!home.data || !home.data.news) {
       return null
     }
+    console.log(home)
     return (
-      <div className="notice">
+      <div>
         {
-          home.data.news.length > 0 ? <Announcement data={home.data.news} entry="/announce" /> : null
+           home.data.news.length >=1 ? 
+           <div className="notice">
+            <Announcement data={home.data.news} entry="/announce" /> 
+           </div>
+           : null
         }
-
-
       </div>
     )
   }
