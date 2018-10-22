@@ -102,20 +102,14 @@ class HomePage extends React.Component {
   }
   renderAnnounceComponent() {
     const { home } = this.props;
-    if (!home.data || !home.data.news) {
+    if (!home.data || home.data.news == 0) {
       return null
     }
     console.log(home)
     return (
-      <div>
-        {
-           home.data.news.length >=1 ? 
-           <div className="notice">
+        <div className="notice">
             <Announcement data={home.data.news} entry="/announce" /> 
-           </div>
-           : null
-        }
-      </div>
+        </div>
     )
   }
   renderSlick() {
