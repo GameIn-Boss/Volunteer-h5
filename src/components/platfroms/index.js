@@ -34,31 +34,40 @@ class Teams extends React.Component {
     } else if (teams && !teams.length) {
       return <div className="teams-empty-tip">目前还没有机构哦</div>;
     }
+    let content = null;
+   
+ 
     return (
       <ul className="component-teams">
         {
-          teams.map(team => (<li key={team.id}>
-            <Link to={`${team.href}`}>
-              <Images src={team.logo} size={{ width: 86, radius: 4 }} className="logo"/>
-              <div className="team-name-container">
-                <div className="team-name">
-                  <div className="team-name-content">
-                    {team.name}
+          teams.map(team =>{
+            if(team.org_info_without_tags){
+              content = team.org_info_without_tags.replace(/&nbsp;/ig,'');
+              content = content.replace(/(^\s*)|(\s*$)/g, "");
+            }
+            return (<li key={team.id}>
+              <Link to={`${team.href}`}>
+                <Images src={team.logo} size={{ width: 86, radius: 4 }} className="logo"/>
+                <div className="team-name-container">
+                  <div className="team-name">
+                    <div className="team-name-content">
+                      {team.name}
+                    </div>
+  
                   </div>
-
+                  {
+                    team.org_info_without_tags? <div className="team-introduce">简介：{content}</div>:null
+                  }
+                 
+                  <div className="team-info">
+                    <span>项目数量：{team.project}</span>
+                    <span>累计时长: {team.reward_time}</span>
+                  </div>
                 </div>
-                {
-                  team.org_info_without_tags? <div className="team-introduce">简介：{team.org_info_without_tags}</div>:null
-                }
-               
-                <div className="team-info">
-                  <span>项目数量：{team.project}</span>
-                  <span>累计时长: {team.reward_time}</span>
-                </div>
-              </div>
-            </Link>
-            <div className="line1px" />
-          </li>))
+              </Link>
+              <div className="line1px" />
+            </li>)  
+          })
         }
       </ul>
     );

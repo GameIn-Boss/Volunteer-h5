@@ -51,7 +51,6 @@ class Certificate extends React.Component {
     if(this.props.user.fetching && !this.props.user.failed && !nextProps.user.fetching && !nextProps.user.failed){
 
       if (nextProps.user && nextProps.user.data && nextProps.user.data.volunteer_info && nextProps.user.data.volunteer_info.id_number) {
-        console.log(nextProps.user.data.volunteer_info)
         const data =nextProps.user.data.volunteer_info;
         const register = data.regitser_time ? dateTextToDateText(data.regitser_time ? data.regitser_time.split(' ')[0] : 0) : '';
   
@@ -69,9 +68,10 @@ class Certificate extends React.Component {
 
   renderCertificate() {
     const { user: {data:{volunteer_info:listData}} } = this.props;
-    if (!listData) {
+    if (!listData ||!this.props.user.data) {
       return null;
     }
+    console.log(this.props.user.data)
     const starWidth =  listData.stars ?Number(listData.stars) * Number(20) - Number(5) + 'px':null;
     return (
       <div className="page-certificate-bg">
@@ -93,11 +93,11 @@ class Certificate extends React.Component {
           <div className="page-certificate-container-content">{this.state.now}截止</div>
           <div className="page-certificate-container-hours-box">
             <div className="page-certificate-container-hours">
-              <div className="page-certificate-container-hours-item"><span>{listData.join_project_count}</span>个</div>
+              <div className="page-certificate-container-hours-item"><span>{this.props.user.data.project_count}</span>个</div>
               <div className="page-certificate-container-hours-item">志愿服务项目</div>
             </div>
             <div className="page-certificate-container-hours">
-              <div className="page-certificate-container-hours-item"><span>{listData.reward_time}</span>小时</div>
+              <div className="page-certificate-container-hours-item"><span>{this.props.user.data.reward_time}</span>小时</div>
               <div className="page-certificate-container-hours-item">志愿服务时长</div>
             </div>
           </div>

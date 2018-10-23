@@ -79,7 +79,7 @@ class TeamSearchPage extends React.Component {
       return null
     }
     const { data } = detail;
-
+    const height =document.documentElement.clientHeight;
     return (
       <div className="page-platfrom-information-detail">
         <div className="page-platfrom-information-detail-top">
@@ -119,7 +119,7 @@ class TeamSearchPage extends React.Component {
                 <p className="page-platfrom-information-detail-top-item-bottom">参加团队</p>
               </div>
               <div className="page-platfrom-information-detail-top-item">
-                <p className="page-platfrom-information-detail-top-item-top"><b className="page-platfrom-information-detail-top-item-num">{data.project_count}</b>小时</p>
+                <p className="page-platfrom-information-detail-top-item-top"><b className="page-platfrom-information-detail-top-item-num">{data.project_count}</b>个</p>
                 <p className="page-platfrom-information-detail-top-item-bottom">参加项目</p>
               </div>
               <div className="page-platfrom-information-detail-top-item">
@@ -144,16 +144,20 @@ class TeamSearchPage extends React.Component {
                   )
                 }) : null
             }
-
+            <img src={this.certCachet} className="certCachet" />
 
           </div>
-          {
-            data.project_list && data.project_list.length > 0 ? <img src={this.certCachet} className="certCachet" /> : null
-          }
+
 
         </div>
-        <Gallery src={this.state.dataUrl} show={this.state.showSingle}>
-
+        {
+          this.state.showSingle? 
+          <div style={{position:'absolute',zIndex:10001,top:0,bottom:'60px',left:0,right:0,overflowY:'auto',display:'flex',height:`${height -60}px`}}>
+          <img style={{width:'70%',margin:'0 auto',display:"block"}} src={`${this.state.dataUrl}`} />
+          </div> :null
+        }
+        <Gallery src={''} show={this.state.showSingle}  >
+       
           <div className="weui-gallery__opr">
             <div className="page-view-container">
               <div onClick={e => this.setState({ showSingle: false })}>返回</div>

@@ -128,10 +128,10 @@
   }
 
   .page-platfrom-information-detail  .certCachet{
-    width: 160px;
+    width: 80px;
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    top: 120px;
+    right: 57px;
   }
 
   .page-view-container{
