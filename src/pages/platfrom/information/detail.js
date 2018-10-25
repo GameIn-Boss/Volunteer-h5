@@ -21,10 +21,7 @@ class TeamSearchPage extends React.Component {
     super(props);
     autoBind(this);
     this.Id = props.route.params.Id;
-    this.state = ({
-      dataUrl: '',
-      showSingle: false,
-    })
+  
     this.certCachet = window.platformInfo.cert_cachet || '/images/my/zdx.png';
     this.certAuthOrg = window.platformInfo.cert_auth_platform || '和众泽益志愿服务中心';
   }
@@ -35,8 +32,6 @@ class TeamSearchPage extends React.Component {
   }
 
   componentDidMount() {
-    console.log('加载了')
-
   }
 
   componentWillReceiveProps() {
@@ -64,13 +59,12 @@ class TeamSearchPage extends React.Component {
     }
     html2canvas(shareContent, opts).then(function (canvas) {
       var dataUrl = canvas.toDataURL('image/jpeg', 4);
-      // console.log(dataUrl)
-      // window.location.href=`${dataUrl}`;
-      // window.open(`${dataUrl}`)
-      that.setState({
+      var dataUrlObj ={
         dataUrl,
-        showSingle: true,
-      })
+      }
+      localStorage.setItem('dataUrlObj' , JSON.stringify(dataUrlObj));
+      history.push('/platfrom/view');
+  
     });
   }
 
@@ -156,25 +150,6 @@ class TeamSearchPage extends React.Component {
 
 
         </div>
-        {
-          this.state.showSingle? 
-          <div style={{position:'absolute',zIndex:10001,top:0,bottom:'60px',left:0,right:0,overflowY:'auto',height:`${height -60}px`}}>
-          <img style={{width:'70%',margin:'0 auto',display:"block"}} src={`${this.state.dataUrl}`} />
-          </div> :null
-        }
-        <Gallery src={''} show={this.state.showSingle}  >
-       
-          <div className="weui-gallery__opr">
-            <div className="page-view-container">
-              <div onClick={e => this.setState({ showSingle: false })}>返回</div>
-              <div>
-                长按保存
-
-                 <img src={this.state.dataUrl} />
-              </div>
-            </div>
-          </div>
-        </Gallery>
 
 
       </div>

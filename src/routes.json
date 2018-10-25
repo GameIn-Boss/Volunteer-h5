@@ -20,6 +20,11 @@
     "chunk": "main"
   },
   {
+    "path": "/platfrom/view",
+    "page": "./pages/platfrom/information/view",
+    "chunk": "main"
+  },
+  {
     "path": "/platfrom/list",
     "page": "./pages/platfrom/list/list",
     "chunk": "main"
