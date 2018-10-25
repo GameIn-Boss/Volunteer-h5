@@ -6,7 +6,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding:15px 0 15px 144px;
+    padding:15px 0 0 144px;
     display: flex;
     background-color: #fff;
     z-index: 99;
@@ -27,12 +27,28 @@
 }
 .page-platfrom-information-detail .takeup{
     width: 100%;
-    height: 60px;
+    height: 45px;
     background-color: #fff;
+}
+.page-platfrom-information-detail .content {
+    padding-top: 15px;
+    position: relative;
 }
 .page-platfrom-information-detail .content .information{
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
+
+.page-platfrom-information-detail  .information .certCachet{
+    width: 80px;
+    /* float: left; */
+    position: absolute;
+    top: 95px;
+    right: 57px;
+}
+
+
 .page-platfrom-information-detail .content .information-top{
     display: flex;
     width: 100%;
@@ -56,8 +72,7 @@
 
 .page-platfrom-information-detail .content .information-top  .information-main-name-container img{
     width: 16px;
-    height: 18px;
-    padding-bottom: 2px;
+    padding-bottom: 5px;
 }
 .page-platfrom-information-detail .content .information-top .information-main-name-container-fonts{
     font-size: 14px;
@@ -127,12 +142,7 @@
       position: relative;
   }
 
-  .page-platfrom-information-detail  .certCachet{
-    width: 80px;
-    position: absolute;
-    top: 120px;
-    right: 57px;
-  }
+ 
 
   .page-view-container{
       display: flex;

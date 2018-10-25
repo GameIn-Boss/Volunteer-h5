@@ -59,10 +59,11 @@ class TeamSearchPage extends React.Component {
       canvas: canvas,
       logging: true,
       width: width,
-      height: height
+      height: height,
+      useCORS: true,
     }
     html2canvas(shareContent, opts).then(function (canvas) {
-      var dataUrl = canvas.toDataURL('image/jpeg', 1);
+      var dataUrl = canvas.toDataURL('image/jpeg', 4);
       // console.log(dataUrl)
       // window.location.href=`${dataUrl}`;
       // window.open(`${dataUrl}`)
@@ -91,6 +92,9 @@ class TeamSearchPage extends React.Component {
         <div className="takeup"></div>
         <div className="content" ref="LaunchContent">
           <div className="information">
+           
+              <img src={this.certCachet} className="certCachet" crossOrigin = "Anonymous"/>
+            
             <div className="information-top">
               <div className="information-main">
                 <div className="information-main-name-container">
@@ -109,6 +113,7 @@ class TeamSearchPage extends React.Component {
               </div>
               <Avatar src={`${data.volunteer_info.avatars}`} size={{ width: 100, height: 120, radius: 4 }} />
             </div>
+           
             <div className="page-platfrom-information-detail-top-item-container">
               <div className="page-platfrom-information-detail-top-item">
                 <p className="page-platfrom-information-detail-top-item-top"><b className="page-platfrom-information-detail-top-item-num">{data.org_count}</b>个</p>
@@ -127,7 +132,10 @@ class TeamSearchPage extends React.Component {
                 <p className="page-platfrom-information-detail-top-item-bottom">志愿时长</p>
               </div>
             </div>
+          
           </div>
+       
+
           <div className="main">
 
             {
@@ -144,15 +152,13 @@ class TeamSearchPage extends React.Component {
                   )
                 }) : null
             }
-            <img src={this.certCachet} className="certCachet" />
-
           </div>
 
 
         </div>
         {
           this.state.showSingle? 
-          <div style={{position:'absolute',zIndex:10001,top:0,bottom:'60px',left:0,right:0,overflowY:'auto',display:'flex',height:`${height -60}px`}}>
+          <div style={{position:'absolute',zIndex:10001,top:0,bottom:'60px',left:0,right:0,overflowY:'auto',height:`${height -60}px`}}>
           <img style={{width:'70%',margin:'0 auto',display:"block"}} src={`${this.state.dataUrl}`} />
           </div> :null
         }
