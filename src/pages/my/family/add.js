@@ -168,7 +168,7 @@ class Addmember extends React.Component {
         //     <div className="page-add-agree">
         //   提交代表已同意
         //   <Link to="/my/agree">
-        //     <span className="page-add-agreement">《志多星用户协议》</span>
+        //     <span className="page-add-agreement">《鼓楼微文明用户协议》</span>
         //   </Link>
         //     </div>
         //

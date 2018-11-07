@@ -262,7 +262,7 @@ class Login extends React.Component {
                         </Link>
                         :
                         <Link to="/my/agree">
-                            <span className="page-login-agreement">《志多星用户协议》</span>
+                            <span className="page-login-agreement">《鼓楼微文明用户协议》</span>
                         </Link>
                     }
                   

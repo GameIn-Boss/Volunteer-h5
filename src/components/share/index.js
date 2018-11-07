@@ -24,7 +24,7 @@ const WXS = (option = {}) => {
     return;
   }
   const orgInfo = window.orgInfo || {
-    name: '志多星',
+    name: '鼓楼微文明',
     logo: '',
   };
   const host = `${location.protocol}//${location.hostname}`;
