@@ -48,7 +48,7 @@ class Login extends React.Component {
     componentWillReceiveProps(nextProps) {
         const {login: cLogin} = this.props;
         const {login: nLogin} = nextProps;
-        const realRegister =  window.orgInfo.real_name_register;
+        const realRegister =  window.platformInfo.real_name_register;
         if (cLogin.fetching && !cLogin.failed && !nLogin.fetching && !nLogin.failed) {
           
             let target = '/my';
@@ -256,7 +256,7 @@ class Login extends React.Component {
                 <div className="page-login-agree">
                     提交代表已阅读
                     {
-                        window.orgCode == 'joQeZJepZV' ?
+                        window.platformCode == 'joQeZJepZV' ?
                         <Link to="/my/agree">
                             <span className="page-login-agreement">《长春志愿者用户协议》</span>
                         </Link>

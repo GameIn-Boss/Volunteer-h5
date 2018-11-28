@@ -37,7 +37,7 @@ class Teams extends React.Component {
       <ul className="component-teams">
         {
           teams.map(team => (<li key={team.id}>
-            <Link to={`/team/detail/${team.id}`}>
+            <Link to={`${team.org_info.href}/team/detail/${team.id}`}>
               <Avatar src={team.logo} size={{ width: 60, radius: 4 }} />
               <div className="team-name-container">
                 <div className="team-name">

@@ -13,17 +13,14 @@ import Avatar from '../../components/avatar/avatar';
 import Projects from '../../components/projects/projects';
 import Menus from '../../components/menus/menus';
 import Announcement from '../../components/announcement/announcement';
-import { getCity , deleteSanlitunMoudling } from '../../utils/funcs';
+import { getCity } from '../../utils/funcs';
 import { requestHomeData, saveCity, getAreaCity } from './home.store';
-
+import { announceAction } from '../announce/announce.store';
 class HomePage extends React.Component {
 
   constructor(props) {
     super(props);
     autoBind(this);
-    this.state = {
-      city: props.home.city || '定位中',
-    };
     this.play = this.play.bind(this);
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
@@ -39,17 +36,29 @@ class HomePage extends React.Component {
   }
 
   componentWillMount() {
-   
-    const { home } = this.props;
+    // var geolocation = new qq.maps.Geolocation("VF3BZ-JJM34-7EIUV-XT3QF-C3V2V-VLF7H", "myapp");
+    // alert(`${JSON.stringify(geolocation)}`)
+    // var options = {timeout: 8000};
+    // geolocation.getLocation(function(position){
+    //   alert(`${JSON.stringify(position)}`)
+    //   const lat = position.coords.lat; // 纬度，浮点数，范围为90 ~ -90
+    //   const lng = position.coords.lng; // 经度，浮点数，范围为180 ~ -180
+    //   const expires = Date.now() + (5 * 60 * 1000); // 5分钟过期
+
+    //   localStorage.setItem('location', JSON.stringify({
+    //     lat,
+    //     lng,
+    //     expires,
+    //   }));
+     
+    // }, options)
+
     if (localStorage.getItem('provinceAndCityName') != null) {
-      this.setState({
-        ...this.state,
-        city: JSON.parse(localStorage.getItem('provinceAndCityName')).city.replace('市', ''),
-      });
       this.props.requestHomeData();
       this.props.saveCity(JSON.parse(localStorage.getItem('provinceAndCityName')).city.replace('市', ''));
-      this.props.getAreaCity(JSON.parse(localStorage.getItem('provinceAndCityName')).city.replace('市', ''));
+    
     } else {
+
       getCity((city) => {
         this.setState({
           ...this.state,
@@ -59,17 +68,12 @@ class HomePage extends React.Component {
         this.props.saveCity(city);
         this.props.getAreaCity(city);
       }, () => {
-        Alert.error('定位失败，请确认同意微信定位授权');
-        this.state = {
-          city: '未定位',
-        };
+        Alert.error('定位失败，请确认同意定位授权');
+        alert('定位失败，请确认同意定位授权')
         this.props.requestHomeData();
       });
     }
-
-
-    // 地理位置重新获取后需要刷新首页数据
-    // EM.on('location', () => this.props.requestHomeData());
+  
   }
 
   componentWillReceiveProps() {
@@ -79,18 +83,10 @@ class HomePage extends React.Component {
   componentDidMount() {
   }
   renderHeaderBar() {
-    const { user } = this.props;
-
     return (<div className="header-bar">
-      <Link to="/selectcity"><div className="city-name">{this.state.city}</div></Link>
       <Link className="component-search-bar" to="/homesearch">
-        <input className="input" placeholder="搜索项目/团队" disabled="disabled" />
+        <input className="input" placeholder="搜索项目/机构" disabled="disabled" />
       </Link>
-      {
-        !user.isLogin ? <Link className="login-button" to="/my/entry">登录</Link>
-          :
-          <Link to="/my"><Avatar src={user.avatars} size={{ width: 28 }} /></Link>
-      }
     </div>);
   }
   play() {
@@ -109,82 +105,18 @@ class HomePage extends React.Component {
     if (!home.data || home.data.news.length ==0) {
       return null
     }
+    console.log(home)
     return (
-      <div className="notice">
-        {
-          home.data.news.length > 0 ? <Announcement data={home.data.news} entry="/announce" /> : null
-        }
-
-
-      </div>
+        <div className="notice">
+            <Announcement data={home.data.news} entry="/announce" /> 
+        </div>
     )
   }
   renderSlick() {
-    const { home, user } = this.props;
-    const orgCode = window.orgCode;
+    const { home } = this.props;
+    const orgCode = window.platformCode;
     if (!home.data || !home.data.banner) {
       return <div className="slick-container slick-container-empty" />;
-    }
-
-    if (!user.isLogin && orgCode == 'wMvbmOeYAl') {
-      return (<div className="slick-container">
-        {home.data.banner && home.data.banner.length ?
-          <Slick {...this.slickSettings}>
-            {home.data.banner
-              .map((item) => {
-                let url = '';
-                const mode = item.jump_mode;
-
-                if (mode === 1) {
-                  url = '/my/entry';
-
-                  // 第三方
-                } else if (mode === 2) {
-                  // 项目
-                  url = `/project/detail/${item.jump_id}`;
-                } else if (mode === 3) {
-                  // 团队
-                  url = `/team/detail/${item.jump_id}`;
-                }
-
-                return (<Link key={item.id} to={url}>
-                  <Image src={item.photo} className="image" resize={{ width: 1500 }} />
-                </Link>);
-              })}
-          </Slick> : null
-        }
-      </div>);
-    } else if (!user.isLogin && orgCode == 'KGRb41dBLZ') {
-      return (<div className="slick-container">
-        {home.data.banner && home.data.banner.length ?
-          <Slick {...this.slickSettings}>
-            {home.data.banner
-              .map((item) => {
-                let url = '';
-                const mode = item.jump_mode;
-
-                if (mode === 1) {
-                  if (!user.isLogin) {
-                    url = '/my/entry';
-                  } else {
-                    // 第三方
-                    url = item.href;
-                  }
-                } else if (mode === 2) {
-                  // 项目
-                  url = `/project/detail/${item.jump_id}`;
-                } else if (mode === 3) {
-                  // 团队
-                  url = `/team/detail/${item.jump_id}`;
-                }
-
-                return (<Link key={item.id} to={url}>
-                  <Image src={item.photo} className="image" resize={{ width: 1500 }} />
-                </Link>);
-              })}
-          </Slick> : null
-        }
-      </div>);
     }
     return (<div className="slick-container">
       {home.data.banner && home.data.banner.length ?
@@ -202,13 +134,14 @@ class HomePage extends React.Component {
                 url = item.href;
 
 
-              } else if (mode === 2) {
-                // 项目
-                url = `/project/detail/${item.jump_id}`;
-              } else if (mode === 3) {
-                // 团队
-                url = `/team/detail/${item.jump_id}`;
               }
+              //  else if (mode === 2) {
+              //   // 项目
+              //   url = `/project/detail/${item.jump_id}`;
+              // } else if (mode === 3) {
+              //   // 团队
+              //   url = `/team/detail/${item.jump_id}`;
+              // }
 
               return (<Link key={item.id} to={url}>
                 <Image src={item.photo} className="image" resize={{ width: 1500 }} />
@@ -233,80 +166,19 @@ class HomePage extends React.Component {
           {this.renderAnnounceComponent()}
         </div>
         <div className="page-home-body">
-          {window.orgInfo && window.orgCode == 'VolejRejNm'
-            ?
-            <Menus menus={deleteSanlitunMoudling(window.orgInfo.module_settings)}/>
-            :
-            <Menus menus={window.orgInfo.module_settings} />
-          }
-          {
-            !home.data
-              ?
-              null
-              :
-              <div>
-                {
-                  home.data && home.data.sanlitun ? <div>
-                    <div style={{ width: '100%', height: '10px' }} />
-                    <div className="project-list">
-                      <div className="list-header">
-                        <div className="main-label">
-                          <div className="label-line" />
-                          <span>回馈激励</span>
-                          <div className="label-line" />
-                        </div>
-                        <div className="sub-label">Feedback incentive</div>
-                      </div>
-                    </div>
-                    <div className="page-home-feedback-show-container">
-                      {/* <Link to={`http://${location.host}/tmall`}> */}
-                      <Link to='/shop'>
-                        <img src="/images/sanlitun/feedback1.jpg" alt="回馈展示" />
-                      </Link>
-                      {/* <Link to={`http://${location.host}/tmall`}> */}
-                      <Link to='/shop'>
-                        <img src="/images/sanlitun/feedback2.jpg" alt="回馈展示" />
-                      </Link>
-                      {/* <Link to={`http://${location.host}/tmall`}> */}
-                      <Link to='/shop'>
-                        <img src="/images/sanlitun/feedback4.png" alt="回馈展示" />
-                      </Link>
-                    </div>
-                    <div style={{ width: '100%', height: '10px' }} />
-                  </div> : null
-                }
-                {
-                  home.data && home.data.sanlitun ?
-                    null
-                    :
-                    <div className="menus-activity">
-                      <Link to="/project/list/type/1/category/1000/target/1000">
-                        <img src="/images/activities_nearby.png" alt="附近" />
-                      </Link>
-                      <Link to="/project/list/type/0/category/1000/target/1000">
-                        <img src="/images/activities_new.png" alt="最新" />
-                      </Link>
-                      <Link to="/project/list/type/2/category/1000/target/1000">
-                        <img src="/images/activities_hot.png" alt="最热" />
-                      </Link>
-                    </div>
-                }
-                <div className="project-list">
-                  <div className="list-header">
-                    <div className="main-label">
-                      <div className="label-line" />
-                      <span>{home.data && home.data.sanlitun ? '联盟活动' : '精品活动'}</span>
-                      <div className="label-line" />
-                    </div>
-                    <div className="sub-label">Awesome Activity</div>
-                  </div>
-                  <div className="line1px" />
-                  <Projects projects={(home.data && home.data.project) || []} />
-                </div>
+          {window.platformInfo ? <Menus menus={window.platformInfo.module_settings} /> : null}
+          <div className="project-list">
+            <div className="list-header">
+              <div className="main-label">
+                <div className="label-line" />
+                <span>{home.data && home.data.sanlitun ? '联盟活动' : '精品活动'}</span>
+                <div className="label-line" />
               </div>
-
-          }
-
+              <div className="sub-label">Awesome Activity</div>
+            </div>
+            <div className="line1px" />
+            <Projects projects={(home.data && home.data.project) || []} />
+          </div>
         </div>
       </div>
     );
@@ -327,17 +199,18 @@ HomePage.propTypes = {
       })),
       project: PropTypes.arrayOf(PropTypes.shape({})),
       sanlitun: PropTypes.number,
-    }),
+    }), 
     city: PropTypes.string,
+    announceAction: PropTypes.func,
   }),
-  user: PropTypes.shape({}),
 };
 
 export default connect(
-  state => ({   //store根节点
+  state => ({
+    //store根节点
     home: state.home.home,
-    user: state.user,
     area: state.home.getAreaCity,
-  }),    //
-  dispatch => bindActionCreators({ requestHomeData, saveCity, getAreaCity }, dispatch),
+  }),
+  //
+  dispatch => bindActionCreators({ requestHomeData, saveCity, getAreaCity,announceAction }, dispatch),
 )(HomePage);

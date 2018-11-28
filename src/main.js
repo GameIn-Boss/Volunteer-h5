@@ -31,12 +31,7 @@ import router from './pages/router';
 import history, { USING_HISTORY_HASH } from './pages/history';
 
 import store from './stores';
-import WXShare from './components/share';
 
-
-if (wx) {
-  wx.ready(() => WXShare());
-}
 
 let routes = require('./routes.json').default; // Loaded with utils/routes-loader.js
 
@@ -92,15 +87,8 @@ function render(location) {
   // 否则当首页验证未完成时用户切换到其他页面如打卡页，如果也注册了 ready 事件则在慢网速下容易出现验证失败的问题
   // 测试发现，如果在首页验证完成后再跳转或者打开的直接是打卡页均不会出现类似问题
   // 因此做此修改
-  if (!window.dev) {
-    wx.ready(() => {
-      history.listen(render);
-      render(history.location);
-    });
-  } else {
-    history.listen(render);
-    render(history.location);
-  }
+  history.listen(render);
+  render(history.location);
 
 // Eliminates the 300ms delay between a physical tap and the firing of a click
 // event on mobile browsers https://github.com/ftlabs/fastclick

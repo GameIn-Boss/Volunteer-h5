@@ -27,18 +27,15 @@
         document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>');
     })();
   </script>
-  <script src="/lib/jweixin-1.0.0.js"></script>
   <script>
-    // 微信 config，类型可以是 JS Object 或者 JSON 字符串
-    window.wxConfig = {}; // 或者 '{}'
-    // http://api.volunteer.alpha.flashdiet.cn/api/v1
-    // http://alpha.api.volunteer.tmallwo.com:8000
-    window.apiHost='http://api.volunteer.alpha.flashdiet.cn';
+    
+    window.apiHost="http://api.volzdx.cn";
     // window.apiHost ="http://api.volzdx.cn";
 
-    // server 端下发 token
-    window.token = null;
-    window.orgInfo = {
+
+    // 平台标识字段,所有请求均需要此字段，取window.platformCode 请求头带此字段
+    window.platformCode='VolejRejNm';
+    window.platformInfo = {
         "name": "机构1",
         "logo": "",
         "module_settings": [
@@ -54,15 +51,20 @@
                     "icon": "http://alpha.api.volunteer.tmallwo.com/image/uploads/2017-10/999161507952198.png"
                 },
                 {
-                    "label": "shop",
-                    "key": "volunteer_feedback",
+                    "label": "志愿机构",
+                    "key": "volunteer_platform",
                     "icon": "http://alpha.api.volunteer.tmallwo.com/image/uploads/2017-10/918461507952580.png"
-                }
+                },
+                {
+                    "label": "信息查询",
+                    "key": "volunteer_info",
+                    "icon": "http://alpha.api.volunteer.tmallwo.com/image/uploads/2017-10/918461507952580.png"
+                },
             ],
             [
                 {
-                    "label": "志愿回馈",
-                    "key": "good_example",
+                    "label": "志愿攻略",
+                    "key": "volunteer_strategy",
                     "icon": "http://alpha.api.volunteer.tmallwo.com/image/uploads/2017-10/323921507952861.png"
                 },
                 {
@@ -74,7 +76,7 @@
                     "label": "服务中心",
                     "key": "help_center",
                     "icon": "http://alpha.api.volunteer.tmallwo.com/image/uploads/2017-10/583531507952882.png"
-                },
+                }
             ]
         ],
         'org_info':"<p>Test 123</p>",
@@ -192,32 +194,16 @@
                          }
 
     }
-    // VolejRejNm
-    // qM7e5Ba2vp
-    window.orgCode = 'VolejRejNm';
-    // joQeZJepZV
+ 
     window.serviceCategory = ['赛事服务', '应急救援', '城市运⾏', '文化教育', '关爱服务', '社区服务', '医疗卫⽣', '绿⾊环保', '在线志愿服务', '国际服务', '其他'];
     window.serviceTarget = ['⼉童', '⻘少年', '孤寡⽼⼈', '残障⼈⼠', '优抚对象', '特困群体', '其他'];
     // server 下发的个人擅长, 用于用户资料填写
     window.goodAt = ["关爱服务","国际服务","社区服务","应急救援","赛事服务","医疗卫生","绿色环保","文化倡导","教育","助残","助老","其他"];
     // server 下发的服务类型,可用于过滤等
     window.teamCategory = ["党政机关","教育事业单位","卫生事业单位","科技事业单位","文化事业单位","社会福利利事业单位","其他事业单位","群团组织","居委会或村委会","国有企业","民营企业","社会团体","社会服务机构","基金会"];
-    if (window.wxConfig) {
-      try{
-        // setTimeout(function () {
-        if (typeof window.wxConfig === 'string') {
-            window.wxConfig = JSON.parse(window.wxConfig);
-            }
-            window.wx.config(wxConfig);
-        // }, 500);
-        
-      }
-      catch(e) {
-        alert(e);
-      }
-    }
 
-    document.title = window.orgInfo.name;
+
+    document.title = window.platformInfo.name;
 
     window.dev = true;
   </script>
@@ -227,6 +213,8 @@
   <div id="container">
   </div>
   <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
+  <script type="text/javascript" src="https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js"></script>
+  
   <script src="<%= bundle %>"></script>
 </body>
 

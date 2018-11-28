@@ -51,10 +51,10 @@
     window.goodAt = {!! $gootAt !!};
 
     // server 下发的机构信息
-    window.orgInfo = {!! $orgInfo !!};
+    window.platformInfo = {!! $orgInfo !!};
 
     // server 下发的机构编号
-    window.orgCode = '{!! $orgCode !!}';
+    window.platformCode = '{!! $orgCode !!}';
 
     if (window.wxConfig) {
       try{
@@ -68,7 +68,7 @@
       }
     }
 
-    window.orgInfo && (document.title = window.orgInfo.name);
+    window.platformInfo && (document.title = window.platformInfo.name);
   </script>
   <script>
   var _hmt = _hmt || [];

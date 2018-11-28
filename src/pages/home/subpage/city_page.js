@@ -70,10 +70,6 @@ class CityPage extends React.Component {
       renderTrigger: false,
     });
   }
-  // <li>
-  //         <div className="page-select-city-container-style">全国</div>
-  //         <div className="line1px" />
-  //       </li>
   proviceRender() {
     const province = this.props.address.data.province;
     return (

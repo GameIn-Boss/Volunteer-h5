@@ -20,7 +20,7 @@ import { isWindowReachBottom } from '../../utils/funcs';
 import { bannerAction, requestGoodsList } from './shop.store';
 import { userCenterAction } from '../my/my.store';
 import './index.css';
-const scoreName =window.orgInfo.score_name;
+const scoreName =window.platformInfo.score_name;
 class ShopPage extends React.Component {
 
   constructor(props) {

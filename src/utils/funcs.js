@@ -48,45 +48,49 @@ export function getLocation(success, fail, noCache) {
     });
     return;
   }
-
   let cachedLoc = localStorage.getItem('location');
   cachedLoc = cachedLoc ? JSON.parse(cachedLoc) : cachedLoc;
 
   if ((cachedLoc && cachedLoc.expires <= Date.now()) || noCache === true) {
     cachedLoc = null;
   }
-
   if (!cachedLoc) {
-    window.wx.ready(() => {
-      wx.getLocation({
-        type: 'gcj02', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
-        success: (res) => {
-          const lat = res.latitude; // 纬度，浮点数，范围为90 ~ -90
-          const lng = res.longitude; // 经度，浮点数，范围为180 ~ -180
-          const expires = Date.now() + (5 * 60 * 1000); // 5分钟过期
+      // alert(`${JSON.stringify(navigator.geolocation)}`)
+      // navigator.geolocation.getCurrentPosition(function (position) {
+      //   const lat = position.coords.latitude; // 纬度，浮点数，范围为90 ~ -90
+      //   const lng = position.coords.longitude; // 经度，浮点数，范围为180 ~ -180
+      //   const expires = Date.now() + (5 * 60 * 1000); // 5分钟过期
+  
+      //   localStorage.setItem('location', JSON.stringify({
+      //     lat,
+      //     lng,
+      //     expires,
+      //   }));
+      //   success({
+      //     lat,
+      //     lng,
+      //   });
+  
+      // });
 
-          console.log('获取新位置成功', res);
-
-          localStorage.setItem('location', JSON.stringify({
-            lat,
-            lng,
-            expires,
-          }));
-
-          if (success) {
-            success({
-              lat,
-              lng,
-            });
-          }
-        },
-        fail: (error) => {
-          if (fail) {
-            fail(error);
-          }
-        },
-      });
-    });
+      var geolocation = new qq.maps.Geolocation("VF3BZ-JJM34-7EIUV-XT3QF-C3V2V-VLF7H", "myapp");
+      var options = {timeout: 8000};
+      geolocation.getLocation(function(position){
+        const lat = position.lat; // 纬度，浮点数，范围为90 ~ -90
+        const lng = position.lng; // 经度，浮点数，范围为180 ~ -180
+        const expires = Date.now() + (5 * 60 * 1000); // 5分钟过期
+  
+        localStorage.setItem('location', JSON.stringify({
+          lat,
+          lng,
+          expires,
+        }));
+        success({
+          lat,
+          lng,
+        });
+      }, options)
+     
   } else if (success) {
     success({
       lat: cachedLoc.lat,
@@ -96,6 +100,7 @@ export function getLocation(success, fail, noCache) {
 }
 
 export function getCity(success, fail) {
+
   if (window.dev) {
     const city = '北京市';
     const province = '北京';
@@ -132,6 +137,7 @@ export function getCity(success, fail) {
     });
     const coord = new qq.maps.LatLng(loc.lat, loc.lng);
     geocoder.getAddress(coord);
+    
   }, (error) => {
     if (fail) {
       fail(error);

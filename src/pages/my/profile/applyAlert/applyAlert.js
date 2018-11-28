@@ -30,8 +30,8 @@ class Introduce extends React.Component {
     componentWillUnmount() { }
 
     render() {
-        const content = window.orgInfo.org_service_guide;
-        const tel = window.orgInfo.org_service_tel;
+        const content = window.platformInfo.org_service_guide;
+        const tel = window.platformInfo.org_service_tel;
         return (
             <div>
                 <div

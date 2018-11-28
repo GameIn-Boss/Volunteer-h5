@@ -43,11 +43,11 @@ class Profile extends React.Component {
         super(props);
         autoBind(this);
         this.userId = props.route.params.userId;
-        this.realRegister = window.orgInfo.custom_config;
+        this.realRegister = window.platformInfo.custom_config;
         this.state = ({
             photo: '',
             showDialog: false,
-            winOrgInfo: window.orgInfo.custom_config,
+            winOrgInfo: window.platformInfo.custom_config,
         });
         this.dialog = {
             title: '提示',

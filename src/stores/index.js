@@ -25,6 +25,7 @@ import announceReducer from '../pages/announce/announce.store';
 import shopReducer from '../pages/shop/shop.store';
 import { userReducer } from './common';
 
+import platfromReducer from '../pages/platfrom/platfrom.store';
 const rootReducer = combineReducers({
   home: homeReducer,
   user: userReducer,
@@ -41,6 +42,7 @@ const rootReducer = combineReducers({
   circle: circleReducer,
   announce:announceReducer,
   shop:shopReducer,
+  platfrom:platfromReducer,
 });
 
 const middleware = [thunk, promiseMiddleware()];

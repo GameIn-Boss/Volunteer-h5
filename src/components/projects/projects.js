@@ -47,11 +47,11 @@ class Projects extends React.Component {
             const volunteer = isVolunteerInsure(project.volunteer_security);
             return (<li key={project.id}>
               <div>
-                <Link to={`/team/detail/${project.team.id}`} className="project-header">
+                <Link to={`${project.org_info.href}/team/detail/${project.team.id}`} className="project-header">
                   <Avatar src={team.logo} size={{ width: 30, radius: 4 }} />
                   <div className="org-name">{team.name}</div>
                 </Link>
-                <Link to={`/project/detail/${project.id}`} className="project-main">
+                <Link to={`${project.org_info.href}/project/detail/${project.id}`} className="project-main">
                   <Image
                     className="image"
                     src={project.list_photo}

@@ -39,7 +39,7 @@ class Register extends React.Component {
     super(props);
     autoBind(this);
     // realRegister: 1  实名注册， 0  非实名注册
-    this.realRegister = window.orgInfo.real_name_register;
+    this.realRegister = window.platformInfo.real_name_register;
     this.state = {
       captchaUrl: `${API_HOST}/api/captcha`,
       buttonString: '获取验证码',

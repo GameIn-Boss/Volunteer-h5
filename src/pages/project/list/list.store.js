@@ -5,7 +5,7 @@ export const requestProjectList = data => ({
   meta: {
     more: data.more,
   },
-  payload: fetch('/project', { method: 'GET', data, loading: !data.more }),
+  payload: fetch('/platform/project', { method: 'GET', data, loading: !data.more }),
 });
 
 export default (state = {
