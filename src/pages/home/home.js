@@ -16,14 +16,18 @@ import Announcement from '../../components/announcement/announcement';
 import { getCity , deleteSanlitunMoudling } from '../../utils/funcs';
 import { requestHomeData, saveCity, getAreaCity } from './home.store';
 
+
+import { Dialog } from "react-weui";
+import "weui/dist/style/weui.css";
+import "react-weui/build/packages/react-weui.css";
+
+
 class HomePage extends React.Component {
 
   constructor(props) {
     super(props);
     autoBind(this);
-    this.state = {
-      city: props.home.city || '定位中',
-    };
+    this.state = { city: props.home.city || "北京", showDialog: false };
     this.play = this.play.bind(this);
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
@@ -36,10 +40,35 @@ class HomePage extends React.Component {
       autoplay: true,
       autoplaySpeed: 6000,
     };
+    this.dialog = {
+      title: "询问",
+      buttons: [
+        {
+          type: "default",
+          label: "取消",
+          onClick: () => this.setState({ ...this.state, showDialog: false })
+        },
+        {
+          type: "primary",
+          label: "确认",
+          onClick: () => {
+            this.setState({ ...this.state, showDialog: false });
+            const { newcity, pc } = this.state;
+            this.props.requestHomeData();
+            this.props.saveCity(newcity);
+            this.props.getAreaCity(newcity);
+            localStorage.setItem('provinceAndCityName', pc);
+            this.setState({
+              city: newcity,
+            })
+          }
+        }
+      ]
+    };
   }
 
   componentWillMount() {
-   
+    this.props.requestHomeData();
     const { home } = this.props;
     if (localStorage.getItem('provinceAndCityName') != null) {
       this.setState({
@@ -50,14 +79,16 @@ class HomePage extends React.Component {
       this.props.saveCity(JSON.parse(localStorage.getItem('provinceAndCityName')).city.replace('市', ''));
       this.props.getAreaCity(JSON.parse(localStorage.getItem('provinceAndCityName')).city.replace('市', ''));
     } else {
-      getCity((city) => {
-        this.setState({
-          ...this.state,
-          city,
-        });
-        this.props.requestHomeData();
-        this.props.saveCity(city);
-        this.props.getAreaCity(city);
+      
+      getCity((city,str) => {
+        // this.setState({
+        //   ...this.state,
+        //   city,
+        // });
+        // this.props.requestHomeData();
+        // this.props.saveCity(city);
+        // this.props.getAreaCity(city);
+        this.setState({ ...this.state, showDialog: true, newcity: city, pc: str });
       }, () => {
         Alert.error('定位失败，请确认同意微信定位授权');
         this.state = {
@@ -232,6 +263,14 @@ class HomePage extends React.Component {
           {this.renderSlick()}
           {this.renderAnnounceComponent()}
         </div>
+        <Dialog
+          type="ios"
+          title={this.dialog.title}
+          buttons={this.dialog.buttons}
+          show={this.state.showDialog}
+        >
+          已经成功定位到当前城市，是否切换？
+        </Dialog>
         <div className="page-home-body">
           {window.orgInfo && window.orgCode == 'VolejRejNm'
             ?
