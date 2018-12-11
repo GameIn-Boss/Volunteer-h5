@@ -128,18 +128,6 @@ class MyPage extends React.Component {
     const { user } = this.props;
     return (
       <div>
-        {/*<div className="page-my-header">*/}
-
-          {/*<Link to="/my/setting">*/}
-            {/*<div className="page-my-header-setting" />*/}
-          {/*</Link>*/}
-
-          {/*<Link to="/my/messages">*/}
-            {/*{this.renderPageMymessagesTemplate()}*/}
-          {/*</Link>*/}
-
-        {/*</div>*/}
-
         <div>
           {this.renderPageMyphotoTemplate()}
         </div>

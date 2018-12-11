@@ -255,7 +255,7 @@ class NewFamily extends React.Component {
                 <div className="pages-add-new-family-box">
                     <div className="pages-add-new-family-type">详细地址</div>
                     <div className="pages-add-new-family-ipt">
-                        <input type="text" ref={(c)=>{this.addressDetail = c}} onKeyUp={this.onTextChanged}/>
+                        <input type="text" ref={(c) => { this.addressDetail = c }} onBlur={this.onTextChanged}/>
                     </div>
                 </div>
                 <div className="pages-add-new-family-space"></div>

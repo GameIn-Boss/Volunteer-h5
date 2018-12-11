@@ -70,7 +70,12 @@
   font-size: 14px;
   border: 1px solid #E5E5E5;
 }
+.page-home .header-bar .login-button-img {
+  width: 64px;
+  height: 28px;
+  padding: 0 18px;
 
+}
 .page-home .header-bar .avatar {
   width: 28px;
   height: 28px;

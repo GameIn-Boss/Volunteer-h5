@@ -55,18 +55,24 @@ export default function request(requestUrl, requestOptions = {}) {
     : null;
   const city = localStorage.provinceAndCityName
     ? JSON.parse(localStorage.provinceAndCityName).city
-    : "北京";
-  // ${encodeURI(city)}
-  options.headers = {
-    ...headers, // 授权 token
-    "X-auth-token": getToken() || "", // 机构代码
-    "X-org-code": window.orgCode, // 经纬度 经度-纬度
+    : "福州";
+  let headersObj = {
+    ...headers,
+    "X-auth-token": getToken() || "",
+    "X-org-code": window.orgCode,
     "X-location": location
-      ? `${location.lng}-${location.lat}`
+      ? `${
+          location.lng // 授权 token // 机构代码 // 经纬度 经度-纬度
+        }-${location.lat}`
       : "116.403847-39.915526",
     "X-unique-key": window.uniqueKey || "demo",
     "X-city": `${encodeURI(city)}`
   };
+  options.headers = headersObj;
+  if (!location) {
+    delete headersObj["X - location"];
+  }
+  options.headers = headersObj;
   // 自定义头必须设置 mode 为 cors
   options.mode = "cors";
 
@@ -135,15 +141,8 @@ export default function request(requestUrl, requestOptions = {}) {
         } else if (json.error_code === 9999 && options.noRedirect !== true) {
           let from = window.location.pathname;
           store.dispatch(storeLoginSource(from));
-          // if (USING_HISTORY_HASH) {
-          //   from = window
-          //     .location
-          //     .hash
-          //     .replace('#', '');
-          // }
-          // store.dispatch(storeLoginSource(from));
+        
           history.replace("/my/entry");
-          // window.location.replace('/my/entry');
         } else {
           console.log("请求返回失败-", url, json);
 
@@ -165,14 +164,4 @@ export default function request(requestUrl, requestOptions = {}) {
       });
   });
 
-  // TODO: 如果没有经纬度信息则需要调用微信 JSSDK 获取经纬度之后再发起请求，对调用者透明 return fetch(url, options)
-  //       .then(response => response.json())           .then((json) => {
-  // store.dispatch(removeAysncTask());             if (('error_code' in json) &&
-  // json.error_code === 0) {               if (options.successWords) {
-  //    Alert.success(options.successWords); console.log('请求成功-', json);
-  //     }               return json;      }             console.log('请求返回失败-',
-  // json); Alert.error('请求发送失败');             return Promise.reject(json);
-  //    })          .catch((error) => {             //
-  // store.dispatch(removeAysncTask()); Alert.error(`请求发送失败：${error}`);
-  //  console.log('请求失败-', error);      });
 }

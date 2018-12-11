@@ -616,10 +616,9 @@ class Verify extends React.Component {
                 </div>
 
                 <textarea 
-                // placeholder={`请输入${data.label}`}
                           id={`${key}`}
                           className="page-my-profile-edit-text" maxLength="200"
-                          onKeyUp={this.handleOtherInfoManyInputClick}
+                    onBlur={this.handleOtherInfoManyInputClick}
                 />
 
                 <div className="line1px"/>
