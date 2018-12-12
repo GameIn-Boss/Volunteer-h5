@@ -112,30 +112,21 @@ class HomePage extends React.Component {
   componentDidMount() {}
   renderHeaderBar() {
     const { user } = this.props;
-
-    return (
-      <div className="header-bar">
-        <Link to="/selectcity">
-          <div className="city-name">{this.state.city}</div>
+    return <div className="header-bar">
+      <Link to="/selectcity">
+        <div className="city-name">{this.state.city}</div>
+      </Link>
+      <div style={{ display: "flex", width: "280px" }}>
+        <Link className="component-search-newbar" to="/homesearch">
+          <input className="input" placeholder="搜索项目/团队" disabled="disabled" />
         </Link>
-        <Link className="component-search-bar" to="/homesearch">
-          <input
-            className="input"
-            placeholder="搜索项目/团队"
-            disabled="disabled"
-          />
-        </Link>
-        {!user.isLogin ? (
-          <Link className="login-button" to="/my/entry">
-            登录
-          </Link>
-        ) : (
-          <Link to="/my" className="login-button-img">
-            <Avatar src={user.avatars} size={{ width: 28 }} />
-          </Link>
-        )}
+        {!user.isLogin ? <Link to="/my/entry">
+          <div className="login-button">登录</div>
+        </Link> : <Link to="/my">
+            <Avatar src={user.avatars} size={{ width: 28 }} className="login-button-img" />
+          </Link>}
       </div>
-    );
+    </div>;
   }
   play() {
     this.slider.slickPlay();
