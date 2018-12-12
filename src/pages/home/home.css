@@ -5,7 +5,7 @@
 
 .page-home .page-home-header {
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .page-home .slick-container {
@@ -33,17 +33,20 @@
 
 .page-home .header-bar {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  /* width: 375px; */
   padding: 15px;
   align-items: center;
   background: transparent;
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  /* left: 0;
+  right: 0; */
+  width: 100%;
   height: 62px;
   z-index: 1;
   font-weight: 300;
+  box-sizing: border-box;
 }
 
 .page-home .header-bar .city-name {
@@ -68,6 +71,14 @@
   background: #f8f8f8 url(/images/search.png) no-repeat 10px center;
   background-size: 25px 25px;
   margin: 0 15px;
+}
+.dirmargin {
+  margin: 0;
+}
+.content-boxpadding {
+  box-sizing: border-box;
+  padding: 0 15px;
+  flex: 1;
 }
 .page-home .header-bar .component-search-newbar input {
   margin-left: 45px;
