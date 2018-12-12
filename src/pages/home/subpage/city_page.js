@@ -44,7 +44,7 @@ class CityPage extends React.Component {
       }));
       this.props.saveCity('全国');
       // history.replace('/');
-      window.location.replace('/');
+      window.location.replace("/home");
       return;
     }
     const data = JSON.parse(event.target.getAttribute('data')).item;
@@ -116,7 +116,7 @@ class CityPage extends React.Component {
     });
     this.props.getAreaCity(city);
     // history.replace('/');
-    window.location.replace('/');
+    window.location.replace('/home');
   }
   cityRender() {
     const city = this.props.address.data.city;

@@ -78,28 +78,27 @@ class HomePage extends React.Component {
 
   componentWillMount() {
     this.props.requestHomeData();
+    const { pathname } = window.location;
     getCity(
       (city, str) => {
         const { city: initaialCity } = this.state;
-        if (initaialCity == city) {
-          localStorage.setItem(
-            "provinceAndCityName",
-            JSON.stringify({
-              city: "福州市",
-              province: "福建省"
-            })
-          );
+        if (pathname == '/home') {
           this.props.requestHomeData();
-          return;
+          return
         } else {
-          this.setState({
-            ...this.state,
-            showDialog: true,
-            newcity: city,
-            pc: str
-          });
-        }
-      },
+          if (initaialCity == city) {
+            this.props.requestHomeData();
+            return;
+          } else {
+            console.log('-----', str)
+            this.setState({
+              ...this.state,
+              showDialog: true,
+              newcity: city,
+              pc: str
+            });
+          }
+        }      },
       () => {
         Alert.error("定位失败，请确认同意微信定位授权");
       }
