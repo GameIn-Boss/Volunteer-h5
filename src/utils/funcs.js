@@ -73,7 +73,7 @@ export function getLocation(success, fail, noCache) {
   
       // });
 
-      var geolocation = new qq.maps.Geolocation("VF3BZ-JJM34-7EIUV-XT3QF-C3V2V-VLF7H", "myapp");
+      var geolocation = new qq.maps.Geolocation("GT7BZ-UXACR-R2JWZ-WYSXR-DHWJV-VEFAI", "myapp");
       var options = {timeout: 8000};
       geolocation.getLocation(function(position){
         const lat = position.lat; // 纬度，浮点数，范围为90 ~ -90
