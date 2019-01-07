@@ -1,24 +1,4 @@
-### 代码规范
-
-1. 编辑器务必使用 vscode
-2. 安装 ESLint 插件
-3. 安装 EditorConfig 插件
-4. 开启保存时自动格式化
-
-#### ESLint 配置
-
-一、编辑器配置（保存自动格式化）
-
-```js
-{
-    "eslint.autoFixOnSave": true,
-    "eslint.run": "onSave"
-}
-```
-
-同时确保编辑器 `autoSave` 处于关闭状态
-
-更多规则配置[参考官方文档](https://eslint.org/docs/user-guide/configuring)
+志多星平台h5
 
 ### 目录结构
 
@@ -94,16 +74,6 @@ $ yarn build                    # Compiles the app into the /public/dist folder
 3. 页面组件放在个页面目录中的 `components` 中
 4. store 分为通用和页面级，页面级主要用于服务端数据请求和存储，最后合并到 `src/stores/index` 中，页面级 action 和 reducer 合并到同一个文件放在页面目录下并已 `.store` 命名
 
-### 组件规范
-
-1. 必须写 propTypes，并且禁用 object 类型，object 类型请使用 shape 并完整书写其中属性
-2. 注意生命周期方法顺序
-3. 定时器务必在 componentWillUnmount 中进行清除
-
-### 微信调试开发版本
-
-1. 手机连接 charles 代理
-2. 在 charles 代理中设置 Map Remote，将域名映射到 http://localhost:300
 
 ### API 文档
 
@@ -112,34 +82,9 @@ $ yarn build                    # Compiles the app into the /public/dist folder
 [微信JS-SDK DEMO](http://203.195.235.76/jssdk/)
 [React-WEUI](https://github.com/weui/react-weui/)
 
-### 部署测试服务器
-
-#### 测试服务器发布
-
-windows 开发机本地发布可能不变，可以 ssh 到测试服务器上发布，步骤如下
-
-```
-1. ssh miller@60.205.182.2 密码:miller
-2. cd /home/miller/volunteer-h5
-3. sh tools/deploy-testserver.sh
-```
-
-#### 本地发布
-```
-在项目根目录执行：
-sh tools/deploy-testserver.sh
-注意：如果本地有修改会进入 stash 列表，所以发布后如果发现本地修改没了不要紧张，执行 git stash apply 就可以恢复；
-
-60.205.182.2 miller/miller
-静态资源 /data/webapp/volunteer/Volunteer_wechat/public
-首页模板 /data/webapp/volunteer/Volunteer_wechat/resources/views/wechat.blade.php
-```
 
 ### 本地与服务器
 
 1. 本地加载的是 public/index.ejs 编译而来的 index.html，因此调试全局变量请修改 index.ejs
 2. 服务器加载的是 wechat.blade.ejs 编译而来的 wechat.blade.php
 
-### 管理系统
-
-* [志多星后台](http://alpha.api.admin.volunteer.tmallwo.com/org/list)
