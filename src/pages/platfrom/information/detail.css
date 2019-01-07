@@ -41,10 +41,10 @@
 }
 
 .page-platfrom-information-detail  .information .certCachet{
-    width: 80px;
+        width: 80px;
     /* float: left; */
-    position: absolute;
-    top: 95px;
+    position: fixed;
+    top: 162px;
     right: 57px;
 }
 

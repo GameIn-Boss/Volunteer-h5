@@ -34,7 +34,8 @@ class TeamSearchPage extends React.Component {
   componentDidMount() {
   }
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(nextprops) {
+    console.log(nextprops.detail.data);
   }
 
   componentWillUnmount() {

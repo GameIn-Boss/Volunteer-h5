@@ -18,7 +18,7 @@ import {
   requestSearch,
 } from '../../platfrom/information/index.store';
 import './certificate.css';
-
+import html2canvas from "html2canvas";
 class Certificate extends React.Component {
 
   constructor(props) {
@@ -31,6 +31,8 @@ class Certificate extends React.Component {
     this.certCachet = window.platformInfo.cert_cachet || '/images/my/zdx.png';
     this.certAuthOrg = window.platformInfo.cert_auth_platform || '和众泽益志愿服务中心';
     this.state = {
+      dataUrl: null,
+      photo: null,
       register:'',
       now:'',
     };
@@ -59,11 +61,37 @@ class Certificate extends React.Component {
           ...this.state,
           register,
           now,
+        }, () => {
+          // this.htm2Click();
         });
       }
     }
   }
-
+  htm2Click = () => {
+    var that = this;
+    var shareContent = this.refs["LaunchContent"];
+    var width = shareContent.offsetWidth;
+    var height = shareContent.offsetHeight;
+    var canvas = document.createElement("canvas");
+    var scale = 10;
+    canvas.width = width * scale;
+    canvas.height = height * scale;
+    canvas.getContext("2d").scale(scale, scale);
+    var opts = {
+      scale: scale,
+      canvas: canvas,
+      logging: true,
+      width: width,
+      height: height,
+      useCORS: true
+    };
+    setTimeout(() => {
+      html2canvas(shareContent, opts).then(function (canvas) {
+        var dataUrl = canvas.toDataURL("image/jpeg", 10);
+        that.setState({ dataUrl });
+      });
+    }, 1500)
+  };
   componentWillUnmount() { }
 
   renderCertificate() {
@@ -113,16 +141,20 @@ class Certificate extends React.Component {
 
 
   render() {
-    const { user: {data:listData}   } = this.props;
+    const { user: { data: listData } } = this.props;
+    const { dataUrl } = this.state;
     if (!listData) {
       return null;
     }
-    return (
-      <div className="page-certificate-main-container">
+    return <div>
+      {dataUrl ? <img style={{ width: "100%", display: "block" }} src={`${this.state.dataUrl}`} /> : <div className="page-certificate-main-container" ref="LaunchContent">
         {/** TODO: */}
         {this.renderCertificate()}
-      </div>
-    );
+      </div>}
+      {dataUrl ? null : <div className="page-certificate-main-mask">
+        图片生成中。。。
+          </div>}
+    </div>;
   }
 }
 
