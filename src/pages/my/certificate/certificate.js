@@ -62,7 +62,7 @@ class Certificate extends React.Component {
           register,
           now,
         }, () => {
-          // this.htm2Click();
+          this.htm2Click();
         });
       }
     }
@@ -73,7 +73,7 @@ class Certificate extends React.Component {
     var width = shareContent.offsetWidth;
     var height = shareContent.offsetHeight;
     var canvas = document.createElement("canvas");
-    var scale = 10;
+    var scale = 4;
     canvas.width = width * scale;
     canvas.height = height * scale;
     canvas.getContext("2d").scale(scale, scale);
@@ -87,7 +87,7 @@ class Certificate extends React.Component {
     };
     setTimeout(() => {
       html2canvas(shareContent, opts).then(function (canvas) {
-        var dataUrl = canvas.toDataURL("image/jpeg", 10);
+        var dataUrl = canvas.toDataURL("image/jpeg", 4);
         that.setState({ dataUrl });
       });
     }, 1500)
@@ -118,7 +118,7 @@ class Certificate extends React.Component {
 
            <div className="page-certificate-container-content">证书编号：{listData.identifier}</div>
           <div className="page-certificate-container-content">{this.state.register}注册成为{this.certOrg}志愿者</div>
-          <div className="page-certificate-container-content">{this.state.now}截止</div>
+        
           <div className="page-certificate-container-hours-box">
             <div className="page-certificate-container-hours">
               <div className="page-certificate-container-hours-item"><span>{this.props.user.data.project_count}</span>个</div>
@@ -132,6 +132,7 @@ class Certificate extends React.Component {
           <div className="page-certificate-container-bottom-infobox">
             <div className="page-certificate-container-bussiness">认证机构：{this.certAuthOrg}</div>
             <div className="page-certificate-container-teachsupport">技术支持：志多星</div>
+            <div className="page-certificate-container-content" style={{paddingLeft:0}}>{this.state.now}</div>
             {this.certCachet ? <img src={this.certCachet} alt="" className="first" /> : <div />}
           </div>
         </div> 
