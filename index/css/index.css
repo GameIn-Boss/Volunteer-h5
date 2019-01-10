@@ -961,3 +961,20 @@ a,button,input,optgroup,select,textarea { -webkit-tap-highlight-color:rgba(0,0,0
 }
 
 
+.page-error{
+  width: 100%;
+  padding: 22px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #E74C3C;
+  position: fixed;
+  top:-999px;
+  left: 0;
+  z-index: 999999;
+  background-image: url('../images/delete.png');
+  background-repeat: no-repeat;
+  background-size: 10px 10px;
+  background-position: 360px 8px;
+  opacity: 0;
+
+}

@@ -41,18 +41,26 @@
     <!-- <script src="https://js.fundebug.cn/fundebug.1.5.0.min.js" apikey="7de7de184affb1a29b9a766df87ac3420018a2e870a7cc91278229aaeeaccedb"></script> -->
     <script src="./lib/zepto.min.js"></script>
     <script src="./lib/swiper.min.js"></script>
-    <script src="./lib/swiper.animate.min.js"></script>
-
+    <script src="./lib/swiper.animate.min.js"></script> 
+    <script src="./lib/fx.js"></script>
 
     <script>
-        // 微信 config，类型可以是 JS Object 或者 JSON 字符串
-        // window.wxConfig = {}; // 或者 '{}'
+        //true:微信浏览器   false:h5
+        window.userAgent = true;
 
+        if(window.userAgent){
+              (function () {
+                var src = "/lib/jweixin-1.0.0.js";
+                document.write("<scr" + 'ipt src="' + src + '"></scr' + "ipt>");
+            })();
+        }
+
+        // 微信 config，类型可以是 JS Object 或者 JSON 字符串
+        window.wxConfig = {}; // 或者 '{}'
         // http://api.volunteer.alpha.flashdiet.cn/api/v1
         // http://alpha.api.volunteer.tmallwo.com:8000
-        // window.apiHost = "http://api.volunteer.alpha.flashdiet.cn";
-        window.apiHost = "http://api.volzdx.cn";
-
+        //  window.apiHost = 'http://api.volunteer.alpha.flashdiet.cn';
+            window.apiHost = 'http://api.volzdx.cn';
         // server 端下发 token
         window.token = null;
         window.orgInfo = {
@@ -218,82 +226,27 @@
         // 4openRe7Az
         window.orgCode = "joQeZJepZV";
         // joQeZJepZV
-        // window.serviceCategory = [
-        //     "赛事服务",
-        //     "应急救援",
-        //     "城市运⾏",
-        //     "文化教育",
-        //     "关爱服务",
-        //     "社区服务",
-        //     "医疗卫⽣",
-        //     "绿⾊环保",
-        //     "在线志愿服务",
-        //     "国际服务",
-        //     "其他"
-        // ];
-        // window.serviceTarget = [
-        //     "⼉童",
-        //     "⻘少年",
-        //     "孤寡⽼⼈",
-        //     "残障⼈⼠",
-        //     "优抚对象",
-        //     "特困群体",
-        //     "其他"
-        // ];
-        // // server 下发的个人擅长, 用于用户资料填写
-        // window.goodAt = [
-        //     "关爱服务",
-        //     "国际服务",
-        //     "社区服务",
-        //     "应急救援",
-        //     "赛事服务",
-        //     "医疗卫生",
-        //     "绿色环保",
-        //     "文化倡导",
-        //     "教育",
-        //     "助残",
-        //     "助老",
-        //     "其他"
-        // ];
-        // // server 下发的服务类型,可用于过滤等
-        // window.teamCategory = [
-        //     "党政机关",
-        //     "教育事业单位",
-        //     "卫生事业单位",
-        //     "科技事业单位",
-        //     "文化事业单位",
-        //     "社会福利利事业单位",
-        //     "其他事业单位",
-        //     "群团组织",
-        //     "居委会或村委会",
-        //     "国有企业",
-        //     "民营企业",
-        //     "社会团体",
-        //     "社会服务机构",
-        //     "基金会"
-        // ];
-        
-        // if (window.wxConfig) {
-        //     try {
-        //         // setTimeout(function () {
-        //         if (typeof window.wxConfig === "string") {
-        //             window.wxConfig = JSON.parse(window.wxConfig);
-        //         }
-        //         window.wx.config(wxConfig);
-        //         // }, 500);
-        //     } catch (e) {
-        //         alert(e);
-        //     }
-        // }
-
+        if (window.userAgent && window.wxConfig) {
+            try {
+                if (typeof window.wxConfig === "string") {
+                    window.wxConfig = JSON.parse(window.wxConfig);
+                }
+                window.wx.config(wxConfig);
+            } catch (e) {
+                alert(e);
+            }
+        }
+        window.dev=true;
         document.title = window.orgInfo.name;
         // 获取host,跳react项目使用
         let href = `http://${window.location.host}`;
     </script>
 </head>
 
-<body>
+<body>  
     <div class="page-launch">
+        <div class="page-error" onclick="()=>{$.fx.off}">
+        </div>
         <div class="content">
             <div class="page-home">
                 <div class="page-home-header">
@@ -302,16 +255,26 @@
                       
                     </div>
                     <!-- 轮播 -->
-                                <div class="swiper-container">
+                    <div class="swiper-container">
                                     <div class="swiper-wrapper">
                                     </div>
                                     <div class="swiper-pagination"></div>
-                                </div>
-                   
+                    </div>
+                   <div id="header-notice">
+
+                   </div>
                     
                 </div>
                 <div class="page-home-body">
+                    <div id="page-body-menu">
 
+                    </div>
+                    <div id="page-body-project">
+                    
+                    </div>
+                    <div id="page-body-project-list">
+                    
+                    </div>
                 </div>
             </div>
         </div>
@@ -337,7 +300,7 @@
         </ul>
         <div class="line1px" style="width:100%; position:absolute; bottom:49px; left:0" />
     </div>
-    <script charset="utf-8"="http://map.qq.com/api/js?v=2.exp&key=GT7BZ-UXACR-R2JWZ-WYSXR-DHWJV-VEFAI"></script>
+    <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=GT7BZ-UXACR-R2JWZ-WYSXR-DHWJV-VEFAI"></script>
     <script src="./js/index.js"></script>
 </body>
 
