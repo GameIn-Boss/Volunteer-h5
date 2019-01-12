@@ -46,7 +46,7 @@
 
     <script>
         //true:微信浏览器   false:h5
-        window.userAgent = true;
+        window.userAgent = false;
 
         if(window.userAgent){
               (function () {
@@ -221,9 +221,7 @@
                 ]
             }
         };
-        // VolejRejNm
-        // qM7e5Ba2vp
-        // 4openRe7Az
+        
         window.orgCode = "joQeZJepZV";
         // joQeZJepZV
         if (window.userAgent && window.wxConfig) {
@@ -240,6 +238,9 @@
         document.title = window.orgInfo.name;
         // 获取host,跳react项目使用
         let href = `http://${window.location.host}`;
+
+    let data = { "banner": [], "project": [], "news": [{ "id": 14, "title": "asdasdasda1111111", "photo": "http:\/\/api.volunteer.alpha.flashdiet.cn\/images\/uploads\/2018-10\/124331539235447.png", "content": "<p>111111111111111111111<\/p>", "publish_time": "2018-10-11 13:24:21" }, { "id": 13, "title": "safs", "photo": "http:\/\/alpha.api.volunteer.tmallwo.com\/images\/uploads\/2018-10\/529281538900731.jpeg", "content": "<p>asdfasdf<\/p>", "publish_time": "2018-10-07 16:25:33" }], "sanlitun": 0 };
+    let userInfoData = {};
     </script>
 </head>
 
