@@ -1,8 +1,8 @@
-(function() {
+(function () {
   // 图片处理
   document.addEventListener(
     "error",
-    function(e) {
+    function (e) {
       var errorUrl = null;
 
       var elem = e.target;
@@ -26,9 +26,9 @@
   // 城市定位
   let initaialCity = localStorage.getItem("provinceAndCityName")
     ? JSON.parse(localStorage.getItem("provinceAndCityName")).city.replace(
-        "市",
-        ""
-      )
+      "市",
+      ""
+    )
     : "北京";
   let locationCity = null;
 
@@ -94,7 +94,7 @@
         "X-unique-key": window.uniqueKey || "demo",
         "X-city": `${encodeURI(city)}`
       },
-      success: function(json) {
+      success: function (json) {
         console.log(json);
         if (!json.error_code) {
           const { data } = json;
@@ -111,7 +111,7 @@
           AlertError(`${json.error_code}:${json.error_message}`);
         }
       },
-      error: function(xhr, type) {
+      error: function (xhr, type) {
         console.log(xhr);
         console.log(type);
         // AlertError(`${xhr}`);
@@ -161,10 +161,7 @@
             <input class="input" placeholder="搜索项目/团队" disabled="" style="margin-left: 35px;"></a>
             </div>
               <a href='${href}/my'>
-            <img data-type=1  src=${
-              data.avatars
-            } style='width:28px;height:28px;border-radius:50%; object-fit: cover;' />
-            </div></a></div>`;
+              <img data-type=1 style="width: 28px;height:28px;border-radius:50%; object-fit: cover;"  src=${data.avatars} />            </div></a></div>`;
       $(".header-bar")[0].innerHTML = dom;
       return;
     }
@@ -180,7 +177,7 @@
       return;
     }
     var dom = "";
-    $.each(data, function(index, item) {
+    $.each(data, function (index, item) {
       let url = "";
       const mode = item.jump_mode;
       if (orgCode == "wMvbmOeYAl" || orgCode == "KGRb41dBLZ") {
@@ -211,8 +208,8 @@
       }
       dom += `<a class="swiper-slide" href=${url}>
                 <img data-type=2  src=${
-                  item.photo
-                } style='width:100%;height:100%; object-fit: cover;' />
+        item.photo
+        } style='width:100%;height:100%; object-fit: cover;' />
             </a>`;
     });
     $(".swiper-wrapper").html(dom);
@@ -232,7 +229,7 @@
       return null;
     }
     let dom = "";
-    $.each(data, function(index, item) {
+    $.each(data, function (index, item) {
       dom += `<div class="swiper-slide">${item.title}</div>`;
     });
     $("#header-notice").html(`
@@ -266,7 +263,7 @@
       claim_project: `${href}/sanlitun/projectClaim/list`,
       community_interact: `${href}/my/circlevisits`
     };
-    if (!data || typeof data == undefined ||!data.length) {
+    if (!data || typeof data == undefined || !data.length) {
       return null;
     }
     let dom = "";
@@ -275,7 +272,7 @@
     data.forEach((menuLine, idx) => {
       newMenus.push([]);
       menuLine.forEach(menu => {
-    
+
         newMenus[idx].push({
           label: menu['label'],
           key: menu['key'],
@@ -284,9 +281,9 @@
         });
       });
     });
-    $.each(newMenus, function(index, item) {
+    $.each(newMenus, function (index, item) {
       dom += `<li>`;
-      $.each(item, function(index, menu) {
+      $.each(item, function (index, menu) {
         dom += `<a href=${menu.link}>
                 <img data-type=3 class="menu-icon" src=${menu.icon} 
                 style='width:35px;height:35px;object-fit: cover;'
@@ -370,14 +367,14 @@
                     <div class="label-line" />
                 </div>
                 <div class="sub-label">${
-                  isSanlitun ? "Alliance Activities" : "Favored Activities"
-                }</div>
+      isSanlitun ? "Alliance Activities" : "Favored Activities"
+      }</div>
             </div>
             <div class="line1px" /> 
         `;
     if (data) {
       dom += `<ul class="component-projects">`;
-      $.each(data, function(index, project) {
+      $.each(data, function (index, project) {
         const { team } = project;
         const volunteer = isVolunteerInsure(project.volunteer_security);
         let classLabel;
@@ -395,18 +392,18 @@
                 <div>
                   <a href='${href}/team/detail/${
           project.team.id
-        }' class="project-header">
+          }' class="project-header">
                    <img data-type=3 style='width:30px;height:30px;border-radius:4px;object-fit:cover;' src=${
-                     team.logo
-                   } />
+          team.logo
+          } />
                     <div class="org-name">${team.name}</div>
                   </a>
                   <a href='${href}/project/detail/${
           project.id
-        }' class="project-main">
+          }' class="project-main">
                  <img data-type=2 class="image" src=${
-                   project.list_photo
-                 }  style='width:100%;height:200px;border-radius:4px; object-fit: cover;' />
+          project.list_photo
+          }  style='width:100%;height:200px;border-radius:4px; object-fit: cover;' />
                      <div class="project-name">
                       ${project.name}
                 `;
@@ -418,12 +415,12 @@
         }
         dom += `<div class="project-date">
                       活动日期：${parseTimeStringToDateString(
-                        project.begin
-                      )}-${parseTimeStringToDateString(project.end)}
+          project.begin
+        )}-${parseTimeStringToDateString(project.end)}
                     </div><div class='project-status ${classLabel}'></div></a> <div class="project-footer">
                     <div class="project-location"> ${project.county_name} ${
           project.distance > 0 ? parseDistance(project.distance) : null
-        }
+          }
                     </div>
                     <div class="project-members">
                       <span>
@@ -462,7 +459,7 @@
         "myapp"
       );
       var options = { timeout: 8000 };
-      geolocation.getLocation(function(position) {
+      geolocation.getLocation(function (position) {
         const lat = position.lat; // 纬度，浮点数，范围为90 ~ -90
         const lng = position.lng; // 经度，浮点数，范围为180 ~ -180
         const expires = Date.now() + 5 * 60 * 1000; // 5分钟过期
@@ -576,46 +573,46 @@
 
     return `${parsedDistance}km`;
   }
-    function removeHTMLTag(str) {
-        str = str.replace(/<\/?[^>]*>/g, ""); //去除HTML tag
-        str = str.replace(/[ | ]*\n/g, "\n"); //去除行尾空白
-        str = str.replace(/\n[\s| | ]*\r/g, "\n"); //去除多余空行
-        str = str.replace(/&nbsp;/gi, ""); //去掉&nbsp;
-        return str;
-    }
-    function share(option = {}) {
-    
-        if (!window.wx || !window.userAgent) {
-            return;
-        }
-        const orgInfo = window.orgInfo || { name: "志多星", logo: "" };
-        const host = `${location.protocol}//${location.hostname}`;
-        let shareUrl = location.href;
+  function removeHTMLTag(str) {
+    str = str.replace(/<\/?[^>]*>/g, ""); //去除HTML tag
+    str = str.replace(/[ | ]*\n/g, "\n"); //去除行尾空白
+    str = str.replace(/\n[\s| | ]*\r/g, "\n"); //去除多余空行
+    str = str.replace(/&nbsp;/gi, ""); //去掉&nbsp;
+    return str;
+  }
+  function share(option = {}) {
 
-        if (location.pathname === "/" && location.hash.length > 2 && location.hash.indexOf("#/") === 0) {
-            shareUrl = `${location.protocol}//${location.host}/${location.hash.replace(/^#\//g, "")}`;
-        }
-        const orgCode = window.orgCode;
-        let desxName = "文明点亮你我，志愿感动社会";
-        if (orgCode == "qM7e5Ba2vp") {
-            desxName = "志愿小金人，用爱传温暖！";
-        }
-        const newOption = {
-            title: `${option.title || orgInfo.name}`,
-            desc: removeHTMLTag(option.desc || desxName),
-            link: shareUrl,
-            imgUrl: option.image || orgInfo.logo || `${host}/images/icon.png`,
-            success: () => {
-                if (option.success) {
-                    option.success();
-                }
-            }
-        };
-
-        console.log("微信分享设置:", newOption);
-        ["onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareWeibo", "onMenuShareQZone"].forEach(
-            share => wx[share](newOption)
-        );
-    
+    if (!window.wx || !window.userAgent) {
+      return;
     }
+    const orgInfo = window.orgInfo || { name: "志多星", logo: "" };
+    const host = `${location.protocol}//${location.hostname}`;
+    let shareUrl = location.href;
+
+    if (location.pathname === "/" && location.hash.length > 2 && location.hash.indexOf("#/") === 0) {
+      shareUrl = `${location.protocol}//${location.host}/${location.hash.replace(/^#\//g, "")}`;
+    }
+    const orgCode = window.orgCode;
+    let desxName = "文明点亮你我，志愿感动社会";
+    if (orgCode == "qM7e5Ba2vp") {
+      desxName = "志愿小金人，用爱传温暖！";
+    }
+    const newOption = {
+      title: `${option.title || orgInfo.name}`,
+      desc: removeHTMLTag(option.desc || desxName),
+      link: shareUrl,
+      imgUrl: option.image || orgInfo.logo || `${host}/images/icon.png`,
+      success: () => {
+        if (option.success) {
+          option.success();
+        }
+      }
+    };
+
+    console.log("微信分享设置:", newOption);
+    ["onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareWeibo", "onMenuShareQZone"].forEach(
+      share => wx[share](newOption)
+    );
+
+  }
 })();
