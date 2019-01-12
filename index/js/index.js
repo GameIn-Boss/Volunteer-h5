@@ -370,7 +370,7 @@
                     <div class="label-line" />
                 </div>
                 <div class="sub-label">${
-                  isSanlitun ? "Alliance Activities" : "：Favored Activities"
+                  isSanlitun ? "Alliance Activities" : "Favored Activities"
                 }</div>
             </div>
             <div class="line1px" /> 
