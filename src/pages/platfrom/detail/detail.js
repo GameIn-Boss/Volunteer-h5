@@ -40,7 +40,7 @@ import {
 import { requestUserInfo } from '../../../stores/common';
 import { feelingAction, observeAction, unObserveAction, deleteFeelingAction } from '../../my/circle/circle.store';
 import { userCenterAction } from '../../my/my.store';
-
+import { ImageToBase64 } from '../../../utils/funcs'
 
 class TeamDetailPage extends React.Component {
 
