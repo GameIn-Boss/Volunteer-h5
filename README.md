@@ -63,7 +63,7 @@ $ yarn build                    # Compiles the app into the /public/dist folder
 打包完所有文件会在 public 目录下
 
 
-### redux 说明
+
 
 #### 中间件
 
@@ -83,10 +83,6 @@ $ yarn build                    # Compiles the app into the /public/dist folder
 2. 注意生命周期方法顺序
 3. 定时器务必在 componentWillUnmount 中进行清除
 
-### 微信调试开发版本
-
-1. 手机连接 charles 代理
-2. 在 charles 代理中设置 Map Remote，将域名映射到 http://localhost:300
 
 ### API 文档
 
@@ -99,24 +95,6 @@ $ yarn build                    # Compiles the app into the /public/dist folder
 
 #### 测试服务器发布
 
-windows 开发机本地发布可能不变，可以 ssh 到测试服务器上发布，步骤如下
-
-```
-1. ssh miller@60.205.182.2 密码:miller
-2. cd /home/miller/volunteer-h5
-3. sh tools/deploy-testserver.sh
-```
-
-#### 本地发布
-```
-在项目根目录执行：
-sh tools/deploy-testserver.sh
-注意：如果本地有修改会进入 stash 列表，所以发布后如果发现本地修改没了不要紧张，执行 git stash apply 就可以恢复；
-
-60.205.182.2 miller/miller
-静态资源 /data/webapp/volunteer/Volunteer_wechat/public
-首页模板 /data/webapp/volunteer/Volunteer_wechat/resources/views/wechat.blade.php
-```
 
 ### 本地与服务器
 
