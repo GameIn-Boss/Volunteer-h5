@@ -1,8 +1,8 @@
-(function () {
+(function() {
   // 图片处理
   document.addEventListener(
     "error",
-    function (e) {
+    function(e) {
       var errorUrl = null;
 
       var elem = e.target;
@@ -24,14 +24,10 @@
     true
   );
   // 城市定位
-  let initaialCity = localStorage.getItem("provinceAndCityName")
-    ? JSON.parse(localStorage.getItem("provinceAndCityName")).city.replace(
-      "市",
-      ""
-    )
+  let initaialCity = getCookie("provinceAndCityName")
+    ? JSON.parse(getCookie("provinceAndCityName")).city.replace("市", "")
     : "北京";
   let locationCity = null;
-
   rightHeader(userInfoData);
   initSwiper(data && data.banner);
   initNews(data && data.news);
@@ -43,36 +39,38 @@
   initProjectMenu(data && data.sanlitun);
   initProject(data && data.sanlitun, data && data.project);
   share();
-  // 获取定位
-  getCity(
-    (city, str) => {
-      console.log(city);
-      console.log(str);
-
-      if (initaialCity == city.replace("市", "")) {
-        return;
-      } else {
-        console.log("-----", str);
-        locationCity = city;
-        var r = confirm(`已经成功定位到当前定位城市${city},是否切换？`);
-        if (r == true) {
-          localStorage.setItem("provinceAndCityName", str);
-          initaialCity = city;
+  if (!getCookie("provinceAndCityName")) {
+    // 获取定位
+    getCity(
+      (city, str) => {
+        if (initaialCity == city.replace("市", "")) {
+          console.log(222);
           requestHomeData();
+          return;
+        } else {
+          console.log("-----", str);
+          locationCity = city;
+          var r = confirm(`已经成功定位到当前定位城市${city},是否切换？`);
+          if (r == true) {
+            setCookie("provinceAndCityName", str, 1);
+            initaialCity = city;
+            requestHomeData();
+          }
         }
+      },
+      () => {
+        AlertError("定位失败，请确认同意定位授权");
       }
-    },
-    () => {
-      AlertError("定位失败，请确认同意定位授权");
-    }
-  );
+    );
+  }
+
   // 请求首页数据
   function requestHomeData() {
-    const location = localStorage.location
-      ? JSON.parse(localStorage.location)
+    const location = getCookie("location")
+      ? JSON.parse(getCookie("location"))
       : null;
-    const city = localStorage.provinceAndCityName
-      ? JSON.parse(localStorage.provinceAndCityName).city
+    const city = getCookie("provinceAndCityName")
+      ? JSON.parse(getCookie("provinceAndCityName")).city
       : "北京";
     $.ajax({
       type: "GET",
@@ -94,7 +92,7 @@
         "X-unique-key": window.uniqueKey || "demo",
         "X-city": `${encodeURI(city)}`
       },
-      success: function (json) {
+      success: function(json) {
         console.log(json);
         if (!json.error_code) {
           const { data } = json;
@@ -111,7 +109,7 @@
           AlertError(`${json.error_code}:${json.error_message}`);
         }
       },
-      error: function (xhr, type) {
+      error: function(xhr, type) {
         console.log(xhr);
         console.log(type);
         // AlertError(`${xhr}`);
@@ -150,18 +148,22 @@
   // 右上角用户信息显示头像、登录按钮
   function rightHeader(data) {
     if (!data || !data.id) {
-      let dom = `<a href='${href}/selectcity'><div class="city-name">北京</div></a><div style="display: flex; width: 280px;"><a href="/homesearch" class="component-search-newbar"><input class="input" placeholder="搜索项目/团队" disabled="" style="margin-left: 35px;"></a><a href='${href}/my/entry'><div class="login-button">登录</div></a></div>`;
+      let dom = `<a href='${href}/selectcity'><div class="city-name">${initaialCity}</div></a><div style="display: flex; width: 280px;"><a href="/homesearch" class="component-search-newbar"><input class="input" placeholder="搜索项目/团队" disabled="" style="margin-left: 35px;"></a>
+      <a href='${href}/my/entry'><div class="login-button">登录</div></a>
+      </div>`;
       $(".header-bar")[0].innerHTML = dom;
       return;
     } else {
-      let dom = `<a href='${href}/selectcity'><div class="city-name">北京</div></a>
+      let dom = `<a href='${href}/selectcity'><div class="city-name">${initaialCity}</div></a>
             
             <div style="display: flex; flex: 1 1 0%;"><div class="content-boxpadding">
             <a href=='${href}/homesearch' class="component-search-bar dirmargin">
             <input class="input" placeholder="搜索项目/团队" disabled="" style="margin-left: 35px;"></a>
             </div>
               <a href='${href}/my'>
-              <img data-type=1 style="width: 28px;height:28px;border-radius:50%; object-fit: cover;"  src=${data.avatars} />            </div></a></div>`;
+              <img data-type=1 style="width: 28px;height:28px;border-radius:50%; object-fit: cover;"  src=${
+                data.avatars
+              } />            </div></a></div>`;
       $(".header-bar")[0].innerHTML = dom;
       return;
     }
@@ -177,7 +179,7 @@
       return;
     }
     var dom = "";
-    $.each(data, function (index, item) {
+    $.each(data, function(index, item) {
       let url = "";
       const mode = item.jump_mode;
       if (orgCode == "wMvbmOeYAl" || orgCode == "KGRb41dBLZ") {
@@ -208,8 +210,8 @@
       }
       dom += `<a class="swiper-slide" href=${url}>
                 <img data-type=2  src=${
-        item.photo
-        } style='width:100%;height:100%; object-fit: cover;' />
+                  item.photo
+                } style='width:100%;height:100%; object-fit: cover;' />
             </a>`;
     });
     $(".swiper-wrapper").html(dom);
@@ -229,7 +231,7 @@
       return null;
     }
     let dom = "";
-    $.each(data, function (index, item) {
+    $.each(data, function(index, item) {
       dom += `<div class="swiper-slide">${item.title}</div>`;
     });
     $("#header-notice").html(`
@@ -272,18 +274,17 @@
     data.forEach((menuLine, idx) => {
       newMenus.push([]);
       menuLine.forEach(menu => {
-
         newMenus[idx].push({
-          label: menu['label'],
-          key: menu['key'],
-          icon: menu['icon'],
+          label: menu["label"],
+          key: menu["key"],
+          icon: menu["icon"],
           link: MODULE_LINK[menu.key] || DEFAULT_LINK
         });
       });
     });
-    $.each(newMenus, function (index, item) {
+    $.each(newMenus, function(index, item) {
       dom += `<li>`;
-      $.each(item, function (index, menu) {
+      $.each(item, function(index, menu) {
         dom += `<a href=${menu.link}>
                 <img data-type=3 class="menu-icon" src=${menu.icon} 
                 style='width:35px;height:35px;object-fit: cover;'
@@ -367,43 +368,43 @@
                     <div class="label-line" />
                 </div>
                 <div class="sub-label">${
-      isSanlitun ? "Alliance Activities" : "Favored Activities"
-      }</div>
+                  isSanlitun ? "Alliance Activities" : "Favored Activities"
+                }</div>
             </div>
             <div class="line1px" /> 
         `;
     if (data) {
       dom += `<ul class="component-projects">`;
-      $.each(data, function (index, project) {
+      $.each(data, function(index, project) {
         const { team } = project;
         const volunteer = isVolunteerInsure(project.volunteer_security);
         let classLabel;
-        if (project.project_status === 2) {
+        if (project.progress === 1) {
           classLabel = "project-status-recruit";
-        } else if (project.project_status === 3) {
+        } else if (project.progress === 3) {
           classLabel = "project-status-full";
-        } else if (project.project_status === 4) {
+        } else if (project.progress === 2) {
           classLabel = "project-status-progress";
-        } else if (project.project_status === 5) {
-          classLabel = "project.project_status";
+        } else if (project.progress === 5) {
+          classLabel = "project-status-end";
         }
         dom += `
                 <li key=${project.id}>
                 <div>
                   <a href='${href}/team/detail/${
           project.team.id
-          }' class="project-header">
+        }' class="project-header">
                    <img data-type=3 style='width:30px;height:30px;border-radius:4px;object-fit:cover;' src=${
-          team.logo
-          } />
+                     team.logo
+                   } />
                     <div class="org-name">${team.name}</div>
                   </a>
                   <a href='${href}/project/detail/${
           project.id
-          }' class="project-main">
-                 <img data-type=2 class="image" src=${
-          project.list_photo
-          }  style='width:100%;height:200px;border-radius:4px; object-fit: cover;' />
+        }' class="project-main">
+                 <img data-type=2 class="image" style='width:100%;height:200px;border-radius:4px; object-fit: cover;' src=${
+                   project.list_photo
+                 }   />
                      <div class="project-name">
                       ${project.name}
                 `;
@@ -415,12 +416,12 @@
         }
         dom += `<div class="project-date">
                       活动日期：${parseTimeStringToDateString(
-          project.begin
-        )}-${parseTimeStringToDateString(project.end)}
+                        project.begin
+                      )}-${parseTimeStringToDateString(project.end)}
                     </div><div class='project-status ${classLabel}'></div></a> <div class="project-footer">
                     <div class="project-location"> ${project.county_name} ${
-          project.distance > 0 ? parseDistance(project.distance) : null
-          }
+          project.distance > 0 ? parseDistance(project.distance) : ""
+        }
                     </div>
                     <div class="project-members">
                       <span>
@@ -446,6 +447,14 @@
 
   function getLocation(success, fail, noCache) {
     if (window.dev) {
+      setCookie(
+        "location",
+        JSON.stringify({
+          lng: "116.314820",
+          lat: "40.065560"
+        }),
+        1
+      );
       success({
         lng: "116.314820",
         lat: "40.065560"
@@ -459,19 +468,11 @@
         "myapp"
       );
       var options = { timeout: 8000 };
-      geolocation.getLocation(function (position) {
+      geolocation.getLocation(function(position) {
         const lat = position.lat; // 纬度，浮点数，范围为90 ~ -90
         const lng = position.lng; // 经度，浮点数，范围为180 ~ -180
-        const expires = Date.now() + 5 * 60 * 1000; // 5分钟过期
         console.log("获取新位置成功", position);
-        localStorage.setItem(
-          "location",
-          JSON.stringify({
-            lat,
-            lng,
-            expires
-          })
-        );
+        setCookie("location", JSON.stringify({ lat, lng }), 1);
         if (success) {
           success({ lat, lng });
         }
@@ -488,21 +489,16 @@
     if (window.dev) {
       const city = "北京市";
       const province = "北京";
-      localStorage.setItem(
+      setCookie(
         "provinceAndCityName",
         JSON.stringify({
           city,
           province
-        })
+        }),
+        1
       );
 
-      success(
-        JSON.parse(localStorage.getItem("provinceAndCityName")).city || "北京",
-        JSON.stringify({
-          city,
-          province
-        })
-      );
+      success(city || "北京", JSON.stringify({ city, province }));
       return;
     }
     getLocation(
@@ -517,7 +513,6 @@
                 console.log(result);
                 return;
               }
-              // result.detail.addressComponents.province
               const city = result.detail.addressComponents.city;
               const province = result.detail.addressComponents.province;
               success(
@@ -541,6 +536,32 @@
         }
       }
     );
+  }
+
+  //写cookies（设置作用域）
+  function setCookie(name, value, Days) {
+    var exp = new Date();
+    exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+    let hostname = location.hostname.substring(
+      location.hostname.indexOf(".") + 1
+    ); //设置为一级域名
+    document.cookie =
+      name +
+      "=" +
+      escape(value) +
+      ";expires=" +
+      exp.toGMTString() +
+      ";domain=" +
+      hostname +
+      ";path=/";
+  }
+  //读取cookies
+  function getCookie(name) {
+    var arr = document.cookie.match(
+      new RegExp("(^| )" + name + "=([^;]*)(;|$)")
+    );
+    if (arr != null) return unescape(arr[2]);
+    return null;
   }
 
   // 去除三里屯志愿回馈
@@ -581,7 +602,6 @@
     return str;
   }
   function share(option = {}) {
-
     if (!window.wx || !window.userAgent) {
       return;
     }
@@ -589,8 +609,14 @@
     const host = `${location.protocol}//${location.hostname}`;
     let shareUrl = location.href;
 
-    if (location.pathname === "/" && location.hash.length > 2 && location.hash.indexOf("#/") === 0) {
-      shareUrl = `${location.protocol}//${location.host}/${location.hash.replace(/^#\//g, "")}`;
+    if (
+      location.pathname === "/" &&
+      location.hash.length > 2 &&
+      location.hash.indexOf("#/") === 0
+    ) {
+      shareUrl = `${location.protocol}//${
+        location.host
+      }/${location.hash.replace(/^#\//g, "")}`;
     }
     const orgCode = window.orgCode;
     let desxName = "文明点亮你我，志愿感动社会";
@@ -610,9 +636,12 @@
     };
 
     console.log("微信分享设置:", newOption);
-    ["onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareWeibo", "onMenuShareQZone"].forEach(
-      share => wx[share](newOption)
-    );
-
+    [
+      "onMenuShareTimeline",
+      "onMenuShareAppMessage",
+      "onMenuShareQQ",
+      "onMenuShareWeibo",
+      "onMenuShareQZone"
+    ].forEach(share => wx[share](newOption));
   }
 })();
