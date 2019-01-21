@@ -38,13 +38,14 @@
   }
   initProjectMenu(data && data.sanlitun);
   initProject(data && data.sanlitun, data && data.project);
-  share();
+  wx.ready(() => {
+    share();
+  })
   if (!getCookie("provinceAndCityName")) {
     // 获取定位
     getCity(
       (city, str) => {
         if (initaialCity == city.replace("市", "")) {
-          console.log(222);
           requestHomeData();
           return;
         } else {
