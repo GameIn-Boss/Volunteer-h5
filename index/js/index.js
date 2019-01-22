@@ -24,23 +24,24 @@
     true
   );
   // 城市定位
-  let initaialCity = getCookie("provinceAndCityName")
+  var initaialCity = getCookie("provinceAndCityName")
     ? JSON.parse(getCookie("provinceAndCityName")).city.replace("市", "")
     : "北京";
-  let locationCity = null;
+  var locationCity = null;
   rightHeader(userInfoData);
   initSwiper(data && data.banner);
   initNews(data && data.news);
   if (window.orgCode == "VolejRejNm") {
-    initMent(deleteSanlitunMoudling(window.orgInfo.module_settings));
+    initMent(devareSanlitunMoudling(window.orgInfo.module_settings));
   } else {
     initMent(window.orgInfo.module_settings);
   }
   initProjectMenu(data && data.sanlitun);
   initProject(data && data.sanlitun, data && data.project);
   wx.ready(() => {
+    console.log('wxready')
     share();
-  })
+  });
   if (!getCookie("provinceAndCityName")) {
     // 获取定位
     getCity(
@@ -100,7 +101,7 @@
           initSwiper(data && data.banner);
           initNews(data && data.news);
           if (window.orgCode == "VolejRejNm") {
-            initMent(deleteSanlitunMoudling(window.orgInfo.module_settings));
+            initMent(devareSanlitunMoudling(window.orgInfo.module_settings));
           } else {
             initMent(window.orgInfo.module_settings);
           }
@@ -149,13 +150,13 @@
   // 右上角用户信息显示头像、登录按钮
   function rightHeader(data) {
     if (!data || !data.id) {
-      let dom = `<a href='${href}/selectcity'><div class="city-name">${initaialCity}</div></a><div style="display: flex; width: 280px;"><a href="/homesearch" class="component-search-newbar"><input class="input" placeholder="搜索项目/团队" disabled="" style="margin-left: 35px;"></a>
+      var dom = `<a href='${href}/selectcity'><div class="city-name">${initaialCity}</div></a><div style="display: flex; width: 280px;"><a href="/homesearch" class="component-search-newbar"><input class="input" placeholder="搜索项目/团队" disabled="" style="margin-left: 35px;"></a>
       <a href='${href}/my/entry'><div class="login-button">登录</div></a>
       </div>`;
       $(".header-bar")[0].innerHTML = dom;
       return;
     } else {
-      let dom = `<a href='${href}/selectcity'><div class="city-name">${initaialCity}</div></a>
+      var dom = `<a href='${href}/selectcity'><div class="city-name">${initaialCity}</div></a>
             
             <div style="display: flex; flex: 1 1 0%;"><div class="content-boxpadding">
             <a href=='${href}/homesearch' class="component-search-bar dirmargin">
@@ -181,7 +182,7 @@
     }
     var dom = "";
     $.each(data, function(index, item) {
-      let url = "";
+      var url = "";
       const mode = item.jump_mode;
       if (orgCode == "wMvbmOeYAl" || orgCode == "KGRb41dBLZ") {
         if (mode === 1) {
@@ -216,7 +217,7 @@
             </a>`;
     });
     $(".swiper-wrapper").html(dom);
-    let Swipe = new Swiper(".swiper-container", {
+    var Swipe = new Swiper(".swiper-container", {
       autoplay: {
         delay: 6000,
         disableOnInteraction: false
@@ -231,7 +232,7 @@
     if (!data || !data.length) {
       return null;
     }
-    let dom = "";
+    var dom = "";
     $.each(data, function(index, item) {
       dom += `<div class="swiper-slide">${item.title}</div>`;
     });
@@ -244,7 +245,7 @@
                </div>
             </a>
             `);
-    let notice = new Swiper(".components-announcement-container", {
+    var notice = new Swiper(".components-announcement-container", {
       direction: "vertical",
       autoplay: true
     });
@@ -269,7 +270,7 @@
     if (!data || typeof data == undefined || !data.length) {
       return null;
     }
-    let dom = "";
+    var dom = "";
     const newMenus = [];
 
     data.forEach((menuLine, idx) => {
@@ -303,7 +304,7 @@
   }
   // 渲染projectmenu
   function initProjectMenu(data) {
-    let dom;
+    var dom;
     if (Number(data) == 1) {
       dom = `<div>
                   <div style='width: "100%";height: "10px"'></div>
@@ -360,8 +361,8 @@
   }
   // 底部推荐
   function initProject(sanlitun, data) {
-    let isSanlitun = Number(sanlitun);
-    let dom = `<div class="project-list">
+    var isSanlitun = Number(sanlitun);
+    var dom = `<div class="project-list">
             <div class="list-header">
                 <div class="main-label">
                     <div class="label-line" />
@@ -379,7 +380,7 @@
       $.each(data, function(index, project) {
         const { team } = project;
         const volunteer = isVolunteerInsure(project.volunteer_security);
-        let classLabel;
+        var classLabel;
         if (project.progress === 1) {
           classLabel = "project-status-recruit";
         } else if (project.progress === 3) {
@@ -462,7 +463,7 @@
       });
       return;
     }
-    let cachedLoc = null;
+    var cachedLoc = null;
     if (!cachedLoc) {
       var geolocation = new qq.maps.Geolocation(
         "GT7BZ-UXACR-R2JWZ-WYSXR-DHWJV-VEFAI",
@@ -505,7 +506,7 @@
     getLocation(
       loc => {
         const geocoder = new qq.maps.Geocoder({
-          complete: result => {
+          compvare: result => {
             if (
               result.detail.addressComponents &&
               result.detail.addressComponents.city
@@ -543,7 +544,7 @@
   function setCookie(name, value, Days) {
     var exp = new Date();
     exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
-    let hostname = location.hostname.substring(
+    var hostname = location.hostname.substring(
       location.hostname.indexOf(".") + 1
     ); //设置为一级域名
     document.cookie =
@@ -566,7 +567,7 @@
   }
 
   // 去除三里屯志愿回馈
-  function deleteSanlitunMoudling(data) {
+  function devareSanlitunMoudling(data) {
     var newData = data.map(item => {
       return item.filter(ite => {
         return ite["key"] != "volunteer_feedback";
@@ -585,7 +586,7 @@
     return dateString.replace(/-/g, ".");
   }
   function parseDistance(distance) {
-    let parsedDistance = distance / 1000;
+    var parsedDistance = distance / 1000;
 
     if (parsedDistance < 10) {
       parsedDistance = parsedDistance.toFixed(1);
@@ -603,12 +604,13 @@
     return str;
   }
   function share(option = {}) {
+    console.log('share')
     if (!window.wx || !window.userAgent) {
       return;
     }
     const orgInfo = window.orgInfo || { name: "志多星", logo: "" };
     const host = `${location.protocol}//${location.hostname}`;
-    let shareUrl = location.href;
+    var shareUrl = location.href;
 
     if (
       location.pathname === "/" &&
@@ -620,10 +622,11 @@
       }/${location.hash.replace(/^#\//g, "")}`;
     }
     const orgCode = window.orgCode;
-    let desxName = "文明点亮你我，志愿感动社会";
+    var desxName = (window.orgInfo && window.orgInfo.org_info) || "文明点亮你我，志愿感动社会";
     if (orgCode == "qM7e5Ba2vp") {
       desxName = "志愿小金人，用爱传温暖！";
     }
+    console.log(desxName);
     const newOption = {
       title: `${option.title || orgInfo.name}`,
       desc: removeHTMLTag(option.desc || desxName),
