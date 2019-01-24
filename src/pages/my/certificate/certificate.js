@@ -109,12 +109,10 @@ class Certificate extends React.Component {
       height: height,
       useCORS: true
     };
-    setTimeout(() => {
-      html2canvas(shareContent, opts).then(function(canvas) {
-        var dataUrl = canvas.toDataURL("image/jpeg", 4);
-        that.setState({ dataUrl });
-      });
-    }, 1500);
+    html2canvas(shareContent, opts).then(function(canvas) {
+      var dataUrl = canvas.toDataURL("image/jpeg", 4);
+      that.setState({ dataUrl });
+    });
   };
   componentWillUnmount() {}
 
@@ -133,7 +131,7 @@ class Certificate extends React.Component {
       : null;
     return (
       <div className="page-certificate-bg">
-        <div className="page-certificate-container-border">
+        <div className="page-certificate-container-border" ref="LaunchContent">
           <h5 className="page-certificate-container-title">
             {this.certTitle}志愿服务证书
           </h5>
@@ -233,7 +231,7 @@ class Certificate extends React.Component {
             style={{
               width: "357px",
               display: "block",
-              position: "relative",
+              position: "absolute",
               top: 0,
               bottom: 0,
               left: 0,
@@ -243,13 +241,9 @@ class Certificate extends React.Component {
             src={`${this.state.dataUrl}`}
           />
         ) : (
-          <div className="page-certificate-main-container" ref="LaunchContent">
-            {/** TODO: */}
+          <div className="page-certificate-main-container">
             {this.renderCertificate()}
           </div>
-        )}
-        {dataUrl ? null : (
-          <div className="page-certificate-main-mask">图片生成中。。。</div>
         )}
       </div>
     );

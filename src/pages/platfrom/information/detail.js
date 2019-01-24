@@ -58,15 +58,6 @@ class TeamSearchPage extends React.Component {
   componentWillUnmount() {
   }
   htm2Click = () => {
-
-
-
-
-
-
-
-
-
     var that = this;
     var shareContent = this.refs['LaunchContent'];
     var width = shareContent.offsetWidth;
@@ -88,8 +79,7 @@ class TeamSearchPage extends React.Component {
       var dataUrl = canvas.toDataURL('image/jpeg', 4);
  
       that.setState({ dataUrl });
-      // localStorage.setItem('dataUrlObj' , JSON.stringify(dataUrlObj));
-      // history.push('/platfrom/view');
+     
   
     });
   }
