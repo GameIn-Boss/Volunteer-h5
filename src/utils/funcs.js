@@ -1,30 +1,33 @@
 /* global wx:false, qq:false */
+
 // 遍历转baser64
-export function ImageToBase64(imageArrays, defaultArrays, callback, index,) {
+export function ImageToBase64(imageArrays, defaultArrays, callback, index) {
   // let base64Arrays = [];
-  if (!imageArrays.length) return;
+  if (!imageArrays.length) {
+    return;
+  }
   if (index < imageArrays.length) {
-    console.log("start------", imageArrays[index]);
-    let canvas = document.createElement("canvas");
-    let ctx = canvas.getContext("2d");
-    let img = new Image();
-    img.crossOrigin = "*";
+    console.log('start------', imageArrays[index]);
+    let canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const img = new Image();
+    img.crossOrigin = '*';
     img.onload = function () {
-      console.log("img onload", this.src);
-      
+      console.log('img onload', this.src);
+
       canvas.height = img.height;
       canvas.width = img.width;
       ctx.drawImage(img, 0, 0);
-      var dataURL = canvas.toDataURL("image/png");
-      imageArrays[index]=dataURL;
+      const dataURL = canvas.toDataURL('image/png');
+      imageArrays[index] = dataURL;
       index++;
-      console.log(`---------------------${index}转换成功`)
+      console.log(`---------------------${index}转换成功`);
       ImageToBase64(imageArrays, defaultArrays, callback, index);
       canvas = null;
     };
     img.onerror = function (e) {
       console.log(`----------------------${index}张图片失败`);
-      console.log("img onerror", e);
+      console.log('img onerror', e);
       if (defaultArrays[index]) {
         img.src = defaultArrays[index];
       } else {
@@ -32,43 +35,42 @@ export function ImageToBase64(imageArrays, defaultArrays, callback, index,) {
       }
     };
     img.src = imageArrays[index];
-
   } else {
     callback && callback(imageArrays);
   }
-
 }
-
-
-
-
-
-
-
 
 // 去除三里屯  志愿回馈
 export function deleteSanlitunMoudling(data) {
-
-  var newData = data.map((item) => {
-    return (
-      item.filter((ite) => {
-        return ite['key'] != 'volunteer_feedback';
-      })
-    )
-  })
-  return newData
+  const newData = data.map(item => (
+      item.filter(ite => ite.key != 'volunteer_feedback')
+    ));
+  return newData;
 }
+
 export function getQueryString(name) {
   const reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`);
   const r = window.location.search.substr(1).match(reg);
-  if (r != null) return r[2]; return '';
+  if (r != null) {
+    return r[2];
+  }
+  return '';
 }
+
+// 获取对应的query，并以传入的key为键返回对象
+export function getQuery(name) {
+  const value = getQueryString(name);
+  if (value && value.length) return { [name]: decodeURIComponent(value) };
+  return {};
+}
+
 export function parseTimeStringToDateString(timeString) {
   const dateString = timeString.split(' ')[0];
   return dateString.replace(/-/g, '.');
 }
 
 export function isWindowReachBottom(threshold = 0) {
+  console.log(window.innerHeight + window.scrollY + threshold, document.body.scrollHeight)
   if ((window.innerHeight + window.scrollY + threshold) >= document.body.scrollHeight) {
     return true;
   }
@@ -102,7 +104,7 @@ export function getLocation(success, fail, noCache) {
   // if ((cachedLoc && cachedLoc.expires <= Date.now()) || noCache === true) {
   //   cachedLoc = null;
   // }
-  let cachedLoc = null;
+  const cachedLoc = null;
   if (!cachedLoc) {
     window.wx.ready(() => {
       wx.getLocation({
@@ -156,36 +158,34 @@ export function getCity(success, fail) {
   }
 
   getLocation((loc) => {
-      const geocoder = new qq.maps.Geocoder({
-        complete: (result) => {
-          console.log(result);
-          if (result.detail.addressComponents
-            && result.detail.addressComponents.city) {
-            if (!success) {
-              console.log(result);
-              return;
-            }
-            const city = result.detail.addressComponents.city;
-            const province = result.detail.addressComponents.province;
-            success(result.detail.addressComponents.city.replace('市', ''), JSON.stringify({
-              city,
-              province,
-            }));
-
-          } else if (fail) {
-            fail({});
+    const geocoder = new qq.maps.Geocoder({
+      complete: (result) => {
+        console.log(result);
+        if (result.detail.addressComponents
+          && result.detail.addressComponents.city) {
+          if (!success) {
+            console.log(result);
+            return;
           }
-        },
-        error: function (res) {
-          console.log("res", res);
+          const city = result.detail.addressComponents.city;
+          const province = result.detail.addressComponents.province;
+          success(result.detail.addressComponents.city.replace('市', ''), JSON.stringify({
+            city,
+            province,
+          }));
+        } else if (fail) {
+          fail({});
         }
+      },
+      error(res) {
+        console.log('res', res);
+      },
 
-      });
-      console.log("coord::::");
-      const coord = new qq.maps.LatLng(loc.lat, loc.lng);
-      console.log("coord::", coord);
-      geocoder.getAddress(coord);
-   
+    });
+    console.log('coord::::');
+    const coord = new qq.maps.LatLng(loc.lat, loc.lng);
+    console.log('coord::', coord);
+    geocoder.getAddress(coord);
   }, (error) => {
     if (fail) {
       fail(error);
@@ -231,9 +231,9 @@ export function timestampToDateText(timestamp) {
 }
 
 /**
-* 2017-10-18 转 2017年10月18日
-* @param {string} dateText
-*/
+ * 2017-10-18 转 2017年10月18日
+ * @param {string} dateText
+ */
 export function dateTextToDateText(dateText) {
   const re = /^(\d+)-(\d+)-(\d+)$/;
   const match = dateText.match(re);

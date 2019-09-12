@@ -1,17 +1,10 @@
-import fetch from '../../utils/fetch';
 import { combineReducers } from 'redux';
-import { API_HOST } from '../../utils/config';
+import fetch from '../../utils/fetch';
 
 export const requestHomeData = () => ({
   type: 'HOME_DATA',
   payload: fetch('/index', { method: 'GET' }),
 });
-
-export const saveCity = city => ({
-  type: 'CITY_DATA_FULFILLED',
-  payload: { city },
-});
-
 const homeReducer = (state = {
   fetching: false,
   failed: false,
@@ -38,41 +31,36 @@ const homeReducer = (state = {
         failed: true,
         fetching: false,
       };
-    case 'CITY_DATA_FULFILLED':
-      return {
-        ...state,
-        city: action.payload.city,
-      };
     default:
       return state;
   }
 };
-// 城市下区域接口 【3.0新增】
-export const getAreaCity = name => ({
-  type: 'AREACITY_DATA',
-  payload: fetch(`${API_HOST}/api/area/city`, { method: 'GET', data: { name } }),
-});
 
-const getAreaCityReducer = (state = {
+export const requestWebIndex = () => ({
+  type: 'WEB_INDEX',
+  payload: fetch('/web/index', { method: 'GET' }),
+});
+const webIndexReducer = (state = {
   fetching: false,
   failed: false,
+  city: null,
   data: null,
 }, action) => {
   switch (action.type) {
-    case 'AREACITY_DATA_PENDING':
+    case 'WEB_INDEX_PENDING':
       return {
         ...state,
         fetching: true,
         failed: false,
       };
-    case 'AREACITY_DATA_FULFILLED':
+    case 'WEB_INDEX_FULFILLED':
       return {
         ...state,
         fetching: false,
         failed: false,
-        data: action.payload.data,
+        data: action.payload && action.payload.data,
       };
-    case 'AREACITY_DATA_REJECTED':
+    case 'WEB_INDEX_REJECTED':
       return {
         ...state,
         failed: true,
@@ -82,8 +70,9 @@ const getAreaCityReducer = (state = {
       return state;
   }
 };
+
 const reducer = combineReducers({
   home: homeReducer,
-  getAreaCity: getAreaCityReducer,
+  webIndex: webIndexReducer,
 });
 export default reducer;

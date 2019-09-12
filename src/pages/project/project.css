@@ -1,0 +1,24 @@
+.page-projects-title {
+    font-family: PingFangSC-Semibold;
+    font-size: 17px;
+    color: #4A4A4A;
+    margin-bottom: 25px;
+    height: 76px;
+    background: #F8F8F9;
+}
+.page-projects-title-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+.page-projects-title span {
+    font-size: 11px;
+    color: #000000;
+}
+
+.page-home-projects-content::after {
+    content: '';
+    width: 277px;
+}
+

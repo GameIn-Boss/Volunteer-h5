@@ -1,5 +1,5 @@
-import autoBind from "react-autobind";
-import React, { PropTypes } from "react";
+import autoBind from 'react-autobind';
+import React, { PropTypes } from 'react';
 
 class Image extends React.Component {
   static propTypes = {
@@ -7,28 +7,28 @@ class Image extends React.Component {
     // 图片裁剪配置[100, 200]
     resize: PropTypes.shape({
       width: PropTypes.number,
-      height: PropTypes.number
+      height: PropTypes.number,
     }),
     // 默认图片，当图片无法正常展示是显示
-    defaultSrc: PropTypes.string
+    defaultSrc: PropTypes.string,
   };
 
   constructor(props) {
     super(props);
     autoBind(this);
 
-    this.defaultSrc = "/images/default_avatar.png";
+    this.defaultSrc = '/images/default_avatar.png';
 
     this.state = {
       src: this.configSrc(props),
-      iserror: false
+      iserror: false,
     };
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
       ...this.state,
-      src: this.configSrc(nextProps)
+      src: this.configSrc(nextProps),
     });
   }
 
@@ -36,7 +36,7 @@ class Image extends React.Component {
     let src = props.src || props.defaultSrc || this.defaultSrc;
     const resize = props.resize || [];
     const { width, height } = resize;
-    var img = document.createElement("img");
+    const img = document.createElement('img');
     img.src = `${src}`;
     const that = this;
     img.onerror = function () {
@@ -52,7 +52,7 @@ class Image extends React.Component {
   render() {
     const props = {
       ...this.props,
-      src: this.state.src
+      src: this.state.src,
     };
     const { iserror } = this.state;
     delete props.defaultSrc;
@@ -67,10 +67,10 @@ class Image extends React.Component {
           style={{
             ...props.style,
             backgroundImage: `url(${
-              iserror ? "/images/default_banner.png" : this.state.src
+              iserror ? '/images/default_banner.png' : this.state.src
             })`,
-            backgroundPosition: "center",
-            backgroundSize: "cover"
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
           }}
         />
         {/* <image style={{}} src={`${this.state.src}`} onError={() => { console.log(11);this.setState({ iserror: true }) }} /> */}

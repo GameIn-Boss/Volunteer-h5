@@ -1,145 +1,120 @@
-.projects-empty-tip {
-  padding: 20px;
-  text-align: center;
-  color: #999;
-  font-size: 14px;
-  background: #fff;
-  font-weight: 200;
-  min-height: 300px;
+.page-home-projects {
+    /*width: 100%;*/
+    /*padding: 0 126px;*/
+}
+.page-home-projects-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.page-home-projects-content-line {
+    height: 376px;
+    font-size: 12px;
+    box-sizing: border-box;
+    color: #535D6A;
+    margin-bottom: 33px;
+}
+.page-home-projects-content-box {
+    width: 277px;
+    height: 376px;
+    box-shadow: 0 2px 10px 0 rgba(173,173,173,0.28);
+}
+.page-home-projects-content-line-title {
+    font-size: 14px;
+    color: #090A09;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.page-home-projects-content-line-addr {
+    font-size: 12px;
+    color: #B5C1D2;
+    margin: 11px 0 14px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.page-home-projects-content-line-time {
+    font-size: 12px;
+    color: #535D6A;
+    margin-bottom: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.page-home-projects-content-line-pd {
+    padding: 15px 19px 0;
+}
+.page-home-projects-title {
+    font-size: 24px;
+    color: #5E90AB;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+.page-home-projects-title span {
+    font-size: 11px;
+    color: #000000;
+}
+.page-home-projects-content-line-addr-icon {
+    width: 11px;
+    height: 14px;
+    background: url("/images/location.png") no-repeat center;
+    background-size: cover;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+.page-home-projects-content-line-time-icon {
+    width: 16px;
+    height: 16px;
+    background: url("/images/date.png") no-repeat center;
+    background-size: cover;
+    display: inline-block;
+    vertical-align: middle;
+}
+.page-home-projects-content-line-num {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.page-home-projects-content-line-num-hour {
+    width: 16px;
+    height: 16px;
+    background: url("/images/time@2x.png") no-repeat center;
+    background-size: cover;
+    display: inline-block;
+    vertical-align: middle;
+}
+.page-home-projects-content-line-num-people {
+    width: 13px;
+    height: 15px;
+    background: url("/images/people@2x.png") no-repeat center;
+    background-size: cover;
+    display: inline-block;
+    vertical-align: middle;
+}
+.page-home-projects-content-line-num-left,.page-home-projects-content-line-num-right {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    color: #535D6A;
+}
+.page-home-projects-content-line-num-left {
+    margin-right: 5px;
+}
+.page-home-projects-content-line-num-right {
+    margin-left: 5px;
 }
 
-.component-projects{
-  background: #FAFAFA;
+.bc {
+    background: rgba(228,234,238,0.25);
+    border-radius: 17px;
+    padding: 9px 17px;
 }
 
-.component-projects li{
-  padding: 15px;
-  margin-bottom: 10px;
-  background: #fff;
-  text-decoration: none;
+.projects-space {
+    width: 277px;
 }
-
-.component-projects .project-header {
-  height: 30px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.component-projects .project-header .org-avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 4px;
-}
-
-.component-projects .project-header .org-name {
-  flex: 1;
-  text-align: left;
-  font-size: 15px;
-  color: #333333;
-  line-height: 30px;
-  margin-left: 5px;
-}
-
-.component-projects .project-main {
-  overflow: hidden;
-  position: relative;
-  display: block;
-}
-
-.component-projects .project-main .image{
-  width: 100%;
-  height: 200px;
-  margin-bottom: 20px;
-}
-
-.component-projects .project-main .project-status {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 60px;
-  height: 60px;
-  background-position: top right;
-  background-size: contain;
-}
-.component-projects .project-main .project-status-full {
-  background-image: url(/images/full.png);
-}
-
-.component-projects .project-main .project-status-recruit {
-  background-image: url(/images/activities_status_recruit.png);
-}
-
-.component-projects .project-main .project-status-progress {
-  background-image: url(/images/activities_status_progress.png);
-}
-
-.component-projects .project-main .project-status-end {
-  background-image: url(/images/activities_status_end.png);
-}
-
-.component-projects .project-main .project-status-employed-wait{
-  background-image: url(/images/employed_wait.png);
-}
-.component-projects .project-main .project-status-employed{
-  background-image: url(/images/employed.png);
-}
-.component-projects .project-main .project-status-employed-end{
-  background-image: url(/images/activities_status_end.png);
-}
-
-
-.component-projects .project-main .project-name {
-  font-size: 18px;
-  color: #333333;
-  /* background: url(/images/icon_safeguard.png) no-repeat right center;
-  background-size: 24px;
-  padding-right: 30px; */
-  display: flex;
-  justify-content: space-between;
-}
-.component-projects .project-main .project-name .project-name-logo{
-  background: url(/images/icon_safeguard.png) no-repeat right center;
-  background-size: contain;
-  width: 24px;
-  height: 24px;
-}
-.component-projects .project-main .project-date {
-  font-size: 13px;
-  color: #666666;
-  margin: 10px 0;
-  font-weight: 200;
-}
-
-.component-projects .project-footer{
-  display: flex;
-  font-size: 13px;
-  color: #666666;
-  font-weight: 200;
-}
-
-.component-projects .project-footer .project-location {
-  flex: 1;
-  height: 24px;
-  line-height: 24px;
-  padding-left: 30px;
-  background: url(/images/icon_location.png) no-repeat left center;
-  background-size: 24px;
-}
-
-.component-projects .project-footer .project-members {
-  flex: 1;
-  height: 24px;
-  line-height: 24px;
-  padding-left: 30px;
-  background: url(/images/icon_people.png) no-repeat left center;
-  background-size: 24px;
-  margin-left: 40px;
-}
-
-.component-projects .project-footer .project-members span:first-child{
-  color: #F6AB00;
-}
-
-

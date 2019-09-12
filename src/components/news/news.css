@@ -1,0 +1,71 @@
+.page-home-news {
+    /*width: 100%;*/
+    /*padding: 47px 126px;*/
+    background: url("/images/news-bj.png")no-repeat;
+    background-size: cover;
+}
+.page-home-news-title {
+    font-size: 24px;
+    color: #5E90AB;
+    margin-bottom: 25px;
+}
+.page-home-news-title span {
+    font-size: 11px;
+    color: #000000;
+}
+
+.page-home-news-content {
+    width: 100%;
+}
+.page-home-news-content-line {
+    display: flex;
+    width: 100%;
+}
+.page-home-news-content-line:not(:last-child) {
+    margin-bottom: 30px;
+}
+.page-home-news-content-line img {
+    width: 87px;
+    height: 58px;
+    margin-right: 20px;
+}
+.page-home-news-content-line-text {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin-bottom: 14px;
+    flex: 1;
+    margin-right: 20px;
+}
+.page-home-news-content-line-time {
+    display: flex;
+    align-items: center;
+}
+.page-home-news-content-line .page-home-news-content-line-text-color {
+    color: #87979F;
+    width: 100%;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.layer {
+    width: 1280px;
+    margin: 0 auto;
+}
+.page-home-news-footer {
+    font-family: PingFangSC-Regular;
+    font-size: 17px;
+    color: #5E90AB;
+    margin-top: 27px;
+    cursor: pointer;
+}
+.page-home-news-footer img {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+}

@@ -5,6 +5,7 @@ import './teams.css';
 import Link from '../link/link';
 import Avatar from '../avatar/avatar';
 import Star from '../star/star';
+
 class Teams extends React.Component {
 
   constructor(props) {
@@ -26,62 +27,26 @@ class Teams extends React.Component {
   componentWillUnmount() {}
 
   render() {
-    const { teams } = this.props;
-    const showLabel = this.props.showLabel;
-    if (!teams) {
-      return null;
-    } else if (teams && !teams.length) {
-      return <div className="teams-empty-tip">{showLabel ? '目前还没有您已加入的团队哦' : '目前还没有团队哦'}</div>;
-    }
-    return (
-      <ul className="component-teams">
-        {
-          teams.map(team => (<li key={team.id}>
-            <Link to={`/team/detail/${team.id}`}>
-              <Avatar src={team.logo} size={{ width: 60, radius: 4 }} />
-              <div className="team-name-container">
-                <div className="team-name">
-                  <div className="team-name-content">
-                    {team.name}
-                    <div className="team-name-star">
-                    {/* <Star  size={{width:15,height:14,score:4}} isBlockEmptyStar/> */}
-                       {team.stars?<Star  size={{width:15,height:14,score:team.stars}} isBlockEmptyStar/>:null}
-                  </div>
-                  </div>
-                 
-                  {
-                    showLabel ?
-                      <div
-                        className={cx({
-                          'team-main-top-state': true,
-                          'team-main-top-state-visiblehidden': team.join_status === 1,
-                        })}
-                      >审核中</div> : null
-                  }
-                </div>
-
-                <div className="team-info">
-                  <span>时长：{team.reward_time} 小时</span>
-                  <span>成员：{team.team_size} 人</span>
-                </div>
-              </div>
-            </Link>
-            <div className="line1px" />
-          </li>))
-        }
-      </ul>
-    );
+    const { team } = this.props;
+    return (<Link className="page-team-detail" to={`/team/${team.id}`} key={team.id}>
+      <div className="page-home-teams-carousel-line">
+        <div className="page-home-teams-carousel-line-avatars">
+          <Avatar src={team.logo} defaultSrc="/images/default_avatar.png" size={{ width: 85, height: 85 }} />
+        </div>
+        <div className="page-home-teams-carousel-line-text">{team.name}</div>
+        <div className="page-home-teams-carousel-line-star">
+          {team.stars ?
+            <Star size={{ width: 15, height: 14, score: team.stars }} />
+            : null}
+        </div>
+        {/*<div>申请加入</div>*/}
+      </div>
+    </Link>);
   }
 }
 
 Teams.propTypes = {
-  teams: PropTypes.arrayOf(
-      PropTypes.shape({
-
-      }),
-  ),
-
-  showLabel: PropTypes.bool,
+  team: PropTypes.shape({}),
 };
 
 export default Teams;

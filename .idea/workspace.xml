@@ -2,9 +2,344 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="673f1116-2321-4048-b1ad-35e0e4a65ac4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/wechat.blade.php" afterPath="$PROJECT_DIR$/public/wechat.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/project/detail/detail.css" afterPath="$PROJECT_DIR$/src/pages/project/detail/detail.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/project/detail/detail.js" afterPath="$PROJECT_DIR$/src/pages/project/detail/detail.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/arraw.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/banner-bj.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/close@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/date.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/es.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/location.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/news-bj.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/people@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/time@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/xing.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/zdx.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.eslintrc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/news/news.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/news/news.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/news/detail.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/news/detail.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/news/news.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/news/news.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/news/news.store.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/pattern/pattern.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/pattern/pattern.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/pattern/pattern.store.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/project/detail.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/project/detail.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/project/project.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/project/project.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/team/detail.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/team/detail.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/team/team.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/pages/team/team.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/recipes/deploy-to-amazon-s3.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/recipes/deploy-to-github-pages.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/recipes/how-to-integrate-material-design-lite.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/recipes/how-to-use-sass.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/recipes/how-to-use-with-bootstrap.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/routing-and-navigation.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/activities_hot.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/activities_nearby.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/activities_new.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/activities_status_end.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/activities_status_progress.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/activities_status_recruit.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/claim.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/collectibles.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/construction.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/employed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/employed_wait.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/feedback1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/feedback2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/feedback3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/full.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/icon_collect.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/icon_collect_h.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/icon_down.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/icon_duration.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/icon_loading.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/icon_location.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/icon_more.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/icon_people.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/icon_safeguard.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/icon_share.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/icon_up.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/menu_project.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/menu_record.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/menu_service.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/menu_team.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/model.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/0.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/679610660811452545.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/add.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/applys.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/backhome.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/banner.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/buy_box@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/buy_box_gray@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/buy_box_selected@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/buy_minus_unclickable@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/buy_plus@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/center@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/certificate-bg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/certificate.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/certification.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/checkbox@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/checkbox_click@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/circle.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/comments.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/consulting.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/data.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/dates.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/delete.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/duration.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/dynamic.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/employed@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/employed_wait@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/entry1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/entry2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/error.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/family.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/full@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/help.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/individual2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/individual3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/individual44.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/information.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/like.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/message.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/more.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/near@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/news.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/people.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/platform.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/praise_h.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/praise_n.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/projects@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/refresh@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/register.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/release.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/searchcopy.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/service.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/setting.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/my/zdx.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/newtitle.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/sanlitun/feedback1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/sanlitun/feedback2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/sanlitun/feedback3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/sanlitun/feedback4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/search.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/share-arrow.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/share.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/share_arrow.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/share_bg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/shop/star.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/shop/success.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/shop/wait.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/signin.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/star1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/tab_home.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/tab_home_active.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/tab_me.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/tab_me_active.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/tab_signin.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/tab_signin_active.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/announce/announce.store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/announce/component/messagesItem.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/announce/detail.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/announce/detail.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/announce/messages.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/announce/messages.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/building/building.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/building/building.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/ensure/ensure.store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/ensure/index.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/ensure/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/error/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/error/styles.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/home/components/tab.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/home/subpage/city_page.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/home/subpage/city_page.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/home/subpage/search.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/home/subpage/search.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/certificate/certificate.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/certificate/certificate.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/circle/circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/circle/circle.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/circle/circle.store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/circle/subpage/circlelist.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/circle/subpage/circlelist.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/circle/subpage/detail.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/circle/subpage/detail.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/circle/subpage/publish.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/circle/subpage/publish.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/circle/visits.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/circle/visits.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/collects/collects.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/collects/collects.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/collects/collects_project.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/collects/collects_team.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/duration/applys.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/duration/applys.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/duration/duration.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/duration/duration.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/duration/post.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/duration/post.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/family/add.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/family/add.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/family/addTab/bindFamily.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/family/addTab/bindFamily.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/family/addTab/newFamily.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/family/addTab/newFamily.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/family/component/familyItem.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/family/component/familyItem.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/family/family.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/family/family.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/login/forget.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/login/forget.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/login/login.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/login/login.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/login/login.store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/messages/component/messagesItem.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/messages/messages.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/messages/messages.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/my.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/my.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/my.store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/point/component/pointItem.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/point/component/pointItem.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/point/point.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/point/point.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/point/point_income.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/point/point_pay.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/profile/applyAlert/applyAlert.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/profile/applyAlert/applyAlert.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/profile/bind.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/profile/bind.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/profile/checkbox.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/profile/checkbox.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/profile/edit.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/profile/edit.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/profile/profile.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/profile/profile.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/profile/profile.store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/profile/verify.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/profile/verify.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/profile/verifyAntd.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/projects/projects.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/projects/projects.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/projects/projects_all.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/projects/projects_end.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/projects/projects_pass.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/projects/projects_wait.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/register/agree.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/register/agree.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/register/entry.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/register/entry.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/register/register.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/register/register.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/register/register.store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/service/center.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/service/center.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/service/help.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/service/help.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/service/introduce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/service/introduce.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/service/service.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/service/service.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/setting/password.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/setting/password.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/setting/setting.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/setting/setting.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/teams/teams.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/my/teams/teams.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/project/detail/detail.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/project/detail/detail.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/project/detail/detail.store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/project/list/list.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/project/list/list.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/project/list/list.store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/project/search/search.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/project/search/search.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/project/search/search.store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/project/sign/sign.store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/project/sign/signUp.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/project/sign/signUp.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/project/sign/success.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/project/sign/success.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/sanlitun/component/indexItem/indexItem.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/sanlitun/component/indexItem/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/sanlitun/component/projects/projects.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/sanlitun/component/projects/projects.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/sanlitun/projectClaim/detail/index.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/sanlitun/projectClaim/detail/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/sanlitun/projectClaim/improve/index.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/sanlitun/projectClaim/improve/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/sanlitun/projectClaim/list/index.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/sanlitun/projectClaim/list/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/sanlitun/projectClaim/search/index.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/sanlitun/projectClaim/search/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/sanlitun/starModel/detail/detail.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/sanlitun/starModel/detail/detail.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/sanlitun/starModel/index.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/sanlitun/starModel/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/sanlitun/starModel/starModel.store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/shop/detail/index.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/shop/detail/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/shop/detail/result.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/shop/detail/result.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/shop/index.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/shop/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/shop/record/index.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/shop/record/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/shop/shop.store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/signin/signin.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/signin/signin.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/signin/signin.store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/signin/subpage/password_signin.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/signin/subpage/password_signin.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/team/component/filter/filter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/team/component/filter/filter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/team/detail/detail.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/team/detail/detail.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/team/detail/detail.store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/team/list/list.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/team/list/list.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/team/list/list.store.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/team/search/search.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/team/search/search.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/pages/team/search/search.store.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/icon.png" afterPath="$PROJECT_DIR$/public/images/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.ejs" afterPath="$PROJECT_DIR$/public/index.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/wechat.blade.ejs" afterPath="$PROJECT_DIR$/public/wechat.blade.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/avatar/avatar.js" afterPath="$PROJECT_DIR$/src/components/avatar/avatar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/image/image.js" afterPath="$PROJECT_DIR$/src/components/image/image.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/projects/projects.css" afterPath="$PROJECT_DIR$/src/components/projects/projects.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/projects/projects.js" afterPath="$PROJECT_DIR$/src/components/projects/projects.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/star/star.css" afterPath="$PROJECT_DIR$/src/components/star/star.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/teams/teams.css" afterPath="$PROJECT_DIR$/src/components/teams/teams.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/teams/teams.js" afterPath="$PROJECT_DIR$/src/components/teams/teams.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.js" afterPath="$PROJECT_DIR$/src/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/home/home.css" afterPath="$PROJECT_DIR$/src/pages/home/home.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/home/home.js" afterPath="$PROJECT_DIR$/src/pages/home/home.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/home/home.store.js" afterPath="$PROJECT_DIR$/src/pages/home/home.store.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/launch/launch.css" afterPath="$PROJECT_DIR$/src/pages/launch/launch.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/launch/launch.js" afterPath="$PROJECT_DIR$/src/pages/launch/launch.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/project/project.store.js" afterPath="$PROJECT_DIR$/src/pages/project/project.store.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/team/team.store.js" afterPath="$PROJECT_DIR$/src/pages/team/team.store.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes.json" afterPath="$PROJECT_DIR$/src/routes.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/stores/index.js" afterPath="$PROJECT_DIR$/src/stores/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/fetch.js" afterPath="$PROJECT_DIR$/src/utils/fetch.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/funcs.js" afterPath="$PROJECT_DIR$/src/utils/funcs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/.eslintrc" afterPath="$PROJECT_DIR$/tools/.eslintrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/webpack.config.js" afterPath="$PROJECT_DIR$/tools/webpack.config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yarn.lock" afterPath="$PROJECT_DIR$/yarn.lock" />
     </list>
     <ignored path="volunteer-h5.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,31 +359,65 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="my.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/my/my.js">
+      <file leaf-file-name="detail.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/news/detail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+            <state relative-caret-position="374">
+              <caret line="23" column="28" lean-forward="false" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="detail.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/project/detail/detail.js">
+        <entry file="file://$PROJECT_DIR$/src/pages/project/detail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="327" column="10" lean-forward="true" selection-start-line="327" selection-start-column="10" selection-end-line="327" selection-end-column="10" />
+            <state relative-caret-position="308">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pages/home/home.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/home/home.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="117" column="19" lean-forward="true" selection-start-line="117" selection-start-column="19" selection-end-line="117" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/project/detail/detail.css">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="536">
-              <caret line="379" column="28" lean-forward="true" selection-start-line="379" selection-start-column="28" selection-end-line="379" selection-end-column="28" />
+            <state relative-caret-position="294">
+              <caret line="126" column="10" lean-forward="true" selection-start-line="126" selection-start-column="10" selection-end-line="126" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="launch.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/launch/launch.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="313">
+              <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -59,44 +428,47 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>renderOtherInfoSelect</find>
-      <find>renderOtherInfoCheckbox</find>
-      <find>renderOtherInfoInput</find>
-      <find>renderOtherInfoManyInput</find>
-      <find>renderOtherInfoDate</find>
-      <find>renderOtherInfoDateTime</find>
-      <find>page-my-profile-verify-header-start</find>
-      <find>renderOtherPic</find>
-      <find>onTabChange</find>
-      <find>loginReducer</find>
-      <find>changeIndex</find>
-      <find>saveProjectTabIndex</find>
-      <find>onChange</find>
-      <find>entry</find>
-      <find>page-login-item</find>
-      <find>/my/agree</find>
-      <find>page-register-agreement</find>
-      <find>page-login-entry</find>
-      <find>renderLogin</find>
-      <find>handleActionClickSitch</find>
-      <find>renderBasic</find>
-      <find>isLogin</find>
-      <find>detailData</find>
-      <find>我要报名</find>
-      <find>actionLabel</find>
-      <find>renderTwoBtn</find>
-      <find>action</find>
-      <find>handleActionClick</find>
-      <find>project-action-available</find>
-      <find>2129</find>
+      <find>.page-home-teams .slick-slide</find>
+      <find>render</find>
+      <find>eslint-config-react-app</find>
+      <find>slick</find>
+      <find>projects</find>
+      <find>getQueryString</find>
+      <find>搜索</find>
+      <find>is_over</find>
+      <find>getQuery</find>
+      <find>page-projects-title</find>
+      <find>renderHeader</find>
+      <find>footer-left</find>
+      <find>resize</find>
+      <find>page-pattern-projects-title-box</find>
+      <find>onSearch</find>
+      <find>立</find>
+      <find>handleModalVisible</find>
+      <find>QRCode</find>
+      <find>.page-home-teams-carousel-line</find>
+      <find>renderContent</find>
+      <find>page-pattern-content</find>
+      <find>loadMore</find>
+      <find>236</find>
+      <find>page-home-projects-content</find>
+      <find>renderFooter</find>
+      <find>page-home-news-footer</find>
+      <find>renderTeams</find>
+      <find>renderCheckMore</find>
+      <find>page-home-teams-title-default</find>
+      <find>page-launch-header-icon</find>
     </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -104,37 +476,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/pages/home/home.js" />
-        <option value="$PROJECT_DIR$/src/pages/my/family/component/familyItem.js" />
-        <option value="$PROJECT_DIR$/src/pages/my/register/entry.js" />
-        <option value="$PROJECT_DIR$/src/pages/team/detail/detail.js" />
-        <option value="$PROJECT_DIR$/public/wechat.blade.php" />
-        <option value="$PROJECT_DIR$/public/wechat.blade.ejs" />
-        <option value="$PROJECT_DIR$/src/pages/my/register/register.css" />
-        <option value="$PROJECT_DIR$/src/pages/my/family/addTab/newFamily.css" />
-        <option value="$PROJECT_DIR$/src/pages/my/family/family.js" />
-        <option value="$PROJECT_DIR$/src/pages/my/family/component/familyItem.css" />
-        <option value="$PROJECT_DIR$/src/pages/my/family/addTab/bindFamily.css" />
-        <option value="$PROJECT_DIR$/src/pages/my/my.store.js" />
-        <option value="$PROJECT_DIR$/src/pages/my/profile/applyAlert/applyAlert.css" />
-        <option value="$PROJECT_DIR$/src/routes.json" />
-        <option value="$PROJECT_DIR$/src/pages/my/profile/applyAlert/applyAlert.js" />
-        <option value="$PROJECT_DIR$/src/pages/my/service/introduce.js" />
-        <option value="$PROJECT_DIR$/src/stores/common.js" />
-        <option value="$PROJECT_DIR$/src/pages/my/family/add.css" />
-        <option value="$PROJECT_DIR$/src/pages/my/register/register.js" />
-        <option value="$PROJECT_DIR$/src/pages/my/family/addTab/newFamily.js" />
-        <option value="$PROJECT_DIR$/src/pages/my/family/add.js" />
-        <option value="$PROJECT_DIR$/src/pages/my/family/addTab/bindFamily.js" />
-        <option value="$PROJECT_DIR$/src/pages/my/my.css" />
-        <option value="$PROJECT_DIR$/src/pages/my/my.js" />
-        <option value="$PROJECT_DIR$/src/pages/my/profile/profile.store.js" />
-        <option value="$PROJECT_DIR$/src/pages/my/profile/profile.js" />
-        <option value="$PROJECT_DIR$/src/pages/my/profile/profile.css" />
-        <option value="$PROJECT_DIR$/src/components/tag/tag.js" />
-        <option value="$PROJECT_DIR$/src/components/tag/tag.css" />
         <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/public/index.ejs" />
         <option value="$PROJECT_DIR$/src/pages/my/profile/verify.css" />
         <option value="$PROJECT_DIR$/src/pages/my/profile/verify.js" />
         <option value="$PROJECT_DIR$/src/pages/my/login/login.store.js" />
@@ -142,6 +484,49 @@
         <option value="$PROJECT_DIR$/src/pages/my/login/login.css" />
         <option value="$PROJECT_DIR$/src/pages/project/detail/detail.js" />
         <option value="$PROJECT_DIR$/src/pages/project/detail/detail.css" />
+        <option value="$PROJECT_DIR$/public/wechat.blade.ejs" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/routes.json" />
+        <option value="$PROJECT_DIR$/src/utils/fetch.js" />
+        <option value="$PROJECT_DIR$/public/index.ejs" />
+        <option value="$PROJECT_DIR$/tools/webpack.config.js" />
+        <option value="$PROJECT_DIR$/tools/.eslintrc" />
+        <option value="$PROJECT_DIR$/src/pages/news/news.css" />
+        <option value="$PROJECT_DIR$/src/pages/news/news.store.js" />
+        <option value="$PROJECT_DIR$/src/pages/news/detail.css" />
+        <option value="$PROJECT_DIR$/src/pages/news/detail.js" />
+        <option value="$PROJECT_DIR$/src/pages/project/project.store.js" />
+        <option value="$PROJECT_DIR$/src/pages/project/detail.css" />
+        <option value="$PROJECT_DIR$/src/components/image/image.js" />
+        <option value="$PROJECT_DIR$/src/pages/team/team.store.js" />
+        <option value="$PROJECT_DIR$/src/pages/team/detail.css" />
+        <option value="$PROJECT_DIR$/src/components/star/star.css" />
+        <option value="$PROJECT_DIR$/src/stores/index.js" />
+        <option value="$PROJECT_DIR$/src/pages/pattern/pattern.store.js" />
+        <option value="$PROJECT_DIR$/src/components/avatar/avatar.js" />
+        <option value="$PROJECT_DIR$/src/main.js" />
+        <option value="$PROJECT_DIR$/src/pages/launch/launch.js" />
+        <option value="$PROJECT_DIR$/.eslintrc" />
+        <option value="$PROJECT_DIR$/src/utils/funcs.js" />
+        <option value="$PROJECT_DIR$/src/pages/project/project.js" />
+        <option value="$PROJECT_DIR$/src/pages/news/news.js" />
+        <option value="$PROJECT_DIR$/src/pages/team/detail.js" />
+        <option value="$PROJECT_DIR$/src/pages/pattern/pattern.js" />
+        <option value="$PROJECT_DIR$/src/components/teams/teams.js" />
+        <option value="$PROJECT_DIR$/src/components/teams/teams.css" />
+        <option value="$PROJECT_DIR$/src/pages/home/home.store.js" />
+        <option value="$PROJECT_DIR$/src/pages/pattern/pattern.css" />
+        <option value="$PROJECT_DIR$/src/pages/team/team.css" />
+        <option value="$PROJECT_DIR$/src/components/projects/projects.css" />
+        <option value="$PROJECT_DIR$/src/pages/team/team.js" />
+        <option value="$PROJECT_DIR$/src/components/projects/projects.js" />
+        <option value="$PROJECT_DIR$/src/pages/project/project.css" />
+        <option value="$PROJECT_DIR$/src/components/news/news.css" />
+        <option value="$PROJECT_DIR$/src/components/news/news.js" />
+        <option value="$PROJECT_DIR$/src/pages/project/detail.js" />
+        <option value="$PROJECT_DIR$/src/pages/home/home.js" />
+        <option value="$PROJECT_DIR$/src/pages/launch/launch.css" />
+        <option value="$PROJECT_DIR$/src/pages/home/home.css" />
       </list>
     </option>
   </component>
@@ -171,6 +556,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
@@ -190,54 +576,43 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="volunteer-h5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="volunteer-h5" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="volunteer-h5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="volunteer-h5" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="volunteer-h5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="volunteer-h5" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="volunteer-h5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="volunteer-h5" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="project" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="volunteer-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="volunteer-web" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="node.js.path.for.package.stylelint" value="project" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.selected.package.stylelint" value="$PROJECT_DIR$/node_modules/stylelint" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/icon/Documents/works/volunteer-web/src/pages/home/home.css" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/public/images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/images/my" />
     </key>
@@ -313,35 +688,61 @@
       <workItem from="1524546217590" duration="928000" />
       <workItem from="1529545712058" duration="1646000" />
       <workItem from="1544002405434" duration="5170000" />
+      <workItem from="1566272294019" duration="18879000" />
+      <workItem from="1566447136661" duration="599000" />
+      <workItem from="1567492059627" duration="28054000" />
+      <workItem from="1568083961109" duration="70814000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="177099000" />
+    <option name="totallyTimeSpent" value="295445000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <frame x="1" y="23" width="1440" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21397695" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963072" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21397695" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963072" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -359,407 +760,428 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/routes.json">
+    <entry file="file://$PROJECT_DIR$/tools/postcss.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="27" column="24" lean-forward="false" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/sharetip/sharetip.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="9" column="39" lean-forward="false" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/launch/launch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="126" column="2" lean-forward="true" selection-start-line="126" selection-start-column="2" selection-end-line="126" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/family/add.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="78" column="23" lean-forward="true" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/home/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="229" column="13" lean-forward="true" selection-start-line="229" selection-start-column="13" selection-end-line="229" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/family/addTab/bindFamily.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="15" column="70" lean-forward="false" selection-start-line="15" selection-start-column="70" selection-end-line="15" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/family/family.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-478">
-          <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/project/list/list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-20">
-          <caret line="133" column="0" lean-forward="true" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/team/detail/detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2773">
-          <caret line="112" column="33" lean-forward="false" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="33" />
-          <folding>
-            <element signature="e#22#63#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/register/register.store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/profile/edit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/fetch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="25" column="50" lean-forward="false" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/tag/tag.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/tag/tag.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="66" lean-forward="false" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/my/news.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/my/setting.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="46" lean-forward="false" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/certificate/certificate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/setting/setting.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/profile/checkbox.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="22" column="6" lean-forward="false" selection-start-line="22" selection-start-column="6" selection-end-line="23" selection-end-column="18" />
+        <state relative-caret-position="264">
+          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
           <folding>
             <element signature="n#!!doc" expanded="false" />
-            <element signature="e#151#192#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/antd-mobile/dist/antd-mobile.css">
+    <entry file="file://$PROJECT_DIR$/tools/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="3" column="3" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+        <state relative-caret-position="70">
+          <caret line="129" column="35" lean-forward="true" selection-start-line="129" selection-start-column="35" selection-end-line="129" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/antd-mobile/dist/antd-mobile.css.map">
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/node_modules/eslint/lib/config/config-file.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="0" column="585" lean-forward="false" selection-start-line="0" selection-start-column="585" selection-end-line="0" selection-end-column="585" />
+        <state relative-caret-position="142">
+          <caret line="64" column="49" lean-forward="true" selection-start-line="64" selection-start-column="49" selection-end-line="64" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/antd-mobile/lib/style/css.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/antd/lib/avatar/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="7">
+          <caret line="17" column="6" lean-forward="false" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/antd-mobile/lib/style/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5076">
-          <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/antd-mobile/lib/checkbox/style/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1144">
-          <caret line="52" column="3" lean-forward="false" selection-start-line="52" selection-start-column="3" selection-end-line="52" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/antd-mobile/lib/checkbox/style/css.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/wechat.blade.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/wechat.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="50" column="31" lean-forward="false" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/sitemap.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="204">
-            <caret line="127" column="3" lean-forward="true" selection-start-line="127" selection-start-column="3" selection-end-line="127" selection-end-column="3" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/fastclick/lib/fastclick.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/profile/profile.store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="42" column="26" lean-forward="false" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.ejs">
+    <entry file="file://$PROJECT_DIR$/node_modules/antd/lib/button/button.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
-          <caret line="170" column="34" lean-forward="true" selection-start-line="170" selection-start-column="34" selection-end-line="170" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="154" column="53" lean-forward="false" selection-start-line="154" selection-start-column="53" selection-end-line="154" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/profile/verifyAntd.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="43" column="14" lean-forward="false" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/profile/verify.css">
+    <entry file="file://$PROJECT_DIR$/src/pages/news/detail.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="69" column="14" lean-forward="false" selection-start-line="69" selection-start-column="14" selection-end-line="69" selection-end-column="14" />
+        <state relative-caret-position="191">
+          <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/profile/verify.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="696" column="18" lean-forward="true" selection-start-line="696" selection-start-column="18" selection-end-line="696" selection-end-column="18" />
-          <folding>
-            <element signature="e#119#158#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/profile/profile.css">
+    <entry file="file://$PROJECT_DIR$/src/pages/news/news.store.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
-          <caret line="75" column="18" lean-forward="false" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
+          <caret line="3" column="41" lean-forward="true" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/profile/profile.js">
+    <entry file="file://$PROJECT_DIR$/public/images/icon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/images/xing.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/images/star.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/star/star.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="388" column="63" lean-forward="false" selection-start-line="388" selection-start-column="40" selection-end-line="388" selection-end-column="63" />
+        <state relative-caret-position="220">
+          <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stores/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="22" column="9" lean-forward="false" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
           <folding>
-            <element signature="e#155#196#0" expanded="false" />
+            <element signature="e#25#109#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/login/forget.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/pattern/pattern.store.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
+        <state relative-caret-position="88">
+          <caret line="5" column="36" lean-forward="false" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/login/login.store.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/antd/lib/icon/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1342">
-          <caret line="66" column="15" lean-forward="false" selection-start-line="66" selection-start-column="15" selection-end-line="66" selection-end-column="15" />
+        <state relative-caret-position="768">
+          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/team/team.store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="3" column="28" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/star/star.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="20" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="20" />
           <folding>
             <element signature="e#0#38#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/tab/tab.js">
+    <entry file="file://$PROJECT_DIR$/src/components/avatar/avatar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="946">
-          <caret line="46" column="30" lean-forward="false" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
-          <folding>
-            <element signature="e#96#137#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="315">
+          <caret line="68" column="103" lean-forward="false" selection-start-line="68" selection-start-column="103" selection-end-line="68" selection-end-column="103" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/login/login.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/antd/lib/carousel/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2486">
-          <caret line="128" column="12" lean-forward="false" selection-start-line="128" selection-start-column="12" selection-end-line="128" selection-end-column="12" />
+        <state relative-caret-position="242">
+          <caret line="13" column="21" lean-forward="false" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="65">
+            <caret line="86" column="10" lean-forward="true" selection-start-line="86" selection-start-column="10" selection-end-line="86" selection-end-column="10" />
+            <folding />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/link/link.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="16" column="17" lean-forward="true" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="79" column="12" lean-forward="true" selection-start-line="79" selection-start-column="12" selection-end-line="79" selection-end-column="12" />
           <folding>
             <element signature="n#!!doc" expanded="false" />
-            <element signature="e#173#212#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/register/register.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/project/project.store.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5456">
-          <caret line="266" column="8" lean-forward="false" selection-start-line="266" selection-start-column="8" selection-end-line="266" selection-end-column="8" />
+        <state relative-caret-position="280">
+          <caret line="39" column="23" lean-forward="true" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/project/detail.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="66" column="1" lean-forward="true" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/.eslintrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.eslintrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/funcs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="60" column="24" lean-forward="false" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/launch/launch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="212" column="37" lean-forward="false" selection-start-line="212" selection-start-column="26" selection-end-line="212" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/image/image.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="9" column="12" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/team/detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="46" column="31" lean-forward="false" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/register/register.css">
+    <entry file="file://$PROJECT_DIR$/src/components/teams/teams.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2002">
-          <caret line="91" column="12" lean-forward="false" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="12" />
+        <state relative-caret-position="381">
+          <caret line="42" column="12" lean-forward="false" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/login/login.css">
+    <entry file="file://$PROJECT_DIR$/src/pages/home/home.store.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        <state relative-caret-position="513">
+          <caret line="75" column="10" lean-forward="false" selection-start-line="75" selection-start-column="2" selection-end-line="75" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/history.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/pattern/pattern.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="26">
+          <caret line="83" column="12" lean-forward="true" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/pattern/pattern.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="17" column="22" lean-forward="false" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/my.css">
+    <entry file="file://$PROJECT_DIR$/src/pages/team/detail.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="31" column="15" lean-forward="true" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
+        <state relative-caret-position="247">
+          <caret line="46" column="17" lean-forward="true" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my/my.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/team/team.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+        <state relative-caret-position="556">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="32" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/project/detail/detail.js">
+    <entry file="file://$PROJECT_DIR$/src/components/projects/projects.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="327" column="10" lean-forward="true" selection-start-line="327" selection-start-column="10" selection-end-line="327" selection-end-column="10" />
+        <state relative-caret-position="623">
+          <caret line="118" column="7" lean-forward="false" selection-start-line="118" selection-start-column="7" selection-end-line="118" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/project/detail/detail.css">
+    <entry file="file://$PROJECT_DIR$/src/pages/team/team.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="379" column="28" lean-forward="true" selection-start-line="379" selection-start-column="28" selection-end-line="379" selection-end-column="28" />
+        <state relative-caret-position="257">
+          <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/projects/projects.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="102" column="31" lean-forward="false" selection-start-line="102" selection-start-column="31" selection-end-line="102" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/project/project.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="107" column="12" lean-forward="false" selection-start-line="107" selection-start-column="12" selection-end-line="107" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/project/project.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/teams/teams.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="9" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/news/news.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="46" column="16" lean-forward="false" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/news/news.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/news/news.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="68" column="12" lean-forward="false" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/news/news.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/news/detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="23" column="28" lean-forward="false" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/project/detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/launch/launch.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/home/home.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="117" column="19" lean-forward="true" selection-start-line="117" selection-start-column="19" selection-end-line="117" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="126" column="10" lean-forward="true" selection-start-line="126" selection-start-column="10" selection-end-line="126" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/home/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

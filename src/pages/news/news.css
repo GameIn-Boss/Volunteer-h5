@@ -1,0 +1,18 @@
+.page-news {
+    padding: 0 214px;
+    margin-bottom: 34px;
+}
+
+.news-detail-title {
+    font-family: PingFangSC-Semibold;
+    font-size: 17px;
+    color: #4A4A4A;
+    background: #F8F8F9;
+    height: 76px;
+    line-height: 76px;
+    margin-bottom: 38px;
+}
+.news-detail-content {
+    padding-left: 87px;
+    padding-right: 87px;
+}

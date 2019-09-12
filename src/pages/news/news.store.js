@@ -1,31 +1,31 @@
 import { combineReducers } from 'redux';
 import fetch from '../../utils/fetch';
 
-export const requestProjectList = data => ({
-  type: 'PROJECT_LIST',
-  payload: fetch('/project', { method: 'GET', data: { ...data } }),
+export const requestNewsList = data => ({
+  type: 'NEWS_LIST',
+  payload: fetch('/news/list', { method: 'GET', data }),
 });
-const projectListReducer = (state = {
+const newsListReducer = (state = {
   fetching: false,
   failed: false,
   city: null,
   data: null,
 }, action) => {
   switch (action.type) {
-    case 'PROJECT_LIST_PENDING':
+    case 'NEWS_LIST_PENDING':
       return {
         ...state,
         fetching: true,
         failed: false,
       };
-    case 'PROJECT_LIST_FULFILLED':
+    case 'NEWS_LIST_FULFILLED':
       return {
         ...state,
         fetching: false,
         failed: false,
         data: action.payload && action.payload.data,
       };
-    case 'PROJECT_LIST_REJECTED':
+    case 'NEWS_LIST_REJECTED':
       return {
         ...state,
         failed: true,
@@ -36,31 +36,31 @@ const projectListReducer = (state = {
   }
 };
 
-export const requestProjectDetail = id => ({
-  type: 'PROJECT_DATA',
-  payload: fetch(`/project/${id}`, { method: 'GET' }),
+export const requestNews = id => ({
+  type: 'NEWS_DATA',
+  payload: fetch(`/news/${id}`, { method: 'GET' }),
 });
-const projectReducer = (state = {
+const newsReducer = (state = {
   fetching: false,
   failed: false,
   city: null,
   data: null,
 }, action) => {
   switch (action.type) {
-    case 'PROJECT_DATA_PENDING':
+    case 'NEWS_DATA_PENDING':
       return {
         ...state,
         fetching: true,
         failed: false,
       };
-    case 'PROJECT_DATA_FULFILLED':
+    case 'NEWS_DATA_FULFILLED':
       return {
         ...state,
         fetching: false,
         failed: false,
         data: action.payload && action.payload.data,
       };
-    case 'PROJECT_DATA_REJECTED':
+    case 'NEWS_DATA_REJECTED':
       return {
         ...state,
         failed: true,
@@ -72,7 +72,7 @@ const projectReducer = (state = {
 };
 
 const reducer = combineReducers({
-  projectList: projectListReducer,
-  projectData: projectReducer,
+  news: newsReducer,
+  newsList: newsListReducer,
 });
 export default reducer;

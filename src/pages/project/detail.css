@@ -1,0 +1,80 @@
+.page-project-detail {
+    margin-bottom: 44px;
+}
+.page-project-detail-box {
+    padding: 0 87px;
+}
+.page-project-detail-top {
+    display: flex;
+    justify-content: center;
+}
+.page-project-detail-top img {
+    width: 375px;
+    height: 220px;
+    margin-right: 64px;
+}
+.page-project-detail-top-title {
+    flex: 1;
+    font-family: PingFangSC-Semibold;
+    font-size: 30px;
+    color: #333333;
+}
+.page-project-detail-top-title li {
+    margin-bottom: 15px;
+}
+.page-project-detail-top-title-default {
+    font-size: 15px;
+    color: #4A4A4A;
+    font-family: PingFangSC-Regular;
+}
+.page-project-detail-top-title-btn {
+    width: 194px;
+    height: 37px;
+    line-height: 37px;
+    text-align: center;
+    font-family: PingFangSC-Semibold;
+    font-size: 17px;
+    color: #FFFFFF;
+    background: #A0D9F7;
+    border-radius: 18.5px;
+    cursor: pointer;
+}
+
+.page-project-detail-all {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #333333;
+}
+.page-project-detail-all-both {
+    display: flex;
+    padding: 18px 0;
+    border-bottom: 1px solid #E5E5E5;
+    justify-content: space-between;
+}
+.page-project-detail-all-both-box {
+    display: flex;
+    width: 375px;
+    margin-right: 64px;
+}
+.page-project-detail-all-both-label {
+    width: 56px;
+    margin-right: 12px;
+}
+
+.page-project-detail-intro {
+    display: flex;
+    justify-content: space-between;
+}
+.page-project-detail-intro-left {
+    padding-right: 51px;
+}
+.page-project-detail-intro-right {
+    padding-left: 51px;
+    border-left: 1px solid #EEEEEE;
+}
+.page-project-detail-title {
+    font-family: PingFangSC-Semibold;
+    font-size: 17px;
+    color: #4A4A4A;
+    margin: 47px 0 28px;
+}

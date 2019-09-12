@@ -1,4 +1,6 @@
 {
+  "extends": "airbnb",
+  "plugins": ["react"],
   "rules": {
     "global-require": "off",
     "no-console": "off",
@@ -11,6 +13,11 @@
     "class-methods-use-this": ["off",  { "devDependencies": true }],
     "array-callback-return": "off",
     "react/jsx-indent-props": "off",
-    "react/jsx-indent": "off"
+    "react/jsx-indent": "off",
+    "import/no-named-as-default-member": "off",
+    "import/no-named-as-default": "off",
+    "react/require-default-props": 0,
+    "no-undef": "off",
+    "one-var": "off"
   }
 }

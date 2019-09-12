@@ -1,0 +1,33 @@
+/*.page-team-teams {*/
+    /*padding: 47px 126px;*/
+    /*width: 100%;*/
+    /*background: url("/images/banner-bj.png")no-repeat;*/
+    /*background-size: cover;*/
+/*}*/
+.page-team-teams-title {
+    font-size: 17px;
+    color: #4A4A4A;
+    margin-bottom: 25px;
+    display: flex;
+    height: 76px;
+    align-items: center;
+    justify-content: space-between;
+}
+.page-team-teams-title span {
+    font-size: 11px;
+    color: #000000;
+}
+.page-team-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.page-team-box .page-home-teams-carousel-line {
+    /*margin: 0 14px 14px;*/
+}
+.page-team-box .page-team-detail {
+    margin-bottom: 40px;
+}
+.team-space {
+    width: 236px;
+}

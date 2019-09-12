@@ -3,13 +3,14 @@
 "react/no-array-index-key":"off" */
 import React, { PropTypes } from 'react';
 import autoBind from 'react-autobind';
-import classnames from 'classnames';
+import 'antd/lib/input/style/css';
+import moment from 'moment';
+import { Input } from 'antd';
 import './projects.css';
 import Link from '../link/link';
 import Image from '../image/image';
-import Avatar from '../avatar/avatar';
-import { parseTimeStringToDateString, parseDistance, isVolunteerInsure } from '../../utils/funcs';
 
+const { Search } = Input;
 class Projects extends React.Component {
 
   constructor(props) {
@@ -30,78 +31,81 @@ class Projects extends React.Component {
 
   componentWillUnmount() {}
 
-  render() {
-    const { projects } = this.props;
-    const showLabel = this.props.showLabel;
-    if (!projects) {
-      return null;
-    } else if (projects && !projects.length) {
-      return <div className="projects-empty-tip">目前还没有活动哦</div>;
-    }
+  onSearch(name) {
+    window.location.href = `/project?name=${name}`;
+  }
 
+  renderTitle() {
     return (
-      <ul className="component-projects">
-        {
-          projects.map((project) => {
-            const { team } = project;
-            const volunteer = isVolunteerInsure(project.volunteer_security);
-            return <li key={project.id}>
-                <div>
-                  <Link to={`/team/detail/${project.team.id}`} className="project-header">
-                    <Avatar src={team.logo} size={{ width: 30, radius: 4 }} />
-                    <div className="org-name">{team.name}</div>
-                  </Link>
-                  <Link to={`/project/detail/${project.id}`} className="project-main">
-                    <Image className="image" src={project.list_photo} defaultSrc="/images/default_banner.png" alt="项目图片" />
-                    <div className="project-name">
-                      {project.name}
+      <div className="page-home-projects-title">
+        <div>志愿项目 <span>Recent News</span></div>
+        <Search
+          placeholder="搜索志愿项目"
+          onSearch={(value) => { this.onSearch(value); }}
+          style={{ width: 200 }}
+        />
+      </div>
+    );
+  }
 
-                      <div className={classnames({
-                          "project-name-logo": volunteer
-                        })} />
-                    </div>
-                    <div className="project-date">
-                      活动日期：{parseTimeStringToDateString(project.begin)}-{parseTimeStringToDateString(project.end)}
-                    </div>
-                    {showLabel ? <div className={classnames({
-                          "project-status": true,
-                          "project-status-employed":
-                            project.join_status === 1 &&
-                            project.project_status !== 5,
-                          "project-status-employed-wait":
-                            project.join_status === 0 &&
-                            project.project_status !== 5,
-                          "project-status-employed-end":
-                            project.project_status === 5
-                        })} /> : <div className={classnames({
-                          "project-status": true,
-                          "project-status-recruit":
-                            project.project_status === 2,
-                          "project-status-full":
-                            project.project_status === 3,
-                          "project-status-progress":
-                            project.project_status === 4,
-                          "project-status-end":
-                            project.project_status === 5
-                        })} />}
-                  </Link>
-                  <div className="project-footer">
-                    <div className="project-location">
-                      {project.county_name} {project.distance > 0 ? parseDistance(project.distance) : null}
-                    </div>
-                    <div className="project-members">
-                      <span>
-                      {Number(project.id) == 2009 ? 183 : project.join_people_count}
-                      </span>
-                      &nbsp;/&nbsp;
-                      <span>{project.people_count}</span>
-                    </div>
-                  </div>
-                </div>
-              </li>;
-          })
+  renderItem(item, index) {
+    let name = '';
+    if (!item.county_name.length) {
+      if (!item.city_name) {
+        name = item.province_name;
+      } else if (item.city_name === '全省') {
+        name = item.province_name;
+      } else {
+        name = item.city_name;
+      }
+    } else if (item.county_name === '全市') {
+      if (!item.city_name) {
+        name = item.province_name;
+      } else if (item.city_name === '全省') {
+        name = item.province_name;
+      } else {
+        name = item.city_name;
+      }
+    } else {
+      name = item.county_name;
+    }
+    return (
+      <Link to={`/project/${item.id}`} className="page-home-projects-content-line" key={index}>
+        <div className="page-home-projects-content-box">
+          <Image style={{ width: '100%', height: '180px' }} src={item.list_photo} defaultSrc="/images/default_banner.png" alt="项目图片" />
+          <div className="page-home-projects-content-line-pd">
+            <div className="page-home-projects-content-line-title">{item.name}</div>
+            <div className="page-home-projects-content-line-addr">
+              <i className="page-home-projects-content-line-addr-icon" />
+              {name.length ? name : '全国'}
+            </div>
+            <div className="page-home-projects-content-line-time bc">
+              { moment(new Date(item.begin)).format('YYYY-MM-DD') }~{ moment(new Date(item.end)).format('YYYY-MM-DD') }
+              <i className="page-home-projects-content-line-time-icon" />
+            </div>
+            <div className="page-home-projects-content-line-num">
+              <div className="bc page-home-projects-content-line-num-left">{item.reward_time}小时 <i className="page-home-projects-content-line-num-hour" /></div>
+              <div className="bc page-home-projects-content-line-num-right">{item.join_people_count}人 <i className="page-home-projects-content-line-num-people" /></div>
+            </div>
+          </div>
+        </div>
+      </Link>
+    );
+  }
+
+  render() {
+    const { projects, showTitle } = this.props;
+    return (
+      <div>
+        {
+          showTitle ? this.renderTitle() : null
         }
-      </ul>
+        <div className="page-home-projects-content">
+          {
+          projects && projects.length ? projects.map((item, index) => this.renderItem(item, index)) : null
+        }
+        </div>
+      </div>
     );
   }
 }
@@ -110,7 +114,7 @@ Projects.propTypes = {
   projects: PropTypes.arrayOf(PropTypes.shape({
 
   })),
-  showLabel: PropTypes.bool,
+  showTitle: PropTypes.bool,
 };
 
 export default Projects;

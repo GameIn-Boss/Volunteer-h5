@@ -7,40 +7,21 @@ import thunk from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
 import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
 
-import homeReducer from '../pages/home/home.store';
-import projectReducer from '../pages/project/project.store';
-
-import teamReducer from '../pages/team/team.store';
-import signinReducer from '../pages/signin/signin.store';
-
-import myReducer from '../pages/my/my.store';
-import loginReducer from '../pages/my/login/login.store';
-import registerReducer from '../pages/my/register/register.store';
-import infoReducer from '../pages/my/profile/profile.store';
-import circleReducer from '../pages/my/circle/circle.store';
-
-import sanlitunReducer from '../pages/sanlitun/starModel/starModel.store';
-import insuranceReducer from '../pages/ensure/ensure.store';
-import announceReducer from '../pages/announce/announce.store';
-import shopReducer from '../pages/shop/shop.store';
 import { userReducer } from './common';
+import homeReducer from './../pages/home/home.store';
+import newsReducer from './../pages/news/news.store';
+import projectReducer from './../pages/project/project.store';
+import patternReducer from './../pages/pattern/pattern.store';
+import teamReducer from './../pages/team/team.store';
 
 const rootReducer = combineReducers({
-  home: homeReducer,
   user: userReducer,
-  pendingTasks: pendingTasksReducer,
+  home: homeReducer,
+  news: newsReducer,
   project: projectReducer,
   team: teamReducer,
-  signin: signinReducer,
-  my: myReducer,
-  info: infoReducer,
-  login: loginReducer,
-  register: registerReducer,
-  sanlitun: sanlitunReducer,
-  insurance: insuranceReducer,
-  circle: circleReducer,
-  announce:announceReducer,
-  shop:shopReducer,
+  pattern: patternReducer,
+  pendingTasks: pendingTasksReducer,
 });
 
 const middleware = [thunk, promiseMiddleware()];

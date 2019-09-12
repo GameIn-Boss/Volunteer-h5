@@ -19,7 +19,7 @@ class Avatar extends React.Component {
   constructor(props) {
     super(props);
     autoBind(this);
-    this.logoSrc = '/images/my/register.png';
+    this.logoSrc = '/images/default_avatar.png';
 
     this.state = { src: this.configSrc(props), iserror:false };
   }
@@ -66,7 +66,7 @@ class Avatar extends React.Component {
     return (<div
       {...props}
       style={{
-        backgroundImage: `url(${iserror ?'/images/my/register.png':src})`,
+        backgroundImage: `url(${iserror ?'/images/default_avatar.png':(src || '/images/default_avatar.png')})`,
         width: `${width || height || 20}px`,
         height: `${height || width || 20}px`,
         borderRadius: `${radius || (width || height) / 2}px`,

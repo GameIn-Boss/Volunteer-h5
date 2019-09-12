@@ -3,7 +3,7 @@
   width: 100%;
   height: 100%;
   flex-direction: reverse;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .components-star-light , .components-star-empty , .components-star-half{
@@ -12,6 +12,7 @@
   right: 0;
   overflow: hidden;
   display: flex;
+    margin-left: 4px;
 }
 .components-star-light {
   background:url(/images/star.png) no-repeat;

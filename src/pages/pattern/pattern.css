@@ -1,0 +1,117 @@
+.page-pattern {
+
+}
+.page-pattern-projects-title {
+    font-family: PingFangSC-Semibold;
+    font-size: 17px;
+    color: #4A4A4A;
+    margin-bottom: 25px;
+    background: #F8F8F9;
+    height: 76px;
+    line-height: 76px;
+}
+.page-pattern-projects-title-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 87px;
+    padding-left: 87px;
+}
+p {
+    margin: 0;
+}
+.page-pattern-box {
+    /*padding: 0 214px;*/
+    margin-bottom: 34px;
+}
+.page-pattern-content {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 87px;
+    justify-content: space-between;
+}
+
+.page-pattern-content-line {
+    width: 412px;
+    height: 213px;
+    background: #FFFFFF;
+    display: flex;
+    padding: 21px 19px;
+    margin-bottom: 36px;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px 0 rgba(173,173,173,0.28);
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+}
+.page-pattern-content-line-avatar {
+    width: 76px;
+    height: 76px;
+    background-color: #4A4A4A;
+    border-radius: 100%;
+}
+.page-pattern-content-line-detail {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #4A4A4A;
+    flex: 1;
+    margin-left: 32px;
+    overflow: hidden;
+}
+.page-pattern-content-line-detail-title {
+    font-size: 17px;
+    color: #4A4A4A;
+    margin-bottom: 4px;
+}
+.page-pattern-content-line-detail-default {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #9B9B9B;
+}
+.page-pattern-content-line-detail-detail {
+    color: #4A4A4A;
+    margin-top: 21px;
+}
+.mode {
+    width: 412px;
+    height: 213px;
+    background: #FFFFFF;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: all 0.2s;
+}
+.mode-btn {
+    background: #A0D9F7;
+    border-radius: 18.5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -88px;
+    margin-bottom: -18px;
+    width: 177px;
+    height: 37px;
+    line-height: 37px;
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.modal-close-icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background: url("/images/close@2x.png") no-repeat center;
+    background-size: cover;
+}
+.page-pattern-content-modal {
+    display: flex;
+    padding: 21px 19px;
+    justify-content: space-between;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+}
+

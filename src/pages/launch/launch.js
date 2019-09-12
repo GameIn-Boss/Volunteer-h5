@@ -1,5 +1,3 @@
-/* global wx:false */
-
 /**
  * @file 首页 TABS 页面统一入口，负责 URL 到 TAB  以及页面的映射
  */
@@ -12,19 +10,13 @@ import classnames from 'classnames';
 import Link from '../../components/link/link';
 import './launch.css';
 import HomePage from '../home/home';
-import SigninPage from '../signin/signin';
-import PasswordPage from '../signin/subpage/password_signin';
-import WXShare from '../../components/share';
-import MyPage from '../my/my';
-import { requestUserInfo } from '../../stores/common';
-
-const TAB_URL_MAPS = {
-  "/": <HomePage />,
-  "/home": <HomePage />,
-  "/signin": <SigninPage />,
-  "/my": <MyPage />,
-  "/signin/password": <PasswordPage />
-};
+import ProjectPage from '../project/project';
+import TeamPage from '../team/team';
+import NewsPage from '../news/news';
+import PatternPage from '../pattern/pattern';
+import ProjectDetailPage from '../project/detail';
+import TeamDetailPage from '../team/detail';
+import NewsDetailPage from '../news/detail';
 
 class LaunchPage extends React.Component {
 
@@ -33,26 +25,33 @@ class LaunchPage extends React.Component {
     autoBind(this);
 
     this.state = {
+      path: '/',
       page: this.getTabName(this.props),
     };
   }
 
+  TAB_URL_MAPS = {
+    '/': <HomePage route={this.props.route} />,
+    '/home': <HomePage route={this.props.route} />,
+    '/project': <ProjectPage route={this.props.route} />,
+    '/team': <TeamPage route={this.props.route} />,
+    '/news': <NewsPage route={this.props.route} />,
+    '/pattern': <PatternPage route={this.props.route} />,
+    '/project/:id': <ProjectDetailPage route={this.props.route} />,
+    '/team/:id': <TeamDetailPage route={this.props.route} />,
+    '/news/:id': <NewsDetailPage route={this.props.route} />,
+  };
+
   componentWillMount() {
-    if (!this.props.user.id) {
-      this.props.requestUserInfo(true);
-    }
   }
 
   componentDidMount() {
-    wx.ready(() => {
-      WXShare();
-    });
-    
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
       ...this.state,
+      path: nextProps.route.path,
       page: this.getTabName(nextProps),
     });
   }
@@ -62,73 +61,176 @@ class LaunchPage extends React.Component {
   }
 
   getTabName(props) {
-    return TAB_URL_MAPS[(props || this.props).route.path];
+    return this.TAB_URL_MAPS[(props || this.props).route.path];
+  }
+
+  onTabChange(e, path) {
+    e.preventDefault();
+    const pathname = window.location.pathname;
+    if (pathname === path) return;
+    this.setState({
+      ...this.state,
+      path,
+      page: this.TAB_URL_MAPS[path],
+    }, () => {
+      let hash = window.location.hash || '#0';
+      hash = Number(hash.split('#')[1]);
+      hash += 1;
+      history.pushState('', '', `${path}#${hash}`);
+    });
   }
 
   render() {
     const { page } = this.state;
     const { path } = this.props.route;
-
+    console.log(this.props);
     return (
       <div className="page-launch">
+        <header className="page-launch-header layer">
+          <div className="page-launch-header-icon">
+            <img src="/images/zdx.png" alt="" />
+            志多星志愿管理服务平台
+          </div>
+          <ul className="page-launch-header-tabs">
+            {/* <li */}
+            {/* className={classnames({ */}
+            {/* active: path === '/' || path === '/home', */}
+            {/* })} */}
+            {/* > */}
+            {/* <span onClick={(e) => { this.onTabChange(e, '/home'); }}>首页</span> */}
+            {/* </li> */}
+            {/* <li */}
+            {/* className={classnames({ */}
+            {/* active: path === '/project' || path === '/project/:id', */}
+            {/* })} */}
+            {/* > */}
+            {/* <span onClick={(e) => { this.onTabChange(e, '/project'); }}>志愿项目</span> */}
+            {/* </li> */}
+            {/* <li */}
+            {/* className={classnames({ */}
+            {/* active: path === '/team' || path === '/team/:id', */}
+            {/* })} */}
+            {/* > */}
+            {/* <Link to="/team"> */}
+            {/* <span>志愿团队</span> */}
+            {/* </Link> */}
+            {/* </li> */}
+            {/* <li */}
+            {/* className={classnames({ */}
+            {/* active: path === '/news' || path === '/news/:id', */}
+            {/* })} */}
+            {/* > */}
+            {/* <Link to="/news"> */}
+            {/* <span>新闻资讯</span> */}
+            {/* </Link> */}
+            {/* </li> */}
+            {/* <li */}
+            {/* className={classnames({ */}
+            {/* active: path === '/pattern', */}
+            {/* })} */}
+            {/* > */}
+            {/* <Link to="/pattern"> */}
+            {/* <span>星级榜样</span> */}
+            {/* </Link> */}
+            {/* </li> */}
+            {/* <li> */}
+            {/* <Link to="/"> */}
+            {/* <div */}
+            {/* className={classnames({ */}
+            {/* 'tab-icon': true, */}
+            {/* 'tab-icon-home': true, */}
+            {/* active: path === '/' || path === '/home', */}
+            {/* })} */}
+            {/* /> */}
+            {/* <span>关于我们</span> */}
+            {/* </Link> */}
+            {/* </li> */}
+
+
+            <li
+              className={classnames({
+                active: path === '/' || path === '/home',
+              })}
+            >
+              <Link to="/">
+                <span>首页</span>
+              </Link>
+            </li>
+            <li
+              className={classnames({
+                active: path === '/project' || path === '/project/:id',
+              })}
+            >
+              <Link to="/project">
+                <span>志愿项目</span>
+              </Link>
+            </li>
+            <li
+              className={classnames({
+                active: path === '/team' || path === '/team/:id',
+              })}
+            >
+              <Link to="/team">
+                <span>志愿团队</span>
+              </Link>
+            </li>
+            <li
+              className={classnames({
+                active: path === '/news' || path === '/news/:id',
+              })}
+            >
+              <Link to="/news">
+                <span>新闻资讯</span>
+              </Link>
+            </li>
+            <li
+              className={classnames({
+                active: path === '/pattern',
+              })}
+            >
+              <Link to="/pattern">
+                <span>星级榜样</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/">
+                <div
+                  className={classnames({
+                    'tab-icon': true,
+                    'tab-icon-home': true,
+                    active: path === '/' || path === '/home',
+                  })}
+                />
+                <span>关于我们</span>
+              </Link>
+            </li>
+          </ul>
+        </header>
         <div className="content">
           {page}
         </div>
-        <ul className="tabs">
-          <li>
-            <Link to="/">
-              <div
-                className={classnames({
-                  'tab-icon': true,
-                  'tab-icon-home': true,
-                  active: path === '/' || path === "/home",
-                })}
-              />
-              <span>首页</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/signin">
-              <div
-                className={classnames({
-                  'tab-icon': true,
-                  'tab-icon-signin': true,
-                  active: path === '/signin',
-                })}
-              />
-              <span>签到打卡</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/my">
-              <div
-                className={classnames({
-                  'tab-icon': true,
-                  'tab-icon-me': true,
-                  active: path === '/my',
-                })}
-              />
-              <span>个人中心</span>
-            </Link>
-          </li>
-        </ul>
-        <div className="line1px" style={{ width: '100%', position: 'absolute', bottom: '49px', left: '0' }} />
+        <footer className="layer footer">
+          <div className="footer-left">
+            <img src="/images/icon.png" alt="" />
+          </div>
+          <div className="footer-right">
+            <p>Copyright © 2012 - 2018 cdvolunteer.com . All Rights Reserved. 蜀ICP备12017097号-1</p>
+            <p>成都市精神文明建设办公室 版权所有</p>
+            <p>运营单位：成都晚报社 技术支持：四川升途信息科技有限公司</p>
+          </div>
+        </footer>
       </div>
     );
   }
 }
 
 LaunchPage.propTypes = {
-  requestUserInfo: PropTypes.func,
-  user: PropTypes.shape({
-    id: PropTypes.number,
-  }),
   route: PropTypes.shape({
     path: PropTypes.string,
   }),
 };
 
 export default connect(
-  state => ({ user: state.user }),
-  dispatch => bindActionCreators({ requestUserInfo }, dispatch),
+  state => ({}),
+  dispatch => bindActionCreators({}, dispatch),
 )(LaunchPage);
