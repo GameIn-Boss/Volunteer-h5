@@ -372,6 +372,11 @@
     "chunk": "main"
   },
   {
+    "path": "/my/cancellation",
+    "page": "./pages/my/login/cancellation",
+    "chunk": "main"
+  },
+  {
     "path": "/my/agree",
     "page": "./pages/my/register/agree",
     "chunk": "main"

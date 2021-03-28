@@ -188,10 +188,53 @@ export const changeIndex = (idx) => ({
     type: 'LOGIN_CHANGE_INDEX',
     payload: { idx  },
 });
+
+
+// 注销账户
+export const cancellationAction = data => ({
+  type: 'CANCELLATION',
+  payload: fetch('/user', {
+    method: 'DELETE',
+    data,
+    successWords: i18next.t('注销成功'),
+  }),
+});
+
+
+const cancellationReducer = (state = {
+  fetching: false,
+  failed: false,
+  data: null,
+}, action) => {
+  switch (action.type) {
+    case 'CANCELLATION_PENDING':
+      return {
+        ...state,
+        fetching: true,
+        failed: false,
+      };
+    case 'CANCELLATION_FULFILLED':
+      return {
+        ...state,
+        fetching: false,
+        failed: false,
+        data: action.payload,
+      };
+    case 'CANCELLATION_REJECTED':
+      return {
+        ...state,
+        failed: true,
+        fetching: false,
+      };
+    default:
+      return state;
+  }
+};
 const reducer = combineReducers({
-    forget: forgetReducer,
-    login: loginReducer,
-    code: againReducer,
+  forget: forgetReducer,
+  login: loginReducer,
+  code: againReducer,
+  cancellation: cancellationReducer,
 });
 export default reducer;
 

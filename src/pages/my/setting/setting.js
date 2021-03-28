@@ -44,6 +44,14 @@ class Setting extends React.Component {
             <div className="page-setting-icon" />
           </div>
         </Link>
+      <Link to="/my/cancellation">
+        <div className="page-setting-forget">
+          <div className="page-setting-fonts">
+            {t('注销账户')}
+          </div>
+          <div className="page-setting-icon" />
+        </div>
+      </Link>
         <a className="page-setting-quit" onClick={this.props.logoutAction}>
           {t('退出登录')}
         </a>
