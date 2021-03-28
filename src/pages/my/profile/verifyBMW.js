@@ -34,7 +34,51 @@ import locale_ZN from 'antd-mobile/es/date-picker/locale/zh_CN';
 import locale_US from 'antd-mobile/es/date-picker/locale/en_US';
 const RadioItem = Radio.RadioItem;
 const isAndroid = /android/i.test(navigator.userAgent);
+const isExisty = value => value !== null && value !== undefined
+const isNull = value => value === '';
+const validationPassword = (value, len) => {
+  if (!isExisty(value) || isNull(value)) {
+    Alert.warning(`${i18next.t('请填写')}${i18next.t('密码')}`);
+    return false;
+  }
+  if (value.length < len) {
+    Alert.warning(`${i18next.t('密码输入不合法')}`);
+    return false;
+  }
+  let Modes = 0;
+  // 统计密码中字符类型
+  for (let i = 0; i < value.length; i++) {
+    Modes |= CharMode(value.charCodeAt(i));
+  }
+  // 判断字符类型
+  function CharMode(iN) {
+    if (iN >= 48 && iN <= 57) //数字
+      return 1;
+    if (iN >= 65 && iN <= 90) //大写字母
+      return 2;
+    if (iN >= 97 && iN <= 122) //小写
+      return 4;
+    else
+      return 8; //特殊字符
+  }
 
+  // 返回密码中字符类型
+  function bitTotal(num) {
+
+    let m = 0;
+    for (let i = 0; i < 4; i++) {
+      if (num & 1) m++;
+      num >>>= 1;
+    }
+    return m;
+  }
+  // 必须是包含数字、大写小写字母和特殊字符
+  if (bitTotal(Modes) < 4) {
+    Alert.warning(`${i18next.t('密码输入不合法')}`);
+    return false;
+  }
+  return true;
+}
 let isEmpty = false;
 
 function checkEmpty(value, label) {
@@ -287,14 +331,11 @@ class Verify extends React.Component {
       extendsObj[item[0]] = item[1];
     })
 
-    console.info(filterArr, extendsObj)
-
     if (extendsObj.employee_id && !(/^[a-zA-Z]\w{5,6}$/.test(extendsObj.employee_id))) {
       Alert.warning(t('员工号有误，请检查'));
       return;
     }
     data.extends = extendsObj;
-
     if (
       (stateOrgData.open_avatars && checkEmpty(photo, t('头像'))) ||
       (stateOrgData.open_real_name && checkEmpty(realname, t('姓名'))) ||
@@ -305,8 +346,9 @@ class Verify extends React.Component {
       (stateOrgData.open_addr && checkEmpty(county, t('区县'))) ||
       (stateOrgData.open_addr && checkEmpty(address, t('工作地点'))) ||
       (stateOrgData.open_real_name && checkRealname(realname)) ||
-      (user.have_pwd == 0 && checkEmpty(password, t('密码')))
+      (user.have_pwd === 0 && !validationPassword(password, 8))
     ) {
+      return;
     }
     if (stateOrgData.open_id_number) {
       if (cardtype == 1 && iscard(idcard)) {
@@ -1085,6 +1127,7 @@ class Verify extends React.Component {
                 onChange={this.onTextChanged}
               />
             </div>
+            <div className="page-my-profile-verify-header-box" style={{color: '#666', fontSize: 13}}>{i18next.t('密码至少8位，且必须包含数字、大写小写字母和特殊字符')}</div>
             <div className="line1px" />
           </div>
         ) : null}

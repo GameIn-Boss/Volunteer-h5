@@ -13,7 +13,7 @@ export default {
     '请输入验证码': 'Please enter the verification code',
     '请输入手机号': 'Please enter your mobile number',
     '请先阅读协议':'Please check after reading the user agreement.',
-    '手机号或证件号码': 'Mobile number/ID number',
+    '手机号或证件号码': 'Mobile number',
     '输入密码': 'Enter password',
     '忘记密码': 'Forget password',
     '登录': 'Login',
@@ -383,6 +383,8 @@ export default {
     '请输入中文姓名或英文姓名': 'Full name',
     '请输入中文姓名': 'Full Chinese name',
     '身份证输入不合法': 'Wrong ID number',
+    '密码输入不合法': 'Wrong password',
+    '密码至少8位，且必须包含数字、大写小写字母和特殊字符': 'The password must have at least 8 digits and must contain numbers, uppercase and lowercase letters and special characters.',
 
 
     '基本信息': 'Basic information',
