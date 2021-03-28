@@ -191,14 +191,26 @@ export const changeIndex = (idx) => ({
 
 
 // 注销账户
-export const cancellationAction = data => ({
-  type: 'CANCELLATION',
-  payload: fetch('/user', {
+export const cancellationAction = () => (dispatch) => {
+  dispatch({ type: 'CANCELLATION_PENDING' });
+
+  fetch('/user', {
     method: 'DELETE',
-    data,
     successWords: i18next.t('注销成功'),
-  }),
-});
+  }).then((json) => {
+    dispatch({ type: 'CANCELLATION_FULFILLED', payload: json.data });
+
+    // 获取到用户信息后单独处理（存储 token/用户信息）
+    dispatch({ type: USERINFO_CLEAR, payload: json });
+
+    if (json && !json.error_code) {
+      window.location.replace('/');
+    }
+  }).catch((e) => {
+    console.log(e);
+    dispatch({ type: 'CANCELLATION_REJECTED' });
+  });
+};
 
 
 const cancellationReducer = (state = {
