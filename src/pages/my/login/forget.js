@@ -13,6 +13,59 @@ import { forgetAction, againVerifyCode } from './login.store';
 import { translate } from 'react-i18next';
 import i18next from 'i18next';
 
+const isExisty = value => value !== null && value !== undefined
+const isNull = value => value === '';
+const validationPassword = (value, len) => {
+  if (!isExisty(value) || isNull(value)) {
+    Alert.warning(`${i18next.t('请填写')}${i18next.t('密码')}`);
+    return false;
+  }
+  if (value.length < len) {
+    Alert.warning(`${i18next.t('密码输入不合法')}`);
+    return false;
+  }
+  let Modes = 0;
+  // 统计密码中字符类型
+  for (let i = 0; i < value.length; i++) {
+    Modes |= CharMode(value.charCodeAt(i));
+  }
+  // 判断字符类型
+  function CharMode(iN) {
+    if (iN >= 48 && iN <= 57) //数字
+      return 1;
+    if (iN >= 65 && iN <= 90) //大写字母
+      return 2;
+    if (iN >= 97 && iN <= 122) //小写
+      return 4;
+    else
+      return 8; //特殊字符
+  }
+
+  // 返回密码中字符类型
+  function bitTotal(num) {
+
+    let m = 0;
+    for (let i = 0; i < 4; i++) {
+      if (num & 1) m++;
+      num >>>= 1;
+    }
+    return m;
+  }
+  // 必须是包含数字、大写小写字母和特殊字符
+  if (bitTotal(Modes) < 4) {
+    Alert.warning(`${i18next.t('密码输入不合法')}`);
+    return false;
+  }
+  return true;
+}
+function checkEmpty(value, label) {
+  if (!value || !value.length) {
+    Alert.warning(`${i18next.t('请填写')}${label}`);
+    return true;
+  } else {
+  }
+  return false;
+}
 class Forget extends React.Component {
 
   constructor(props) {
@@ -121,6 +174,9 @@ class Forget extends React.Component {
     const phone = this.state.phone;
     const verifyCode = this.state.verifyCode;
     const pwd = this.state.pwd;
+    if (checkEmpty(phone, '手机号') || checkEmpty(verifyCode, '验证码') || !validationPassword(pwd, 8)) {
+      return;
+    }
     const data = {
       phone,
       verify_code: verifyCode,
