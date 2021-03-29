@@ -126,8 +126,10 @@ export default function request(requestUrl, requestOptions = {}) {
     // 加盐 加签
     const date = new Date().getTime();
     params.push(`timestamp=${date}`);
-    const str = params.sort().join('&');
-    body = `${str}&sign=${md5(str)}`;
+    const deep_copy = JSON.stringify(params);
+    const params_copy = JSON.parse(deep_copy);
+    params_copy.push('volunteer=bmw');
+    body = `${params.sort().join('&')}&sign=${md5(params_copy.sort().join('&'))}`;
   }
   if (options.method === "POST") {
     options.headers["Content-Type"] = "application/x-www-form-urlencoded";
