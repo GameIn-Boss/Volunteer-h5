@@ -1,11 +1,14 @@
+/* eslint  "jsx-a11y/no-static-element-interactions":"off", "react/no-array-index-key":"off" */
+/* eslint "quotes":"off","linebreak-style":"off","object-curly-spacing":"off" */
 import Alert from "react-s-alert";
-import { API_PREFIX } from "./config";
-import { addAysncTask, removeAysncTask } from "../stores/common";
-import { storeLoginSource } from "../pages/my/login/login.store";
+import {API_PREFIX} from "./config";
+import {addAysncTask, removeAysncTask} from "../stores/common";
+import {storeLoginSource} from "../pages/my/login/login.store";
 import store from "../stores";
-import history, { USING_HISTORY_HASH } from "../pages/history";
-import { getToken,getCookie ,getQueryString2} from "./funcs";
+import history, {USING_HISTORY_HASH} from "../pages/history";
+import {getToken, getCookie, getQueryString2} from "./funcs";
 import i18next from 'i18next';
+import md5 from 'js-md5';
 
 function encodeUnicode(str) {
   const res = [];
@@ -38,14 +41,14 @@ export default function request(requestUrl, requestOptions = {}) {
   }
 
   let url = requestUrl;
-  let { switchUrl } = requestOptions;
+  let {switchUrl} = requestOptions;
   const options = {
     ...requestOptions
   };
 
   if (url.indexOf("http") !== 0 && !switchUrl) {
     url = API_PREFIX + url;
-  }else if (switchUrl) {
+  } else if (switchUrl) {
     url = switchUrl + url;
   }
   if (!options.method) {
@@ -62,24 +65,24 @@ export default function request(requestUrl, requestOptions = {}) {
   const headers = options.headers || {};
   const location = getCookie("location") ? JSON.parse(getCookie("location")) : null;
   const position = getCookie("X-original-location") ? JSON.parse(getCookie("X-original-location")) : null;
-  const oriCity = position&&position.city? position.city:null;
+  const oriCity = position && position.city ? position.city : null;
   const city = getCookie("provinceAndCityName") ? JSON.parse(getCookie("provinceAndCityName")).city : "全国";
 
-   const i18nextLng = getCookie('i18nextLng');
+  const i18nextLng = getCookie('i18nextLng');
   let headersObj = {
     ...headers,
     "X-auth-token": getToken() || '',
     "X-org-code": window.orgCode,
     "X-location": location
       ? `${
-      location.lng // 授权 token // 机构代码 // 经纬度 经度-纬度
-      }-${location.lat}`
+        location.lng // 授权 token // 机构代码 // 经纬度 经度-纬度
+        }-${location.lat}`
       : "116.403847-39.915526",
     "X-unique-key": window.uniqueKey || "demo",
     "X-city": `${encodeURI(city)}`,
     "X-original-city": `${encodeURI(oriCity)}` || '',
     "X-language": i18nextLng || '',
-  }
+  };
   if (!location) {
     delete headersObj["X-location"];
   }
@@ -117,19 +120,28 @@ export default function request(requestUrl, requestOptions = {}) {
       }
     }
   });
+  // const body = params.join("&");
+  let body = '';
+  if (params.length) {
+    // 加盐 加签
+    const date = new Date().getTime();
+    params.push(`timestamp=${date}`);
+    const str = params.sort().join('&');
+    body = `${str}&sign=${md5(str)}`;
+  }
   if (options.method === "POST") {
     options.headers["Content-Type"] = "application/x-www-form-urlencoded";
-    options.body = params.join("&");
+    options.body = body;
   } else {
-      if(params) {
-          if(url.indexOf('?')>-1) {
-              url = `${url}&${params.join("&")}`;
-          }else {
-              url = `${url}?${params.join("&")}`;
-          }
+    if (params && body.length) {
+      if (url.indexOf('?') > -1) {
+        url = `${url}&${body}`;
+      } else {
+        url = `${url}?${body}`;
       }
+    }
   }
-
+  delete options.data;
   if (options.loading) {
     store.dispatch(addAysncTask());
   }
