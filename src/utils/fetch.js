@@ -99,6 +99,7 @@ export default function request(requestUrl, requestOptions = {}) {
   keys.forEach(key => {
     const value = data[key];
     if (value !== undefined && value !== null) {
+      console.log(`${key}的类型是：${typeof value}`);
       if (Array.isArray(value)) {
         value.forEach(v => {
           return params.push(
@@ -115,7 +116,7 @@ export default function request(requestUrl, requestOptions = {}) {
             );
           }
         }
-      } else {
+      } else if(value.length) {
         params.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`);
       }
     }
@@ -131,6 +132,7 @@ export default function request(requestUrl, requestOptions = {}) {
     params_copy.push('volunteer=bmw');
     body = `${params.sort().join('&')}&sign=${md5(params_copy.sort().join('&'))}`;
   }
+  console.log(body);
   if (options.method === "POST") {
     options.headers["Content-Type"] = "application/x-www-form-urlencoded";
     options.body = body;
