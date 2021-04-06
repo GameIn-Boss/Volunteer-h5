@@ -99,7 +99,7 @@ export default function request(requestUrl, requestOptions = {}) {
   keys.forEach(key => {
     const value = data[key];
     if (value !== undefined && value !== null) {
-      console.log(`${key}的类型是：${typeof value}`);
+      console.log(`${key}的类型是：${typeof value}，值是：${value}`);
       if (Array.isArray(value)) {
         value.forEach(v => {
           return params.push(
@@ -116,8 +116,12 @@ export default function request(requestUrl, requestOptions = {}) {
             );
           }
         }
-      } else if(value.length) {
-        params.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`);
+      } else {
+        if (typeof value === 'string' && !value.length) {
+
+        } else {
+          params.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`);
+        }
       }
     }
   });
