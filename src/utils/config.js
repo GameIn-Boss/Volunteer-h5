@@ -1,11 +1,11 @@
-const SERVER_HOST = 'https://api.flashdiet.cn';
+const SERVER_HOST = 'https://bmw.api.volzdx.cn';
 
 export const HOST = SERVER_HOST;
 
 // 线上接口
-export const API_PREFIX = `${window.apiHost}/api/v1` || 'http://alpha.api.volunteer.tmallwo.com:8000/api/v1';
-export const API_HOST = window.apiHost || 'http://alpha.api.volunteer.tmallwo.com:8000';
-export const ADMIN_HOST = (`${window.apiHost}` == 'https://api.volzdx.cn') || (`${window.apiHost}` == 'https://api.volzdx.cn' )? 'https://admin.volzdx.cn' : 'http://admin.volunteer.guangying.link';
+export const API_PREFIX = `${window.apiHost}/api/v1` || 'http://bmw.api.volzdx.cn/api/v1';
+export const API_HOST = window.apiHost || 'bmw.api.volzdx.cn';
+export const ADMIN_HOST = (`${window.apiHost}` == 'http://bmw.api.volzdx.cn') || (`${window.apiHost}` == 'https://bmw.api.volzdx.cn' ) ? 'https://bmw.volzdx.cn/' : 'http://admin.volunteer.guangying.link';
 // http://api.volzdx.cn
 
 
