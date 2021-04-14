@@ -185,17 +185,17 @@ class Profile extends React.Component {
                         </div> :
                         null
                 }
-                {
-                    user.birthday ?
-                        <div>
-                            <div className="page-profile-header-box">
-                                <div className="page-profile-fonts">{t('出生日期')}</div>
-                                <div className="page-profile-edit-right-box" style={{ justifyContent: 'flex-end' }}>{user.birthday}</div>
-                            </div>
-                            <div className="line1px" />
-                        </div> :
-                        null
-                }
+                {/*{*/}
+                {/*    user.birthday ?*/}
+                {/*        <div>*/}
+                {/*            <div className="page-profile-header-box">*/}
+                {/*                <div className="page-profile-fonts">{t('出生日期')}</div>*/}
+                {/*                <div className="page-profile-edit-right-box" style={{ justifyContent: 'flex-end' }}>{user.birthday}</div>*/}
+                {/*            </div>*/}
+                {/*            <div className="line1px" />*/}
+                {/*        </div> :*/}
+                {/*        null*/}
+                {/*}*/}
                 {
                     user.sex ?
                         <div>
@@ -413,17 +413,17 @@ class Profile extends React.Component {
                     </div>
                 </div>
                 <div className="line1px" />
-                {this.realRegister !== null && this.realRegister.real_name_register ? null :
-                    <div className="page-profile-header-box">
-                        <div className="page-profile-fonts">{t('账号')}</div>
-                        <div className="page-profile-edit-box">
-                            <div className="page-profile-initial-fonts">
-                                {user.username ? (language === 'zh-CN' ? user.username :user.username.replace('用户', 'user')) : ''}
-                            </div>
-                            <div className="page-profile-initial-fonts-take-up" />
-                        </div>
-                    </div>}
-                {this.realRegister !== null && this.realRegister.real_name_register ? null : <div className="line1px" />}
+                {/*{this.realRegister !== null && this.realRegister.real_name_register ? null :*/}
+                {/*    <div className="page-profile-header-box">*/}
+                {/*        <div className="page-profile-fonts">{t('账号')}</div>*/}
+                {/*        <div className="page-profile-edit-box">*/}
+                {/*            <div className="page-profile-initial-fonts">*/}
+                {/*                {user.username ? (language === 'zh-CN' ? user.username :user.username.replace('用户', 'user')) : ''}*/}
+                {/*            </div>*/}
+                {/*            <div className="page-profile-initial-fonts-take-up" />*/}
+                {/*        </div>*/}
+                {/*    </div>}*/}
+                {/*{this.realRegister !== null && this.realRegister.real_name_register ? null : <div className="line1px" />}*/}
 
                 <Link to="/my/profile/bind/phone">
                     <div className="page-profile-header-box">
@@ -438,18 +438,18 @@ class Profile extends React.Component {
                 </Link>
                 <div className="line1px" />
 
-                <Link to="/my/profile/bind/mail">
-                    <div className="page-profile-header-box">
-                        <div className="page-profile-fonts">{t('邮箱')}</div>
-                        <div className="page-profile-edit-box">
-                            <div className="page-profile-initial-fonts">
-                                {user.email || ""}
-                            </div>
-                            <div className="page-profile-edit-icon" />
-                        </div>
-                    </div>
-                </Link>
-                <div className="line1px" />
+                {/*<Link to="/my/profile/bind/mail">*/}
+                {/*    <div className="page-profile-header-box">*/}
+                {/*        <div className="page-profile-fonts">{t('邮箱')}</div>*/}
+                {/*        <div className="page-profile-edit-box">*/}
+                {/*            <div className="page-profile-initial-fonts">*/}
+                {/*                {user.email || ""}*/}
+                {/*            </div>*/}
+                {/*            <div className="page-profile-edit-icon" />*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</Link>*/}
+                {/*<div className="line1px" />*/}
 
                 <div className="page-profile-header-box">
                     <div className="page-profile-fonts">{t('志愿者编号')}</div>

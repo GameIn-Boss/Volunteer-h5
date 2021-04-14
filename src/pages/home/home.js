@@ -134,13 +134,6 @@ class HomePage extends React.Component {
     const { user, t, i18n } = this.props;
     const { language } = i18n;
     const switchView = user.isLogin;
-    //点击登录跳转判断
-    let target = '/my/entry';
-    if(window.orgCode === 'oBDbDkxal2') {
-        target='/my/login';
-    } else if(window.orgCode === '7N1aM8AeWm') {
-      target='/my/login';
-    }
 
     const changeGlobalLanguage = () => {
       i18n.changeLanguage(language === 'zh-CN' ? 'en-US' : 'zh-CN');
@@ -193,7 +186,7 @@ class HomePage extends React.Component {
             /> : null
             }
             <Link
-                to={target}
+                to="/my/login"
               >
               <div className="login-button">{t('登录')}</div>
             </Link>

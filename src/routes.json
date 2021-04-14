@@ -382,6 +382,11 @@
     "chunk": "main"
   },
   {
+    "path": "/my/privacy_policy",
+    "page": "./pages/my/register/privacy_policy",
+    "chunk": "main"
+  },
+  {
     "path": "/building",
     "page": "./pages/building/building",
     "chunk": "main"

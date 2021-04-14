@@ -453,21 +453,21 @@ class MyPage extends React.Component {
                 </div>
               </li>) : null
           }
-          {
-            orgCode === "7N1aM8AeWm" ? null :
-              (<li>
-                <div>
-                  <Link to="/my/family">
-                    <div className="page-my-item-box">
-                      <i className="page-my-item-icon page-my-item-icon-family" />
-                      {t('我的家庭')}
-                    </div>
-                    <span className="page-my-item-big" />
-                  </Link>
-                  <div className="line1px" />
-                </div>
-              </li>)
-          }
+          {/*{*/}
+          {/*  orgCode === "7N1aM8AeWm" ? null :*/}
+          {/*    (<li>*/}
+          {/*      <div>*/}
+          {/*        <Link to="/my/family">*/}
+          {/*          <div className="page-my-item-box">*/}
+          {/*            <i className="page-my-item-icon page-my-item-icon-family" />*/}
+          {/*            {t('我的家庭')}*/}
+          {/*          </div>*/}
+          {/*          <span className="page-my-item-big" />*/}
+          {/*        </Link>*/}
+          {/*        <div className="line1px" />*/}
+          {/*      </div>*/}
+          {/*    </li>)*/}
+          {/*}*/}
           <li>
             <div>
               <Link to="/my/collects">
