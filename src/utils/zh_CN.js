@@ -523,9 +523,20 @@ export default {
     '报名成功': '报名成功',
     '返回项目详情': '返回项目详情',
     '返回首页': '返回首页',
+    '邮箱格式不正确': '邮箱格式不正确!',
 
     'sign-record-status-shape-ing': 'sign-record-status-shape-ing',
     'sign-record-status-shape-recru': 'sign-record-status-shape-recru',
     'sign-record-status-shape-end': 'sign-record-status-shape-end',
+
+    '身份类型': '身份类型',
+    '宝马员工': '宝马员工',
+    '经销商员工': '经销商员工',
+    '宝马车主': '宝马车主',
+    '公众': '公众',
+    '所属公司': '所属公司',
+    '员工号': '员工号',
+    '经销商简称': '经销商简称',
+    '邮箱': '邮箱',
   },
 }

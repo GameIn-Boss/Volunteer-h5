@@ -282,6 +282,11 @@
     "chunk": "main"
   },
   {
+    "path": "/my/profile/bind_profile_user/alert",
+    "page": "./pages/my/profile/bindProfileUser",
+    "chunk": "main"
+  },
+  {
     "path": "/my/profile/verifyStarbucks",
     "page": "./pages/my/profile/verifyStarbucks",
     "chunk": "main"
@@ -289,6 +294,11 @@
   {
     "path": "/my/profile/verifyBMW",
     "page": "./pages/my/profile/verifyBMW",
+    "chunk": "main"
+  },
+  {
+    "path": "/my/profile/verifyUser",
+    "page": "./pages/my/profile/verifyUser",
     "chunk": "main"
   },
   {

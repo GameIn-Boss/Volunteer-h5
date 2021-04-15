@@ -528,5 +528,16 @@ export default {
     '报名信息': '报名信息',
     '全选': '全选',
     '合计': '合计',
+    '邮箱格式不正确': 'The mailbox format is incorrect!',
+
+    '身份类型': 'Identity type',
+    '宝马员工': 'BMW associate',
+    '经销商员工': 'BMW dealer',
+    '宝马车主': 'BMW car owner',
+    '公众': 'Public',
+    '所属公司': 'Company',
+    '员工号': 'Q number',
+    '经销商简称': 'Dealer',
+    '邮箱': 'E-mail',
   },
 }

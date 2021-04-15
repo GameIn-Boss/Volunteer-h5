@@ -352,3 +352,6 @@ export const getQueryString2 = (name) => {
   }
   return undefined;
 };
+
+export const user_type = [ "宝马员工", "经销商员工", "宝马车主", "公众" ];
+export const volunteer_company = [ "BBA-BJ","BBA-SY","NSC","SF","BCS","HIL", "CIS", "CHC"];

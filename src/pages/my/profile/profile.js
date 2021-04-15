@@ -147,7 +147,7 @@ class Profile extends React.Component {
             bindlink = '/my/profile/bind_profile_starbucks/alert';
         }
         if (window.orgCode === 'mWZdPNwaKg') {
-            bindlink = '/my/profile/bind_profile_BMW/alert';
+            bindlink = '/my/profile/bind_profile_user/alert';
         }
         return (
             <div className="page-profile-bottom-real-info-container">
@@ -227,18 +227,17 @@ class Profile extends React.Component {
                                     className="page-profile-initial-fonts">{user.province_name ? user.province_name : ''}-{user.city_name ? user.city_name : ''}-{user.county_name ? user.county_name : ''}</div>
                             </div>
                             <div className="line1px" />
-                            <div className="page-profile-header-box">
-                                <div className="page-profile-fonts">{t('详细地址')}</div>
-                                <div className="page-profile-initial-fonts">{user.addr ? user.addr : ''}</div>
-                            </div>
-                            <div className="line1px" />
                         </div>
                         : null
                 }
                 {this.renderRealInfoExtends()}
-                <Link to={bindlink} style={{ marginTop: '41px', width: '100%', display: 'inline-block' }}>
-                    <div className="page-profile-apply-alert">{t('修改资料')}</div>
-                </Link>
+                {
+                    user.id_number && user.id_number.length ? (
+                      <Link to={bindlink} style={{ marginTop: '41px', width: '100%', display: 'inline-block' }}>
+                          <div className="page-profile-apply-alert">{t('修改资料')}</div>
+                      </Link>
+                    ) : null
+                }
                 <Link to="/my/profile/applyAlert">
                     <div style={{ textAlign: 'center', marginTop: '10px', textDecoration: 'underline' }}><a href="javascript:;">{t('需要帮助')}？</a></div>
                 </Link>
@@ -400,7 +399,7 @@ class Profile extends React.Component {
             verifyRouter = "/my/profile/verifyStarbucks";
         }
         if (window.orgCode === 'mWZdPNwaKg') {
-            verifyRouter = "/my/profile/verifyBMW";
+            verifyRouter = "/my/profile/verifyUser";
         }
         return <div className="page-profile">
             <div>
@@ -645,11 +644,6 @@ class Profile extends React.Component {
                         <div className="page-profile-edit-right-box">{otherFamily.data.township_name}</div>
                     </div>
                 }
-                <div className="line1px" />
-                <div className="page-profile-header-box">
-                    <div className="page-profile-fonts">{t('详细地址')}</div>
-                    <div className="page-profile-edit-right-box">{otherFamily.data.addr}</div>
-                </div>
                 <div className="page-profile-header-cut"></div>
                 <div className="page-profile-header-box">
                     <div className="page-profile-fonts page-profile-fonts-main">{t('密码')}</div>
