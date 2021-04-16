@@ -59,7 +59,6 @@ class BindInfo extends React.Component {
       password: null,
       province: 0,
       city: 0,
-      county: 0,
       winOrgInfo: window.orgInfo.custom_config,
       showMultiple: false,
       previewData: [],
@@ -88,7 +87,6 @@ class BindInfo extends React.Component {
       this.setState({
         province: user.province_id,
         city: user.city_id,
-        county: user.county_id,
         birthday: user.birthday,
         volunteer_company_affiliation: user.volunteer_company_affiliation,
         volunteer_dealer_name: user.volunteer_dealer_name,
@@ -119,7 +117,6 @@ class BindInfo extends React.Component {
       people,
       province,
       city,
-      county,
       birthday,
 
       volunteer_user_type,
@@ -132,7 +129,6 @@ class BindInfo extends React.Component {
     if (
       (stateOrgData.open_addr && checkEmpty(`${province}`, t('省份'))) ||
       (stateOrgData.open_addr && checkEmpty(`${city}`, t('城市'))) ||
-      (stateOrgData.open_addr && checkEmpty(`${county}`, t('区县'))) ||
       checkEmpty(volunteer_user_type, t('身份类型'))
     ) {
       return;
@@ -185,9 +181,6 @@ class BindInfo extends React.Component {
     if (city && city != -1) {
       data.city_id = city;
     }
-    if (county && county != -1) {
-      data.county_id = county;
-    }
     data.volunteer_user_type = volunteer_user_type;
 
     this.props.checkEdit(data);
@@ -199,7 +192,6 @@ class BindInfo extends React.Component {
       ...this.state,
       province: this.province.value,
       city: -1,
-      county: -1
     });
     this.props.addressDataAction(this.province.value);
   }
@@ -208,15 +200,6 @@ class BindInfo extends React.Component {
     this.setState({
       ...this.state,
       city: this.city.value,
-      county: -1
-    });
-    this.props.addressDataAction(this.city.value);
-  }
-
-  handleCountyClick() {
-    this.setState({
-      ...this.state,
-      county: this.county.value
     });
   }
 
@@ -293,7 +276,6 @@ class BindInfo extends React.Component {
     const { language } = i18n;
     const province = this.props.address.data.province;
     const city = this.props.address.data.city;
-    const county = this.props.address.data.county;
     return (
       <div>
         <div>
@@ -339,31 +321,6 @@ class BindInfo extends React.Component {
                 <option value="-1" />
                 {city &&
                 city.map((item, keys) => (
-                  <option value={item.id} key={keys}>
-                    {language === 'zh-CN' ? item.name : item.pinyin}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
-          <div className="line1px" />
-          <div className="page-my-profile-verify-header-box">
-            {this.state.winOrgInfo.open_addr === 1 ? (
-              <span className="page-my-profile-verify-header-start">*</span>
-            ) : null}
-            <div className="page-my-profile-verify-fonts">{t('区县')}</div>
-            <label htmlFor="county">
-              <select
-                id="county"
-                value={this.state.county || user.county_id || ''}
-                onChange={this.handleCountyClick}
-                ref={c => {
-                  this.county = c;
-                }}
-              >
-                <option value="-1" />
-                {county &&
-                county.map((item, keys) => (
                   <option value={item.id} key={keys}>
                     {language === 'zh-CN' ? item.name : item.pinyin}
                   </option>

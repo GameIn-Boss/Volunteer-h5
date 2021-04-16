@@ -153,7 +153,6 @@ class Verify extends React.Component {
       password: null,
       province: 0,
       city: 0,
-      county: 0,
       winOrgInfo: window.orgInfo.custom_config,
       showMultiple: false,
       previewData: [],
@@ -238,7 +237,6 @@ class Verify extends React.Component {
       cardtype,
       province,
       city,
-      county,
       password,
 
       volunteer_user_type,
@@ -257,7 +255,6 @@ class Verify extends React.Component {
       (stateOrgData.open_id_number && checkEmpty(idcard, t('证件号码'))) ||
       (stateOrgData.open_addr && checkEmpty(province, t('省份'))) ||
       (stateOrgData.open_addr && checkEmpty(city, t('城市'))) ||
-      (stateOrgData.open_addr && checkEmpty(county, t('区县'))) ||
       (stateOrgData.open_real_name && checkRealname(realname)) ||
       (user.have_pwd === 0 && !validationPassword(password, 8) ||
         checkEmpty(volunteer_user_type, t('身份类型'))
@@ -321,9 +318,6 @@ class Verify extends React.Component {
     if (city) {
       data.city_id = city;
     }
-    if (county) {
-      data.county_id = county;
-    }
 
     if (photo != undefined && photo != "") {
       data.avatars = photo;
@@ -365,14 +359,7 @@ class Verify extends React.Component {
       ...this.state,
       city: this.city.value
     });
-    this.props.addressDataAction(this.city.value);
-  }
-
-  handleCountyClick() {
-    this.setState({
-      ...this.state,
-      county: this.county.value
-    });
+    // this.props.addressDataAction(this.city.value);
   }
 
   renderAvatars() {
@@ -470,7 +457,6 @@ class Verify extends React.Component {
     const { language } = i18n;
     const province = this.props.address.data.province;
     const city = this.props.address.data.city;
-    const county = this.props.address.data.county;
     return (
       <div>
         <div>
@@ -515,30 +501,6 @@ class Verify extends React.Component {
                 <option value="-1" />
                 {city &&
                 city.map((item, keys) => (
-                  <option value={item.id} key={keys}>
-                    {language === 'zh-CN' ? item.name : item.pinyin}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
-          <div className="line1px" />
-          <div className="page-my-profile-verify-header-box">
-            {this.state.winOrgInfo.open_addr === 1 ? (
-              <span className="page-my-profile-verify-header-start">*</span>
-            ) : null}
-            <div className="page-my-profile-verify-fonts">{t('区县')}</div>
-            <label htmlFor="county">
-              <select
-                id="county"
-                onChange={this.handleCountyClick}
-                ref={c => {
-                  this.county = c;
-                }}
-              >
-                <option value="-1" />
-                {county &&
-                county.map((item, keys) => (
                   <option value={item.id} key={keys}>
                     {language === 'zh-CN' ? item.name : item.pinyin}
                   </option>

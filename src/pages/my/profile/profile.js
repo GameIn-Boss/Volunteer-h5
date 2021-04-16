@@ -224,13 +224,72 @@ class Profile extends React.Component {
                             <div className="page-profile-header-box">
                                 <div className="page-profile-fonts">{t('现居住地址')}</div>
                                 <div
-                                    className="page-profile-initial-fonts">{user.province_name ? user.province_name : ''}-{user.city_name ? user.city_name : ''}-{user.county_name ? user.county_name : ''}</div>
+                                    className="page-profile-initial-fonts">{user.province_name ? user.province_name : ''}-{user.city_name ? user.city_name : ''}</div>
                             </div>
                             <div className="line1px" />
                         </div>
                         : null
                 }
-                {this.renderRealInfoExtends()}
+                <div>
+                    <div className="page-profile-header-box">
+                        <div className="page-profile-fonts">{t('身份类型')}</div>
+                        <div
+                          className="page-profile-initial-fonts">{user.volunteer_user_type ? t(user.volunteer_user_type) : ''}</div>
+                    </div>
+                    <div className="line1px" />
+                </div>
+                {
+                    user.volunteer_user_type && user.volunteer_user_type === '宝马员工' ? (
+                      <div>
+                          <div>
+                              <div className="page-profile-header-box">
+                                  <div className="page-profile-fonts">{t('所属公司')}</div>
+                                  <div
+                                    className="page-profile-initial-fonts">{user.volunteer_company_affiliation ? user.volunteer_company_affiliation : ''}</div>
+                              </div>
+                              <div className="line1px" />
+                          </div>
+                          <div>
+                              <div className="page-profile-header-box">
+                                  <div className="page-profile-fonts">{t('员工号')}</div>
+                                  <div
+                                    className="page-profile-initial-fonts">{user.volunteer_employee_id ? user.volunteer_employee_id : ''}</div>
+                              </div>
+                              <div className="line1px" />
+                          </div>
+                          <div>
+                              <div className="page-profile-header-box">
+                                  <div className="page-profile-fonts">{t('邮箱')}</div>
+                                  <div
+                                    className="page-profile-initial-fonts">{user.volunteer_email ? user.volunteer_email : ''}</div>
+                              </div>
+                              <div className="line1px" />
+                          </div>
+                      </div>
+                    ) : null
+                }
+                {
+                    user.volunteer_user_type && user.volunteer_user_type === '经销商员工' ? (
+                      <div>
+                          <div>
+                              <div className="page-profile-header-box">
+                                  <div className="page-profile-fonts">{t('经销商简称')}</div>
+                                  <div
+                                    className="page-profile-initial-fonts">{user.volunteer_dealer_name ? user.volunteer_dealer_name : ''}</div>
+                              </div>
+                              <div className="line1px" />
+                          </div>
+                          <div>
+                              <div className="page-profile-header-box">
+                                  <div className="page-profile-fonts">{t('邮箱')}</div>
+                                  <div
+                                    className="page-profile-initial-fonts">{user.volunteer_email ? user.volunteer_email : ''}</div>
+                              </div>
+                              <div className="line1px" />
+                          </div>
+                      </div>
+                    ) : null
+                }
                 {
                     user.id_number && user.id_number.length ? (
                       <Link to={bindlink} style={{ marginTop: '41px', width: '100%', display: 'inline-block' }}>
