@@ -350,17 +350,12 @@ class Login extends React.Component {
           {
             window.orgCode == "mWZdPNwaKg" ? t('已阅读') : t('提交代表已阅读')
           }
-          {
-            window.orgCode == 'joQeZJepZV' ?
-              <Link to="/my/agree">
-                <span className="page-login-agreement">《长春志愿者用户协议》</span>
-              </Link>
-              :
-              <Link to="/my/agree">
-                <span className="page-login-agreement"> {t('用户协议')}</span>
-              </Link>
-          }
-
+          <Link to="/my/privacy_policy">
+            <span className="page-login-agreement"> {t('隐私政策')}</span>
+          </Link>
+          <Link to="/my/agree">
+            <span className="page-login-agreement"> {t('用户协议')}</span>
+          </Link>
         </div>
       </div>
 

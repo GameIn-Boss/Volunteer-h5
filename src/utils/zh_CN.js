@@ -525,6 +525,8 @@ export default {
     '返回首页': '返回首页',
     '邮箱格式不正确': '邮箱格式不正确!',
 
+    '隐私政策': '《隐私政策》',
+
     'sign-record-status-shape-ing': 'sign-record-status-shape-ing',
     'sign-record-status-shape-recru': 'sign-record-status-shape-recru',
     'sign-record-status-shape-end': 'sign-record-status-shape-end',
