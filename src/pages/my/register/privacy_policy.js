@@ -140,7 +140,7 @@ class Agree extends React.Component {
             <br/>
             二、我们如何使用 Cookie 和同类技术
             <br/>
-            关于我们如何使用cookie和同类技术，请参见我们的Cookie政策，<a href="https://cookie.policy.volzdx.cn">https://cookie.policy.volzdx.cn。</a>
+            关于我们如何使用cookie和同类技术，请参见我们的Cookie政策，<a href="http://cookie.policy.volzdx.cn">http://cookie.policy.volzdx.cn。</a>
             <br />
             三、我们如何委托处理、共享、转让、公开披露您的个人信息
             <br/>
