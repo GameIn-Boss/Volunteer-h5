@@ -65,7 +65,6 @@ class Login extends React.Component {
         if (from) {
           target = from;
         }
-
         this.props.storeLoginSource(target);
 
         if (window.orgCode === 'oBDbDkxal2') {
@@ -94,9 +93,6 @@ class Login extends React.Component {
           isVerify = true;
         }
         if (custom_config.open_avatars && !nLogin.data.avatars.length) {
-          isVerify = true;
-        }
-        if (custom_config.open_addr && !nLogin.data.addr.length) {
           isVerify = true;
         }
         if (!nLogin.data.volunteer_user_type.length) {
