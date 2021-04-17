@@ -868,9 +868,12 @@ export function compress(img, Orientation) {
 }
 
 export function rotateImage(img, Orientation) {
-  alert(`Orientation是${Orientation}`)
+  // alert(`Orientation是${Orientation}`)
   var rotateshow = null;
   switch (Orientation) {
+    case 1:
+      rotateshow = rotateImg(img, "left");
+      break;
     case 6:
       rotateshow = rotateImg(img, "left");
       break;
