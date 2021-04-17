@@ -93,31 +93,35 @@ class Login extends React.Component {
         if (custom_config.open_real_name && !nLogin.data.real_name.length) {
           isVerify = true;
         }
-        if (custom_config.open_nation && !nLogin.data.nation.length) {
-          isVerify = true;
-        }
         if (custom_config.open_avatars && !nLogin.data.avatars.length) {
           isVerify = true;
         }
         if (custom_config.open_addr && !nLogin.data.addr.length) {
           isVerify = true;
         }
-        let is_has_required = false;
-        custom_config.extends && custom_config.extends.length && custom_config.extends.forEach(item => {
-          if (item.is_required) {
-            is_has_required = true;
-          }
-        })
-        if (is_has_required && !nLogin.data.extends) {
+        if (!nLogin.data.volunteer_user_type.length) {
           isVerify = true;
-        }
-        if (nLogin.data.extends && is_has_required) {
-          custom_config.extends.forEach(item => {
-            if (item.is_required && (!nLogin.data.extends[item.key] || (nLogin.data.extends[item.key] && !nLogin.data.extends[item.key].length))) {
+        } else {
+          if (nLogin.data.volunteer_user_type === '宝马员工') {
+            if (!nLogin.data.volunteer_company_affiliation.length) {
               isVerify = true;
             }
-          })
+            if (!nLogin.data.volunteer_employee_id.length) {
+              isVerify = true;
+            }
+            if (!nLogin.data.volunteer_email.length) {
+              isVerify = true;
+            }
+          } else if (nLogin.data.volunteer_user_type === '经销商员工') {
+            if (!nLogin.data.volunteer_dealer_name.length) {
+              isVerify = true;
+            }
+            if (!nLogin.data.volunteer_email.length) {
+              isVerify = true;
+            }
+          }
         }
+
         if (isVerify && nLogin.data.have_pwd == 1) {
           let bindlink = '/my/profile/bind_profile/alert';
           if (window.orgCode === 'oBDbDkxal2') {
@@ -172,9 +176,6 @@ class Login extends React.Component {
     if (cCode.fetching && !cCode.failed && !nCode.fetching && nCode.failed) {
       this.refreshCaptcha();
     }//请求失败
-  }
-
-  componentWillUnmount() {
   }
 
   onTextChanged() {
