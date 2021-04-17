@@ -300,9 +300,6 @@ class Profile extends React.Component {
                 <Link to="/my/profile/applyAlert">
                     <div style={{ textAlign: 'center', marginTop: '10px', textDecoration: 'underline' }}><a href="javascript:;">{t('需要帮助')}？</a></div>
                 </Link>
-                <Link to="/my/privacy_policy">
-                    <div style={{ textAlign: 'center', marginTop: '10px', textDecoration: 'underline' }}><a href="javascript:;">{t('隐私政策')}</a></div>
-                </Link>
             </div>
         );
     }

@@ -89,38 +89,8 @@ class MyPage extends React.Component {
       defaultorgIndex: 0
     });
   }
-  renderPageMyphotoTemplate() {
-    const { user, t } = this.props;
-    return (
-      <div className="page-my-photo-container">
-        <Avatar
-          src={user.avatars ? user.avatars : ""}
-          data-key={user.avatars || ""}
-          size={{ width: 80, radius: 8 }}
-          defaultSrc="/images/my/register.png"
-          onClick={this.onPreview}
-        />
-        <div className="page-my-user-info">
-          <p className="page-my-user-info-nick">
-            {user.real_name || user.username || t("未设置昵称")}
-          </p>
-          <p className="page-my-user-info-signature">
-            {t(user.slogan) || t("未设置口号")}
-          </p>
-          <div className="page-my-user-info-star">
-            {user.stars ? (
-              <Star
-                size={{ width: 15, height: 14, score: user.stars }}
-                isBlockEmptyStar
-              />
-            ) : null}
-          </div>
-        </div>
-      </div>
-    );
-  }
+
   renderPageMyTop() {
-    const { user } = this.props;
     return (
       <div>
         <div>{this.renderPageMyphotoTemplate()}</div>
@@ -319,28 +289,6 @@ class MyPage extends React.Component {
             </div>
           </Link>
         )}
-      </div>
-    );
-  }
-
-  renderPageMyTop() {
-    const { user } = this.props;
-    return (
-      <div>
-        {/*<div className="page-my-header">*/}
-
-        {/*<Link to="/my/setting">*/}
-        {/*<div className="page-my-header-setting" />*/}
-        {/*</Link>*/}
-
-        {/*<Link to="/my/messages">*/}
-        {/*{this.renderPageMymessagesTemplate()}*/}
-        {/*</Link>*/}
-
-        {/*</div>*/}
-
-        <div>{this.renderPageMyphotoTemplate()}</div>
-        {this.renderPageMyRecordTemplate()}
       </div>
     );
   }
@@ -812,6 +760,12 @@ class MyPage extends React.Component {
             </a>
           </div>
         ) : null}
+
+        <Link to="/my/privacy_policy">
+          <div style={{ textAlign: 'center', marginTop: '10px', textDecoration: 'underline', fontSize: 13, marginBottom: 10 }}>
+            <a href="javascript:;" style={{color: '#cac5c5'}}>{t('隐私政策')}</a>
+          </div>
+        </Link>
       </div>
     );
   }
