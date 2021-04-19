@@ -490,7 +490,7 @@ class Achievement extends React.Component {
                   thisAchieveInfo.achieve_info[0].cond_type.indexOf("reward_") != -1 ?
                     <p className="modal-this-time">参加{thisAchieveInfo.name}项目服务时长已累计超过<span style={{ color: 'rgb(183, 18, 33)' }}>{Number(thisAchieveInfo.tips).toFixed(0)}</span>小时，快去晒成就吧！</p> : null
                 }
-                <p className="modal-this-time">超过了志多星<span style={{ color: 'rgb(183, 18, 33)' }}>{thisAchieveInfo.scale}%</span>的志愿者</p>
+                <p className="modal-this-time">超过了BMW<span style={{ color: 'rgb(183, 18, 33)' }}>{thisAchieveInfo.scale}%</span>的志愿者</p>
               </div>
               : null
           }

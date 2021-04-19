@@ -123,4 +123,4 @@ sh tools/deploy-testserver.sh
 
 ### 管理系统
 
-* [志多星后台](http://alpha.api.admin.volunteer.tmallwo.com/org/list)
+* [后台](https://bmw.volzdx.cn)

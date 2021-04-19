@@ -1,9 +1,9 @@
 export default {
   translations: {
     btn: '/images/home/zh_CN.png',
-    '志多星': 'Volstar',
+    '志多星': 'BMW',
     'BMW企业志愿者协会': 'BMW Corporate Volunteer Association',
-    '志多星演示版': 'Volstar Test',
+    '志多星演示版': 'BMW Test',
 
     '首页': 'Home',
     '个人中心': 'Personal center',
