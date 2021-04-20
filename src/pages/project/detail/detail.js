@@ -488,30 +488,30 @@ class ProjectDetailPage extends React.Component {
                     if (custom_config.open_real_name && !user.real_name.length) {
                         isVerify = true;
                     }
-                    if (custom_config.open_nation && !user.nation.length) {
-                        isVerify = true;
-                    }
                     if (custom_config.open_avatars && !user.avatars.length) {
                         isVerify = true;
                     }
-                    if (custom_config.open_addr && !user.addr.length) {
+                    if (!user.volunteer_user_type.length) {
                         isVerify = true;
-                    }
-                    let is_has_required = false;
-                    custom_config.extends && custom_config.extends.length && custom_config.extends.forEach(item => {
-                        if (item.is_required) {
-                            is_has_required = true;
-                        }
-                    })
-                    if (is_has_required && !user.extends) {
-                        isVerify = true;
-                    }
-                    if (user.extends && is_has_required) {
-                        custom_config.extends.forEach(item => {
-                            if (item.is_required && (!user.extends[item.key] || (user.extends[item.key] && !user.extends[item.key].length))) {
+                    } else {
+                        if (user.volunteer_user_type === '宝马员工') {
+                            if (!user.volunteer_company_affiliation.length) {
                                 isVerify = true;
                             }
-                        })
+                            if (!user.volunteer_employee_id.length) {
+                                isVerify = true;
+                            }
+                            if (!user.volunteer_email.length) {
+                                isVerify = true;
+                            }
+                        } else if (user.volunteer_user_type === '经销商员工') {
+                            if (!user.volunteer_dealer_name.length) {
+                                isVerify = true;
+                            }
+                            if (!user.volunteer_email.length) {
+                                isVerify = true;
+                            }
+                        }
                     }
                     this.props.storeLoginSource(`/project/detail/${this.projectId}`);
                     if (isVerify && user.have_pwd == 1) {
@@ -520,7 +520,7 @@ class ProjectDetailPage extends React.Component {
                             bindlink = '/my/profile/bind_profile_starbucks/alert';
                         }
                         if (window.orgCode === 'mWZdPNwaKg') {
-                            bindlink = '/my/profile/bind_profile_BMW/alert';
+                            bindlink = '/my/profile/bind_profile_user/alert';
                         }
                         window.location.replace(bindlink);
                     } else if (isVerify) {
@@ -531,7 +531,7 @@ class ProjectDetailPage extends React.Component {
                             bindlink = '/my/profile/verifyStarbucks';
                         }
                         if (window.orgCode === 'mWZdPNwaKg') {
-                            bindlink = '/my/profile/verifyBMW';
+                            bindlink = '/my/profile/verifyUser';
                         }
                         window.location.replace(bindlink);
                     } else {
