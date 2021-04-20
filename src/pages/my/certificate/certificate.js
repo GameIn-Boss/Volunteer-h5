@@ -120,7 +120,7 @@ class Certificate extends React.Component {
     if (!listData) {
       return null;
     }
-    const reward_time = Number(listData.reward_time) + Number(listData.jinyun_timeSum);
+    const reward_time = (Number(listData.reward_time) + Number(listData.jinyun_timeSum || 0)/3600).toFixed(2);
 
     const starWidth = this.props.user.stars
       ? Number(this.props.user.stars) * Number(20) - Number(5) + "px"
