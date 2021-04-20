@@ -546,5 +546,6 @@ export default {
     'Share': 'Share',
     '社区互动奖励积分': 'Points By Interaction',
     '实名认证奖励积分': 'Points By Certification',
+    '获得服务时长奖励积分': 'Points By service duration',
   },
 }
