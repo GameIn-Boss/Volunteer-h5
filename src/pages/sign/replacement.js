@@ -15,6 +15,8 @@ import UploadPhoto from '../../components/uploadPhoto/uploadPhoto';
 import { translate } from 'react-i18next';
 import i18next from 'i18next';
 import './replacement.css';
+import locale_ZN from 'antd-mobile/es/date-picker/locale/zh_CN';
+import locale_US from 'antd-mobile/es/date-picker/locale/en_US';
 
 class Replacement extends React.Component {
     constructor(props) {
@@ -104,7 +106,8 @@ class Replacement extends React.Component {
         });
     }
     render() {
-      const { t } = this.props;
+      const { t, i18n } = this.props;
+      const { language } = i18n;
         const { getFieldProps } = this.props.form;
         const { data: proApplyList } = this.props.projectCheckedApplyData;
         let { list: getProjectClockListData } = this.props.getProjectClockListData;
@@ -153,6 +156,7 @@ class Replacement extends React.Component {
                     okText={t('确定')}
                     dismissText={t('取消')}
                     extra={t('请选择')}
+                    locale={language === 'zh-CN' ? locale_ZN : locale_US}
                     format="YYYY-MM-DD"
                     {...getFieldProps('join_day', {
                         initialValue: undefined,

@@ -22,7 +22,7 @@ export default {
     '登录/注册': 'Log/Register',
     '已阅读': 'Have authorized ',
     '提交代表已阅读': 'Submit means that you have read the',
-    '用户协议': '"User Agreement"',
+    '用户协议': '《User Agreement》',
     '快速登录': 'Quick login',
     '账号登录': 'Account login',
 
@@ -541,5 +541,10 @@ export default {
     '员工号': 'Q number',
     '经销商简称': 'Dealer',
     '邮箱': 'E-mail',
+
+    'Daily login': 'Daily login',
+    'Share': 'Share',
+    '社区互动奖励积分': 'Points By Interaction',
+    '实名认证奖励积分': 'Points By Certification',
   },
 }
