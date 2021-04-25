@@ -396,7 +396,7 @@ export default {
     '密码至少8位，且必须包含数字、大写小写字母和特殊字符': 'The password must have at least 8 digits and must contain numbers, uppercase and lowercase letters and special characters.',
     '注销账户': 'Cancellation of account',
     '注销成功': 'Cancellation succeeded',
-    '是否确定注销账户': 'Are you sure you want to cancel the account',
+    '是否确定注销账户': 'Cancel the account will delete all information of the account',
 
 
     '基本信息': 'Basic information',
