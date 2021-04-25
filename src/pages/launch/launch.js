@@ -18,7 +18,7 @@ import WXShare from '../../components/share';
 import MyPage from '../my/my';
 import { requestUserInfo } from '../../stores/common';
 import { translate, Trans } from 'react-i18next';
-
+import Agreement from './agreement';
 
 class LaunchPage extends React.Component {
   constructor(props) {
@@ -128,6 +128,7 @@ class LaunchPage extends React.Component {
             left: "0"
           }}
         />
+        <Agreement />
       </div>
     );
   }

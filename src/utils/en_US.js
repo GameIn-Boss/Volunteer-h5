@@ -39,6 +39,15 @@ export default {
     '询问': 'Inquiry',
     '请填写': 'Please fill in',
 
+    '同意': 'Agree',
+    '暂不使用': 'Not this time',
+    '用户协议和隐私政策': 'User agreement and Privacy policy',
+    'agreementAndPrivacy': 'Please read carefully and fully understand the terms of "user agreement" and "privacy policy", including but not limited to: in order to provide you with services such as signing up for volunteer projects, we need your mobile phone location information and other personal information.',
+    '你可阅读': 'You can read ',
+    '请您先同意协议': 'Please agree to the agreement first!!!',
+
+    'agreeDialog': 'for details. If you agree, please click "agree" to start accepting our service.',
+
     '搜索项目/团队': 'Search',
     '搜索项目': 'Search',
     '搜索志愿团队': 'Search',
