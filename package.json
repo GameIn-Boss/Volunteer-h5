@@ -15,6 +15,7 @@
     "exif-js": "^2.3.0",
     "express": "^4.16.2",
     "fastclick": "^1.0.6",
+    "for-compress": "0.0.3",
     "history": "^4.6.1",
     "html2canvas": "^1.0.0-alpha.12",
     "i18next": "8.4.2",
