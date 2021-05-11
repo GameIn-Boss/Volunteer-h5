@@ -9,10 +9,9 @@ import "./uploadPhoto.css";
 import { Gallery, GalleryDelete, Button, Icon } from "react-weui";
 import "weui/dist/style/weui.css";
 import "react-weui/build/packages/react-weui.css";
+import EXIF from 'exif-js';
 import {
-  getData,
-  getAllTags,
-  getTag,
+  getVersion,
   compress,
   rotateImage,
   base64ToBlob
@@ -105,12 +104,30 @@ class UploadPhoto extends React.Component {
     }
     if (index < imgArr.length) {
     var that = this;
-    console.info(imgArr[index]);
-    var Orientation = imgArr[index].orientation;
     var file = this.dataURLtoFile(imgArr[index].url, index)
-    getData(file, function() {
-      console.info(file);
-      console.info(Orientation);
+      EXIF.getData(file, function() {
+        EXIF.getAllTags(this);
+      var Orientation = EXIF.getTag(this, 'Orientation');
+      console.log('第一次获取', Orientation);
+      if (getVersion('safari')[0] >= 605 ) {
+        const safariVersion = getVersion('version')
+        if (safariVersion[0] > 13 && safariVersion[1] > 1) {
+          Orientation = -1
+        }
+      } else {
+        //  判断 ios 版本进行处理
+        // 针对 ios 版本大于 13.4的系统不做图片旋转
+        const isIos  = navigator.userAgent.toLowerCase().match(/cpu iphone os (.*?) like mac os/)
+        if (isIos) {
+          let version = isIos[1];
+          version = version.split('_')
+          if (version[0] > 13 ||  (version[0] >= 13 && version[1] >= 4)) {
+            Orientation = -1
+          }
+        }
+      }
+
+      console.info('Orientation:::::::::::', Orientation);
       // 确认选择的文件是图片
       if (file.type.indexOf("image") == 0) {
         var reader = new FileReader();
@@ -119,19 +136,16 @@ class UploadPhoto extends React.Component {
           var result = this.result;
           var img = new Image();
           img.src = result;
-          console.info(img, Orientation);
           var data = result;
           img.onload = function() {
             data = rotateImage(img, Orientation);
 
             var img2 = new Image();
             img2.src = data;
-            console.info(img2);
             var data2;
             img2.onload = function() {
                 data2 = compress(img2, Orientation);
                 let conversions = base64ToBlob(data2, "image/jpeg");
-                console.log(data2,conversions);
                 uploadImage(`/api/imgupload`, {
                   method: "POST",
                   data: { file: { file: conversions } }

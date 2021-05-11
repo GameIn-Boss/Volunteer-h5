@@ -859,7 +859,6 @@ export function compress(img, Orientation) {
   //进行最小压缩
   var ndata = canvas.toDataURL("image/jpeg", 0.75);
   // alert(`压缩前： initSize = ${initSize},  width = ${img.width}, height = ${img.height} , 压缩率 ${~~(100 * (initSize - ndata.length) / initSize)}%`);
-  console.log("压缩后：" + ndata.length, ndata);
   console.log(
     "压缩率：" + ~~((100 * (initSize - ndata.length)) / initSize) + "%"
   );
@@ -870,29 +869,29 @@ export function compress(img, Orientation) {
 export function rotateImage(img, Orientation) {
   // alert(`Orientation是${Orientation}`)
   var rotateshow = null;
+  const canvas = document.createElement("canvas");
   switch (Orientation) {
-    case 1:
-      rotateshow = rotateImg(img, "left");
-      break;
+    // case 1:
+    //   rotateshow = rotateImg(img, "left");
+    //   break;
     case 6:
-      rotateshow = rotateImg(img, "left");
+      rotateshow = rotateImg(img, "left", canvas);
       break;
     case 8:
-      rotateshow =   (img, "right");
+      rotateshow = rotateImg(img, "right", canvas);
       break;
     case 3:
-      rotateImg(img, "right", canvas, fileType);
-      rotateshow = rotateImg(img, "right");
+      rotateImg(img, "right", canvas);
+      rotateshow = rotateImg(img, "right", canvas);
       break;
     default:
       rotateshow = img.src;
   }
+  console.log(img.src);
   return rotateshow;
 }
 
-export function rotateImg(img, direction) {
-  var canvas = document.createElement("canvas"),
-    ctx = canvas.getContext("2d");
+export function rotateImg(img, direction, canvas) {
   var min_step = 0;
   var max_step = 3;
   //var img = document.getElementById(pid);
@@ -958,4 +957,23 @@ export function base64ToBlob(urlData, type) {
   return new Blob([ab], {
     type: mime
   });
+}
+
+// 获取浏览器版本
+// 获取版本信息
+export function getVersion(name) {
+  var arr = navigator.userAgent.split(' ');
+  var chromeVersion = '';
+  let result = 0;
+  const reg = new RegExp(name, 'i')
+  for(var i=0;i < arr.length;i++) {
+    if(reg.test(arr[i]))
+      chromeVersion = arr[i]
+  }
+  if(chromeVersion){
+    result = chromeVersion.split('/')[1].split('.');
+  } else {
+    result = ['0', '0', '0'];
+  }
+  return result
 }
