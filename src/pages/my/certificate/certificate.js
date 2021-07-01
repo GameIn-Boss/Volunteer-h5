@@ -192,9 +192,13 @@ class Certificate extends React.Component {
             <div className="page-certificate-container-bussiness">
               认证机构：{this.certAuthOrg}
             </div>
-            <div className="page-certificate-container-teachsupport">
-              技术支持：志多星
-            </div>
+            {
+              window.orgCode !== 'LYqaQWldnj' ? (
+                <div className="page-certificate-container-teachsupport">
+                  技术支持：志多星
+                </div>
+              ) : null
+            }
             <div
               className="page-certificate-container-content"
               style={{paddingLeft: 0, paddingRight: 0, textAlign: "right"}}
