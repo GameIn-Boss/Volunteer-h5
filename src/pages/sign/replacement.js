@@ -191,7 +191,7 @@ class Replacement extends React.Component {
                         }],
                     })}
                     onVirtualKeyboardConfirm={v => console.log('onVirtualKeyboardConfirm:', v)}
-                    type="number"
+                    type="digit"
                     placeholder="0-8"
                     style={{ minWidth: '120px', textAlign: 'right' }}
                 >

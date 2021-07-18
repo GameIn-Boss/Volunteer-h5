@@ -94,9 +94,8 @@ function getUserName(userData){
 }
 
 function getTeamPhoto(teamData){
-    console.log(teamData);
-    if (teamData.team_photo && teamData.team_photo[0]) return teamData.team_photo[0];
     if (teamData.logo) return teamData.logo;
+    if (teamData.team_photo && teamData.team_photo[0]) return teamData.team_photo[0];
     if (window.orgInfo.logo) return window.orgInfo.logo;
     return "/images/post_default_image.png";
 }
