@@ -232,7 +232,7 @@ export default {
     '申请时长(小时)': 'Application hours',
     '申请说明(默认)': 'Application description (within 200 words)',
     '申请说明': 'Application description (within 200 words): Please specify the activity location (name of kindergarten, elementary school, etc.), number of beneficiaries (number of teachers, family members and students), and other relevant information about the activity.',
-    '活动证明图片(默认)': 'Activity picture（optional）',
+    '活动证明图片(默认)': 'Activity picture',
     '活动证明图片': 'Activity picture (such as student sign-in form, activity photo, group photo, etc.)',
     '还没有项目可以签到': 'No project',
     '快去加入项目吧': 'Join an activity',
