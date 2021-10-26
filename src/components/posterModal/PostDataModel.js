@@ -60,7 +60,6 @@ export function PostDataModel_ProjectSign(projectData, userData) {
 }
 
 function getProjectPhoto(projectData) {
-    console.info(projectData,projectData.photo[0]);
     if (projectData.photo && Array.isArray(projectData.photo) && projectData.photo.length) {
         return projectData.photo[0];
     }
