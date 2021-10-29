@@ -16,15 +16,13 @@ class DemandItem extends React.Component {
       <div className="demand-list-item-space"></div>
       <div className="demand-list-item-box">
         <i className={classnames({
-          'demand-list-item-service': data.status == 1,
-          'demand-list-item-service': data.status == 4,
-          'demand-list-item-service': data.status == 5,
+          'demand-list-item-service': data.status == 1 || data.status == 4 || data.status == 5,
           'demand-list-item-complete': data.status == 2,
           'demand-list-item-wait': data.status == 0,
           'demand-list-item-reject': data.status == 3,
         })}></i>
         <div className="demand-list-item-title">{data.title}</div>
-        <div className="demand-list-item-detail" style={{marginTop: '17px'}}>
+        <div className="demand-list-item-detail" style={{ marginTop: '17px' }}>
           <div>
             <i className="demand-icon-people"></i>
             <span>发起人：{data.name}</span>
@@ -34,7 +32,7 @@ class DemandItem extends React.Component {
             <span>{moment(data.created_at).format('YYYY-MM-DD')}</span>
           </div>
         </div>
-        <div className="demand-list-item-detail" style={{marginTop: '7px'}}>
+        <div className="demand-list-item-detail" style={{ marginTop: '7px' }}>
           <div>
             <i className="demand-icon-team"></i>
             <span>服务团队：{data.team_name}</span>
