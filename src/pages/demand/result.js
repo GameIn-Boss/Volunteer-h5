@@ -38,7 +38,7 @@ class DemandResult extends React.Component {
     return (
       <div className="demand-result" style={{minHeight: `${windowHeight}px`}}>
         <div className="demand-result-top">
-          <div className="demand-result-top-title">{data.title}{data.title}{data.title}{data.title}{data.title}{data.title}{data.title}{data.title}{data.title}{data.title}{data.title}{data.title}{data.title}{data.title}{data.title}{data.title}{data.title}{data.title}{data.title}{data.title}{data.title}{data.title}{data.title}</div>
+          <div className="demand-result-top-title">{data.title}</div>
           <div className="demand-result-item-detail"
                style={{marginTop: '17px'}}>
             <div>
