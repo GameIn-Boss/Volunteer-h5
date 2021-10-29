@@ -17,6 +17,8 @@ class DemandItem extends React.Component {
       <div className="demand-list-item-box">
         <i className={classnames({
           'demand-list-item-service': data.status == 1,
+          'demand-list-item-service': data.status == 4,
+          'demand-list-item-service': data.status == 5,
           'demand-list-item-complete': data.status == 2,
           'demand-list-item-wait': data.status == 0,
           'demand-list-item-reject': data.status == 3,
