@@ -34,7 +34,8 @@
 
 .page-project-detail .slick-container .image{
     width: 100%;
-    height: 220px;
+    /* height: 220px; */
+    height: calc((100vw) * 400/750.0);
 }
 
 .page-project-detail .slick-dots {

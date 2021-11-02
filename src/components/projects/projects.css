@@ -50,7 +50,7 @@
 
 .component-projects .project-main .image{
   width: 100%;
-  height: 200px;
+  height: calc((100vw - 30px) * 400/750.0);
   margin-bottom: 20px;
 }
 
