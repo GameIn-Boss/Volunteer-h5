@@ -248,7 +248,7 @@ class BindInfo extends React.Component {
     }
 
     onTextChanged() {
-        const address = this.address.value.replace(/(^\s+)|(\s+$)/g, "");
+        const address = this.address && this.address.value.replace(/(^\s+)|(\s+$)/g, "");
         this.setState({
             address,
         });
@@ -271,10 +271,19 @@ class BindInfo extends React.Component {
             (stateOrgData.open_addr && checkEmpty(`${province}`, t('省份'))) ||
             (stateOrgData.open_addr && checkEmpty(`${city}`, t('城市'))) ||
             (stateOrgData.open_addr && checkEmpty(`${county}`, t('区县'))) ||
-            (stateOrgData.open_addr && window.orgInfo.area_level === 4 && checkEmpty(township, t('街道'))) ||
-            (stateOrgData.open_addr && checkEmpty(`${address}`, t('详细地址')))
+            (stateOrgData.open_addr && window.orgInfo.area_level === 4 && checkEmpty(township, t('街道')))
+            // (stateOrgData.open_addr && checkEmpty(`${address}`, t('详细地址')))
         ) {
             return;
+        }
+        if (
+            this.state.winOrgInfo.extends &&
+            this.state.winOrgInfo.extends.length > 0
+        ) {
+            if (isRequired(this.filterOrgCunstomedArr(), this.state.extendsArray)) {
+                isEmpty = false;
+                return;
+            }
         }
         let data = {};
         //出生日期、性别   需要判断身份证位数   18位的不可修改
@@ -382,7 +391,7 @@ class BindInfo extends React.Component {
     //出生日期  需判断用户的证件类型，18位的不可修改
     renderBirthday() {
         const { user, t, i18n } = this.props;
-      const { language } = i18n;
+        const { language } = i18n;
         if (user.num_type && user.num_type == 1) {
             return (
                 <div>
@@ -455,6 +464,11 @@ class BindInfo extends React.Component {
         const city = this.props.address.data.city;
         const county = this.props.address.data.county;
         const township = this.props.address.data.township;
+
+        let shouldShowAddressDetail = false;
+        if (window.orgCode !== 'kQBeXDWeyK') {
+            shouldShowAddressDetail = true;
+        }
         return (
             <div>
                 <div>
@@ -561,22 +575,28 @@ class BindInfo extends React.Component {
                             </label>
                         </div>
                     }
-                    <div className="line1px" />
-                    <div className="page-my-profile-verify-header-box">
-                        {this.state.winOrgInfo.open_addr === 1 ? (
-                            <span className="page-my-profile-verify-header-start">*</span>
-                        ) : null}
-                        <div className="page-my-profile-verify-fonts">{t('详细地址')}</div>
-                        <input
-                            type="text"
-                            ref={c => {
-                                this.address = c;
-                            }}
-                            defaultValue={user.addr}
-                            className="page-my-profile-verify-text"
-                            onChange={this.onTextChanged}
-                        />
-                    </div>
+                    {
+                        shouldShowAddressDetail ?
+                            <div>
+                                <div className="line1px" />
+                                <div className="page-my-profile-verify-header-box">
+                                    {this.state.winOrgInfo.open_addr === 1 ? (
+                                        <span className="page-my-profile-verify-header-start">*</span>
+                                    ) : null}
+                                    <div className="page-my-profile-verify-fonts">{t('详细地址')}</div>
+                                    <input
+                                        type="text"
+                                        ref={c => {
+                                            this.address = c;
+                                        }}
+                                        defaultValue={user.addr}
+                                        className="page-my-profile-verify-text"
+                                        onChange={this.onTextChanged}
+                                    />
+                                </div>
+                            </div>
+                            : null
+                    }
                     <div className="line1px" />
                 </div>
             </div>
@@ -645,7 +665,7 @@ class BindInfo extends React.Component {
                 {item1.is_required === 1 ? (
                     <span className="page-my-profile-verify-header-start page-my-profile-verify-header-other-start">
                         *
-          </span>
+                    </span>
                 ) : null}
                 <List renderHeader={() => item1.label}>
                     {data.map(i => (
@@ -859,7 +879,7 @@ class BindInfo extends React.Component {
                 {item.is_required === 1 ? (
                     <span className="page-my-profile-verify-header-start page-my-profile-verify-header-other-pic-start">
                         *
-          </span>
+                    </span>
                 ) : null}
                 <div className="page-my-profile-verify-header-box-pic-fonts">
                     {data.label}
@@ -911,23 +931,23 @@ class BindInfo extends React.Component {
                     {this.state[key] && this.state[key].length ? (
                         <div />
                     ) : (
-                            <div className="page-profile-header-uploade-box-div">
-                                <div className="page-profile-header-uploade-box-iptbox">
-                                    <input
-                                        id={key}
-                                        onChange={this.onPhotoChange}
-                                        accept="image/png, image/jpeg, image/jpg"
-                                        ref={c => {
-                                            this.uploadImages = c;
-                                        }}
-                                        className="page-profile-header-uploade-box-ipt"
-                                        type="file"
-                                    />
-                                </div>
-                                {/*<div className="page-profile-header-uploade-box-img"*/}
-                                {/*style={{backgroundImage: `url(${this.state.avatar ? this.state.avatar : '/images/my/register.png'})`}}></div>*/}
+                        <div className="page-profile-header-uploade-box-div">
+                            <div className="page-profile-header-uploade-box-iptbox">
+                                <input
+                                    id={key}
+                                    onChange={this.onPhotoChange}
+                                    accept="image/png, image/jpeg, image/jpg"
+                                    ref={c => {
+                                        this.uploadImages = c;
+                                    }}
+                                    className="page-profile-header-uploade-box-ipt"
+                                    type="file"
+                                />
                             </div>
-                        )}
+                            {/*<div className="page-profile-header-uploade-box-img"*/}
+                            {/*style={{backgroundImage: `url(${this.state.avatar ? this.state.avatar : '/images/my/register.png'})`}}></div>*/}
+                        </div>
+                    )}
                 </div>
                 <div className="line1px" />
             </div>
@@ -1011,60 +1031,105 @@ class BindInfo extends React.Component {
             extendsArray
         });
     }
-    renderOtherInfo() {
+
+    filterItemByKey(arr, key) {
+        if (!(arr && Array.isArray(arr) && arr.length)) return undefined;
+        const itemArr = arr && arr.filter(v => v.key === key);
+        if (itemArr.length) return itemArr[0];
+        return undefined;
+    }
+
+    filterOrgCunstomedArr() {
         const winOrgStateInfo = this.state.winOrgInfo;
+        const orgInfoArr = winOrgStateInfo && winOrgStateInfo.extends;
+        let infoArr = [];
+        if (window.orgCode === 'kQBeXDWeyK') {
+            const emailItem = this.filterItemByKey(orgInfoArr, '邮箱-中金');
+            if (emailItem) {
+                infoArr.push(emailItem);
+            }
+            const userTypeItem = this.filterItemByKey(orgInfoArr, '用户身份-中金');
+            if (userTypeItem) {
+                infoArr.push(userTypeItem);
+            }
+            if (this.state.extendsArray && this.state.extendsArray['用户身份-中金'] && this.state.extendsArray['用户身份-中金'] === '中金在职员工') {
+                const departmentItem = this.filterItemByKey(orgInfoArr, '部门--中金');
+                if (departmentItem) infoArr.push({
+                    ...departmentItem,
+                    is_required: 1,
+                });
+                const userNumberItem = this.filterItemByKey(orgInfoArr, '员工号-中金');
+                if (departmentItem) infoArr.push({
+                    ...userNumberItem,
+                    is_required: 1,
+                });
+            }
+            if (this.state.extendsArray && this.state.extendsArray['用户身份-中金'] && this.state.extendsArray['用户身份-中金'] === '爱心之友') {
+                const subTypeItem = this.filterItemByKey(orgInfoArr, '中金-爱心之友');
+                if (subTypeItem) infoArr.push({
+                    ...subTypeItem,
+                    is_required: 1,
+                })
+            }
+        } else {
+            infoArr = orgInfoArr;
+        }
+        return infoArr;
+    }
+
+    renderOtherInfo() {
+        let infoArr = this.filterOrgCunstomedArr();
+
         return (
             <div>
-                {winOrgStateInfo.extends && winOrgStateInfo.extends.length
-                    ? this.state.winOrgInfo.extends.map((item, index) => {
-                        switch (
-                        Number(item.type) //单项选择
-                        ) {
-                            case 1:
-                                return (
-                                    <div key={index}>{this.renderOtherInfoSelect(item)}</div>
-                                );
-                                break;
-                            //多项选择
-                            case 2:
-                                return (
-                                    <div key={index}>{this.renderOtherInfoCheckbox(item)}</div>
-                                );
-                                break;
-                            //单行输入
-                            case 3:
-                                return (
-                                    <div key={index}>{this.renderOtherInfoInput(item)}</div>
-                                );
-                                break;
-                            //多行输
-                            case 4:
-                                return (
-                                    <div key={index}>{this.renderOtherInfoManyInput(item)}</div>
-                                );
-                                break;
+                {infoArr.map((item, index) => {
+                    switch (
+                    Number(item.type) //单项选择
+                    ) {
+                        case 1:
+                            return (
+                                <div key={index}>{this.renderOtherInfoSelect(item)}</div>
+                            );
+                            break;
+                        //多项选择
+                        case 2:
+                            return (
+                                <div key={index}>{this.renderOtherInfoCheckbox(item)}</div>
+                            );
+                            break;
+                        //单行输入
+                        case 3:
+                            return (
+                                <div key={index}>{this.renderOtherInfoInput(item)}</div>
+                            );
+                            break;
+                        //多行输
+                        case 4:
+                            return (
+                                <div key={index}>{this.renderOtherInfoManyInput(item)}</div>
+                            );
+                            break;
 
-                            //上传图片
-                            case 5:
-                                return <div key={index}>{this.renderOtherPic(item)}</div>;
-                                break;
-                            //日期空间
-                            case 6:
-                                return (
-                                    <div key={index}>{this.renderOtherInfoDate(item)}</div>
-                                );
-                                break;
-                            //日期时间空间
-                            case 7:
-                                return (
-                                    <div key={index}>{this.renderOtherInfoDateTime(item)}</div>
-                                );
-                                break;
-                            default:
-                                return;
-                        }
-                    })
-                    : null}
+                        //上传图片
+                        case 5:
+                            return <div key={index}>{this.renderOtherPic(item)}</div>;
+                            break;
+                        //日期空间
+                        case 6:
+                            return (
+                                <div key={index}>{this.renderOtherInfoDate(item)}</div>
+                            );
+                            break;
+                        //日期时间空间
+                        case 7:
+                            return (
+                                <div key={index}>{this.renderOtherInfoDateTime(item)}</div>
+                            );
+                            break;
+                        default:
+                            return;
+                    }
+                })}
             </div>
         );
     }
@@ -1080,10 +1145,15 @@ class BindInfo extends React.Component {
             left: "0"
         };
         if (!this.props.user) {
-          return null;
+            return null;
         }
-      const { t } = this.props;
-      return (
+        const { t } = this.props;
+
+        let shouldShowNation = false;
+        if (window.orgCode !== 'kQBeXDWeyK') {
+            shouldShowNation = true;
+        }
+        return (
             <div className="page-my-profile-verify-container">
                 {this.state.winOrgInfo === null ? null : (
                     <div style={{ width: "100%", height: "100%" }}>
@@ -1097,14 +1167,15 @@ class BindInfo extends React.Component {
                                 this.renderBirthday()
                             }
                             {//民族
-                                this.renderNation()}
+                                shouldShowNation ? this.renderNation() : null
+                            }
                             {//地址
                                 this.renderAddr()}
                             {//自定义信息
                                 this.renderOtherInfo()}
                         </div>
                         <div className="page-my-profile-verify-btn" onClick={this.onSubmit}>
-                          {t('提交')}
+                            {t('提交')}
                         </div>
                     </div>
                 )}

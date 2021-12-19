@@ -177,13 +177,13 @@ class Verify extends React.Component {
     this.province = {};
     this.city = {};
     this.county = {};
-    this.props.addressDataAction(0).then(() => {
+    this.props.addressDataAction(0).then(()=>{
       if (window.orgInfo.default_province_id) {
         this.province.value = window.orgInfo.default_province_id;
         this.handleProvinceClick(() => {
           if (window.orgInfo.default_city_id) {
             this.city.value = window.orgInfo.default_city_id;
-            this.handleCityClick(() => {
+            this.handleCityClick(()=>{
               if (window.orgInfo.default_county_id) {
                 this.county.value = window.orgInfo.default_county_id;
                 this.handleCountyClick();
@@ -262,7 +262,7 @@ class Verify extends React.Component {
     // const realname = this.realname.value.replace(/(^\s+)|(\s+$)/g, "");
     const realname = this.realname.value;
     const idcard = this.idcard.value.replace(/(^\s+)|(\s+$)/g, "");
-    const address =  this.address && this.address.value.replace(/(^\s+)|(\s+$)/g, "");
+    const address = this.address.value.replace(/(^\s+)|(\s+$)/g, "");
     const password = this.password
       ? this.password.value.replace(/(^\s+)|(\s+$)/g, "")
       : null;
@@ -307,7 +307,7 @@ class Verify extends React.Component {
       (stateOrgData.open_addr && checkEmpty(city, t('城市'))) ||
       (stateOrgData.open_addr && checkEmpty(county, t('区县'))) ||
       (stateOrgData.open_addr && window.orgInfo.area_level === 4 && checkEmpty(township, t('街道'))) ||
-      // (stateOrgData.open_addr && checkEmpty(address, t('详细地址'))) ||
+      (stateOrgData.open_addr && checkEmpty(address, t('详细地址'))) ||
       (stateOrgData.open_real_name && checkRealname(realname)) ||
       (user.have_pwd == 0 && checkEmpty(password, t('密码')))
     ) {
@@ -327,7 +327,7 @@ class Verify extends React.Component {
       this.state.winOrgInfo.extends &&
       this.state.winOrgInfo.extends.length > 0
     ) {
-      if (isRequired(this.filterOrgCunstomedArr(), this.state.extendsArray)) {
+      if (isRequired(this.state.winOrgInfo.extends, this.state.extendsArray)) {
         isEmpty = false;
         return;
       }
@@ -461,14 +461,12 @@ class Verify extends React.Component {
           <div className="page-my-profile-verify-fonts">{t('证件类型')}</div>
           <label htmlFor="cardtype">
             <select
-
               id="cardtype"
               onChange={this.handleCardClick}
               ref={c => {
                 this.cardtype = c;
               }}
             >
-
               {cardtype &&
                 cardtype.map((item, keys) => (
                   <option value={item.id} key={keys}>
@@ -538,11 +536,6 @@ class Verify extends React.Component {
     const city = this.props.address.data.city;
     const county = this.props.address.data.county;
     const township = this.props.address.data.township;
-
-    let shouldShowAddressDetail = false;
-    if (window.orgCode !== 'kQBeXDWeyK') {
-      shouldShowAddressDetail = true;
-    }
     return (
       <div>
         <div>
@@ -646,26 +639,21 @@ class Verify extends React.Component {
               </label>
             </div>
           }
-          {
-            shouldShowAddressDetail ?
-              <div>
-                <div className="line1px" />
-                <div className="page-my-profile-verify-header-box">
-                  {/* {this.state.winOrgInfo.open_addr === 1 ? (
+          <div className="line1px" />
+          <div className="page-my-profile-verify-header-box">
+            {this.state.winOrgInfo.open_addr === 1 ? (
               <span className="page-my-profile-verify-header-start">*</span>
-            ) : null} */}
-                  <div className="page-my-profile-verify-fonts">{t('详细地址')}</div>
-                  <input
-                    type="text"
-                    ref={c => {
-                      this.address = c;
-                    }}
-                    className="page-my-profile-verify-text"
-                    onChange={this.onTextChanged}
-                  />
-                </div>
-              </div> : null
-          }
+            ) : null}
+            <div className="page-my-profile-verify-fonts">{t('详细地址')}</div>
+            <input
+              type="text"
+              ref={c => {
+                this.address = c;
+              }}
+              className="page-my-profile-verify-text"
+              onChange={this.onTextChanged}
+            />
+          </div>
           <div className="line1px" />
         </div>
       </div>
@@ -966,23 +954,23 @@ class Verify extends React.Component {
           {this.state[key].length === 1 ? (
             <div />
           ) : (
-            <div className="page-profile-header-uploade-box-div">
-              <div className="page-profile-header-uploade-box-iptbox">
-                <input
-                  id={key}
-                  onChange={this.onPhotoChange}
-                  accept="image/png, image/jpeg, image/jpg"
-                  ref={c => {
-                    this.uploadImages = c;
-                  }}
-                  className="page-profile-header-uploade-box-ipt"
-                  type="file"
-                />
+              <div className="page-profile-header-uploade-box-div">
+                <div className="page-profile-header-uploade-box-iptbox">
+                  <input
+                    id={key}
+                    onChange={this.onPhotoChange}
+                    accept="image/png, image/jpeg, image/jpg"
+                    ref={c => {
+                      this.uploadImages = c;
+                    }}
+                    className="page-profile-header-uploade-box-ipt"
+                    type="file"
+                  />
+                </div>
+                {/*<div className="page-profile-header-uploade-box-img"*/}
+                {/*style={{backgroundImage: `url(${this.state.avatar ? this.state.avatar : '/images/my/register.png'})`}}></div>*/}
               </div>
-              {/*<div className="page-profile-header-uploade-box-img"*/}
-              {/*style={{backgroundImage: `url(${this.state.avatar ? this.state.avatar : '/images/my/register.png'})`}}></div>*/}
-            </div>
-          )}
+            )}
         </div>
         <div className="line1px" />
       </div>
@@ -1089,105 +1077,60 @@ class Verify extends React.Component {
       </div>
     );
   }
-
-  filterItemByKey(arr, key) {
-    if (!(arr && Array.isArray(arr) && arr.length)) return undefined;
-    const itemArr = arr && arr.filter(v => v.key === key);
-    if (itemArr.length) return itemArr[0];
-    return undefined;
-  }
-
-  filterOrgCunstomedArr() {
-    const winOrgStateInfo = this.state.winOrgInfo;
-    const orgInfoArr = winOrgStateInfo && winOrgStateInfo.extends;
-    let infoArr = [];
-    if (window.orgCode === 'kQBeXDWeyK') {
-      const emailItem = this.filterItemByKey(orgInfoArr, '邮箱-中金');
-      if (emailItem) {
-        infoArr.push(emailItem);
-      }
-      const userTypeItem = this.filterItemByKey(orgInfoArr, '用户身份-中金');
-      if (userTypeItem) {
-        infoArr.push(userTypeItem);
-      }
-      if (this.state.extendsArray && this.state.extendsArray['用户身份-中金'] && this.state.extendsArray['用户身份-中金'] === '中金在职员工') {
-        const departmentItem = this.filterItemByKey(orgInfoArr, '部门--中金');
-        if (departmentItem) infoArr.push({
-          ...departmentItem,
-          is_required: 1,
-        });
-        const userNumberItem = this.filterItemByKey(orgInfoArr, '员工号-中金');
-        if (departmentItem) infoArr.push({
-          ...userNumberItem,
-          is_required: 1,
-        });
-      }
-      if (this.state.extendsArray && this.state.extendsArray['用户身份-中金'] && this.state.extendsArray['用户身份-中金'] === '爱心之友') {
-        const subTypeItem = this.filterItemByKey(orgInfoArr, '中金-爱心之友');
-        if (subTypeItem) infoArr.push({
-          ...subTypeItem,
-          is_required: 1,
-        })
-      }
-    } else {
-      infoArr = orgInfoArr;
-    }
-    return infoArr;
-  }
   renderOtherInfo() {
-    let infoArr = this.filterOrgCunstomedArr();
-
+    const winOrgStateInfo = this.state.winOrgInfo;
     return (
       <div>
-        {infoArr.map((item, index) => {
-          switch (
-          Number(item.type) //单项选择
-          ) {
-            case 1:
-              return (
-                <div key={index}>{this.renderOtherInfoSelect(item)}</div>
-              );
-              break;
-            //多项选择
-            case 2:
-              return (
-                <div key={index}>{this.renderOtherInfoCheckbox(item)}</div>
-              );
-              break;
-            //单行输入
-            case 3:
-              return (
-                <div key={index}>{this.renderOtherInfoInput(item)}</div>
-              );
-              break;
-            //多行输
-            case 4:
-              return (
-                <div key={index}>{this.renderOtherInfoManyInput(item)}</div>
-              );
-              break;
+        {winOrgStateInfo.extends && winOrgStateInfo.extends.length
+          ? this.state.winOrgInfo.extends.map((item, index) => {
+            switch (
+            Number(item.type) //单项选择
+            ) {
+              case 1:
+                return (
+                  <div key={index}>{this.renderOtherInfoSelect(item)}</div>
+                );
+                break;
+              //多项选择
+              case 2:
+                return (
+                  <div key={index}>{this.renderOtherInfoCheckbox(item)}</div>
+                );
+                break;
+              //单行输入
+              case 3:
+                return (
+                  <div key={index}>{this.renderOtherInfoInput(item)}</div>
+                );
+                break;
+              //多行输
+              case 4:
+                return (
+                  <div key={index}>{this.renderOtherInfoManyInput(item)}</div>
+                );
+                break;
 
-            //上传图片
-            case 5:
-              return <div key={index}>{this.renderOtherPic(item)}</div>;
-              break;
-            //日期空间
-            case 6:
-              return (
-                <div key={index}>{this.renderOtherInfoDate(item)}</div>
-              );
-              break;
-            //日期时间空间
-            case 7:
-              return (
-                <div key={index}>{this.renderOtherInfoDateTime(item)}</div>
-              );
-              break;
-            default:
-              return;
-          }
-        })
-        }
+              //上传图片
+              case 5:
+                return <div key={index}>{this.renderOtherPic(item)}</div>;
+                break;
+              //日期空间
+              case 6:
+                return (
+                  <div key={index}>{this.renderOtherInfoDate(item)}</div>
+                );
+                break;
+              //日期时间空间
+              case 7:
+                return (
+                  <div key={index}>{this.renderOtherInfoDateTime(item)}</div>
+                );
+                break;
+              default:
+                return;
+            }
+          })
+          : null}
       </div>
     );
   }
@@ -1202,11 +1145,6 @@ class Verify extends React.Component {
       top: "-55px",
       left: "0"
     };
-
-    let shouldShowNation = false;
-    if (window.orgCode !== 'kQBeXDWeyK') {
-      shouldShowNation = true;
-    }
     return (
       <div className="page-my-profile-verify-container">
         {this.state.winOrgInfo === null ? null : (
@@ -1221,7 +1159,7 @@ class Verify extends React.Component {
                 this.renderIdCard()}
 
               {//民族
-                shouldShowNation ? this.renderNation() : null
+                this.renderNation()
               }
               {//地址
                 this.renderAddr()

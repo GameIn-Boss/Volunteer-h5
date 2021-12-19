@@ -354,7 +354,10 @@ class MyPage extends React.Component {
     } // 星巴克需要定制化证书
     if (orgCode === "rlNbW6Jayg") {
       return "/my/certificateJinguo";
-    } // todo 巾帼志愿需要定制化证书， 这里写的测试环境的机构码
+    } // todo 巾帼志愿需要定制化证书
+    if (orgCode === "kQBeXDWeyK") {
+      return "/my/certificateZhongjin";
+    } // todo 中金需要定制化证书
     return '/my/certificate';
   }
 

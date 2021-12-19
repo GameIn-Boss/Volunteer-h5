@@ -162,6 +162,11 @@
     "chunk": "main"
   },
   {
+    "path": "/my/certificateZhongjin",
+    "page": "./pages/my/certificate/certificateZhongjin",
+    "chunk": "main"
+  },
+  {
     "path": "/my/fundingApplication/list",
     "page": "./pages/my/fundingApplication/list",
     "chunk": "main"
@@ -374,6 +379,11 @@
   {
     "path": "/my/agree",
     "page": "./pages/my/register/agree",
+    "chunk": "main"
+  },
+  {
+    "path": "/my/privacy_policy",
+    "page": "./pages/my/register/privacy_policy",
     "chunk": "main"
   },
   {
