@@ -220,8 +220,15 @@ class HomePage extends React.Component {
     if (!home.data || home.data.news.length == 0) {
       return null;
     }
+    let backgroundImageUrl = "/images/newtitle.png";
+    if (language != "zh-CN") {
+      backgroundImageUrl = "/images/newtitle-en.png"
+    }
+    if (window.orgCode === "kQBeXDWeyK") {
+      backgroundImageUrl = "/images/newtitle-zhongjin.png"
+    }
     return (
-      <div className="notice" style={{backgroundImage: `url('${language === "zh-CN" ? "/images/newtitle.png" : "/images/newtitle-en.png"}')`, backgroundRepeat: 'no-repeat', backgroundSize: '30px 30px', backgroundPosition: '20px center'}}>
+      <div className="notice" style={{backgroundImage: `url('${backgroundImageUrl}')`, backgroundRepeat: 'no-repeat', backgroundSize: '30px 30px', backgroundPosition: '20px center'}}>
         {home.data.news.length > 0 ? (
           <Announcement data={home.data.news} entry="/announce" />
         ) : null}

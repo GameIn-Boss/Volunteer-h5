@@ -99,7 +99,7 @@ class Login extends React.Component {
         if (custom_config.open_avatars && !nLogin.data.avatars.length) {
           isVerify = true;
         }
-        if (custom_config.open_addr && !nLogin.data.addr.length) {
+        if (custom_config.open_addr && !nLogin.data.province_name.length) {
           isVerify = true;
         }
         let is_has_required = false;

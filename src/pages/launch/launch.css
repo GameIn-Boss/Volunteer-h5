@@ -96,6 +96,32 @@
   background-image: url(/images/tab_me_active_daduhui.png);
 }
 
+/*中金*/
+.page-launch .tabs li .tab-icon-home.zhongjin  {
+  background-image: url(/images/tab_home_zhongjin.png);
+}
+
+.page-launch .tabs li .tab-icon-home.active.zhongjin{
+  background-image: url(/images/tab_home_active_zhongjin.png);
+}
+
+.page-launch .tabs li .tab-icon-signin.zhongjin{
+  background-image: url(/images/tab_signin_zhongjin.png);
+}
+
+.page-launch .tabs li .tab-icon-signin.active.zhongjin{
+  background-image: url(/images/tab_signin_active_zhongjin.png);
+}
+
+.page-launch .tabs li .tab-icon-me.zhongjin{
+  background-image: url(/images/tab_me_zhongjin.png);
+}
+
+.page-launch .tabs li .tab-icon-me.active.zhongjin{
+  background-image: url(/images/tab_me_active_zhongjin.png);
+}
+
+
 
 .page-launch .tabs li a span {
   font-size: 10px;
