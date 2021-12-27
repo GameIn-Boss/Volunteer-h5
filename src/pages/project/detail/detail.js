@@ -494,9 +494,6 @@ class ProjectDetailPage extends React.Component {
                     if (custom_config.open_avatars && !user.avatars.length) {
                         isVerify = true;
                     }
-                    if (custom_config.open_addr && !user.addr.length) {
-                        isVerify = true;
-                    }
                     let is_has_required = false;
                     custom_config.extends && custom_config.extends.length && custom_config.extends.forEach(item => {
                         if (item.is_required) {
