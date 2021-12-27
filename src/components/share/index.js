@@ -51,6 +51,9 @@ const WXS = (option = {}) => {
   if (orgCode == "7N1aM8AeWm") {
     desxName = "让我们携手共建更美好的世界！";
   }
+  if (orgCode == "kQBeXDWeyK") {
+    desxName = "爱与奉献，绽放希望";
+  }
   const newOption = {
     title: `${option.title || orgInfo.name}`,
     desc: removeHTMLTag(option.desc || desxName),
