@@ -1139,7 +1139,7 @@ class Verify extends React.Component {
 
     return (
       <div>
-        {infoArr.map((item, index) => {
+        {infoArr && infoArr.map((item, index) => {
           switch (
           Number(item.type) //单项选择
           ) {
