@@ -8,9 +8,10 @@ import Link from "../link/link";
 import Avatar from "../avatar/avatar";
 import { translate } from 'react-i18next';
 import ModalNew from "../posterModal/ModalNew";
-import { PostDataModel_ProjectSign } from "../posterModal/PostDataModel";
+import { PostDataModel_ProjectSign, PostDataModel_ProjectSign_Zhongjin } from "../posterModal/PostDataModel";
 
 import { parseTimeStringToDateString, parseDistance } from "../../utils/funcs";
+import ModalZhongjin from "../posterModal/ModalZhongjin";
 
 class DurationProjects extends React.Component {
   constructor(props) {
@@ -57,6 +58,20 @@ class DurationProjects extends React.Component {
       detailData:null,
     })
   }
+
+  renderModal() {
+    const { visible ,detailData } = this.state;
+    if (!visible || !detailData) return null;
+    const { user } = this.props;
+
+    if (window.orgCode === 'kQBeXDWeyK') {
+      const postData = PostDataModel_ProjectSign_Zhongjin(detailData, user);
+      return <ModalZhongjin postData={postData} visible={true} maskCloseable={this.closeModal} />;
+    }
+    const postData = PostDataModel_ProjectSign(detailData, user);
+    return <ModalNew postData={postData} visible={true} maskCloseable={this.closeModal} />;
+  }
+  
   render() {
     const { durationProject, t } = this.props;
     if (!durationProject) {
@@ -154,7 +169,10 @@ class DurationProjects extends React.Component {
               })}
             </ul>}
         </div>
-        {this.state.detailData ? <ModalNew postData={this.state.detailData?PostDataModel_ProjectSign(this.state.detailData, this.props.user):null} maskCloseable={true} visible={this.state.visible} maskCloseable={this.closeModal} /> : null}
+
+        {
+          this.renderModal()
+        }
       </div>;
   }
 }

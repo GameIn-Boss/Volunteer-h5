@@ -14,9 +14,10 @@ import { isWeChatMiniApp } from "../../../utils/funcs";
 import "./detail.css";
 import { requestProjectDetail } from '../../project/detail/detail.store';
 import ModalNew from "../../../components/posterModal/ModalNew";
-import { PostDataModel_ProjectSign } from "../../../components/posterModal/PostDataModel";
+import { PostDataModel_ProjectSign, PostDataModel_ProjectSign_Zhongjin } from "../../../components/posterModal/PostDataModel";
 import { translate } from 'react-i18next';
 import i18next from 'i18next';
+import ModalZhongjin from "../../../components/posterModal/ModalZhongjin";
 
 class SignPage extends React.Component {
   constructor(props) {
@@ -74,6 +75,7 @@ class SignPage extends React.Component {
       Alert.success(nextProps.t('打卡成功'));
       // location.replace(`/sign/signdetail/detail/${this.proid}/${this.Id}`);
       //打卡成功后重新获取数据，更新页面，页面state太多，不知道更新哪些，直接全部获取
+      console.info(JSON.stringify(nextProps.clockinginfo.data));
       this.props.requestClockInfo(this.Id);
       this.props.requestProjectDetail(this.proid);
       this.openShare(nextProps.clockinginfo.data);
@@ -116,10 +118,8 @@ class SignPage extends React.Component {
     const { t } = this.props;
     const { data: detaildata } = this.props.clickinfo;
     if (!detaildata) return null;
-    let source = `https://apis.map.qq.com/tools/poimarker?type=0&marker=coord:${
-      detaildata.clock_info.lat
-      },${
-      detaildata.clock_info.lng
+    let source = `https://apis.map.qq.com/tools/poimarker?type=0&marker=coord:${detaildata.clock_info.lat
+      },${detaildata.clock_info.lng
       };&key=GT7BZ-UXACR-R2JWZ-WYSXR-DHWJV-VEFAI&referer=myapp`;
 
     return (
@@ -1000,8 +1000,7 @@ class SignPage extends React.Component {
             </li>
             <li>
               <div
-                className={`item-point ${
-                  secondPoint ? "item-point-color" : ""
+                className={`item-point ${secondPoint ? "item-point-color" : ""
                   }`}
               />
               <div className="line1px-v" />
@@ -1029,11 +1028,16 @@ class SignPage extends React.Component {
     })
   }
   renderModal(data) {
-    const { user } = this.props;
-    console.log('项目详细详细：：：：', data);
-    const postData = PostDataModel_ProjectSign(data, user);
     const { visible } = this.state;
-    return visible === true ? <ModalNew postData={postData} visible={this.state.visible} maskCloseable={this.closeModal} /> : null;
+    if (!visible) return null;
+    const { user } = this.props;
+
+    if (window.orgCode === 'kQBeXDWeyK') {
+      const postData = PostDataModel_ProjectSign_Zhongjin(data, user);
+      return <ModalZhongjin postData={postData} visible={this.state.visible} maskCloseable={this.closeModal} />;
+    }
+    const postData = PostDataModel_ProjectSign(data, user);
+    return <ModalNew postData={postData} visible={this.state.visible} maskCloseable={this.closeModal} />;
   }
   render = () => {
     const { turnMap } = this.state;

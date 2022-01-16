@@ -43,6 +43,26 @@ export function PostDataModel_SignSuccess(projectData, userData) {
     return PostDataModel;
 }
 
+export function PostDataModel_SignSuccess_Zhongjin(projectData, userData) {
+    return PostDataModel_ProjectSign_Zhongjin(projectData, userData)
+}
+
+export function PostDataModel_ProjectSign_Zhongjin(projectData, userData) {
+    // var tempContentText = `${i18next.t('我参与了')}“${projectData.name}”${i18next.t('这个')}${i18next.t('项目')},${i18next.t('累计获得')}${projectData.my_reward_time}${i18next.t('个服务时长')},${i18next.t('跟我一起做志愿服务吧')}~`;
+    // var tempContentText = <span>感谢您参与<span style={{ color: '#6B0D0E' }}>“{projectData.name}”</span>志愿活动，践行志愿服务精神，奉献、互助、友爱、进步。特颁此证！</span>
+    let PostDataModel = {
+        postImage: getProjectPhoto(projectData),
+        avatars: getAvatar(userData),
+        username: getUserName(userData),
+        // contentText: tempContentText,
+        url: `${window.location.origin}/project/detail/${projectData.id}`,
+        projectName: projectData.name,
+        type: 'ProjectSign'
+    }
+    console.log(PostDataModel);
+    return PostDataModel;
+}
+
 
 export function PostDataModel_ProjectSign(projectData, userData) {
     // var tempContentText = `${i18next.t('我参与了')}“${projectData.name}”${i18next.t('这个')}${i18next.t('项目')},${i18next.t('累计获得')}${projectData.my_reward_time}${i18next.t('个服务时长')},${i18next.t('跟我一起做志愿服务吧')}~`;
@@ -60,11 +80,11 @@ export function PostDataModel_ProjectSign(projectData, userData) {
 }
 
 function getProjectPhoto(projectData) {
-    if (projectData.photo && Array.isArray(projectData.photo) && projectData.photo.length) {
-        return projectData.photo[0];
-    }
     if (projectData.list_photo.length) {
         return projectData.list_photo;
+    }
+    if (projectData.photo && Array.isArray(projectData.photo) && projectData.photo.length) {
+        return projectData.photo[0];
     }
     if (window.orgInfo.logo.length) {
         return window.orgInfo.logo;
@@ -74,7 +94,11 @@ function getProjectPhoto(projectData) {
 
 function getAvatar(userData) {
     if (userData && userData.isLogin) {
-        return userData.avatars ? userData.avatars : "/images/my/register.png";
+        if (!userData.avatars) {
+            if (window.orgCode === 'kQBeXDWeyK') return '/images/my/touxiangZhongjin.png'
+            return "/images/my/register.png";
+        }
+        return userData.avatars;
     } else {
         return window.orgInfo && window.orgInfo.logo && window.orgInfo.logo.length ? window.orgInfo.logo : "/images/my/register.png";
     }
