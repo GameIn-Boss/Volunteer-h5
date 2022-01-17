@@ -82,6 +82,11 @@ class DurationProjects extends React.Component {
       );
     }
     const isEntry = this.props.isEntry;
+
+    let generatePosterText = t('生成海报');
+    if (window.orgCode === 'kQBeXDWeyK') {
+      generatePosterText = '生成证书';
+    }
     return <div>
         <div style={{ height: "800px", overflowY: "auto" }}>
           {isEntry ? <ul className="component-duration-projects">
@@ -111,7 +116,7 @@ class DurationProjects extends React.Component {
 
                         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                           <div style={{ fontSize: "13px", color: "#6AC6F8", border: "1px solid #6AC6F8", borderRadius: "4px", padding: "2px 4px" }} onClick={() => this.poster(project)}>
-                            {t('生成海报')}
+                            {generatePosterText}
                           </div>
                         </div>
                       </div>
