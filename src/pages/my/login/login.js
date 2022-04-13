@@ -347,18 +347,27 @@ class Login extends React.Component {
     }
 
     let shoudShowPrivacyPolicy = false;
-    if (window.orgCode === 'kQBeXDWeyK') {
+    if (window.orgCode === 'kQBeXDWeyK' || window.orgCode === 'joQeZ6JepZ') {
       shoudShowPrivacyPolicy = true;
     }
 
     let userAgreePath = '/my/agree';
+    let privacyPolicyPath = '/my/agree';
+
     if (window.orgCode === 'kQBeXDWeyK') {
       userAgreePath = '/html/userAgreeZhongjin.html';
     }
 
-    let privacyPolicyPath = '/my/agree';
     if (window.orgCode === 'kQBeXDWeyK') {
       privacyPolicyPath = '/html/privacyPolicyZhongjin.html';
+    }
+
+    if (window.orgCode === 'joQeZ6JepZ') {
+      userAgreePath = '/html/userAgreeJinYing.html';
+    }
+
+    if (window.orgCode === 'joQeZ6JepZ') {
+      privacyPolicyPath = '/html/privacyPolicyJinYing.html';
     }
 
     return <div className="page-login-agree">
@@ -381,7 +390,7 @@ class Login extends React.Component {
   }
 
   shouldCheckboxAgree() {
-    if (window.orgCode === 'mWZdPNwaKg' || window.orgCode === 'kQBeXDWeyK') {
+    if (window.orgCode === 'mWZdPNwaKg' || window.orgCode === 'kQBeXDWeyK' || window.orgCode === 'joQeZ6JepZ') {
       return true;
     }
     return false;
