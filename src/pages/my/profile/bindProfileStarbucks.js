@@ -287,7 +287,10 @@ class BindInfo extends React.Component {
       city_starbucks_local,
       store_num_local,
       store_name_local,
-      staff_id_local
+      staff_id_local,
+      num_type,
+      real_name,
+      id_number,
     } = this.state;
     const { user } = this.props;
     if (
@@ -361,6 +364,13 @@ class BindInfo extends React.Component {
       data.birthday = monemt(birthday).format("YYYY-MM-DD");
     }
     //下面是统一的信息
+    if (id_number) {
+      data.id_number = id_number;
+      data.num_type = num_type;
+    }
+    if (real_name) {
+      data.real_name = real_name;
+    }
     if (people) {
       data.nation = people;
     }
@@ -471,6 +481,78 @@ class BindInfo extends React.Component {
       </div>
     );
   }
+
+  renderNameInputView() {
+    const { t } = this.props;
+    return (
+      <div>
+        <div className="page-my-profile-verify-header-box">
+          {this.state.winOrgInfo.open_real_name === 1 ? (
+            <span className="page-my-profile-verify-header-start">*</span>
+          ) : null}
+          <div className="page-my-profile-verify-fonts">{t('姓名')}</div>
+          <input
+            type="text"
+            className="page-my-profile-verify-text"
+            defaultValue={this.props.user.real_name}
+            onChange={e => {
+              this.setState({ real_name: e.target.value });
+            }}
+            placeholder='请输入'
+          />
+        </div>
+        <div className="line1px" />
+      </div>
+    );
+  }
+
+  renderIdCardInputView() {
+    const { t } = this.props;
+    console.info(t);
+    return (
+      <div>
+        <div className="page-my-profile-verify-header-box">
+          {this.state.winOrgInfo.open_id_number === 1 ? (
+            <span className="page-my-profile-verify-header-start">*</span>
+          ) : null}
+          <div className="page-my-profile-verify-fonts">{t('证件类型')}</div>
+          <label htmlFor="cardtype">
+            <select
+              id="cardtype"
+              onChange={this.handleCardClick}
+              defaultValue={this.props.user.num_type || 1}  // [int] 证件类型 1内地 2香港 3澳门 4台湾 5护照
+            >
+              {cardtype &&
+                cardtype.map((item, keys) => (
+                  <option value={item.id} key={keys}>
+                    {item.name}
+                  </option>
+                ))}
+            </select>
+          </label>
+        </div>
+        <div className="line1px" />
+        <div className="page-my-profile-verify-header-box">
+          {this.state.winOrgInfo.open_id_number === 1 ? (
+            <span className="page-my-profile-verify-header-start">*</span>
+          ) : null}
+          <div className="page-my-profile-verify-fonts">{t('证件号码')}</div>
+          <input
+            type="text"
+            maxLength="18"
+            className="page-my-profile-verify-text"
+            defaultValue={this.props.user.id_number}
+            onChange={e => {
+              this.setState({ id_number: e.target.value });
+            }}
+            placeholder='请输入'
+          />
+        </div>
+        <div className="line1px" />
+      </div>
+    );
+  }
+
   //出生日期  需判断用户的证件类型，18位的不可修改
   renderBirthday() {
     const { user } = this.props;
@@ -997,23 +1079,23 @@ class BindInfo extends React.Component {
           {this.state[key] && this.state[key].length ? (
             <div />
           ) : (
-              <div className="page-profile-header-uploade-box-div">
-                <div className="page-profile-header-uploade-box-iptbox">
-                  <input
-                    id={key}
-                    onChange={this.onPhotoChange}
-                    accept="image/png, image/jpeg, image/jpg"
-                    ref={c => {
-                      this.uploadImages = c;
-                    }}
-                    className="page-profile-header-uploade-box-ipt"
-                    type="file"
-                  />
-                </div>
-                {/*<div className="page-profile-header-uploade-box-img"*/}
-                {/*style={{backgroundImage: `url(${this.state.avatar ? this.state.avatar : '/images/my/register.png'})`}}></div>*/}
+            <div className="page-profile-header-uploade-box-div">
+              <div className="page-profile-header-uploade-box-iptbox">
+                <input
+                  id={key}
+                  onChange={this.onPhotoChange}
+                  accept="image/png, image/jpeg, image/jpg"
+                  ref={c => {
+                    this.uploadImages = c;
+                  }}
+                  className="page-profile-header-uploade-box-ipt"
+                  type="file"
+                />
               </div>
-            )}
+              {/*<div className="page-profile-header-uploade-box-img"*/}
+              {/*style={{backgroundImage: `url(${this.state.avatar ? this.state.avatar : '/images/my/register.png'})`}}></div>*/}
+            </div>
+          )}
         </div>
         <div className="line1px" />
       </div>
@@ -1286,10 +1368,15 @@ class BindInfo extends React.Component {
         {this.state.winOrgInfo === null ? null : (
           <div style={{ width: "100%", height: "100%" }}>
             <div className="page-my-profile-verify-main">
-              {//名字
-                this.renderName()}
-              {//身份证
-                this.renderIdCard()}
+              { // 真实姓名
+                this.props.user.real_name.length ? this.renderName() : this.renderNameInputView()
+              }
+              { // 身份證
+                this.props.user.id_number.length ? this.renderIdCard() : this.renderIdCardInputView()
+              }
+              {//出生日期
+                this.props.user.birthday.length ? this.renderBirthday() : null
+              }
 
               {//是否是星巴克
                 this.renderOtherInfoSelect(this.state.isStarbucksPartner_local)}

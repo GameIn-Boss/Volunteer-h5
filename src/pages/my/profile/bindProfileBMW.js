@@ -211,14 +211,14 @@ class BindInfo extends React.Component {
                 });
                 this.setState({
                     ...this.props.user.extends
-                },()=> {
-                    this.resetIsRequied('user_type',this.user_type);
+                }, () => {
+                    this.resetIsRequied('user_type', this.user_type);
                 })
             }
         }
     }
 
-    resetIsRequied (key , value) {
+    resetIsRequied(key, value) {
         const {
             winOrgInfo: { extends: extendsFormArr },
         } = this.state;
@@ -306,6 +306,9 @@ class BindInfo extends React.Component {
             city,
             county,
             birthday,
+            num_type,
+            real_name,
+            id_number,
         } = this.state;
         const { user, t } = this.props;
         if (
@@ -328,7 +331,7 @@ class BindInfo extends React.Component {
 
         console.info(filterArr, extendsObj)
 
-        if (extendsObj.employee_id && !( /^[a-zA-Z]\w{5,6}$/.test(extendsObj.employee_id))) {
+        if (extendsObj.employee_id && !(/^[a-zA-Z]\w{5,6}$/.test(extendsObj.employee_id))) {
             Alert.warning(t('员工号有误，请检查'));
             return;
         }
@@ -339,6 +342,13 @@ class BindInfo extends React.Component {
             data.birthday = monemt(birthday).format("YYYY-MM-DD");
         }
         //下面是统一的信息
+        if (id_number) {
+            data.id_number = id_number;
+            data.num_type = num_type;
+        }
+        if (real_name) {
+            data.real_name = real_name;
+        }
         if (people) {
             data.nation = people;
         }
@@ -425,10 +435,82 @@ class BindInfo extends React.Component {
             </div>
         );
     }
+    
+    renderNameInputView() {
+        const { t } = this.props;
+        return (
+            <div>
+                <div className="page-my-profile-verify-header-box">
+                    {this.state.winOrgInfo.open_real_name === 1 ? (
+                        <span className="page-my-profile-verify-header-start">*</span>
+                    ) : null}
+                    <div className="page-my-profile-verify-fonts">{t('姓名')}</div>
+                    <input
+                        type="text"
+                        className="page-my-profile-verify-text"
+                        defaultValue={this.props.user.real_name}
+                        onChange={e => {
+                            this.setState({ real_name: e.target.value });
+                        }}
+                        placeholder='请输入'
+                    />
+                </div>
+                <div className="line1px" />
+            </div>
+        );
+    }
+
+    renderIdCardInputView() {
+        const { t } = this.props;
+        console.info(t);
+        return (
+            <div>
+                <div className="page-my-profile-verify-header-box">
+                    {this.state.winOrgInfo.open_id_number === 1 ? (
+                        <span className="page-my-profile-verify-header-start">*</span>
+                    ) : null}
+                    <div className="page-my-profile-verify-fonts">{t('证件类型')}</div>
+                    <label htmlFor="cardtype">
+                        <select
+                            id="cardtype"
+                            onChange={this.handleCardClick}
+                            defaultValue={this.props.user.num_type || 1}  // [int] 证件类型 1内地 2香港 3澳门 4台湾 5护照
+                        >
+                            {cardtype &&
+                                cardtype.map((item, keys) => (
+                                    <option value={item.id} key={keys}>
+                                        {item.name}
+                                    </option>
+                                ))}
+                        </select>
+                    </label>
+                </div>
+                <div className="line1px" />
+                <div className="page-my-profile-verify-header-box">
+                    {this.state.winOrgInfo.open_id_number === 1 ? (
+                        <span className="page-my-profile-verify-header-start">*</span>
+                    ) : null}
+                    <div className="page-my-profile-verify-fonts">{t('证件号码')}</div>
+                    <input
+                        type="text"
+                        maxLength="18"
+                        className="page-my-profile-verify-text"
+                        defaultValue={this.props.user.id_number}
+                        onChange={e => {
+                            this.setState({ id_number: e.target.value });
+                        }}
+                        placeholder='请输入'
+                    />
+                </div>
+                <div className="line1px" />
+            </div>
+        );
+    }
+
     //出生日期  需判断用户的证件类型，18位的不可修改
     renderBirthday() {
         const { user, t, i18n } = this.props;
-      const { language } = i18n;
+        const { language } = i18n;
         if (user.num_type && user.num_type == 1) {
             return (
                 <div>
@@ -463,7 +545,7 @@ class BindInfo extends React.Component {
     }
     renderNation() {
         const { user, t, i18n } = this.props;
-      const { language } = i18n;
+        const { language } = i18n;
         return (
             <div>
                 <div className="page-my-profile-verify-header-box">
@@ -485,7 +567,7 @@ class BindInfo extends React.Component {
                             {people &&
                                 people.map((item, keys) => (
                                     <option value={item.name} key={keys}>
-                                      {language === 'zh-CN' ? item.name : item.pinyin}
+                                        {language === 'zh-CN' ? item.name : item.pinyin}
                                     </option>
                                 ))}
                         </select>
@@ -498,7 +580,7 @@ class BindInfo extends React.Component {
 
     renderAddr() {
         const { user, t, i18n } = this.props;
-      const { language } = i18n;
+        const { language } = i18n;
         const province = this.props.address.data.province;
         const city = this.props.address.data.city;
         const county = this.props.address.data.county;
@@ -523,7 +605,7 @@ class BindInfo extends React.Component {
                                 {province &&
                                     province.map((item, keys) => (
                                         <option value={item.id} key={keys}>
-                                          {language === 'zh-CN' ? item.name : item.pinyin}
+                                            {language === 'zh-CN' ? item.name : item.pinyin}
                                         </option>
                                     ))}
                             </select>
@@ -548,7 +630,7 @@ class BindInfo extends React.Component {
                                 {city &&
                                     city.map((item, keys) => (
                                         <option value={item.id} key={keys}>
-                                          {language === 'zh-CN' ? item.name : item.pinyin}
+                                            {language === 'zh-CN' ? item.name : item.pinyin}
                                         </option>
                                     ))}
                             </select>
@@ -573,7 +655,7 @@ class BindInfo extends React.Component {
                                 {county &&
                                     county.map((item, keys) => (
                                         <option value={item.id} key={keys}>
-                                          {language === 'zh-CN' ? item.name : item.pinyin}
+                                            {language === 'zh-CN' ? item.name : item.pinyin}
                                         </option>
                                     ))}
                             </select>
@@ -714,7 +796,7 @@ class BindInfo extends React.Component {
                 {item1.is_required === 1 ? (
                     <span className="page-my-profile-verify-header-start page-my-profile-verify-header-other-start">
                         *
-          </span>
+                    </span>
                 ) : null}
                 <List renderHeader={() => item1.label}>
                     {data.map(i => (
@@ -803,8 +885,8 @@ class BindInfo extends React.Component {
     renderOtherInfoDate(item) {
         const data = item;
         const key = data.key;
-      const { i18n } = this.props;
-      const { language } = i18n;
+        const { i18n } = this.props;
+        const { language } = i18n;
         return (
             <div>
                 <div className="page-my-profile-verify-header-box">
@@ -931,7 +1013,7 @@ class BindInfo extends React.Component {
                 {item.is_required === 1 ? (
                     <span className="page-my-profile-verify-header-start page-my-profile-verify-header-other-pic-start">
                         *
-          </span>
+                    </span>
                 ) : null}
                 <div className="page-my-profile-verify-header-box-pic-fonts">
                     {data.label}
@@ -983,23 +1065,23 @@ class BindInfo extends React.Component {
                     {this.state[key] && this.state[key].length ? (
                         <div />
                     ) : (
-                            <div className="page-profile-header-uploade-box-div">
-                                <div className="page-profile-header-uploade-box-iptbox">
-                                    <input
-                                        id={key}
-                                        onChange={this.onPhotoChange}
-                                        accept="image/png, image/jpeg, image/jpg"
-                                        ref={c => {
-                                            this.uploadImages = c;
-                                        }}
-                                        className="page-profile-header-uploade-box-ipt"
-                                        type="file"
-                                    />
-                                </div>
-                                {/*<div className="page-profile-header-uploade-box-img"*/}
-                                {/*style={{backgroundImage: `url(${this.state.avatar ? this.state.avatar : '/images/my/register.png'})`}}></div>*/}
+                        <div className="page-profile-header-uploade-box-div">
+                            <div className="page-profile-header-uploade-box-iptbox">
+                                <input
+                                    id={key}
+                                    onChange={this.onPhotoChange}
+                                    accept="image/png, image/jpeg, image/jpg"
+                                    ref={c => {
+                                        this.uploadImages = c;
+                                    }}
+                                    className="page-profile-header-uploade-box-ipt"
+                                    type="file"
+                                />
                             </div>
-                        )}
+                            {/*<div className="page-profile-header-uploade-box-img"*/}
+                            {/*style={{backgroundImage: `url(${this.state.avatar ? this.state.avatar : '/images/my/register.png'})`}}></div>*/}
+                        </div>
+                    )}
                 </div>
                 <div className="line1px" />
             </div>
@@ -1182,23 +1264,24 @@ class BindInfo extends React.Component {
                 {this.state.winOrgInfo === null ? null : (
                     <div style={{ width: "100%", height: "100%" }}>
                         <div className="page-my-profile-verify-main">
-                            {//名字
-                                this.renderName()}
-
-                            {//身份证
-                                this.renderIdCard()}
-                            {//出生日期
-                                this.renderBirthday()
+                            { // 真实姓名
+                                this.props.user.real_name.length ? this.renderName() : this.renderNameInputView()
                             }
-                            {//民族
+                            { // 身份證
+                                this.props.user.id_number.length ? this.renderIdCard() : this.renderIdCardInputView()
+                            }
+                            { //出生日期
+                                this.props.user.birthday.length ? this.renderBirthday() : null
+                            }
+                            { //民族
                                 this.renderNation()}
-                            {//地址
+                            { //地址
                                 this.renderAddr()}
-                            {//自定义信息
+                            { //自定义信息
                                 this.renderOtherInfo()}
                         </div>
                         <div className="page-my-profile-verify-btn" onClick={this.onSubmit}>
-                          {t('提交')}
+                            {t('提交')}
                         </div>
                     </div>
                 )}
