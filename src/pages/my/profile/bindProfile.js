@@ -1101,7 +1101,7 @@ class BindInfo extends React.Component {
 
     filterOrgCunstomedArr() {
         const winOrgStateInfo = this.state.winOrgInfo;
-        const orgInfoArr = winOrgStateInfo && winOrgStateInfo.extends;
+        const orgInfoArr = winOrgStateInfo && winOrgStateInfo.extends || [];
         let infoArr = [];
         if (window.orgCode === 'kQBeXDWeyK') {
             const emailItem = this.filterItemByKey(orgInfoArr, '邮箱-中金');
@@ -1233,7 +1233,8 @@ class BindInfo extends React.Component {
                             {//地址
                                 this.renderAddr()}
                             {//自定义信息
-                                this.renderOtherInfo()}
+                                this.renderOtherInfo()
+                            }
                         </div>
                         <div className="page-my-profile-verify-btn" onClick={this.onSubmit}>
                             {t('提交')}
