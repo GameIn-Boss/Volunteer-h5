@@ -383,12 +383,13 @@ class BindInfo extends React.Component {
 
     renderIdCard() {
         const { user, t } = this.props;
-        const num_typeArr = cardtype.filter(v => Number(v.id) === Number(user.num_type));
+        let num_typeArr = cardtype.filter(v => Number(v.id) === Number(user.num_type || 1)) || [];
+        console.info(user);
         return (
             <div>
                 <div className="page-my-profile-verify-header-box">
                     <div className="page-my-profile-verify-fonts">{t('证件类型')}</div>
-                    <div className="padding-left-15">{num_typeArr[0].name}</div>
+                    <div className="padding-left-15">{num_typeArr[0] && num_typeArr[0].name}</div>
                 </div>
                 <div className="line1px" />
                 <div className="page-my-profile-verify-header-box">
