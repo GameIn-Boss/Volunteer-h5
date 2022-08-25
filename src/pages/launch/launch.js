@@ -69,14 +69,20 @@ class LaunchPage extends React.Component {
 
     let daduhui = false;
     let zhongjin = false;
+    let vitasoy = false;
     // VWPe9xdLyw 星巴克
     // mxkazpYdJ0 大都会
+    // EKQe1wRbJY 维他奶
     if (window.orgCode === "mxkazpYdJ0") {
       daduhui = true;
     }
 
     if (window.orgCode === 'kQBeXDWeyK') {
       zhongjin = true;
+    }
+
+    if (window.orgCode === 'EKQe1wRbJY') {
+      vitasoy = true;
     }
 
     return (
@@ -92,6 +98,7 @@ class LaunchPage extends React.Component {
                   active: path === '/' || path === "/home",
                   daduhui : daduhui,
                   zhongjin: zhongjin,
+                  vitasoy: vitasoy,
                 })}
               />
               <span>{t('首页')}</span>
@@ -106,6 +113,7 @@ class LaunchPage extends React.Component {
                   active: path === '/signin' || path === '/sign',
                   "daduhui" : daduhui,
                   zhongjin: zhongjin,
+                  vitasoy: vitasoy,
                 })}
               />
               <span>{t('签到打卡')}</span>
@@ -120,6 +128,7 @@ class LaunchPage extends React.Component {
                   active: path === '/my',
                   "daduhui" : daduhui,
                   zhongjin: zhongjin,
+                  vitasoy,
                 })}
               />
               <span>{t('个人中心')}</span>

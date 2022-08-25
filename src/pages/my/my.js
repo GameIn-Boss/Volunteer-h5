@@ -358,6 +358,9 @@ class MyPage extends React.Component {
     if (orgCode === "kQBeXDWeyK") {
       return "/my/certificateZhongjin";
     } // todo 中金需要定制化证书
+    if (orgCode === "EKQe1wRbJY") {
+      return "/my/certificateVitasoy";
+    } // todo 中金需要定制化证书
     return '/my/certificate';
   }
 

@@ -121,6 +121,31 @@
   background-image: url(/images/tab_me_active_zhongjin.png);
 }
 
+/*维他奶 Vitasoy*/
+.page-launch .tabs li .tab-icon-home.vitasoy  {
+  background-image: url(/images/tab_home_vitasoy.png);
+}
+
+.page-launch .tabs li .tab-icon-home.active.vitasoy{
+  background-image: url(/images/tab_home_active_vitasoy.png);
+}
+
+.page-launch .tabs li .tab-icon-signin.vitasoy{
+  background-image: url(/images/tab_signin_vitasoy.png);
+}
+
+.page-launch .tabs li .tab-icon-signin.active.vitasoy{
+  background-image: url(/images/tab_signin_active_vitasoy.png);
+}
+
+.page-launch .tabs li .tab-icon-me.vitasoy{
+  background-image: url(/images/tab_me_vitasoy.png);
+}
+
+.page-launch .tabs li .tab-icon-me.active.vitasoy{
+  background-image: url(/images/tab_me_active_vitasoy.png);
+}
+
 
 
 .page-launch .tabs li a span {

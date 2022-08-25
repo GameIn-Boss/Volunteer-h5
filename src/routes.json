@@ -167,6 +167,11 @@
     "chunk": "main"
   },
   {
+    "path": "/my/certificateVitasoy",
+    "page": "./pages/my/certificate/certificateVitasoy",
+    "chunk": "main"
+  },
+  {
     "path": "/my/fundingApplication/list",
     "page": "./pages/my/fundingApplication/list",
     "chunk": "main"
