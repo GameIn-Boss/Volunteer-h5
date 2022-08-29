@@ -30,24 +30,29 @@ class Setting extends React.Component {
   componentWillReceiveProps() {
   }
 
-  componentWillUnmount() {}
+  componentWillUnmount() { }
 
   render() {
     const { user, t } = this.props;
     return <div className="page-setting">
-        <Link to="/my/forget">
-          <div className="page-setting-forget">
-            <div className="page-setting-fonts">
-            {user.have_pwd === 0 ? t('设置密码') : null}
-            {user.have_pwd === 1 ? t('修改密码') : null}
+      {
+        window.orgCode === 'EKQe1wRbJY' ? null : (
+          <Link to="/my/forget">
+            <div className="page-setting-forget">
+              <div className="page-setting-fonts">
+                {user.have_pwd === 0 ? t('设置密码') : null}
+                {user.have_pwd === 1 ? t('修改密码') : null}
+              </div>
+              <div className="page-setting-icon" />
             </div>
-            <div className="page-setting-icon" />
-          </div>
-        </Link>
-        <a className="page-setting-quit" onClick={this.props.logoutAction}>
-          {t('退出登录')}
-        </a>
-      </div>;
+          </Link>
+        )
+      }
+
+      <a className="page-setting-quit" onClick={this.props.logoutAction}>
+        {t('退出登录')}
+      </a>
+    </div>;
   }
 }
 
