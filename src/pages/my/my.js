@@ -66,13 +66,13 @@ class MyPage extends React.Component {
         {this.props.usercenter.data === null ? (
           <span />
         ) : (
-            <span
-              className={classnames({
-                "page-my-header-messages-red-point":
-                  this.props.usercenter.data.msg_count >= 1
-              })}
-            />
-          )}
+          <span
+            className={classnames({
+              "page-my-header-messages-red-point":
+                this.props.usercenter.data.msg_count >= 1
+            })}
+          />
+        )}
       </div>
     );
   }
@@ -208,8 +208,8 @@ class MyPage extends React.Component {
                   {label || "暂无等级"}
                 </p>
               ) : (
-                  <span />
-                )}
+                <span />
+              )}
             </p>
 
             {window.orgInfo.st_achieve_op == 1 ? (
@@ -226,8 +226,8 @@ class MyPage extends React.Component {
                 </Link>
               </div>
             ) : (
-                <span />
-              )}
+              <span />
+            )}
           </p>
           <p className="page-my-user-info-signature">
             {t(user.slogan) || t("未设置口号")}
@@ -360,7 +360,7 @@ class MyPage extends React.Component {
     } // todo 中金需要定制化证书
     if (orgCode === "EKQe1wRbJY") {
       return "/my/certificateVitasoy";
-    } // todo 中金需要定制化证书
+    } // todo 维他奶需要定制化证书
     return '/my/certificate';
   }
 
@@ -392,13 +392,13 @@ class MyPage extends React.Component {
                     {this.props.usercenter.data === null ? (
                       <span />
                     ) : (
-                        <span
-                          className={classnames({
-                            "page-my-item-icon-circle-red-point":
-                              this.props.usercenter.data.comment_count >= 1
-                          })}
-                        />
-                      )}
+                      <span
+                        className={classnames({
+                          "page-my-item-icon-circle-red-point":
+                            this.props.usercenter.data.comment_count >= 1
+                        })}
+                      />
+                    )}
                   </i>
                   {t('我的志愿圈')}
                 </div>
@@ -431,19 +431,22 @@ class MyPage extends React.Component {
               </li>
             )
           }
-
-          <li>
-            <div>
-              <Link to="/my/profile/detail/user">
-                <div className="page-my-item-box">
-                  <i className="page-my-item-icon page-my-item-icon-data" />
-                  {t('个人资料')}
+          {
+            window.orgCode === 'EKQe1wRbJY' ? null : (
+              <li>
+                <div>
+                  <Link to="/my/profile/detail/user">
+                    <div className="page-my-item-box">
+                      <i className="page-my-item-icon page-my-item-icon-data" />
+                      {t('个人资料')}
+                    </div>
+                    <span className="page-my-item-big" />
+                  </Link>
+                  <div className="line1px" />
                 </div>
-                <span className="page-my-item-big" />
-              </Link>
-              <div className="line1px" />
-            </div>
-          </li>
+              </li>
+            )
+          }
           {
             this.certificatePath() ?
               (<li>
@@ -504,19 +507,19 @@ class MyPage extends React.Component {
           {orgCode === "wMvbmOeYAl" || orgCode === "7N1aM8AeWm" ? (
             <li />
           ) : (
-              <li>
-                <div>
-                  <Link to="/my/service">
-                    <div className="page-my-item-box">
-                      <i className="page-my-item-icon page-my-item-icon-service" />
-                      {t('服务中心')}
-                    </div>
-                    <span className="page-my-item-big" />
-                  </Link>
-                  <div className="line1px" />
-                </div>
-              </li>
-            )}
+            <li>
+              <div>
+                <Link to="/my/service">
+                  <div className="page-my-item-box">
+                    <i className="page-my-item-icon page-my-item-icon-service" />
+                    {t('服务中心')}
+                  </div>
+                  <span className="page-my-item-big" />
+                </Link>
+                <div className="line1px" />
+              </div>
+            </li>
+          )}
           <li>
             <div>
               <Link to="/my/setting">
