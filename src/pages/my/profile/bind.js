@@ -16,6 +16,9 @@ import { requestVerifyCode } from '../register/register.store';
 import './bind.css';
 import { translate } from 'react-i18next';
 import i18next from 'i18next';
+import Link from '../../../components/link/link';
+import checkboxSelected from '../../../../public/images/check_box_select_login.png'
+import checkboxNormal from '../../../../public/images/check_box_login.png'
 
 function checkEmpty(value, label) {
   if (!value || !value.length) {
@@ -166,6 +169,87 @@ class BindInfo extends React.Component {
       captchaUrl: `${API_HOST}/api/captcha?t=${Date.now()}`,
     });
   }
+  nomarlAgreeRender() {
+    const { t } = this.props;
+
+    let userAgreeText = t('用户协议');
+    if (window.orgCode == 'joQeZJepZV') {
+      userAgreeText = '长春志愿者用户协议';
+    }
+    return <div className="page-login-agree">
+      {
+        t('提交代表已阅读')
+      }
+      <span className="page-login-agreement">《{userAgreeText}》</span>
+
+    </div>
+  }
+
+  checkboxAgreeRender() {
+    const { t } = this.props;
+
+    let userAgreeText = t('用户协议');
+    if (window.orgCode === 'joQeZJepZV') {
+      userAgreeText = '长春志愿者用户协议';
+    }
+
+    let shoudShowPrivacyPolicy = false;
+    if (window.orgCode === 'kQBeXDWeyK' || window.orgCode === 'joQeZ6JepZ' || window.orgCode === 'EKQe1wRbJY') {
+      shoudShowPrivacyPolicy = true;
+    }
+
+    let userAgreePath = '/my/agree';
+    let privacyPolicyPath = '/my/agree';
+
+    if (window.orgCode === 'kQBeXDWeyK') {
+      userAgreePath = '/html/userAgreeZhongjin.html';
+    }
+
+    if (window.orgCode === 'kQBeXDWeyK') {
+      privacyPolicyPath = '/html/privacyPolicyZhongjin.html';
+    }
+
+    if (window.orgCode === 'EKQe1wRbJY') {
+      userAgreePath = '/html/userAgreeVitasoy.html';
+    }
+
+    if (window.orgCode === 'EKQe1wRbJY') {
+      privacyPolicyPath = '/html/privacyPolicyVitasoy.html';
+    }
+
+    if (window.orgCode === 'joQeZ6JepZ') {
+      userAgreePath = '/html/userAgreeJinYing.html';
+    }
+
+    if (window.orgCode === 'joQeZ6JepZ') {
+      privacyPolicyPath = '/html/privacyPolicyJinYing.html';
+    }
+
+    return <div className="page-login-agree">
+      <div
+        className="page-login-checkbox"
+        style={{ background: `${this.state.checked ? "url('/images/check_box_select_login.png') no-repeat" : "url('/images/check_box_login.png') no-repeat"}` }}
+        onClick={() => { this.setState({ checked: !this.state.checked }) }} />
+      <div>
+        {t('已阅读')}
+      </div>
+      <Link to={userAgreePath}>
+        <span className="page-login-agreement">《{userAgreeText}》</span>
+      </Link>
+      {
+        shoudShowPrivacyPolicy ? <Link to={privacyPolicyPath}>
+          <span className="page-login-agreement">《{t('隐私政策')}》</span>
+        </Link> : null
+      }
+    </div>
+  }
+
+  shouldCheckboxAgree() {
+    if (window.orgCode === 'mWZdPNwaKg' || window.orgCode === 'kQBeXDWeyK' || window.orgCode === 'joQeZ6JepZ' ||  window.orgCode === 'EKQe1wRbJY') {
+      return true;
+    }
+    return false;
+  }
   bindPhoneview() {
     const { t } = this.props;
     return (
@@ -188,7 +272,11 @@ class BindInfo extends React.Component {
         </div>
         <div className="line1px" />
         <div className="page-profile-bind-info-container-submmit" onClick={this.onSubmit}>{t('确认提交')}</div>
+        {
+                this.shouldCheckboxAgree() ? this.checkboxAgreeRender() : this.nomarlAgreeRender()
+              }
       </div>
+
     );
   }
   onTextMailChanged() {
