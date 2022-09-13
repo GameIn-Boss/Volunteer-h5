@@ -153,7 +153,7 @@ const getAreaCityReducer = (state = {
   }
 };
 export const getPinYin = (name) => {
-  return fetch('https://api.volunteer.alpha.guangying.link/api/city/info', { method: 'GET', data: {name} })
+  return fetch('http://api.volzdx.cn/api/city/info', { method: 'GET', data: {name} })
 };
 const reducer = combineReducers({
   home: homeReducer,

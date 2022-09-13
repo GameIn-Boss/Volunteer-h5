@@ -104,9 +104,9 @@ class MyPage extends React.Component {
           <p className="page-my-user-info-nick">
             {user.real_name || user.username || t("未设置昵称")}
           </p>
-          <p className="page-my-user-info-signature">
-            {t(user.slogan) || t("未设置口号")}
-          </p>
+              <p className="page-my-user-info-signature">
+                {t(user.slogan) || t("未设置口号")}
+              </p>         
           <div className="page-my-user-info-star">
             {user.stars ? (
               <Star
@@ -229,9 +229,22 @@ class MyPage extends React.Component {
               <span />
             )}
           </p>
-          <p className="page-my-user-info-signature">
-            {t(user.slogan) || t("未设置口号")}
-          </p>
+          {orgCode === "yJrb2kKdWL" ? (
+              <p className="page-my-user-info-signature">
+                  {t(user.team_name) == "" ? (
+                    "暂无团队"
+                  ):(
+                    // "暂无团队"
+                    "所在团队:"
+                  )}
+                  {user.team_name}
+
+              </p>         
+                ):(
+              <p className="page-my-user-info-signature">
+                {t(user.slogan) || t("未设置口号")}
+              </p>         
+            )}
           <div className="page-my-user-info-star">
             {user.stars ? (
               <Star
@@ -295,7 +308,8 @@ class MyPage extends React.Component {
               </b>
               {t('小时center')}
             </p>
-            <p className="page-my-record-item-bottom">{t('服务时长')}</p>
+                  <p className="page-my-record-item-bottom">{t('服务时长')}</p>
+              
           </div>
         </Link>
         {/* <!-- 积分入口 --> */}
@@ -310,12 +324,22 @@ class MyPage extends React.Component {
                 </b>{" "}
                 {language === 'zh-CN' ? (scoreName || '星币') : ''}
               </p>
-              <p className="page-my-record-item-bottom">
-                {t('n志愿星币m', {
-                  n: n ? (t(n) === 'Volunteer' ? 'My' : t(n)) : t('志愿center'),
-                  m: t(scoreName) || t('星币')
-                })}
-              </p>
+              {orgCode === "yJrb2kKdWL" ? (
+                 <p className="page-my-record-item-bottom">
+                    {t('公益积分', {
+                      n: n ? (t(n) === 'Volunteer' ? 'My' : t(n)) : t('志愿center'),
+                      m: t(scoreName) || t('星币')
+                    })}
+                    </p>         
+                    ):(
+                    <p className="page-my-record-item-bottom">
+                    {t('n志愿星币m', {
+                      n: n ? (t(n) === 'Volunteer' ? 'My' : t(n)) : t('志愿center'),
+                      m: t(scoreName) || t('星币')
+                    })}
+                  </p>            
+               )}
+
             </div>
           </Link>
         )}
@@ -384,6 +408,7 @@ class MyPage extends React.Component {
               </div>
             </li>
           )}
+            {window.orgCode === 'yJrb2kKdWL' ? null : (
           <li>
             <div>
               <Link to="/my/circle">
@@ -407,7 +432,8 @@ class MyPage extends React.Component {
               <div className="line1px" />
             </div>
           </li>
-
+ )
+}
           {
             window.orgCode === 'mWZdPNwaKg' ? null : (
               <li>
@@ -464,6 +490,21 @@ class MyPage extends React.Component {
           }
           {
             orgCode === "7N1aM8AeWm" ? null :
+              (<li>
+                <div>
+                  <Link to="/my/family">
+                    <div className="page-my-item-box">
+                      <i className="page-my-item-icon page-my-item-icon-family" />
+                      {t('我的家庭')}
+                    </div>
+                    <span className="page-my-item-big" />
+                  </Link>
+                  <div className="line1px" />
+                </div>
+              </li>)
+          }
+          {
+            orgCode === "yJrb2kKdWL" ? null :
               (<li>
                 <div>
                   <Link to="/my/family">
@@ -887,6 +928,7 @@ MyPage.propTypes = {
         reward_time: PropTypes.string,
         sex: PropTypes.number,
         slogan: PropTypes.string,
+        team_name: PropTypes.string,
         username: PropTypes.string
       })
     })

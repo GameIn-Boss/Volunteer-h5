@@ -70,6 +70,7 @@ class LaunchPage extends React.Component {
     let daduhui = false;
     let zhongjin = false;
     let vitasoy = false;
+    let sanyi = false;
     // VWPe9xdLyw 星巴克
     // mxkazpYdJ0 大都会
     // EKQe1wRbJY 维他奶
@@ -84,7 +85,9 @@ class LaunchPage extends React.Component {
     if (window.orgCode === 'EKQe1wRbJY') {
       vitasoy = true;
     }
-
+    if (window.orgCode === 'yJrb2kKdWL') {
+      sanyi = true;
+    }
     return (
       <div className="page-launch">
         <div className="content">{page}</div>
@@ -99,6 +102,8 @@ class LaunchPage extends React.Component {
                   daduhui : daduhui,
                   zhongjin: zhongjin,
                   vitasoy: vitasoy,
+                  sanyi: sanyi,
+
                 })}
               />
               <span>{t('首页')}</span>
@@ -114,9 +119,20 @@ class LaunchPage extends React.Component {
                   "daduhui" : daduhui,
                   zhongjin: zhongjin,
                   vitasoy: vitasoy,
+                  sanyi: sanyi,
+
                 })}
               />
-              <span>{t('签到打卡')}</span>
+              {
+                   sanyi?(
+                    <span className={classnames({sanyi:sanyi})}>{t('活动打卡')}</span>
+                  ):(
+                    <span className={classnames({sanyi:sanyi})}>{t('签到打卡')}</span>
+                  )
+              }
+          
+
+
             </Link>
           </li>
           <li>
@@ -129,6 +145,8 @@ class LaunchPage extends React.Component {
                   "daduhui" : daduhui,
                   zhongjin: zhongjin,
                   vitasoy,
+                  sanyi: sanyi,
+
                 })}
               />
               <span>{t('个人中心')}</span>

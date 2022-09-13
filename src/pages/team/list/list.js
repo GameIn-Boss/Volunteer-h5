@@ -168,6 +168,7 @@ class TeamListPage extends React.Component {
             </Link>
           </div>
         </div>
+        {window.orgCode === 'yJrb2kKdWL' ? null : (
         <div className="project-filter-container" style={{ height: this.state.isFilterShow ? '100%' : 'auto' }}>
           <Filter
             onFilterChange={this.onFilterChange}
@@ -180,6 +181,7 @@ class TeamListPage extends React.Component {
             data={areaData}
           />
         </div>
+        )}
         <div className="body">
 
           <div className="team-list">

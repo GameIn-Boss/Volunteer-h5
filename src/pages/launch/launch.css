@@ -147,6 +147,33 @@
 }
 
 
+/*三一公益*/
+.page-launch .tabs li .tab-icon-home.sanyi  {
+  background-image: url(/images/home_normal.png);
+}
+
+.page-launch .tabs li .tab-icon-home.active.sanyi{
+  background-image: url(/images/home.png);
+}
+
+.page-launch .tabs li .tab-icon-signin.sanyi{
+  background-image: url(/images/sanyi_sing.png);
+}
+
+.page-launch .tabs li .tab-icon-signin.active.sanyi{
+  background-image: url(/images/sanyi_sign_in.png);
+
+}
+
+.page-launch .tabs li .tab-icon-me.sanyi{
+  background-image: url(/images/sanyi_normal.png);
+}
+
+.page-launch .tabs li .tab-icon-me.active.sanyi{
+  background-image: url(/images/sanyi_person.png);
+
+}
+
 
 .page-launch .tabs li a span {
   font-size: 10px;

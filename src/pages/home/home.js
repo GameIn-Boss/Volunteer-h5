@@ -32,14 +32,15 @@ class HomePage extends React.Component {
     autoBind(this);
     const { t, i18n } = props;
     const { language } = i18n;
-
     this.state = {
       newcity: null,
       city: getCookie("provinceAndCityName")
         ? (language === 'zh-CN' ? JSON.parse(getCookie("provinceAndCityName")).city.replace(t('市'), "") : JSON.parse(getCookie("provinceAndCityNameEN")).city)
         : t('全国'),
+
       showDialog: false
     };
+
     this.play = this.play.bind(this);
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
@@ -86,43 +87,44 @@ class HomePage extends React.Component {
     const { t, i18n } = this.props;
     const { language } = i18n;
     this.props.requestHomeData();
-    if (!getCookie("provinceAndCityName")) {
-      getCity(
-        (city, str) => {
-          const { city: initaialCity } = this.state;
-
-          if (initaialCity == city.replace(t('市'), "")) {
-            this.props.requestHomeData();
-            return;
-          } else {
-            if (language === 'en-US') {
-              // 如果当前是英文模式，发送请求，获取英文版
-              getPinYin('郑州')
-                .then(res => {
-                  if (res && res.error_code === 0) {
-                    city=res.data.pinyin;
-                  }
-                  this.setState({
-                    ...this.state,
-                    showDialog: true,
-                    newcity: city,
-                    pc: str
-                  });
-                })
+    if(orgCode !== "yJrb2kKdWL" ){
+      if (!getCookie("provinceAndCityName")) {
+        getCity(
+          (city, str) => {
+            const { city: initaialCity } = this.state;
+            if (initaialCity == city.replace(t('市'), "")) {
+              this.props.requestHomeData();
+              return;
             } else {
-              this.setState({
-                ...this.state,
-                showDialog: true,
-                newcity: city,
-                pc: str
-              });
+              if (language === 'en-US') {
+                // 如果当前是英文模式，发送请求，获取英文版
+                getPinYin('郑州')
+                  .then(res => {
+                    if (res && res.error_code === 0) {
+                      city=res.data.pinyin;
+                    }
+                    this.setState({
+                      ...this.state,
+                      showDialog: true,
+                      newcity: city,
+                      pc: str
+                    });
+                  })
+              } else {
+                this.setState({
+                  ...this.state,
+                  showDialog: true,
+                  newcity: city,
+                  pc: str
+                });
+              }
             }
+          },
+          () => {
+            Alert.error("定位失败，请确认同意定位授权");
           }
-        },
-        () => {
-          Alert.error("定位失败，请确认同意定位授权");
-        }
-      );
+        );
+      }
     }
   }
 
@@ -153,7 +155,6 @@ class HomePage extends React.Component {
         <Link to="/selectcity">
           <div className="city-name">{this.state.city}</div>
         </Link>
-
         {switchView ? (
           <div style={{ display: "flex", flex: "1", alignItems: 'center', }}>
             <div className="content-boxpadding">
