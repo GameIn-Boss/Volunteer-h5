@@ -169,18 +169,18 @@ class TeamListPage extends React.Component {
           </div>
         </div>
         {window.orgCode === 'yJrb2kKdWL' ? null : (
-        <div className="project-filter-container" style={{ height: this.state.isFilterShow ? '100%' : 'auto' }}>
-          <Filter
-            onFilterChange={this.onFilterChange}
-            onFilterShow={this.onFilterShow}
-            onFilterHide={this.onFilterHide}
-            type={type}
-            category={category}
-            target={target}
-            countyNames={this.state.countyNames}
-            data={areaData}
-          />
-        </div>
+          <div className="project-filter-container" style={{ height: this.state.isFilterShow ? '100%' : 'auto' }}>
+            <Filter
+              onFilterChange={this.onFilterChange}
+              onFilterShow={this.onFilterShow}
+              onFilterHide={this.onFilterHide}
+              type={type}
+              category={category}
+              target={target}
+              countyNames={this.state.countyNames}
+              data={areaData}
+            />
+          </div>
         )}
         <div className="body">
 
@@ -198,7 +198,7 @@ class TeamListPage extends React.Component {
           }
           <div className="takeup" />
         </div>
-
+        {window.orgCode === 'yJrb2kKdWL' ? 
         <div className="tabs-container">
           <div className="line1px" />
           <ul className="tabs">
@@ -207,7 +207,7 @@ class TeamListPage extends React.Component {
                 <div
                   className={classnames({
                     'tab-icon': true,
-                    'tab-icon-home': true,
+                    'tab-icon-home-sanyi': true,
                   })}
                 />
                 <span>{t('首页')}</span>
@@ -218,10 +218,10 @@ class TeamListPage extends React.Component {
                 <div
                   className={classnames({
                     'tab-icon': true,
-                    'tab-icon-sign': true,
+                    'tab-icon-sign-sanyi': true,
                   })}
                 />
-                <span>{t('签到打卡')}</span>
+                <span>{t('活动打卡')}</span>
               </Link>
             </li>
             <li>
@@ -229,7 +229,7 @@ class TeamListPage extends React.Component {
                 <div
                   className={classnames({
                     'tab-icon': true,
-                    'tab-icon-me': true,
+                    'tab-icon-me-sanyi': true,
                   })}
                 />
                 <span>{t('个人中心')}</span>
@@ -237,9 +237,49 @@ class TeamListPage extends React.Component {
             </li>
           </ul>
         </div>
-
+        :
+        <div className="tabs-container">
+        <div className="line1px" />
+        <ul className="tabs">
+          <li>
+            <Link to="/">
+              <div
+                className={classnames({
+                  'tab-icon': true,
+                  'tab-icon-home': true,
+                })}
+              />
+              <span>{t('首页')}</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/sign">
+              <div
+                className={classnames({
+                  'tab-icon': true,
+                  'tab-icon-sign': true,
+                })}
+              />
+              <span>{t('签到打卡')}</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/my">
+              <div
+                className={classnames({
+                  'tab-icon': true,
+                  'tab-icon-me': true,
+                })}
+              />
+              <span>{t('个人中心')}</span>
+            </Link>
+          </li>
+        </ul>
+      </div>
+                }
 
       </div>
+      
     );
   }
 }
