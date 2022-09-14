@@ -231,14 +231,12 @@ class MyPage extends React.Component {
           </p>
           {orgCode === "yJrb2kKdWL" ? (
               <p className="page-my-user-info-signature">
-                  {t(user.team_name) == "" ? (
+                  {user.team_name == "" ?  (
                     "暂无团队"
                   ):(
-                    // "暂无团队"
                     "所在团队:"
                   )}
                   {user.team_name}
-
               </p>         
                 ):(
               <p className="page-my-user-info-signature">
@@ -488,7 +486,7 @@ class MyPage extends React.Component {
                 </div>
               </li>) : null
           }
-          {
+          {/* {
             orgCode === "7N1aM8AeWm" ? null :
               (<li>
                 <div>
@@ -502,7 +500,7 @@ class MyPage extends React.Component {
                   <div className="line1px" />
                 </div>
               </li>)
-          }
+          } */}
           {
             orgCode === "yJrb2kKdWL" ? null :
               (<li>
@@ -886,6 +884,8 @@ MyPage.propTypes = {
       birthday: PropTypes.string,
       identifier: PropTypes.string,
       slogan: PropTypes.string,
+      team_name: PropTypes.string,
+
       reward_time: PropTypes.string,
       id_number: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       province_id: PropTypes.number,

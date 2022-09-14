@@ -240,6 +240,7 @@ export default {
     '浏览项目': 'Browse',
     '近3天待打卡项目': 'Projects to be checked in within three days',
     '签到打卡': 'Check in',
+    '活动打卡': 'Check in',
     '所有项目': 'All projects',
     '已进入签到地点范围': 'You’re in the sign-in location range',
     '查看签到地点': 'View the check-in location',
