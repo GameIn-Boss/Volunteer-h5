@@ -70,7 +70,7 @@ export default function request(requestUrl, requestOptions = {}) {
     ...headers,
     "X-auth-token": getToken() || '',
     "X-org-code": window.orgCode,
-    // "X-org-code": '4openRe7Az',
+    "X-org-code": '4openRe7Az',
     "X-location": location
       ? `${
       location.lng // 授权 token // 机构代码 // 经纬度 经度-纬度

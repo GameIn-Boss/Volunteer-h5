@@ -383,6 +383,9 @@ class MyPage extends React.Component {
     if (orgCode === "EKQe1wRbJY") {
       return "/my/certificateVitasoy";
     } // todo 维他奶需要定制化证书
+    if (orgCode === "yJrb2kKdWL") {
+      return "/my/certificateSanyi";
+    } // todo 维他奶需要定制化证书
     return '/my/certificate';
   }
 

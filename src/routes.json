@@ -172,6 +172,11 @@
     "chunk": "main"
   },
   {
+    "path": "/my/certificateSanyi",
+    "page": "./pages/my/certificate/certificateSanyi",
+    "chunk": "main"
+  },
+  {
     "path": "/my/fundingApplication/list",
     "page": "./pages/my/fundingApplication/list",
     "chunk": "main"
