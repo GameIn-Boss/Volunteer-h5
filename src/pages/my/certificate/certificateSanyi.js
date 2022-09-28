@@ -206,8 +206,8 @@ class Certificate extends React.Component {
                     {/* <div className="page-certificate-container-content-register-title">
                         巾帼志愿者
                     </div> */}
-                    <div className="page-certificate-container-id">
-                        {this.props.user.id || 12927}
+                     <div className="page-certificate-container-id">
+                        {this.props.user.number || 12927}
                     </div>
                     <div className="page-certificate-container-grouth-level">
                         {this.props.user.growth_level || 1}

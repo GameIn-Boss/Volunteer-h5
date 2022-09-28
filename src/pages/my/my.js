@@ -197,9 +197,25 @@ class MyPage extends React.Component {
           onClick={this.onPreview}
         />
         <div className="page-my-user-info">
+
           <p className="page-my-user-info-nick">
             <p style={{ display: "flex", alignItems: "center" }}>
-              {user.real_name || user.username || "未设置昵称"}
+              {user.real_name  || user.username  || "未设置昵称"}  
+              &emsp;    
+              {user.political == 1 ? (
+               <img src="/images/gh.png" alt="" width="20" height="20" />
+              ):(
+                <span />
+              )}
+              {user.political == 2 ? (
+               <img src="/images/WechatIMG4299.png" alt="" width="20" height="20"/>
+              ):(
+                <span />
+              )}
+              {/* <img src="/images/gh.png" alt="" width="30" height="30" />
+
+              <img src="/images/WechatIMG4299.png" alt="" width="30" height="30" /> */}
+
               {window.orgInfo.st_rank_op == 1 ? (
                 <p
                   onClick={this.showCommonweal}
@@ -385,7 +401,7 @@ class MyPage extends React.Component {
     } // todo 维他奶需要定制化证书
     if (orgCode === "yJrb2kKdWL") {
       return "/my/certificateSanyi";
-    } // todo 维他奶需要定制化证书
+    } // todo 三一需要定制化证书
     return '/my/certificate';
   }
 
@@ -505,8 +521,8 @@ class MyPage extends React.Component {
               </li>)
           } */}
           {
-            orgCode === "yJrb2kKdWL" ? null :
-              (<li>
+            orgCode === "yJrb2kKdWL" ? null :(
+            <li>
                 <div>
                   <Link to="/my/family">
                     <div className="page-my-item-box">
@@ -517,7 +533,8 @@ class MyPage extends React.Component {
                   </Link>
                   <div className="line1px" />
                 </div>
-              </li>)
+              </li>
+              )
           }
           <li>
             <div>
