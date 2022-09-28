@@ -75,6 +75,8 @@
     position      : absolute;
     top           : 41px;
     left          : 110px;
+    display: flex;
+    gap: 8px;
 }
 
 .page-certificate-container-star {

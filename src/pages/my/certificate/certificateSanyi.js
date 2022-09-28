@@ -182,7 +182,13 @@ class Certificate extends React.Component {
                         />
                     </div>
                     <div className="page-certificate-container-name">
-                        {this.props.user.real_name}
+                        <span>{this.props.user.real_name}</span>
+                        {
+                            this.props.user.political === 1 ? <img src="/images/my/tuanyuan.png" alt="" /> : null
+                        }
+                        {
+                            this.props.user.political === 2 ? <img src="/images/my/dangyuan.png" alt="" /> : null
+                        }
                     </div>
                     {this.props.user.stars ? (
                         <div
@@ -200,7 +206,7 @@ class Certificate extends React.Component {
                     {/* <div className="page-certificate-container-content-register-title">
                         巾帼志愿者
                     </div> */}
-                     <div className="page-certificate-container-id">
+                    <div className="page-certificate-container-id">
                         {this.props.user.id || 12927}
                     </div>
                     <div className="page-certificate-container-grouth-level">
@@ -220,10 +226,10 @@ class Certificate extends React.Component {
                         {new Date().getFullYear()}
                     </div>
                     <div className="page-certificate-container-month">
-                        {new Date().getMonth()}
+                        {new Date().getMonth() + 1}
                     </div>
                     <div className="page-certificate-container-day">
-                        {new Date().getDay()}
+                        {new Date().getDate()}
                     </div>
                 </div>
             </div>
@@ -240,9 +246,9 @@ class Certificate extends React.Component {
             return null;
         }
         console.log(listData);
-        return <div className="page-certificate-main-container">
-            {this.renderCertificate()}
-        </div>;
+        // return <div className="page-certificate-main-container">
+        //     {this.renderCertificate()}
+        // </div>;
         return (
             <div>
                 <div
