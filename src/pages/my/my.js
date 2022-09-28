@@ -197,9 +197,15 @@ class MyPage extends React.Component {
           onClick={this.onPreview}
         />
         <div className="page-my-user-info">
+
           <p className="page-my-user-info-nick">
             <p style={{ display: "flex", alignItems: "center" }}>
               {user.real_name || user.username || "未设置昵称"}
+              
+              <img src="/images/gh.png" alt="" width="30" height="30" />
+
+              <img src="/images/WechatIMG4299.png" alt="" width="30" height="30" />
+
               {window.orgInfo.st_rank_op == 1 ? (
                 <p
                   onClick={this.showCommonweal}
@@ -505,8 +511,8 @@ class MyPage extends React.Component {
               </li>)
           } */}
           {
-            orgCode === "yJrb2kKdWL" ? null :
-              (<li>
+            orgCode === "yJrb2kKdWL" ? null :(
+            <li>
                 <div>
                   <Link to="/my/family">
                     <div className="page-my-item-box">
@@ -517,7 +523,8 @@ class MyPage extends React.Component {
                   </Link>
                   <div className="line1px" />
                 </div>
-              </li>)
+              </li>
+              )
           }
           <li>
             <div>

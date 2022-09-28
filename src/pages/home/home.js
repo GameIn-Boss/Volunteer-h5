@@ -454,6 +454,8 @@ class HomePage extends React.Component {
                 </div>
               )}
               <div className="project-list">
+            {
+              orgCode === "yJrb2kKdWL" ? null :(
                 <div className="list-header">
                   <div className="main-label">
                     <div className="label-line" />
@@ -466,6 +468,7 @@ class HomePage extends React.Component {
                   </div>
                   <div className="sub-label">Awesome Activity</div>
                 </div>
+              )}
                 <div className="line1px" />
                 <Projects projects={(home.data && home.data.project) || []} />
               </div>
