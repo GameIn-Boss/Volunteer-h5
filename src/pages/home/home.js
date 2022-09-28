@@ -454,8 +454,7 @@ class HomePage extends React.Component {
                 </div>
               )}
               <div className="project-list">
-            {
-              orgCode === "yJrb2kKdWL" ? null :(
+            {orgCode === "yJrb2kKdWL" ? null :(
                 <div className="list-header">
                   <div className="main-label">
                     <div className="label-line" />

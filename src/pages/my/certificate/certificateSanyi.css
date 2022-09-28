@@ -187,7 +187,7 @@
 .page-certificate-container-grouth-level {
     width: 38px;
     letter-spacing: 0;
-    top: 88px;
+    top: 91px;
     position: absolute;
     font-size: 14px;
     color: #FFF;
@@ -197,7 +197,7 @@
 .page-certificate-container-id {
     width: 84px;
     letter-spacing: 0;
-    top: 155px;
+    top: 160px;
     position: absolute;
     font-size: 28px;
     left: 47px;
@@ -209,7 +209,7 @@
 .page-certificate-container-score {
     width         : 178px;
     letter-spacing: 0;
-    top           : 216px;
+    top           : 221px;
     position      : absolute;
     font-size     : 34px;
     color         : #FDD759;
@@ -219,7 +219,7 @@
 .page-certificate-container-projects {
     width         : 178px;
     letter-spacing: 0;
-    top           : 315px;
+    top           : 320px;
     position      : absolute;
     font-size     : 34px;
     color         : #FDD759;
@@ -240,7 +240,7 @@
 .page-certificate-container-year {
     width: 38px;
     letter-spacing: 0;
-    top: 514px;
+    top: 516px;
     left: 247px;
     position: absolute;
     font-size: 13px;
@@ -251,7 +251,7 @@
 .page-certificate-container-month {
     width: 38px;
     letter-spacing: 0;
-    top: 514px;
+    top: 516px;
     left: 292px;
     position: absolute;
     font-size: 13px;
@@ -262,7 +262,7 @@
 .page-certificate-container-day {
     width: 38px;
     letter-spacing: 0;
-    top: 514px;
+    top: 516px;
     left: 319px;
     position: absolute;
     font-size: 13px;
