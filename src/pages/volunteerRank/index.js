@@ -181,12 +181,12 @@ Index.propTypes = {
   volunteerRankAllList: PropTypes.func,
 };
 
-// Index.title = i18next.t("志愿排行");
+// Index.title = i18next.t("公益排行");
 {
   orgCode === "yJrb2kKdWL" ? 
-  Index.title = i18next.t('志愿排行')
-  :
   Index.title = i18next.t('公益排行')
+  :
+  Index.title = i18next.t('志愿排行')
 }
 export default connect(
   state => ({

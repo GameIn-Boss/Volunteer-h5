@@ -15,6 +15,20 @@ export function PostDataModel_Project(projectData, userData) {
     return PostDataModel;
 }
 
+export function PostDataModel_Project_Sy(projectData, userData) {
+    var tempContentText = `${i18next.t('人人公益心，三一志愿者行。快和我一起参加')}“${projectData.name}”，${i18next.t('活动吧！')}~`;
+    // var tempContentText = i18next.t('我发现了"n"这个项目,跟我一起做志愿服务吧', { n: projectData.name });
+    let PostDataModel = {
+        postImage: getProjectPhoto(projectData),
+        avatars: getAvatar(userData),
+        username: getUserName(userData),
+        contentText: tempContentText,
+        url: `${window.location.origin}/project/detail/${projectData.id}`,
+        type: 'Project'
+    }
+    console.log(PostDataModel);
+    return PostDataModel;
+}
 export function PostDataModel_Team(teamData, userData) {
     var tempContentText = `${i18next.t('我发现了')}“${teamData.name}”${i18next.t('这个')}${i18next.t('团队')}，${i18next.t('跟我一起做志愿服务吧')}~`;
     // var tempContentText = i18next.t('我发现了"n"这个团队,跟我一起做志愿服务吧', { n: teamData.name });
@@ -63,6 +77,25 @@ export function PostDataModel_ProjectSign_Zhongjin(projectData, userData) {
     return PostDataModel;
 }
 
+export function PostDataModel_SignSuccess_Sy(projectData, userData) {
+    return PostDataModel_ProjectSign_Sy(projectData, userData)
+}
+
+export function PostDataModel_ProjectSign_Sy(projectData, userData) {
+    var tempContentText = `${i18next.t('我参')}“${projectData.name}”${i18next.t('这个')}${i18next.t('项目')},${i18next.t('累计获得')}${projectData.my_reward_time}${i18next.t('个服务时长')},${i18next.t('跟我一起做志愿服务吧')}~`;
+    // var tempContentText = <span>感谢您参与<span style={{ color: '#6B0D0E' }}>“{projectData.name}”</span>志愿活动，践行志愿服务精神，奉献、互助、友爱、进步。特颁此证！</span>
+    let PostDataModel = {
+        postImage: getProjectPhoto(projectData),
+        avatars: getAvatar(userData),
+        username: getUserName(userData),
+        // contentText: tempContentText,
+        url: `${window.location.origin}/project/detail/${projectData.id}`,
+        projectName: projectData.name,
+        type: 'ProjectSign'
+    }
+    console.log(PostDataModel);
+    return PostDataModel;
+}
 
 export function PostDataModel_ProjectSign(projectData, userData) {
     var tempContentText = `${i18next.t('我参与了')}“${projectData.name}”${i18next.t('这个')}${i18next.t('项目')},${i18next.t('累计获得')}${projectData.my_reward_time}${i18next.t('个服务时长')},${i18next.t('跟我一起做志愿服务吧')}~`;

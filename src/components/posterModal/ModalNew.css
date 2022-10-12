@@ -90,6 +90,47 @@
     flex-direction: column;
 }
 
+.poster-modal-new-wrap-container-padding-image-sy {
+    width           : 329px;
+    height          : 540px;
+    position        : relative;
+    background-color: #fff;
+    border          : 0;
+    background-clip : padding-box;
+    text-align      : center;
+    z-index         : 5;
+    overflow        : hidden;
+    border-radius   : 0px;
+    /* padding-top  : 15px; */
+    background      : url(/images/WechatIMG509.png) no-repeat;
+    background-size : cover;
+
+    display       : flex;
+    align-items   : center;
+    flex-direction: column;
+}
+
+.poster-modal-new-wrap-container-padding-sy {
+    z-index         : -1000;
+    width           : 329px;
+    height          : 540px;
+    top             : -99999px;
+    position        : relative;
+    background-color: #fff;
+    border          : 0;
+    background-clip : padding-box;
+    text-align      : center;
+    z-index         : 5;
+    overflow        : hidden;
+    border-radius   : 0px;
+    /* padding-top  : 15px; */
+    background      : url(/images/WechatIMG509.png) no-repeat;
+    background-size : cover;
+
+    display       : flex;
+    align-items   : center;
+    flex-direction: column;
+}
 .poster-modal-new-wrap-container-footer {
     display   : flex;
     position  : relative;
@@ -170,6 +211,50 @@
 }
 
 .poster-modal-new-wrap-container-padding .poster-main {
+    margin-left    : 5px;
+    width          : 226px;
+    min-height     : 30px;
+    background     : url(/images/hbqp.png) no-repeat;
+    padding-left   : 6px;
+    background-size: 100% 100%;
+
+}
+
+.poster-modal-new-wrap-container-padding-sy .content {
+    width        : 288px;
+    height       : 413px;
+    border-radius: 16.2px;
+    background   : #FFFFFF;
+    margin-top   : 21px;
+    margin-bottom: 34px;
+    overflow     : hidden;
+}
+
+.poster-modal-new-wrap-container-padding-sy .project-img {
+    width     : 288px;
+    height    : 304px;
+    object-fit: cover;
+}
+
+.poster-modal-new-wrap-container-padding-sy .user-avatars {
+    margin-top   : 5px;
+    width        : 34px;
+    height       : 34px;
+    object-fit   : cover;
+    border-radius: 50%;
+}
+
+.poster-modal-new-wrap-container-padding-sy .user-name {
+    width      : 226px;
+    font-size  : 12px;
+    transform  : scale(0.95);
+    color      : #000000;
+    margin-left: 10px;
+    text-align : left;
+    font-weight: 700;
+}
+
+.poster-modal-new-wrap-container-padding-sy .poster-main {
     margin-left    : 5px;
     width          : 226px;
     min-height     : 30px;

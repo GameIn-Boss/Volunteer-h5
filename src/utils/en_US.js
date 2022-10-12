@@ -183,6 +183,7 @@ export default {
     '年度榜': 'Annual list',
     '总榜': 'Overall list',
     '志愿排行': 'Ranking',
+    '公益排行': 'Ranking',
     'Ta的成就': 'Achievement',
     '年度时长': 'Annual volunteer hours',
     '总时长': 'Total volunteer hours',
@@ -457,6 +458,8 @@ export default {
     '长按识别二维码 一起来做志愿者': 'Long press to identify the QR code to be volunteers together',
     '长按识别二维码': 'Long press to identify the QR code',
     '一起来做志愿者': 'to be volunteers together',
+    '长按识别活动二维码': 'Long press to identify the QR code',
+    '成为三一公益同行者': 'to be volunteers together',
     '我发现了这个团队，跟我一起做志愿服务吧': 'I found this team, let\'s do volunteer service with me',
 
     '您已加入该团队': 'You have joined this team',

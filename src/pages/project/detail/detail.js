@@ -25,7 +25,9 @@ import Tab from "../../../components/tab/tab";
 import CommunityItem from "../../../components/community_item/index";
 import ShareTip from "../../../components/sharetip/sharetip";
 import ModalNew from "../../../components/posterModal/ModalNew";
+import ModalSy from "../../../components/posterModal/ModalSy";
 import { PostDataModel_Project } from "../../../components/posterModal/PostDataModel";
+import { PostDataModel_Project_Sy } from "../../../components/posterModal/PostDataModel";
 import {
     feelingAction,
     observeAction,
@@ -586,9 +588,14 @@ class ProjectDetailPage extends React.Component {
             detail: { data: detailData, tabIndex },
             user
         } = this.props;
-
+    if (window.orgCode === 'yJrb2kKdWL') {
+        const postData = PostDataModel_Project_Sy(detailData, user);
+        return this.state.visible ? <ModalSy postData={postData} visible={this.state.visible} maskCloseable={this.closeModal} /> : null;
+    }else{
         const postData = PostDataModel_Project(detailData, user);
         return this.state.visible ? <ModalNew postData={postData} visible={this.state.visible} maskCloseable={this.closeModal} /> : null;
+    }
+
     }
     handleActionClickTwo() {
         window.location.href =
