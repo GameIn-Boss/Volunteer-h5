@@ -25,7 +25,7 @@ class homesearch extends React.Component {
     super(props);
     autoBind(this);
     this.state = {
-      title: ['项目搜索', '团队搜索'],
+      title: ['活动搜索', '团队搜索'],
       current: 0,
     };
   }

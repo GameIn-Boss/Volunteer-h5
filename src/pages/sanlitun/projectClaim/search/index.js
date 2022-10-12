@@ -86,7 +86,7 @@ class projectClaimSearch extends React.Component {
         <div className="header">
           <div className="search-bar-container">
             <form onSubmit={this.handleSearch} className="component-search-bar">
-              <input ref={(el) => { this.searchInput = el; }} onBlur={this.handleSearch} className="input" placeholder="搜索项目" />
+              <input ref={(el) => { this.searchInput = el; }} onBlur={this.handleSearch} className="input" placeholder="搜索活动" />
             </form>
             <button onClick={this.handleCancelSearch}>取消</button>
           </div>

@@ -165,7 +165,7 @@ class Index extends React.Component {
     return (<div className="demand">
       <Tab
         tabs={[
-          { label: t('总榜'), component: this.allRank() },
+          { label: t('志愿者总榜'), component: this.allRank() },
           { label: t('年度榜'), component: this.yearRank() }
         ]}
         onChange={this.onTabChange}
@@ -181,8 +181,13 @@ Index.propTypes = {
   volunteerRankAllList: PropTypes.func,
 };
 
-Index.title = i18next.t("志愿排行");
-
+// Index.title = i18next.t("志愿排行");
+{
+  orgCode === "yJrb2kKdWL" ? 
+  Index.title = i18next.t('志愿排行')
+  :
+  Index.title = i18next.t('公益排行')
+}
 export default connect(
   state => ({
     volunteerRank: state.volunteerRank,

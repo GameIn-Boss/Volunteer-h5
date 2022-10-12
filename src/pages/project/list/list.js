@@ -143,7 +143,7 @@ class ProjectListPage extends React.Component {
         <div className="header">
           <div className="search-bar-container">
             <Link className="component-search-bar" to="/project/search">
-              <input className="input" placeholder={t('搜索项目')}  disabled="disabled" />
+              <input className="input" placeholder={t('搜索活动')}  disabled="disabled" />
             </Link>
           </div>
         </div>
@@ -197,7 +197,7 @@ ProjectListPage.propTypes = {
   }),
 };
 
-ProjectListPage.title = i18next.t('志愿项目');
+ProjectListPage.title = i18next.t('志愿活动');
 
 export default connect(
   state => ({

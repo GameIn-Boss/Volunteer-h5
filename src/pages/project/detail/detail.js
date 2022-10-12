@@ -74,7 +74,7 @@ class ProjectDetailContent extends React.Component {
                 });
             } else if (attr == "begin_public" && detailData.begin_public) {
                 arr.push({
-                    label: t('项目日期'),
+                    label: t('活动日期'),
                     value: `${parseTimeStringToDateString(
                         detailData.begin
                     )}-${parseTimeStringToDateString(detailData.end)}`,
@@ -629,7 +629,7 @@ class ProjectDetailPage extends React.Component {
         }
 
         const content = detailData.content;
-        // join_status: [integer] 0审核中 1通过 2驳回, 详情页下发，登陆后如加入项目才有此字段
+        // join_status: [integer] 0审核中 1通过 2驳回, 详情页下发，登陆后如加入活动才有此字段
         // activity_status: [integer] 活动状态 1 招募中，2进行中 3已结束
         const joined =
             isLogin && (detailData.join_status === 0 || detailData.join_status === 1);
@@ -654,7 +654,7 @@ class ProjectDetailPage extends React.Component {
             actionLabel = t('招募截止');
             actionClassName = "project-action-full";
         } else if (!joined && detailData.project_status > 9) {
-            actionLabel = t('项目审核中');
+            actionLabel = t('活动审核中');
             actionClassName = "project-action-full";
         } else if (!joined) {
             actionLabel = t('我要报名');
@@ -698,7 +698,7 @@ class ProjectDetailPage extends React.Component {
                     <div className="project-category">
                         <div style={{ color: "#666666", marginBottom: "4px" }}>
                             {detailData.category_public
-                                ? `# ${serviceCategories.join("、")}${detailData.jinyun_state ? (detailData.category.length ? '、津云项目':'津云项目'):''}`
+                                ? `# ${serviceCategories.join("、")}${detailData.jinyun_state ? (detailData.category.length ? '、津云活动':'津云活动'):''}`
                                 : null}
                         </div>
                         <div>{detailData.created_at.split(" ")[0]}</div>
@@ -736,7 +736,7 @@ class ProjectDetailPage extends React.Component {
                         />
                     ) : null}
                     <div className="project-description">
-                        <div>{t('项目介绍')}</div>
+                        <div>{t('活动介绍')}</div>
                         <p
                             dangerouslySetInnerHTML={{
                                 __html: content
@@ -874,8 +874,8 @@ class ProjectDetailPage extends React.Component {
             <div className="page-project-detail">
                 <Tab
                     tabs={[
-                        { label: t('项目详情'), component: this.renderBasic() },
-                        { label: t('项目社区'), component: this.renderCommunity() }
+                        { label: t('活动详情'), component: this.renderBasic() },
+                        { label: t('活动社区'), component: this.renderCommunity() }
                     ]}
                     onChange={this.onTabChange}
                     selectedIndex={tabIndex}
@@ -897,7 +897,7 @@ class ProjectDetailPage extends React.Component {
                     show={this.state.showDialog}
                 >
                     {this.state.dialogType
-                        ? t('确定要退出项目吗') + '？'
+                        ? t('确定要退出活动吗') + '？'
                         : t('只有登录的用户才能点赞和评论哦～')}
                 </Dialog>
                 {this.renderModal()}
@@ -930,7 +930,7 @@ ProjectDetailPage.propTypes = {
     })
 };
 
-ProjectDetailPage.title = i18next.t("项目详情");
+ProjectDetailPage.title = i18next.t("活动详情");
 
 export default connect(
     state => ({

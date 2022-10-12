@@ -162,7 +162,7 @@ class HomePage extends React.Component {
                 <input
                   className="input"
                   style={{ marginLeft: "35px" }}
-                  placeholder={t('搜索项目/团队')}
+                  placeholder={t('搜索活动/团队')}
                   disabled="disabled"
                 />
               </Link>
@@ -183,7 +183,7 @@ class HomePage extends React.Component {
               <input
                 className="input"
                 style={{ marginLeft: "35px" }}
-                placeholder={t('搜索项目/团队')}
+                placeholder={t('搜索活动/团队')}
                 disabled="disabled"
               />
             </Link>

@@ -193,7 +193,7 @@ class Post extends React.Component {
                   "page-post-font-color": data.name
                 })}
               >
-                {data.name ? data.name : t('参加项目')}
+                {data.name ? data.name : t('参加活动')}
               </div>
               <div className="page-post-container-item-more" />
             </div>

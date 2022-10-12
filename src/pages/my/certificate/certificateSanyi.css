@@ -158,7 +158,7 @@
     min-width     : 80px;
     height        : 19px;
     position      : absolute;
-    top           : 364px;
+    top           : 367px;
 }
 
 .page-certificate-container-hours-box {
@@ -189,7 +189,7 @@
 .page-certificate-container-grouth-level {
     width: 38px;
     letter-spacing: 0;
-    top: 91px;
+    top: 88px;
     position: absolute;
     font-size: 14px;
     color: #FFF;
@@ -199,7 +199,7 @@
 .page-certificate-container-id {
     width: 84px;
     letter-spacing: 0;
-    top: 160px;
+    top: 155px;
     position: absolute;
     font-size: 28px;
     left: 47px;
@@ -211,7 +211,7 @@
 .page-certificate-container-score {
     width         : 178px;
     letter-spacing: 0;
-    top           : 221px;
+    top           : 216px;
     position      : absolute;
     font-size     : 34px;
     color         : #FDD759;
@@ -221,7 +221,7 @@
 .page-certificate-container-projects {
     width         : 178px;
     letter-spacing: 0;
-    top           : 320px;
+    top           : 315px;
     position      : absolute;
     font-size     : 34px;
     color         : #FDD759;
@@ -242,7 +242,7 @@
 .page-certificate-container-year {
     width: 38px;
     letter-spacing: 0;
-    top: 516px;
+    top: 514px;
     left: 247px;
     position: absolute;
     font-size: 13px;
@@ -253,7 +253,7 @@
 .page-certificate-container-month {
     width: 38px;
     letter-spacing: 0;
-    top: 516px;
+    top: 514px;
     left: 292px;
     position: absolute;
     font-size: 13px;
@@ -264,7 +264,7 @@
 .page-certificate-container-day {
     width: 38px;
     letter-spacing: 0;
-    top: 516px;
+    top: 514px;
     left: 319px;
     position: absolute;
     font-size: 13px;

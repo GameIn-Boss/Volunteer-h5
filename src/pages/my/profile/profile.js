@@ -451,6 +451,8 @@ class Profile extends React.Component {
                 </Link>
                 <div className="line1px" />
 
+                {orgCode === "yJrb2kKdWL" ? null :(
+
                 <div className="page-profile-header-box">
                     <div className="page-profile-fonts">{t('志愿者编号')}</div>
                     <div className="page-profile-edit-box">
@@ -460,12 +462,55 @@ class Profile extends React.Component {
                         <div className="page-profile-initial-fonts-take-up" />
                     </div>
                 </div>
+                )}
+
+                {orgCode === "yJrb2kKdWL" ?
+                <div className="page-profile-header-box">
+                <div className="page-profile-fonts">{t('员工号')}</div>
+                <div className="page-profile-edit-box">
+                    <div className="page-profile-initial-fonts">
+                        {user.employee_no}
+                    </div>
+                    <div className="page-profile-initial-fonts-take-up" />
+                </div>
+                 </div>
+                  :(null
+                )}
+                {orgCode === "yJrb2kKdWL" ?
+                <div className="page-profile-header-box">
+                <div className="page-profile-fonts">{t('部门')}</div>
+                <div className="page-profile-edit-box">
+                    <div className="page-profile-initial-fonts">
+                        {user.department}
+                    </div>
+                    <div className="page-profile-initial-fonts-take-up" />
+                </div>
+                 </div>
+                  :(null
+                )}
+                {orgCode === "yJrb2kKdWL" ?
+                <div className="page-profile-header-box">
+                <div className="page-profile-fonts">{t('政治面貌')}</div>
+                <div className="page-profile-edit-box">
+                    <div className="page-profile-initial-fonts">
+                    {user.political == 0 ? "群众" : (null)}
+                    {user.political == 1 ? "团员" : (null)}
+                    {user.political == 2 ? "党员" : (null)}
+                    </div>
+                    <div className="page-profile-initial-fonts-take-up" />
+                </div>
+                 </div>
+                  :(null
+                )}
                 <div className="line1px" />
                 {/* TODO: user.good_at == null*/}
+                {orgCode === "yJrb2kKdWL" ? null :(
+
                 <Link to="" onClick={() => {
                     user.good_at != null && localStorage.setItem("goodAt", `${JSON.stringify(user.good_at)}`);
                     window.location.href = "/my/profile/checkbox";
                 }}>
+                    
                     <div className="page-profile-header-box">
                         <div className="page-profile-fonts">{t('个人擅长')}</div>
                         <div className="page-profile-edit-box">
@@ -486,6 +531,7 @@ class Profile extends React.Component {
                         </div>
                     </div>
                 </Link>
+                )}
                 <div className="line1px" />
 
                 <div>
@@ -500,31 +546,38 @@ class Profile extends React.Component {
                     </Link>
                 </div>
             </div>
+
             {/* 通过开关判断用户是否实名注册显示渲染列表，或进去BTN */}
 
-            <div className={cx({
-                "page-profile-bottom": true,
-                "page-profile-display-extends-block": user.id_number,
-                // "page-profile-display-extends-none ": !user.id_number
-            })}>
-                {this.renderRealInfo()}
-            </div>
-            <div className={cx({
-                "page-profile-bottom": true,
-                "page-profile-display-block":
-                    this.state.winOrgInfo !== null,
-                "page-profile-display-none":
-                    this.state.winOrgInfo === null,
-                "page-profile-display-extends-block":
-                    !user.id_number && this.state.winOrgInfo !== null,
-                "page-profile-display-extends-none": user.id_number
-            })}>
-                <Link to={verifyRouter}>
-                    <div className="page-profile-bottom-btn">
-                      {t('申请成为实名注册志愿者')}
-              </div>
-                </Link>
-            </div>
+            {orgCode === "yJrb2kKdWL" ? null :(
+                <div>
+                <div className={cx({
+                    "page-profile-bottom": true,
+                    "page-profile-display-extends-block": user.id_number,
+                    // "page-profile-display-extends-none ": !user.id_number
+                })}>
+                    {this.renderRealInfo()}
+                </div><div className={cx({
+                    "page-profile-bottom": true,
+                    "page-profile-display-block": this.state.winOrgInfo !== null,
+                    "page-profile-display-none": this.state.winOrgInfo === null,
+                    "page-profile-display-extends-block": !user.id_number && this.state.winOrgInfo !== null,
+                    "page-profile-display-extends-none": user.id_number
+                })}>
+                    <Link to={verifyRouter}>
+                        <div className="page-profile-bottom-btn">
+                            {t('申请成为实名注册志愿者')}
+                        </div>
+                    </Link>
+                </div>
+                </div>
+            )
+            }
+               
+            
+
+        
+
         </div>;
     }
 

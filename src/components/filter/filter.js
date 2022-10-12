@@ -107,7 +107,6 @@ class Filter extends React.Component {
     const selectedType = selectedOption.types || t('智能排序');
     const selectedCategory = selectedOption.categories || t('服务类型');
     const selectedObject = selectedOption.objects || t('服务对象');
-
     return (
       <div className="component-project-filter">
         <div className="filter-header">
@@ -122,9 +121,11 @@ class Filter extends React.Component {
               <span>{selectedCategory}</span>
             </a>
             <div className="line1px-v" />
+            {orgCode === "yJrb2kKdWL" ? null :(
             <a className={classnames({ opened: showOptionsType === 'objects' })} onClick={this.handleFilterHeaderClick('objects')}>
               <span>{selectedObject}</span>
-            </a>
+            </a> 
+            )}
           </div>
           <div className="line1px line1px-bottom" />
         </div>

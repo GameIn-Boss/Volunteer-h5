@@ -125,7 +125,7 @@ class SignItem extends React.Component {
               <div>{this.renderProjectList(data.three_day_project)}</div>
             ) : null}
             {data.clock && data.clock.length > 0 ? (
-              <div className="component-sign-class-title">{t('所有班次')}</div>
+              <div className="component-sign-class-title">{t('所有活动')}</div>
             ) : null}
             {data.clock && data.clock.length > 0 ? (
               <div>{this.renderProjectList(data.clock)}</div>

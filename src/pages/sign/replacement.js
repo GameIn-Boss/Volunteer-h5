@@ -143,7 +143,7 @@ class Replacement extends React.Component {
                         initialValue: [Number(this.proid)]
                     })}
                 >
-                    <List.Item arrow="horizontal">{t('参加项目')}</List.Item>
+                    <List.Item arrow="horizontal">{t('参加活动')}</List.Item>
                 </Picker>
             </div>
 

@@ -24,12 +24,12 @@ class SignItem extends React.Component {
           <img src="/images/sign.png" alt="" />
         </div>
         <span>
-          <p>{t('还没有项目可以签到')}</p>
-          <p>{t('快去加入项目吧')}</p>
+          <p>{t('还没有活动可以签到')}</p>
+          <p>{t('快去加入活动吧')}</p>
         </span>
         <div className="sign-btn-container">
           <Link to="/project/list" className="sign-btn">
-            {t('浏览项目')}
+            {t('浏览活动')}
           </Link>
         </div>
       </div>
@@ -98,7 +98,7 @@ class SignItem extends React.Component {
     return <div className="page-sign">
         <div className="component-sign">
           {data.three_day_project && data.three_day_project.length > 0 ? <div className="component-sign-title">
-              {t('近3天待打卡项目')}
+              {t('近3天待打卡活动')}
             </div> : null}
 
           <ul className="sign-list">
@@ -106,7 +106,7 @@ class SignItem extends React.Component {
                 {this.renderProjectList(data.three_day_project)}
               </div> : null}
             {data.project && data.project.length > 0 ? <div className="component-sign-title">
-                {t('所有项目')}
+                {t('所有活动')}
               </div> : null}
             {data.project && data.project.length > 0 ? <div>
                 {this.renderProjectList(data.project)}

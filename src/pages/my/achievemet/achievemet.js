@@ -173,13 +173,13 @@ class Achievement extends React.Component {
             {//3
               data.achieve_info[0].cond_type && data.achieve_info[0].cond_type == 'pro_join' ? <div className="achievement-modal-box-level-box">
                   <div className="achievement-modal-box-level-box-width">
-                    <p>{`参加项目${data.achieve_info[0].settings.achieve1}次`}</p>
+                    <p>{`参加活动${data.achieve_info[0].settings.achieve1}次`}</p>
                   </div>
                   <div className="achievement-modal-box-level-box-width">
-                    <p>{`参加项目${data.achieve_info[0].settings.achieve2}次`}</p>
+                    <p>{`参加活动${data.achieve_info[0].settings.achieve2}次`}</p>
                   </div>
                   <div className="achievement-modal-box-level-box-width">
-                    <p>{`参加项目${data.achieve_info[0].settings.achieve3}次`}</p>
+                    <p>{`参加活动${data.achieve_info[0].settings.achieve3}次`}</p>
                   </div>
                 </div>
                 :
@@ -241,7 +241,7 @@ class Achievement extends React.Component {
       }
       {//获取到的 3
         (data.level || data.level == 0) && data.achieve_info[0].cond_type && data.achieve_info[0].cond_type == 'pro_join' ?
-          <div className="achievement-modal-box-tips">参加项目次数已累计超过{data.tips}次，快去晒成就吧！</div> : null
+          <div className="achievement-modal-box-tips">参加活动次数已累计超过{data.tips}次，快去晒成就吧！</div> : null
       }
       {//获取到的 4
         (data.level || data.level == 0) && data.achieve_info[0].cond_type && data.achieve_info[0].cond_type.indexOf("pro_check_in") != -1 ?
@@ -265,7 +265,7 @@ class Achievement extends React.Component {
       }
       {//未获取的 3
         (!data.level && data.level != 0) && data.achieve_info[0].cond_type && data.achieve_info[0].cond_type == 'pro_join' ?
-          <div className="achievement-modal-box-tips">参加项目次数已累计超过{data.achieve_info[0].count}次。</div> : null
+          <div className="achievement-modal-box-tips">参加活动次数已累计超过{data.achieve_info[0].count}次。</div> : null
       }
       {//未获取的 4
         (!data.level && data.level != 0) && data.achieve_info[0].cond_type && data.achieve_info[0].cond_type.indexOf("pro_check_in") != -1 ?
@@ -478,7 +478,7 @@ class Achievement extends React.Component {
                 }
                 { //3
                   thisAchieveInfo.achieve_info[0].cond_type == 'pro_join' ?
-                    <p className="modal-this-time">参加项目次数已累计超过<span style={{ color: 'rgb(183, 18, 33)' }}>{thisAchieveInfo.tips}次</span></p> : null
+                    <p className="modal-this-time">参加活动次数已累计超过<span style={{ color: 'rgb(183, 18, 33)' }}>{thisAchieveInfo.tips}次</span></p> : null
                 }
                 { //4
                   thisAchieveInfo.achieve_info[0].cond_type.indexOf("pro_check_in") != -1 ?

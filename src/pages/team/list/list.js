@@ -182,8 +182,8 @@ class TeamListPage extends React.Component {
             />
           </div>
         )}
-        <div className="body">
-
+        {window.orgCode === 'yJrb2kKdWL' ?
+          <div className="sybody">
           <div className="team-list">
             <Teams teams={listData ? listData.list : null} />
           </div>
@@ -198,6 +198,24 @@ class TeamListPage extends React.Component {
           }
           <div className="takeup" />
         </div>
+        :
+      <div className="body">
+      <div className="team-list">
+        <Teams teams={listData ? listData.list : null} />
+      </div>
+      {
+        showLoadingMore
+        ?
+          <div className="component-loading-more">
+            <img src="/images/icon_loading.png" alt="loading" />
+            {t('正在加载')}
+        </div>
+        : null
+      }
+      <div className="takeup" />
+    </div>
+    }
+       
         {window.orgCode === 'yJrb2kKdWL' ? 
         <div className="tabs-container">
           <div className="line1px" />

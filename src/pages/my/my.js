@@ -308,7 +308,7 @@ class MyPage extends React.Component {
               </b>
               {t('个center')}
             </p>
-            <p className="page-my-record-item-bottom">{t('我的项目')}</p>
+            <p className="page-my-record-item-bottom">{t('我的活动')}</p>
           </div>
         </Link>
         <Link to="/my/duration">
@@ -579,6 +579,8 @@ class MyPage extends React.Component {
               </div>
             </li>
           )}
+                    {
+            orgCode === "yJrb2kKdWL" ? null :(
           <li>
             <div>
               <Link to="/my/setting">
@@ -591,6 +593,7 @@ class MyPage extends React.Component {
               <div className="line1px" />
             </div>
           </li>
+            )}
         </ul>
       </div>
     );

@@ -36,6 +36,8 @@ class Service extends React.Component {
     const { t } = this.props;
     return (
       <div className="page-service">
+        {orgCode === "yJrb2kKdWL" ? null :(
+          <div>
         <Link to="/my/service/introduce">
           <div className="page-service-item">
             <div className="page-service-item-fonts-box">
@@ -58,6 +60,10 @@ class Service extends React.Component {
           </div>
           <div className="line1px" />
         </Link>
+        </div>
+        )
+      }
+
         <Link to="/my/service/center">
 
           <div className="page-service-item">
