@@ -438,6 +438,17 @@ class Profile extends React.Component {
                 </Link>
                 <div className="line1px" />
 
+                {orgCode === "yJrb2kKdWL" ?       
+                <div className="page-profile-header-box">
+                    <div className="page-profile-fonts">{t('邮箱')}</div>
+                    <div className="page-profile-edit-box">
+                        <div className="page-profile-initial-fonts">
+                        {user.email || ""}
+                        </div>
+                        <div className="page-profile-initial-fonts-take-up" />
+                    </div>
+                </div>
+                :(
                 <Link to="/my/profile/bind/mail">
                     <div className="page-profile-header-box">
                         <div className="page-profile-fonts">{t('邮箱')}</div>
@@ -449,6 +460,8 @@ class Profile extends React.Component {
                         </div>
                     </div>
                 </Link>
+                            )}
+
                 <div className="line1px" />
 
                 {orgCode === "yJrb2kKdWL" ? null :(

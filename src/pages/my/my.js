@@ -322,8 +322,11 @@ class MyPage extends React.Component {
               </b>
               {t('小时center')}
             </p>
-                  <p className="page-my-record-item-bottom">{t('服务时长')}</p>
-              
+            {orgCode === "yJrb2kKdWL" ? (
+              <p className="page-my-record-item-bottom">{t('公益时长')}</p>
+              ):(
+              <p className="page-my-record-item-bottom">{t('服务时长')}</p>
+              )}
           </div>
         </Link>
         {/* <!-- 积分入口 --> */}
@@ -579,7 +582,24 @@ class MyPage extends React.Component {
               </div>
             </li>
           )}
-                    {
+          {
+          orgCode === "yJrb2kKdWL" ? 
+          <li>
+            <div>
+              <Link to="https://admin.volzdx.cn/register/yJrb2kKdWL">
+                <div className="page-my-item-box">
+                  <i className="page-my-item-icon page-my-item-icon-teamRegisterSy" />
+                  {t('创建志愿团队')}
+                </div>
+                <span className="page-my-item-big" />
+              </Link>
+              <div className="line1px" />
+            </div>
+          </li>:(
+            null
+          )
+            }
+         {
             orgCode === "yJrb2kKdWL" ? null :(
           <li>
             <div>
@@ -795,12 +815,15 @@ class MyPage extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {data.map((item, index) => (
-                <tr>
-                  <td>{item.label}</td>
-                  <td>{item.value}</td>
-                </tr>
-              ))}
+            {data.map((item, index) => {
+            if(item.value != 0){
+            return  <tr key={index}>
+              <td>{item.label}</td><td>{item.value}</td>
+            </tr>
+            }else{
+              return null
+            }
+            })}
             </tbody>
           </table>
         </div>

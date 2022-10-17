@@ -198,13 +198,7 @@ class ShopPage extends React.Component {
     );
   }
 }
-
-{
-  orgCode === "yJrb2kKdWL" ? 
-  ShopPage.title = i18next.t('公益激励')
-  :
-  ShopPage.title = i18next.t('志愿回馈')
-}
+ShopPage.title = window.orgCode === "yJrb2kKdWL" ? i18next.t('公益激励') : i18next.t('志愿回馈');
 
 ShopPage.propTypes = {
   bannerAction: PropTypes.func,

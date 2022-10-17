@@ -261,17 +261,27 @@ class Verify extends React.Component {
     //姓名允许空格
     // const realname = this.realname.value.replace(/(^\s+)|(\s+$)/g, "");
     const realname = this.realname.value;
-    const idcard = this.idcard.value.replace(/(^\s+)|(\s+$)/g, "");
-    const address =  this.address && this.address.value.replace(/(^\s+)|(\s+$)/g, "");
+    if (window.orgCode !== 'EKQe1wRbJY') {
+      const idcard = this.idcard.value.replace(/(^\s+)|(\s+$)/g, "");
+      const address =  this.address && this.address.value.replace(/(^\s+)|(\s+$)/g, "");
+    }    
     const password = this.password
       ? this.password.value.replace(/(^\s+)|(\s+$)/g, "")
       : null;
-    this.setState({
-      address,
-      realname,
-      idcard,
-      password
-    });
+
+      if (window.orgCode !== 'EKQe1wRbJY') {
+        this.setState({
+          address,
+          realname,
+          idcard,
+          password
+        });
+      }else{
+        this.setState({
+          realname,
+          password
+        });
+      }
   }
 
   // 上传头像
@@ -307,7 +317,7 @@ class Verify extends React.Component {
       (stateOrgData.open_addr && checkEmpty(city, t('城市'))) ||
       (stateOrgData.open_addr && checkEmpty(county, t('区县'))) ||
       (stateOrgData.open_addr && window.orgInfo.area_level === 4 && checkEmpty(township, t('街道'))) ||
-      // (stateOrgData.open_addr && checkEmpty(address, t('详细地址'))) ||
+      (stateOrgData.open_addr && checkEmpty(address, t('详细地址'))) ||
       (stateOrgData.open_real_name && checkRealname(realname)) ||
       (user.have_pwd == 0 && checkEmpty(password, t('密码')))
     ) {
@@ -336,27 +346,27 @@ class Verify extends React.Component {
     if (realname) {
       data.real_name = realname;
     }
-    if (idcard) {
-      data.id_number = idcard;
-    }
-    if (people) {
-      data.nation = people;
-    }
-    if (province) {
-      data.province_id = province;
-    }
-    if (city) {
-      data.city_id = city;
-    }
-    if (county) {
-      data.county_id = county;
-    }
-    if (township) {
-      data.township_id = township;
-    }
-    if (address) {
-      data.addr = address;
-    }
+      if (idcard) {
+        data.id_number = idcard;
+      }
+      if (people) {
+        data.nation = people;
+      }
+      if (province) {
+        data.province_id = province;
+      }
+      if (city) {
+        data.city_id = city;
+      }
+      if (county) {
+        data.county_id = county;
+      }
+      if (township) {
+        data.township_id = township;
+      }
+      if (address) {
+        data.addr = address;
+      }
 
     if (photo != undefined && photo != "") {
       data.avatars = photo;
@@ -1216,16 +1226,21 @@ class Verify extends React.Component {
                 this.renderAvatars()}
               {//名字
                 this.renderName()}
-
-              {//身份证
+              {
+                window.orgCode !== 'EKQe1wRbJY' ? 
+                <div>
+                {//身份证
                 this.renderIdCard()}
-
-              {//民族
+                {//民族
                 shouldShowNation ? this.renderNation() : null
+                }
+                {//地址
+                  this.renderAddr()
+                }
+                </div>
+                :( null )
               }
-              {//地址
-                this.renderAddr()
-              }
+             
               {//密码
                 this.renderPassword()}
               {//自定义信息

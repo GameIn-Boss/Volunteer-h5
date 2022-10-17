@@ -514,13 +514,13 @@ class TeamDetailPage extends React.Component {
                 <span>{detailData.slogan}</span>
                 <div className="line1px" />
               </li>
-              {
+              {/* {
                 detailData.type ? <li>
                   <span>{t('团队类型')}</span>
                   <span>{t(detailData.type)}</span>
                   <div className="line1px" />
                 </li> : null
-              }
+              } */}
               {detailData.parent && detailData.parent.name ? (
                 <li>
                   <span>{t('上级团队')}</span>

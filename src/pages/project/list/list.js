@@ -196,9 +196,11 @@ ProjectListPage.propTypes = {
     }),
   }),
 };
-
-ProjectListPage.title = i18next.t('志愿活动');
-
+{orgCode === "yJrb2kKdWL" ? (
+  ProjectListPage.title = i18next.t('公益活动')
+):(
+  ProjectListPage.title = i18next.t('志愿活动')
+)}
 export default connect(
   state => ({
     list: state.project.list,

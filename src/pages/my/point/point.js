@@ -104,12 +104,16 @@ class PointPage extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {data.map((item, index) => (
-                <tr key={index}>
-                  <td>{item.label}</td>
-                  <td>{item.value}</td>
-                </tr>
-              ))}
+              {data.map((item, index) => {
+
+              if(item.value != 0){
+               return  <tr key={index}>
+                <td>{item.label}</td><td>{item.value}</td>
+               </tr>
+               }else{
+                return null
+               }
+            })}
             </tbody>
           </table>
         </div>
