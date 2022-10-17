@@ -171,9 +171,12 @@ class Certificate extends React.Component {
           </div>
           <div className="page-certificate-container-content-avatar">
             <img
-              src={
-                this.state.base64Array && this.state.base64Array[1] // src={this.state.people}
-              }
+              // src="https://wework.qpic.cn/wwhead/duc2TvpEgST9hicuyypLEKHeuiaXTdXTWKnYXUtia1SwO9dTJF9gG3NF5IliaES1mm6ibnc59seVBn1Y/0"
+              // src={
+              //   this.state.base64Array && this.state.base64Array[1] // src={this.state.people}
+              // }
+              src={this.props.user.avatars || "/images/my/touxiangZhongjin.png"}
+              crossorigin='anonymous'
               id="avatars"
               style={{
                 display: "block",
