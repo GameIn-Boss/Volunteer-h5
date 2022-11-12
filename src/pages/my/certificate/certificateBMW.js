@@ -236,7 +236,7 @@ class Certificate extends React.Component {
             <div className="page-certificate-container-bottom-infobox">
               <div className="page-certificate-container-bussiness">
                 {
-                  this.props.user && this.props.user.extends && this.props.user.extends.user_type.indexOf('宝马员工') >= 0 ?
+                  this.props.user && this.props.user.extends && this.props.user.extends.user_type && this.props.user.extends.user_type.indexOf('宝马员工') >= 0 ?
                     <div><span className="bmw-typnextlight">BMW</span>企业志愿者协会</div> : null
                 }
               </div>
@@ -322,7 +322,7 @@ class Certificate extends React.Component {
             </div>
             <div className="page-certificate-container-hours">
               <div className="page-certificate-container-hours-item-number">
-                <span>{`${this.props.user.reward_time}`.length > 5 ? `${this.props.user.reward_time}`.split('.')[0] : `${this.props.user.reward_time}`}</span>
+                <span>{`${this.props.user.reward_time || ''}`.length > 5 ? `${this.props.user.reward_time}`.split('.')[0] : `${this.props.user.reward_time}`}</span>
                 <div style={{
                   paddingTop: '12px',
                   paddingLeft: '2px',
@@ -364,6 +364,11 @@ class Certificate extends React.Component {
       return null;
     }
     console.log(listData);
+
+    // return <div className="page-certificate-main-container">
+    //   {this.renderCertificate()}
+    // </div>;
+
     return (
       <div>
         <div
@@ -393,17 +398,17 @@ class Certificate extends React.Component {
               src={`${this.state.dataUrl}`}
             />
           ) : (
-              language === 'en-US' ?
-                <div className="page-certificate-main-container">
-                  {/** TODO: */}
-                  {this.renderCertificateEN()}
-                </div>
-                :
-                <div className="page-certificate-main-container">
-                  {/** TODO: */}
-                  {this.renderCertificate()}
-                </div>
-            )}
+            language === 'en-US' ?
+              <div className="page-certificate-main-container">
+                {/** TODO: */}
+                {this.renderCertificateEN()}
+              </div>
+              :
+              <div className="page-certificate-main-container">
+                {/** TODO: */}
+                {this.renderCertificate()}
+              </div>
+          )}
           {dataUrl ? null : (
             <div className="page-certificate-main-mask">
               <img className="loading-img" src="/images/loadingimg.png" />
