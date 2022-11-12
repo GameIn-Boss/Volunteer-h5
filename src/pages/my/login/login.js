@@ -347,7 +347,7 @@ class Login extends React.Component {
     }
 
     let shoudShowPrivacyPolicy = false;
-    if (window.orgCode === 'kQBeXDWeyK' || window.orgCode === 'joQeZ6JepZ' || window.orgCode === 'EKQe1wRbJY') {
+    if (window.orgCode === 'kQBeXDWeyK' || window.orgCode === 'joQeZ6JepZ' || window.orgCode === 'EKQe1wRbJY' || window.orgCode === 'KGRb4x1bBL') {
       shoudShowPrivacyPolicy = true;
     }
 
@@ -360,6 +360,13 @@ class Login extends React.Component {
 
     if (window.orgCode === 'kQBeXDWeyK') {
       privacyPolicyPath = '/html/privacyPolicyZhongjin.html';
+    }
+    if (window.orgCode === 'KGRb4x1bBL') {
+      userAgreePath = '/html/userAgreeQizhixiaolu.html';
+    }
+
+    if (window.orgCode === 'KGRb4x1bBL') {
+      privacyPolicyPath = '/html/privacyPolicyQizhixiaolu.html';
     }
 
     if (window.orgCode === 'EKQe1wRbJY') {
@@ -398,7 +405,7 @@ class Login extends React.Component {
   }
 
   shouldCheckboxAgree() {
-    if (window.orgCode === 'mWZdPNwaKg' || window.orgCode === 'kQBeXDWeyK' || window.orgCode === 'joQeZ6JepZ' ||  window.orgCode === 'EKQe1wRbJY') {
+    if (window.orgCode === 'mWZdPNwaKg' || window.orgCode === 'kQBeXDWeyK' || window.orgCode === 'joQeZ6JepZ' ||  window.orgCode === 'EKQe1wRbJY' ||  window.orgCode === 'KGRb4x1bBL') {
       return true;
     }
     return false;

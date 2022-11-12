@@ -132,7 +132,11 @@
   </div>
   <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=GT7BZ-UXACR-R2JWZ-WYSXR-DHWJV-VEFAI"></script>
   <script type="text/javascript" src="https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js"></script>
+<<<<<<< HEAD
   <script src="/dist/main.550c14745068a3ca6536.js"></script>
+=======
+  <script src="/dist/main.db0687833938d039d7f0.js"></script>
+>>>>>>> 23e1a34fc882f332623f64595396dfc46dfc3587
 </body>
 
 </html>

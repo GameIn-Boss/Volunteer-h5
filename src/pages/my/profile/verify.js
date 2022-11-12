@@ -307,7 +307,7 @@ class Verify extends React.Component {
       (stateOrgData.open_addr && checkEmpty(city, t('城市'))) ||
       (stateOrgData.open_addr && checkEmpty(county, t('区县'))) ||
       (stateOrgData.open_addr && window.orgInfo.area_level === 4 && checkEmpty(township, t('街道'))) ||
-      (stateOrgData.open_addr && checkEmpty(address, t('详细地址'))) ||
+      (stateOrgData.open_addr && (address, t('详细地址'))) ||
       (stateOrgData.open_real_name && checkRealname(realname)) ||
       (user.have_pwd == 0 && checkEmpty(password, t('密码')))
     ) {
@@ -541,8 +541,10 @@ class Verify extends React.Component {
 
     let shouldShowAddressDetail = false;
     if (window.orgCode !== 'kQBeXDWeyK') {
-      shouldShowAddressDetail = true;
+       shouldShowAddressDetail = true;
     }
+    // let  shouldShowAddressDetail = true;
+
     return (
       <div>
         <div>
