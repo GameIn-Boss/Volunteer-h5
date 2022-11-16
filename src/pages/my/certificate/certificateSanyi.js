@@ -159,7 +159,7 @@ class Certificate extends React.Component {
         return (
             <div className="page-certificate-bg">
                 <div className="page-certificate-container-border" ref="LaunchContent">
-                    <img src={this.state.bgImage || '/images/my/certificate-bgSanyi.png'} className='page-certificate-bg-img' ref="bgImage"></img>
+                    <img src={this.state.bgImage || '/images/my/tkzs.png'} className='page-certificate-bg-img' ref="bgImage"></img>
                     {/* <div className="page-certificate-container-content-certnumber">
             编号：<span>{this.props.user.identifier}</span>
           </div> */}
@@ -174,22 +174,14 @@ class Certificate extends React.Component {
                             id="avatars"
                             style={{
                                 display: "block",
-                                width: "70px",
-                                height: "70px",
-                                borderRadius: "50%",
+                                width: "85px",
+                                height: "85px",
+                                // borderRadius: "50%",
                                 objectFit: "cover"
                             }}
                         />
                     </div>
-                    <div className="page-certificate-container-name">
-                        <span>{this.props.user.real_name}</span>
-                        {
-                            this.props.user.political === 1 ? <img src="/images/my/tuanyuan.png" alt="" /> : null
-                        }
-                        {
-                            this.props.user.political === 2 ? <img src="/images/my/dangyuan.png" alt="" /> : null
-                        }
-                    </div>
+                   
                     {this.props.user.stars ? (
                         <div
                             className="page-certificate-container-star"
@@ -200,21 +192,21 @@ class Certificate extends React.Component {
                             />
                         </div>
                     ) : null}
-                    {/* <div className="page-certificate-container-content-register">
-                        <span className="bmw-typnextlight">感谢您于{this.state.register}注册成为</span>
-                    </div> */}
+                    <div className="page-certificate-container-content-register">
+                        <span>{this.state.register}注册成为泰康志愿者</span>
+                    </div>
                     {/* <div className="page-certificate-container-content-register-title">
                         巾帼志愿者
                     </div> */}
-                     <div className="page-certificate-container-id">
+                     {/* <div className="page-certificate-container-id">
                         {this.props.user.number || 12927}
-                    </div>
-                    <div className="page-certificate-container-grouth-level">
+                    </div> */}
+                    {/* <div className="page-certificate-container-grouth-level">
                         {this.props.user.growth_level || 1}
-                    </div>
-                    <div className="page-certificate-container-score">
+                    </div> */}
+                    {/* <div className="page-certificate-container-score">
                         {this.props.user.score}
-                    </div>
+                    </div> */}
                     <div className="page-certificate-container-projects">
                         {this.props.user.join_project_count}
                     </div>
@@ -246,9 +238,9 @@ class Certificate extends React.Component {
             return null;
         }
         console.log(listData);
-        // return <div className="page-certificate-main-container">
-        //     {this.renderCertificate()}
-        // </div>;
+        return <div className="page-certificate-main-container">
+            {this.renderCertificate()}
+        </div>;
         return (
             <div>
                 <div

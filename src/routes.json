@@ -237,6 +237,11 @@
     "chunk": "main"
   },
   {
+    "path": "/my/certificateList",
+    "page": "./pages/my/certificateList/duration",
+    "chunk": "main"
+  },
+  {
     "path": "/my/duration/applys",
     "page": "./pages/my/duration/applys",
     "chunk": "main"

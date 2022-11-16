@@ -36,7 +36,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #c7eafd;
+  background: #F6AB00;
   border-radius: 100px;
   height: 50px;
   width: 300pt;
@@ -98,7 +98,7 @@
   background: #b5f073;
 }
 .page-sign-class .project-info-time-pass {
-  background: #a0d9f7;
+  background: #d88211;
 }
 .page-sign-class .project-info-time-audit {
   background: #f0c873;
@@ -108,7 +108,7 @@
   background: #f19292;
 }
 .page-sign-class .project-info-time-done {
- background: #A0D9F7;
+ background: #d88211;
 }
 .page-sign-class .project-info-time-card {
  background: #92F1E3;

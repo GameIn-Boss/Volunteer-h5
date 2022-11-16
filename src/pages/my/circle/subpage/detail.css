@@ -98,7 +98,7 @@
 
 .page-circleDetail-remark-components-name{
   font-size: 14px;
-color: #6AC6F8;
+color: #F6AB00;
 letter-spacing: 0;
 line-height: 14px;
 }
@@ -123,13 +123,13 @@ margin-top: 8px;
 .page-circleDetail-remark-components-comment-delete{
   text-align: right;
   font-size: 13px;
-  color: #6AC6F8;
+  color: #F6AB00;
   letter-spacing: 0;
   line-height: 13px
 }
 .page-circleDetail-remark-components-comment-to-name{
   font-size: 14px;
-  color: #6AC6F8;
+  color: #F6AB00;
 letter-spacing: 0;
 line-height: 18px;
 padding-left: 2px;
@@ -167,7 +167,7 @@ padding-right: 4px;
   right: 0;
   width: 80px;
   height: 36px;
-  background: #C7EAFD;
+  background: #F6AB00;
   border-radius: 4px;
   font-size: 16px;
   color: #666666;

@@ -56,7 +56,7 @@ class SignItem extends React.Component {
             timeDom = (
                   <div className="project-info-time">
                     {t('获得服务时长')}&nbsp;&nbsp;
-                    <span style={{ color: "#6AC6F8" }}>
+                    <span style={{ color: "#F6AB00" }}>
                       {record.user_reward_time}{t('小时')}
                     </span>
                   </div>
@@ -65,7 +65,7 @@ class SignItem extends React.Component {
             timeDom = (
               <div className="project-info-time">
                 {t('预计可获得服务时长')}&nbsp;&nbsp;
-                <span style={{ color: "#6AC6F8" }}>
+                <span style={{ color: "#F6AB00" }}>
                   {record.user_reward_time}{t('小时')}
                 </span>
               </div>
@@ -74,7 +74,7 @@ class SignItem extends React.Component {
             timeDom = (
               <div className="project-info-time">
                 {t('预计最多可获得服务时长')}&nbsp;&nbsp;
-                    <span style={{ color: "#6AC6F8" }}>
+                    <span style={{ color: "#F6AB00" }}>
                       {record.reward_time}{t('小时')}
                     </span>
                </div>

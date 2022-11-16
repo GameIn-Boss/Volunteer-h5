@@ -132,6 +132,11 @@
   "resolved" "http://registry.npm.taobao.org/@nodelib/fs.stat/download/@nodelib/fs.stat-1.1.3.tgz"
   "version" "1.1.3"
 
+"@types/base-64@^1.0.0":
+  "integrity" "sha512-AvCJx/HrfYHmOQRFdVvgKMplXfzTUizmh0tz9GFTpDePWgCY4uoKll84zKlaRoeiYiCr7c9ZnqSTzkl0BUVD6g=="
+  "resolved" "https://registry.npmmirror.com/@types/base-64/-/base-64-1.0.0.tgz"
+  "version" "1.0.0"
+
 "@types/events@*":
   "integrity" "sha1-KGLz9Yqaf3w+eNefEw3U1xwlwqc="
   "resolved" "http://registry.npm.taobao.org/@types/events/download/@types/events-3.0.0.tgz"
@@ -250,7 +255,7 @@
   "resolved" "http://registry.npm.taobao.org/ajv-keywords/download/ajv-keywords-3.4.0.tgz"
   "version" "3.4.0"
 
-"ajv@^4.7.0", "ajv@>=4.10.0", "ajv@>=5.0.0":
+"ajv@^4.7.0":
   "integrity" "sha1-gv+wKynmYq5TvcIK8VlHcGc5xTY="
   "resolved" "http://registry.npm.taobao.org/ajv/download/ajv-4.11.8.tgz"
   "version" "4.11.8"
@@ -258,7 +263,17 @@
     "co" "^4.6.0"
     "json-stable-stringify" "^1.0.1"
 
-"ajv@^6.1.0", "ajv@^6.9.1":
+"ajv@^6.1.0":
+  "integrity" "sha1-kNDVRDnaWHzX6EO/twRfUL0ivfE="
+  "resolved" "http://registry.npm.taobao.org/ajv/download/ajv-6.10.0.tgz"
+  "version" "6.10.0"
+  dependencies:
+    "fast-deep-equal" "^2.0.1"
+    "fast-json-stable-stringify" "^2.0.0"
+    "json-schema-traverse" "^0.4.1"
+    "uri-js" "^4.2.2"
+
+"ajv@^6.9.1":
   "integrity" "sha1-kNDVRDnaWHzX6EO/twRfUL0ivfE="
   "resolved" "http://registry.npm.taobao.org/ajv/download/ajv-6.10.0.tgz"
   "version" "6.10.0"
@@ -601,7 +616,7 @@
     "esutils" "^2.0.2"
     "js-tokens" "^3.0.2"
 
-"babel-core@^6.0.0", "babel-core@^6.26.0", "babel-core@^6.26.3":
+"babel-core@^6.26.0", "babel-core@^6.26.3":
   "integrity" "sha1-suLwnjQtDwyI4vAuBneUEl51wgc="
   "resolved" "http://registry.npm.taobao.org/babel-core/download/babel-core-6.26.3.tgz"
   "version" "6.26.3"
@@ -1403,6 +1418,11 @@
   "integrity" "sha1-tQS9BYabOSWd0MXvw12EMXbczEo="
   "resolved" "http://registry.npm.taobao.org/balanced-match/download/balanced-match-0.1.0.tgz"
   "version" "0.1.0"
+
+"base-64@^1.0.0":
+  "integrity" "sha512-kwDPIFCGx0NZHog36dj+tHiwP4QMzsZ3AgMViUBKI0+V5n4U0ufTCUMhnQ04diaRI8EX/QcPfql7zlhZ7j4zgg=="
+  "resolved" "https://registry.npmmirror.com/base-64/-/base-64-1.0.0.tgz"
+  "version" "1.0.0"
 
 "base@^0.11.1":
   "integrity" "sha1-e95c7RRbbVUakNuH+DxVi060io8="
@@ -3037,7 +3057,7 @@
     "debug" "^2.6.8"
     "pkg-dir" "^1.0.0"
 
-"eslint-plugin-import@^2.2.0", "eslint-plugin-import@^2.7.0":
+"eslint-plugin-import@^2.2.0":
   "integrity" "sha1-Id4zOAue+1X1720uIQ7A4H5/pp8="
   "resolved" "http://registry.npm.taobao.org/eslint-plugin-import/download/eslint-plugin-import-2.7.0.tgz"
   "version" "2.7.0"
@@ -3053,7 +3073,7 @@
     "minimatch" "^3.0.3"
     "read-pkg-up" "^2.0.0"
 
-"eslint-plugin-jsx-a11y@^3.0.2 || ^4.0.0", "eslint-plugin-jsx-a11y@^4.0.0":
+"eslint-plugin-jsx-a11y@^4.0.0":
   "integrity" "sha1-d5uw/nsI2lZKQiYkkR3hAGHgSO4="
   "resolved" "http://registry.npm.taobao.org/eslint-plugin-jsx-a11y/download/eslint-plugin-jsx-a11y-4.0.0.tgz"
   "version" "4.0.0"
@@ -3065,7 +3085,7 @@
     "jsx-ast-utils" "^1.0.0"
     "object-assign" "^4.0.1"
 
-"eslint-plugin-react@^6.10.2", "eslint-plugin-react@^6.9.0":
+"eslint-plugin-react@^6.10.2":
   "integrity" "sha1-xUNb6wZ3ThLH2y9qut3L+QDNP3g="
   "resolved" "http://registry.npm.taobao.org/eslint-plugin-react/download/eslint-plugin-react-6.10.3.tgz"
   "version" "6.10.3"
@@ -3081,7 +3101,7 @@
   "resolved" "http://registry.npm.taobao.org/eslint-restricted-globals/download/eslint-restricted-globals-0.1.1.tgz"
   "version" "0.1.1"
 
-"eslint@^2.0.0 || ^3.0.0", "eslint@^2.10.2 || 3.x", "eslint@^3.15.0", "eslint@^3.18.0", "eslint@^3.19.0 || ^4.5.0", "eslint@2.x - 4.x":
+"eslint@^3.18.0":
   "integrity" "sha1-yPxiAcf0DdCJQbh8CFdnOGpnmsw="
   "resolved" "http://registry.npm.taobao.org/eslint/download/eslint-3.19.0.tgz"
   "version" "3.19.0"
@@ -4079,7 +4099,7 @@
   dependencies:
     "node-fetch" "2.6.0"
 
-"i18next@>= 6.0.1", "i18next@8.4.2":
+"i18next@8.4.2":
   "integrity" "sha1-hudQMN922QVxc1xxLEd88ywfaW8="
   "resolved" "https://registry.npm.taobao.org/i18next/download/i18next-8.4.2.tgz?cache=0&sync_timestamp=1615292170528&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fi18next%2Fdownload%2Fi18next-8.4.2.tgz"
   "version" "8.4.2"
@@ -6575,7 +6595,7 @@
     "postcss-value-parser" "^3.2.3"
     "svgo" "^0.7.0"
 
-"postcss-syntax@^0.36.2", "postcss-syntax@>=0.36.0":
+"postcss-syntax@^0.36.2":
   "integrity" "sha1-8IV4x9lYNFdOVZOoLfv6ivrjtRw="
   "resolved" "http://registry.npm.taobao.org/postcss-syntax/download/postcss-syntax-0.36.2.tgz"
   "version" "0.36.2"
@@ -6608,7 +6628,7 @@
     "postcss" "^5.0.4"
     "uniqs" "^2.0.0"
 
-"postcss@^5.0.0", "postcss@^5.0.10", "postcss@^5.0.11", "postcss@^5.0.12", "postcss@^5.0.13", "postcss@^5.0.14", "postcss@^5.0.16", "postcss@^5.0.19", "postcss@^5.0.2", "postcss@^5.0.4", "postcss@^5.0.5", "postcss@^5.0.6", "postcss@^5.0.8", "postcss@^5.2.15", "postcss@^5.2.16", "postcss@>=5.0.0":
+"postcss@^5.0.0", "postcss@^5.0.10", "postcss@^5.0.11", "postcss@^5.0.12", "postcss@^5.0.13", "postcss@^5.0.14", "postcss@^5.0.16", "postcss@^5.0.19", "postcss@^5.0.2", "postcss@^5.0.4", "postcss@^5.0.5", "postcss@^5.0.6", "postcss@^5.0.8", "postcss@^5.2.15", "postcss@^5.2.16":
   "integrity" "sha1-ut+hSX1GJE9jkPWLMZgw2RB4U8U="
   "resolved" "http://registry.npm.taobao.org/postcss/download/postcss-5.2.18.tgz"
   "version" "5.2.18"
@@ -6736,7 +6756,7 @@
   dependencies:
     "asap" "~2.0.3"
 
-"prop-types@^15.0", "prop-types@^15.5.10", "prop-types@^15.5.4", "prop-types@^15.5.6", "prop-types@^15.5.8", "prop-types@>= 15.0.0", "prop-types@15.x":
+"prop-types@^15.5.10", "prop-types@^15.5.4", "prop-types@^15.5.6", "prop-types@^15.5.8", "prop-types@15.x":
   "integrity" "sha1-zq8IMCL8RrSjX2nhPvda7Q1jmFY="
   "resolved" "http://registry.npm.taobao.org/prop-types/download/prop-types-15.6.0.tgz"
   "version" "15.6.0"
@@ -7038,7 +7058,7 @@
   "resolved" "http://registry.npm.taobao.org/react-deep-force-update/download/react-deep-force-update-2.1.1.tgz"
   "version" "2.1.1"
 
-"react-dom@^0.14.0 || ^15.0.0", "react-dom@^0.14.0 || ^15.0.0 || ^16.0.0-beta || ^16.0.0", "react-dom@^0.14.0 || ^15.0.1 || ^16.0.0", "react-dom@^0.14.7 || 15.x || 16.x", "react-dom@^0.14.x || ^15.0.0-0 || 15.x", "react-dom@^15.0.0 || ^16.0.0", "react-dom@^15.4.2", "react-dom@^15.5.4":
+"react-dom@^15.4.2", "react-dom@^15.5.4":
   "integrity" "sha1-Qc+t9pO3V/rycIRDodH9WgK+9zA="
   "resolved" "http://registry.npm.taobao.org/react-dom/download/react-dom-15.6.2.tgz"
   "version" "15.6.2"
@@ -7149,7 +7169,7 @@
     "prop-types" "^15.5.10"
     "weui" "^1.1.0"
 
-"react@^0.14.0 || ^15.0.0", "react@^0.14.0 || ^15.0.0 || ^16.0.0-beta || ^16.0.0", "react@^0.14.0 || ^15.0.0-0 || ^16.0.0-0", "react@^0.14.0 || ^15.0.1 || ^16.0.0", "react@^0.14.7 || 15.x || 16.x", "react@^15.0.0 || ^16.0.0", "react@^15.4.2", "react@^15.5.4", "react@^15.6.2", "react@>= 15.0.0", "react@0.14.x || ^15.0.0-0 || 15.x":
+"react@^15.4.2", "react@^15.5.4":
   "integrity" "sha1-26BDSrQ5z+gvEI8PURZjkIF5qnI="
   "resolved" "http://registry.npm.taobao.org/react/download/react-15.6.2.tgz"
   "version" "15.6.2"
@@ -7318,7 +7338,7 @@
   "resolved" "http://registry.npm.taobao.org/redux-thunk/download/redux-thunk-2.2.0.tgz"
   "version" "2.2.0"
 
-"redux@^2.0.0 || ^3.0.0", "redux@^3.5.2", "redux@^3.6.0":
+"redux@^3.6.0":
   "integrity" "sha1-BrcxIyFZAdJdBlvjQusCa8HIU3s="
   "resolved" "http://registry.npm.taobao.org/redux/download/redux-3.7.2.tgz"
   "version" "3.7.2"
@@ -8372,7 +8392,7 @@
   "resolved" "http://registry.npm.taobao.org/stylelint-config-standard/download/stylelint-config-standard-16.0.0.tgz"
   "version" "16.0.0"
 
-"stylelint@^7.8.0", "stylelint@^9.10.1":
+"stylelint@^9.10.1":
   "integrity" "sha1-Xw7jcBRh3/HWgoThOG7+jwZ3p10="
   "resolved" "http://registry.npm.taobao.org/stylelint/download/stylelint-9.10.1.tgz"
   "version" "9.10.1"
@@ -8974,7 +8994,7 @@
     "source-list-map" "^2.0.0"
     "source-map" "~0.5.3"
 
-"webpack@^1.0.0 || ^2.0.0 || ^3.0.0", "webpack@^2.2.1", "webpack@^3.0.0 || ^4.0.0", "webpack@1 || 2 || ^2.1.0-beta || ^2.2.0-rc":
+"webpack@^2.2.1":
   "integrity" "sha1-sqEiaAQ3P/09A+qca9UlBnA09rE="
   "resolved" "http://registry.npm.taobao.org/webpack/download/webpack-2.7.0.tgz"
   "version" "2.7.0"

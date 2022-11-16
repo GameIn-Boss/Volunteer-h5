@@ -42,7 +42,7 @@
 .component-project-filter .filter-header .filter-actions > a.opened span {
   color: #333333;
   background-image: url(/images/icon_up.png);
-  color: #6AC6F8;
+  color: #F6AB00;
 }
 
 .component-project-filter .filter-header .filter-actions > a span {
@@ -80,7 +80,7 @@
 
 .component-project-filter .filter-optioins li.selected {
   background: #F8F8F8;
-  color: #6AC6F8;
+  color: #F6AB00;
 }
 
 .component-project-filter .filter-optioins li a {

@@ -9,6 +9,7 @@ import Avatar from "../avatar/avatar";
 import { translate } from 'react-i18next';
 import ModalNew from "../posterModal/ModalNew";
 import { PostDataModel_ProjectSign, PostDataModel_ProjectSign_Zhongjin } from "../posterModal/PostDataModel";
+import {decode as base64_decode, encode as base64_encode} from 'base-64';
 
 import { parseTimeStringToDateString, parseDistance } from "../../utils/funcs";
 import ModalZhongjin from "../posterModal/ModalZhongjin";
@@ -64,12 +65,12 @@ class DurationProjects extends React.Component {
     if (!visible || !detailData) return null;
     const { user } = this.props;
 
-    if (window.orgCode === 'kQBeXDWeyK') {
+    // if (window.orgCode === 'kQBeXDWeyK') {
       const postData = PostDataModel_ProjectSign_Zhongjin(detailData, user);
       return <ModalZhongjin postData={postData} visible={true} maskCloseable={this.closeModal} />;
-    }
-    const postData = PostDataModel_ProjectSign(detailData, user);
-    return <ModalNew postData={postData} visible={true} maskCloseable={this.closeModal} />;
+    // }
+    // const postData = PostDataModel_ProjectSign(detailData, user);
+    // return <ModalNew postData={postData} visible={true} maskCloseable={this.closeModal} />;
   }
   
   render() {
@@ -78,14 +79,14 @@ class DurationProjects extends React.Component {
       return null;
     } else if (durationProject && !durationProject.length) {
       return (
-        <div className="duration-projects-empty-tip">{t('目前还没有志愿项目哦')}</div>
+        <div className="duration-projects-empty-tip">{t('目前还没有志愿活动证书哦')}</div>
       );
     }
     const isEntry = this.props.isEntry;
 
-    let generatePosterText = t('生成海报');
+    let generatePosterText = t('活动证书');
     if (window.orgCode === 'kQBeXDWeyK') {
-      generatePosterText = '生成证书';
+      generatePosterText = '活动证书';
     }
     return <div>
         <div style={{ height: "800px", overflowY: "auto" }}>
@@ -108,14 +109,14 @@ class DurationProjects extends React.Component {
                               {parseTimeStringToDateString(project.begin)}-{parseTimeStringToDateString(project.end)}
                             </div>
                             <div className="component-duration-projects-main-date">
-                              <div className="component-duration-projects-main-date-icon component-duration-projects-main-date-icon-addr" />
-                              {project.county_name} {parseDistance(project.distance)}
+                              {/* <div className="component-duration-projects-main-date-icon component-duration-projects-main-date-icon-addr" />
+                              {project.county_name} {parseDistance(project.distance)} */}
                             </div>
                           </Link>
                         </div>
 
                         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                          <div style={{ fontSize: "13px", color: "#6AC6F8", border: "1px solid #6AC6F8", borderRadius: "4px", padding: "2px 4px" }} onClick={() => this.poster(project)}>
+                          <div style={{ fontSize: "13px", color: "#F6AB00", border: "1px solid #F6AB00", borderRadius: "4px", padding: "2px 4px" }} onClick={() => this.poster(project)}>
                             {generatePosterText}
                           </div>
                         </div>
@@ -155,8 +156,8 @@ class DurationProjects extends React.Component {
                         {parseTimeStringToDateString(project.begin)}-{parseTimeStringToDateString(project.end)}
                       </div>
                       <div className="component-duration-projects-main-date">
-                        <div className="component-duration-projects-main-date-icon component-duration-projects-main-date-icon-addr" />
-                        {project.county_name} {project.distance > 0 ? parseDistance(project.distance) : null}
+                        {/* <div className="component-duration-projects-main-date-icon component-duration-projects-main-date-icon-addr" />
+                        {project.county_name} {project.distance > 0 ? parseDistance(project.distance) : null} */}
                       </div>
                     </div>
                     <div className="line1px" />

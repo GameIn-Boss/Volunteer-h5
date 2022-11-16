@@ -403,8 +403,8 @@
     min-width     : 80px;
     height        : 19px;
     position      : absolute;
-    top           : 281px;
-    left          : 47px;
+    top           : 282px;
+    left          : 148px;
     line-height   : 24px;
     width         : 244px;
 }
@@ -417,7 +417,7 @@
     text-align : right;
     position   : absolute;
     left       : 197px;
-    top        : 432px;
+    top        : 447px;
     transform  : scale(0.9);
 }
 

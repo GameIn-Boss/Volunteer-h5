@@ -387,25 +387,7 @@ class MyPage extends React.Component {
   }
 
   certificatePath() {
-    if (orgCode === "7N1aM8AeWm") {
-      return null;
-    }
-    if (orgCode === "mWZdPNwaKg") {
-      return "/my/certificateBMW";
-    } // 星巴克需要定制化证书
-    if (orgCode === "rlNbW6Jayg") {
-      return "/my/certificateJinguo";
-    } // todo 巾帼志愿需要定制化证书
-    if (orgCode === "kQBeXDWeyK") {
-      return "/my/certificateZhongjin";
-    } // todo 中金需要定制化证书
-    if (orgCode === "EKQe1wRbJY") {
-      return "/my/certificateVitasoy";
-    } // todo 维他奶需要定制化证书
-    if (orgCode === "yJrb2kKdWL") {
-      return "/my/certificateSanyi";
-    } // todo 三一需要定制化证书
-    return '/my/certificate';
+    return '/my/certificateList';
   }
 
   renderPageMyContainer() {

@@ -163,7 +163,7 @@ class Profile extends React.Component {
                         </div> :
                         null
                 }
-                {
+                {/* {
                     user.id_number ?
                         <div>
                             <div className="page-profile-header-box">
@@ -173,7 +173,7 @@ class Profile extends React.Component {
                             <div className="line1px" />
                         </div> :
                         null
-                }
+                } */}
                 {
                     user.id_number ?
                         <div>
@@ -207,7 +207,7 @@ class Profile extends React.Component {
                         </div> :
                         null
                 }
-                {
+                {/* {
                     user.nation ?
                         <div>
                             <div className="page-profile-header-box">
@@ -217,20 +217,20 @@ class Profile extends React.Component {
                             <div className="line1px" />
                         </div>
                         : null
-                }
+                } */}
                 {
                     user.province_name ?
                         <div>
                             <div className="page-profile-header-box">
                                 <div className="page-profile-fonts">{t('现居住地址')}</div>
                                 <div
-                                    className="page-profile-initial-fonts">{user.province_name ? user.province_name : ''}-{user.city_name ? user.city_name : ''}-{user.county_name ? user.county_name : ''}</div>
+                                    className="page-profile-initial-fonts">{user.province_name ? user.province_name : ''}-{user.city_name ? user.city_name : ''}</div>
                             </div>
-                            <div className="line1px" />
+                            {/* <div className="line1px" />
                             <div className="page-profile-header-box">
                                 <div className="page-profile-fonts">{t('详细地址')}</div>
                                 <div className="page-profile-initial-fonts">{user.addr ? user.addr : ''}</div>
-                            </div>
+                            </div> */}
                             <div className="line1px" />
                         </div>
                         : null

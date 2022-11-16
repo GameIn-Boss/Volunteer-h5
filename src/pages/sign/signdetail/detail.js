@@ -198,7 +198,7 @@ class SignPage extends React.Component {
               style={{
                 display: "flex",
                 alignItems: "center",
-                color: "#A0D9F7"
+                color: "#d88211"
               }}
             >
               <img
@@ -248,7 +248,7 @@ class SignPage extends React.Component {
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  color: "#A0D9F7"
+                  color: "#d88211"
                 }}
               >
                 <img
@@ -335,7 +335,7 @@ class SignPage extends React.Component {
               style={{
                 display: "flex",
                 alignItems: "center",
-                color: "#A0D9F7"
+                color: "#d88211"
               }}
             >
               <img
@@ -433,7 +433,7 @@ class SignPage extends React.Component {
               style={{
                 display: "flex",
                 alignItems: "center",
-                color: "#A0D9F7"
+                color: "#d88211"
               }}
             >
               <img
@@ -561,7 +561,7 @@ class SignPage extends React.Component {
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    color: "#A0D9F7"
+                    color: "#d88211"
                   }}
                 >
                   <img
@@ -839,7 +839,7 @@ class SignPage extends React.Component {
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    color: "#A0D9F7"
+                    color: "#d88211"
                   }}
                 >
                   <img
@@ -907,7 +907,7 @@ class SignPage extends React.Component {
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    color: "#A0D9F7"
+                    color: "#d88211"
                   }}
                 >
                   <img

@@ -31,7 +31,7 @@
  }
  .page-shop-main-container  .page-shop-main-header .left span{
     font-size: 16px;
-    color: #6AC6F8;
+    color: #F6AB00;
     padding-left: 10px;
  }
  .page-shop-main-container  .page-shop-main-header .left .redfonts{
@@ -41,13 +41,13 @@
     width: 100px;
     height: 28px;
     background: #FFFFFF;
-    border: 1px solid #6AC6F8;
+    border: 1px solid #F6AB00;
     border-radius: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    color: #6AC6F8;
+    color: #F6AB00;
 }
 .page-shop-content-header{
     flex:1;

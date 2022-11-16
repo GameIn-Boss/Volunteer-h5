@@ -1,7 +1,7 @@
 .page-certificate-bg{
   width: 100%;
   height: 100%;
-  /* background: #6AC6F8; */
+  /* background: #F6AB00; */
   position: absolute;
   top: 0;
   left: 0;
@@ -104,7 +104,7 @@
 }
 .page-certificate-container-hours-item span{
   font-size: 24px;
-  color: #6AC6F8;
+  color: #F6AB00;
   font-weight: 300;
 }
 .page-certificate-container-bussiness{

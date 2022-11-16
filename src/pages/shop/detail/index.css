@@ -62,7 +62,7 @@
 }
 .page-shop-goods-content-top-price-container .price-container .price span{
     font-size: 19px;
-    color: #6AC6F8;
+    color: #F6AB00;
     padding-right: 5px;
 }
 .page-shop-goods-content-top-price-container .price-container .now{
@@ -120,7 +120,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #C7EAFD;
+      background: #F6AB00;
       font-size: 16px;
       font-weight: 600;
       color: #666666;

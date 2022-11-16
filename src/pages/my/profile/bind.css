@@ -40,7 +40,7 @@
 .page-profile-bind-info-container-submmit{
   width: 300px;
   height: 50px;
-  background: #6ac6f8;
+  background: #F6AB00;
   border-radius: 100px;
   text-align: center;
   line-height: 50px;
@@ -53,7 +53,7 @@
   height: 30px;
   line-height: 30px;
   font-size: 10px;
-  color: #6AC6F8;
+  color: #F6AB00;
   width: 65px;
   text-align: center;
 }
@@ -70,7 +70,7 @@
 }
 .page-login-agreement{
   font-size: 13px;
-  color: #6ac6f8;
+  color: #F6AB00;
 }
 .page-login-checkbox {
   width: 15px;

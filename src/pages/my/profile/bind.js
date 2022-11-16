@@ -241,11 +241,9 @@ class BindInfo extends React.Component {
       <Link to={userAgreePath}>
         <span className="page-login-agreement">《{userAgreeText}》</span>
       </Link>
-      {
-        shoudShowPrivacyPolicy ? <Link to={privacyPolicyPath}>
+        <Link to={privacyPolicyPath}>
           <span className="page-login-agreement">《{t('隐私政策')}》</span>
-        </Link> : null
-      }
+        </Link>
     </div>
   }
 

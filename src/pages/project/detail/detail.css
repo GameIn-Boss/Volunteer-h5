@@ -116,7 +116,7 @@
     position: absolute;
     left: 0;
     top: 3px;
-    background: #C7EAFD;
+    background: #F6AB00;
     width: 11px;
     height: 11px;
     border-radius: 11px;
@@ -327,7 +327,7 @@
 }
 
 .page-project-detail .foot .project-action-available {
-    background: #A0D9F7;
+    background: #d88211;
     color: #fff ;
 }
 

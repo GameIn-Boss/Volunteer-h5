@@ -89,7 +89,7 @@ class PracticeBaseDetailPage extends React.Component {
                     />
                 </div> : null
             }
-            <a style={{ color: 'white', lineHeight: '44px', fontSize: 14, height: 44, width: '100%', background: '#6AC6F8', textAlign: 'center', position: 'fixed', bottom: 0 }} href={`tel:${detailData && detailData.phone}`}>
+            <a style={{ color: 'white', lineHeight: '44px', fontSize: 14, height: 44, width: '100%', background: '#F6AB00', textAlign: 'center', position: 'fixed', bottom: 0 }} href={`tel:${detailData && detailData.phone}`}>
                 立即预约
             </a>
         </div >

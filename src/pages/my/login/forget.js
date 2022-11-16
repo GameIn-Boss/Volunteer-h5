@@ -12,6 +12,7 @@ import './forget.css';
 import { forgetAction, againVerifyCode } from './login.store';
 import { translate } from 'react-i18next';
 import i18next from 'i18next';
+import {decode as base64_decode, encode as base64_encode} from 'base-64';
 
 class Forget extends React.Component {
 
@@ -120,7 +121,7 @@ class Forget extends React.Component {
   onSubmit() {
     const phone = this.state.phone;
     const verifyCode = this.state.verifyCode;
-    const pwd = this.state.pwd;
+    const pwd = base64_encode(this.state.pwd);
     const data = {
       phone,
       verify_code: verifyCode,

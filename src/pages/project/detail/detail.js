@@ -69,11 +69,13 @@ class ProjectDetailContent extends React.Component {
                     .join("、");
                 arr.push({ label: t('服务对象'), value: serviceObjects, islast: false });
             } else if (attr == "join_end_public" && detailData.join_end_public && !detailData.jinyun_state) {
-                arr.push({
-                    label: t('招募截止'),
-                    value: detailData.join_end,
-                    islast: false
-                });
+                if(detailData.id > 299){
+                    arr.push({
+                        label: t('招募截止'),
+                        value: detailData.join_end,
+                        islast: false
+                    });
+                }
             } else if (attr == "begin_public" && detailData.begin_public) {
                 arr.push({
                     label: t('活动日期'),
@@ -87,11 +89,13 @@ class ProjectDetailContent extends React.Component {
                 detailData.reward_time_public &&
                 !detailData.jinyun_state
             ) {
-                arr.push({
-                    label: t('服务时长'),
-                    value: `${detailData.reward_time}${t('小时')}`,
-                    islast: false
-                });
+                if(detailData.id > 299){
+                    arr.push({
+                        label: t('服务时长'),
+                        value: `${detailData.reward_time}${t('小时')}`,
+                        islast: false
+                    });
+                }
             } else if (
                 attr == "contact_phone_public" &&
                 detailData.contact_phone_public
@@ -152,7 +156,7 @@ class ProjectDetailContent extends React.Component {
                                 );
                             })}
                     </ul>
-                    {detailData.volunteer_security_public ? (
+                    {detailData.volunteer_security_public  &&  detailData.id >299? (
                         <div className="project-guard">
                             <img src="/images/icon_safeguard.png" alt="保障" />
                             <span>{t('志愿保障')}</span>
@@ -728,7 +732,7 @@ class ProjectDetailPage extends React.Component {
 
                     <ProjectDetailContent data={detailData} t={t} />
 
-                    {detailData.people_count_public && !detailData.jinyun_state ? (
+                    {detailData.people_count_public && !detailData.jinyun_state && detailData.id >299 ? (
                         <div className="project-report">
                             <span>{t('已录用人数')}</span>
                             <div>

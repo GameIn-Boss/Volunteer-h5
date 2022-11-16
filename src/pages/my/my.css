@@ -405,7 +405,7 @@ td{
     height: 42px;
     line-height: 42px;
     text-align: center;
-    background: #A0D9F7;
+    background: #d88211;
     font-family: PingFangSC-Regular;
     font-size: 14px;
     color: #FFFFFF;
@@ -421,7 +421,7 @@ td{
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  color: #6AC6F8;
+  color: #F6AB00;
 }
 .page-my-item-container-padding .weui-gallery__opr {
     position: absolute;

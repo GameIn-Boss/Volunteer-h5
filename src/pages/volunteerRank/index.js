@@ -166,7 +166,7 @@ class Index extends React.Component {
       <Tab
         tabs={[
           { label: t('志愿者总榜'), component: this.allRank() },
-          { label: t('年度榜'), component: this.yearRank() }
+          { label: t('团队榜'), component: this.yearRank() }
         ]}
         onChange={this.onTabChange}
         selectedIndex={rankReducerTab.tabIndex || 0}

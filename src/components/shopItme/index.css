@@ -46,7 +46,7 @@
 }
 .component-shopItem-price-container .new{
     font-size: 19px;
-    color: #6AC6F8;
+    color: #F6AB00;
     font-weight: 500;
 }
 .component-shopItem-price-container .fonts{
@@ -90,7 +90,7 @@
     margin:12px 0 15px;
 }
   .component-shopItem-order-btn{
-    background: #6AC6F8;
+    background: #F6AB00;
     border-radius: 50px;
     width: 100px;
     height: 34px;
@@ -103,7 +103,7 @@
     margin-left: auto;
   }
   .component-shopItem-order-time-fonts-color{
-      color: #6AC6F8;
+      color: #F6AB00;
   }
   .component-shopItem-order-btn-end{
     background: #666666;

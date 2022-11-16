@@ -114,7 +114,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  background: #C7EAFD;
+  background: #F6AB00;
   width: 11px;
   height: 11px;
   border-radius: 11px;
@@ -218,7 +218,7 @@
   font-size: 15px;
   color: #333333;
   margin-bottom: 11px;
-  background: #C7EAFD;
+  background: #F6AB00;
   width: 105px;
   height: 30px;
   border-radius: 0 30px 30px 0;
@@ -307,7 +307,7 @@
   font-size: 15px;
   color: #333333;
   margin-bottom: 11px;
-  background: #C7EAFD;
+  background: #F6AB00;
   width: 105px;
   height: 30px;
   border-radius: 0 30px 30px 0;
@@ -360,7 +360,7 @@ color: #666666;;
   font-size: 16px;
 }
 .claim-project-action-available{
-  background: #C7EAFD;
+  background: #F6AB00;
   color: #666666;
 }
 .claim-project-action-full{

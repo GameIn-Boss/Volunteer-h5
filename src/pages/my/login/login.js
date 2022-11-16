@@ -14,7 +14,7 @@ import { bindActionCreators } from 'redux';
 import history from '../../history';
 import Link from '../../../components/link/link';
 import Tab from '../../../components/tab/tab';
-
+import {decode as base64_decode, encode as base64_encode} from 'base-64';
 import './login.css';
 import { loginAction, changeIndex, storeLoginSource } from './login.store';
 import { requestVerifyCode, register } from '../register/register.store';
@@ -283,7 +283,7 @@ class Login extends React.Component {
 
     } else if (tabIndex == 1) {
       const username = this.state.username;
-      const pwd = this.state.pwd;
+      const pwd = base64_encode(this.state.pwd);
       // if (pwd.length <= 5 || pwd.length >= 20) {
       //     Alert.warning('密码范围6-20位数字字母组成');
       //     return;
@@ -325,16 +325,18 @@ class Login extends React.Component {
   nomarlAgreeRender() {
     const { t } = this.props;
 
-    let userAgreeText = t('用户协议');
-    if (window.orgCode == 'joQeZJepZV') {
-      userAgreeText = '长春志愿者用户协议';
-    }
+    let userAgreePath = '/html/yhxy.html';
+    let privacyPolicyPath = '/html/ysxy.html';
     return <div className="page-login-agree">
       {
         t('提交代表已阅读')
       }
-      <span className="page-login-agreement">《{userAgreeText}》</span>
-
+  <Link to={userAgreePath}> 
+        <span className="page-login-agreement">《{t('用户协议')}》</span>
+      </Link>
+      <Link to={privacyPolicyPath}>
+          <span className="page-login-agreement">《{t('隐私政策')}》</span>
+      </Link>
     </div>
   }
 
@@ -351,8 +353,8 @@ class Login extends React.Component {
       shoudShowPrivacyPolicy = true;
     }
 
-    let userAgreePath = '/my/agree';
-    let privacyPolicyPath = '/my/agree';
+    let userAgreePath = '/html/yhxy.html';
+    let privacyPolicyPath = '/html/ysxy.html';
 
     if (window.orgCode === 'kQBeXDWeyK') {
       userAgreePath = '/html/userAgreeZhongjin.html';
@@ -393,14 +395,12 @@ class Login extends React.Component {
       <div>
         {t('已阅读')}
       </div>
-      <Link to={userAgreePath}>
-        <span className="page-login-agreement">《{userAgreeText}》</span>
+      <Link to={userAgreePath}> 
+        <span className="page-login-agreement">《{t('用户协议')}》</span>
       </Link>
-      {
-        shoudShowPrivacyPolicy ? <Link to={privacyPolicyPath}>
+      <Link to={privacyPolicyPath}>
           <span className="page-login-agreement">《{t('隐私政策')}》</span>
-        </Link> : null
-      }
+      </Link>
     </div>
   }
 

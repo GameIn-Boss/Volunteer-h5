@@ -13,7 +13,7 @@
     background-image: url('/images/my/checkbox_click@2x.png');
     background-repeat: no-repeat;   
     background-size: cover;
-    /* background-image: linear-gradient(-180deg, #A3E5FC 0%, #6AC6F8 100%); */
+    /* background-image: linear-gradient(-180deg, #A3E5FC 0%, #F6AB00 100%); */
     border-radius: 50%;
     width: 75px;
     height: 75px;
@@ -21,7 +21,7 @@
 }
 .page-project-success  .fonts{
     font-size: 17px;
-    color: #6AC6F8;
+    color: #F6AB00;
     margin-bottom: 80px;
 }
 .page-project-success .btn{
@@ -34,12 +34,12 @@
     font-size: 17px;
 }
 .page-project-success .project{
-    background: #6AC6F8;
+    background: #F6AB00;
     color: #FFFFFF;
     margin-bottom: 20px;
 }
 .page-project-success  .index{
     background:#FFFFFF;
-    color: #6AC6F8;
-    border: .5px solid #6AC6F8;
+    color: #F6AB00;
+    border: .5px solid #F6AB00;
 }

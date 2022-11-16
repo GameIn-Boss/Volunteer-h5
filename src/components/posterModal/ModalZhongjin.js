@@ -123,9 +123,9 @@ class ModalNew extends React.Component {
     renderOriginHtml() {
         return <div className="poster-modal-new-wrap-container-padding-zhongjin" ref="LaunchContent">
             <img src={'/images/modalzhongjin-background.png'} className='page-certificate-bg-img' ref="bgImage"></img>
-            <div className="page-certificate-container-subTitle">
+            {/* <div className="page-certificate-container-subTitle">
                 中金公益志愿者
-            </div>
+            </div> */}
             <div className="page-certificate-container-title">
                 {this.props.postData.username}
             </div>
@@ -138,7 +138,7 @@ class ModalNew extends React.Component {
                     id="avatars"
                 />
             </div>
-            <div className="page-certificate-container-postImage">
+            {/* <div className="page-certificate-container-postImage">
                 <img
                     src='http://api.volzdx.cn/images/uploads/2021-11/707471636428672.jpeg'
                     src={
@@ -153,13 +153,13 @@ class ModalNew extends React.Component {
                         objectFit: "cover"
                     }}
                 />
-            </div>
+            </div> */}
 
             <div className="page-certificate-container-content">
-                感谢您参与<span style={{ color: '#6B0D0E' }}>“{this.props.postData.projectName}”</span>志愿活动，践行志愿者服务精神，奉献、互助、友爱、进步。特颁此证！
+                <span style={{ color: '#C09248' }}>“{this.props.postData.projectName}”</span>
             </div>
             <div className="page-certificate-container-footer">
-                <div>中金公益基金会</div>
+                {/* <div>中金公益基金会</div> */}
                 <div>{moment().format('YYYY年MM月DD日')}</div>
             </div>
         </div>

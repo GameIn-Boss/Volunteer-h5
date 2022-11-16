@@ -105,7 +105,7 @@ class PracticeBaseListPage extends React.Component {
                                             <div style={{ color: 'rgba(0,0,0,0.85)', fontSize: 18 }}>{v.name}</div>
                                             <div style={{ color: 'rgba(0,0,0,0.45)', fontSize: 12, marginTop: 6 }}>{v.address}</div>
                                         </div>
-                                        <div style={{ background: '#6AC6F8', padding: '8px 14px', fontSize: 13, color: 'white', minWidth: 54 }}>预约</div>
+                                        <div style={{ background: '#F6AB00', padding: '8px 14px', fontSize: 13, color: 'white', minWidth: 54 }}>预约</div>
                                     </div>
                                 </div>
                             }) : <div className="component-loading-more">
