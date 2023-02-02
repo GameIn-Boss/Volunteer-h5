@@ -3,7 +3,7 @@
 }
 
 .component-duration-projects li{
-  height: 176px;
+  /* height: 176px; */
   display: flex;
   flex-direction: column;
 }
@@ -14,14 +14,14 @@
 }
 .component-duration-projects-main{
   background: #fff;
-  padding:15px 15px 0 15px;
+  padding:8px 15px 0 15px;
 
 }
 .component-duration-projects-main-name{
   font-size: 18px;
   color: #333333;
   letter-spacing: 0;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
@@ -32,7 +32,7 @@
   color: #666666;
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 3px;
 }
 .component-duration-projects-main-date-icon{
   width: 24px;
@@ -48,27 +48,34 @@
   background-image: url(/images/icon_location.png);
 }
 .component-duration-projects-footer a{
-  display: flex;
+  display: block;
   justify-content: space-between;
   align-items: center;
   background: #fff;
+  height:70px;
   padding:10px 15px;
 }
 .component-duration-projects-footer-logo{
+  
   display: flex;
-  align-items: center;
+  /* align-items: center; */
+
   font-size: 15px;
   color: #333333;
 
-
-   width:190px;
+  width:100%;
   word-break:keep-all;
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis; 
 }
 .component-duration-projects-footer-logo-right{
+
   margin-right: 10px;
+  /* overflow: hidden; */
+  
+  /* justify-content: space-around;
+  align-items: flex-end; */
 }
 .component-duration-projects-footer-logo-img{
   width: 30px;
@@ -76,12 +83,16 @@
   margin-right: 10px;
 }
 .component-duration-projects-footer-date-box{
-  font-size: 13px;
+
+  margin-left: -165px;
+  margin-top: 28px;
+  font-size: 12px;
   color: #666666
 }
 .component-duration-projects-footer-date-box span{
   color: #F6AB00;
-  font-size: 17px;
+  font-size: 15px;
+  
 }
 .duration-projects-empty-tip{
   padding: 20px;

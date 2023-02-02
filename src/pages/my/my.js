@@ -330,7 +330,7 @@ class MyPage extends React.Component {
           </div>
         </Link>
         {/* <!-- 积分入口 --> */}
-        {window.orgInfo.volunteer_feedback === 0 ? null : (
+        {/* {window.orgInfo.volunteer_feedback === 0 ? null : (
           <Link to="/my/point">
             <div className="page-my-record-item">
               <p className="page-my-record-item-top">
@@ -355,11 +355,11 @@ class MyPage extends React.Component {
                       m: t(scoreName) || t('星币')
                     })}
                   </p>            
-               )}
+               )} 
 
             </div>
           </Link>
-        )}
+        )}*/}
       </div>
     );
   }

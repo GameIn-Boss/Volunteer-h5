@@ -78,8 +78,8 @@ class Index extends React.Component {
     const top = data.splice(0, 3);
     const bot = data.splice(0);
     return (<div>
-      {this.basicTopComponent(top)}
-      {this.basicBotComponent(bot)}
+      {this.basicTopComponent1(top)}
+      {this.basicBotComponent1(bot)}
     </div>)
   }
 
@@ -160,6 +160,82 @@ class Index extends React.Component {
     </div>)
   }
 
+  basicTopComponent1(list) {
+    const { t } = this.props;
+    if (!list) {
+      return null;
+    }
+    if (!list.length) {
+      return null;
+    }
+    return (<div className="volunteer-rank-top">
+      <div className="volunteer-rank-top-avatar">
+        {
+          list[1] && <Link to={`/team/detail/${list[1].id}`} className="volunteer-rank-top-left">
+            <Avatar src={list[1].logo} size={{ width: 72, height: 72 }} />
+            <i className="volunteer-rank-top-second-king"></i>
+            <i className="volunteer-rank-top-second-plate"></i>
+          </Link>
+        }
+        {
+          list[0] && <Link to={`/team/detail/${list[0].id}`} className="volunteer-rank-top-center">
+            <Avatar src={list[0].logo} size={{ width: 90, height: 90 }} />
+            <i className="volunteer-rank-top-first-king"></i>
+            <i className="volunteer-rank-top-first-plate"></i>
+          </Link>
+        }
+        {
+          list[2] && <Link to={`/team/detail/${list[2].id}`} className="volunteer-rank-top-right">
+            <Avatar src={list[2].logo} size={{ width: 72, height: 72 }} />
+            <i className="volunteer-rank-top-third-king"></i>
+            <i className="volunteer-rank-top-third-plate"></i>
+          </Link>
+        }
+      </div>
+      <div className="volunteer-rank-top-name">
+        {
+          list[1] && <Link to={`/team/detail/${list[1].id}`}>
+            <p>{list[1].real_name.length ? list[1].real_name : list[1].user.username}</p>
+            <p className="volunteer-rank-top-name-time">{Number(list[1].reward_time).toFixed(2)}{t('时')}</p>
+          </Link>
+        }
+        {
+          list[0] && <Link to={`/team/detail/${list[0].id}`}>
+            <p>{list[0].real_name.length ? list[0].real_name : list[0].user.username}</p>
+            <p className="volunteer-rank-top-name-time">{Number(list[0].reward_time).toFixed(2)}{t('时')}</p>
+          </Link>
+        }
+        {
+          list[2] && <Link to={`/team/detail/${list[2].id}`}>
+            <p>{list[2].real_name.length ? list[2].real_name : list[2].user.username}</p>
+            <p className="volunteer-rank-top-name-time">{Number(list[2].reward_time).toFixed(2)}{t('时')}</p>
+          </Link>
+        }
+      </div>
+    </div>)
+  }
+
+  basicBotComponent1(list) {
+    const { t } = this.props;
+    if (!list) {
+      return null;
+    }
+    if (!list.length) {
+      return null;
+    }
+    return (<div className="volunteer-rank-bot">
+      {
+        list.map((item, index) => (<Link to={`/team/detail/${item.id}`} key={index} className="volunteer-rank-bot-box">
+          <div className="volunteer-rank-bot-box-sort">{index + 4}</div>
+          <Avatar size={{ width: 50, height: 50 }} src={ item.logo} />
+          <div className="volunteer-rank-bot-box-detail">
+            <div className="volunteer-rank-bot-box-detail-name">{item.real_name && item.real_name.length ? item.real_name : (item.user ? item.user.username : '')}</div>
+            <div className="volunteer-rank-bot-box-detail-time">{Number(item.reward_time).toFixed(2)}{t('时')}</div>
+          </div>
+        </Link>))
+      }
+    </div>)
+  }
   render() {
     const { volunteerRank: { rankReducerTab }, t } = this.props;
     return (<div className="demand">

@@ -115,7 +115,7 @@ class DurationProjects extends React.Component {
                           </Link>
                         </div>
 
-                        <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                        <div style={{  justifyContent: "center", alignItems: "center" }}>
                           <div style={{ fontSize: "13px", color: "#F6AB00", border: "1px solid #F6AB00", borderRadius: "4px", padding: "2px 4px" }} onClick={() => this.poster(project)}>
                             {generatePosterText}
                           </div>
@@ -126,17 +126,21 @@ class DurationProjects extends React.Component {
                     <div className="line1px" />
 
                     <div className="component-duration-projects-footer">
+                    <div className="line1px" />
+
                       <Link to={`/team/detail/${project.team.id}`}>
                         <div className="component-duration-projects-footer-logo">
                           <div className="component-duration-projects-footer-logo-right">
-                            <Avatar src={team.logo} size={{ width: 30, radius: 4 }} />
+                            <Avatar src={team.logo} size={{ width: 50, radius: 4 }} />
                           </div>
-                          {team.name}
-                        </div>
-                        <div className="component-duration-projects-footer-date-box">
-                          {t('已获得时长')}：
+                          <p  style={{ paddingBottom: "10px" }}>{team.name}</p>
+                          <div className="component-duration-projects-footer-date-box">
+                          {t('志愿时长')}：
+
                           <span>{project.my_reward_time}{t('小时')}</span>
                         </div>
+                        </div>
+                        
                       </Link>
                     </div>
                   </li>;

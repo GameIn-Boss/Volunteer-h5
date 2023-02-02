@@ -131,7 +131,6 @@ class ModalNew extends React.Component {
             </div>
             <div className="page-certificate-container-avatar">
                 <img
-                    src='/images/my/register.png'
                     src={
                         this.state.base64Array && this.state.base64Array[1] // src={this.state.people}
                     }

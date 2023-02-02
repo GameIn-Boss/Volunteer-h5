@@ -132,8 +132,10 @@
     color: #000000;
     width: 90px;
     overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    /* white-space: nowrap; */
+    /* text-overflow: ellipsis; */
+    justify-content: space-around;
+    align-items: flex-end;
 }
 .volunteer-rank-bot-box-detail-time {
     font-size: 12px;

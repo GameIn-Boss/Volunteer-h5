@@ -45,25 +45,20 @@ class Duration extends React.Component {
 
         <div className="page-duration-top-area-view">
           <div className="page-duration-top-area-view-duration-box-img">
-          <img  src="https://api.volzdx.cn/image/uploads/2022-11/logotk.png" width='120   ' height='120' />
+            <img src="https://api.volzdx.cn/image/uploads/2022-11/logotk.png"/>
           </div>
-          <div className="page-duration-top-area-view-line" />
+          {/* <div className="page-duration-top-area-view-line" /> */}
           <div className="page-duration-top-area-view-duration-box">
-            <p>{t('溢彩志愿者')}</p>
-          {/* <div className="page-duration-top-area-button">
-            证书详情
-        </div> */}
-        <Link to="/my/certificateSanyi" >
-          {/* <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}> */}
-            <div  style={{ fontSize: "23px", color: "#F6AB00", border: "1px solid #F6AB00", borderRadius: "4px", padding: "8px 20px" }} >
-              证书详情
+            <div style={{ fontSize: 18 }}>{t('溢彩志愿者')}</div>
+            <div>
+              <Link to="/my/certificateSanyi" className="page-duration-top-area-view-line-button" >
+                证书详情
+              </Link>
             </div>
-          {/* </div> */}
-          </Link>
           </div>
 
         </div>
-      
+
         <div className="line1px" />
 
         <div className="page-duration-main-box">
@@ -71,7 +66,7 @@ class Duration extends React.Component {
           {
             this.props.reward.data && this.props.reward.data.jinyun_timeSum ? <div style={{
               textAlign: 'center',
-              
+
             }}>
               津云平台项目总时长 {((this.props.reward.data && this.props.reward.data.jinyun_timeSum || 0) / 3600).toFixed(2)} 小时
             </div> : null
