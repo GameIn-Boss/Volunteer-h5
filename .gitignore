@@ -13,3 +13,4 @@ public/sitemap.xml
 # Node.js and NPM
 node_modules
 npm-debug.log
+dist.zip
