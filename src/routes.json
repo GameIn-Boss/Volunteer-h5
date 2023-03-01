@@ -482,8 +482,38 @@
     "chunk": "main"
   },
   {
+    "path": "/announce/fwzs",
+    "page": "./pages/announce/fwzs",
+    "chunk": "main"
+  },
+  {
+    "path": "/announce/wmxj",
+    "page": "./pages/announce/wmxj",
+    "chunk": "main"
+  },
+  {
     "path": "/announcee/detail/:Id",
     "page": "./pages/announce/detail",
+    "chunk": "main"
+  },
+  {
+    "path": "/plate",
+    "page": "./pages/plate/messages",
+    "chunk": "main"
+  },
+  {
+    "path": "/plate/fwzs",
+    "page": "./pages/plate/fwzs",
+    "chunk": "main"
+  },
+  {
+    "path": "/plate/wmxj",
+    "page": "./pages/plate/wmxj",
+    "chunk": "main"
+  },
+  {
+    "path": "/plate/detail/:Id",
+    "page": "./pages/plate/detail",
     "chunk": "main"
   },
   {

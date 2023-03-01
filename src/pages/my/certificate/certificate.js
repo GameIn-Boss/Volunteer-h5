@@ -166,9 +166,17 @@ class Certificate extends React.Component {
           <div className="page-certificate-container-content">
             证书编号：{this.props.user.identifier}
           </div>
-          <div className="page-certificate-container-content">
-            {this.state.register}注册成为{this.certOrg}志愿者
-          </div>
+          {
+              window.orgCode !==  'QJ0dNk6eLO'? (
+                <div className="page-certificate-container-content">
+                {this.state.register}注册成为{this.certOrg}志愿者
+              </div>
+              ) : 
+              <div className="page-certificate-container-content">
+              注册成为{this.certOrg}志愿者
+            </div>
+            }
+        
 
           <div className="page-certificate-container-hours-box">
             <div className="page-certificate-container-hours">
@@ -193,7 +201,7 @@ class Certificate extends React.Component {
               认证机构：{this.certAuthOrg}
             </div>
             {
-              window.orgCode !== 'LYqaQWldnj' ? (
+              window.orgCode !== 'LYqaQWldnj' && window.orgCode !==  'QJ0dNk6eLO'? (
                 <div className="page-certificate-container-teachsupport">
                   技术支持：志多星
                 </div>
@@ -205,7 +213,7 @@ class Certificate extends React.Component {
             >
               {this.state.now}
             </div>
-            {this.state.certCachet ? (
+            {/* {this.state.certCachet ? (
               <img
                 src={this.state.base64Array && this.state.base64Array[0]}
                 alt=""
@@ -213,7 +221,7 @@ class Certificate extends React.Component {
               />
             ) : (
               <div/>
-            )}
+            )} */}
             {window.orgCode == "qM7e5Ba2vp" ? (
               <img src="/images/my/zdx.png" className="second"/>
             ) : null}

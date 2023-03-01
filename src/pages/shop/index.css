@@ -38,7 +38,19 @@
     color: red;
  }
  .page-shop-main-container  .page-shop-main-header .right{
-    width: 100px;
+    width: 75px;
+    height: 28px;
+    background: #FFFFFF;
+    border: 1px solid #6AC6F8;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #6AC6F8;
+}
+.page-shop-main-container  .page-shop-main-header .exchange{
+    width:75px;
     height: 28px;
     background: #FFFFFF;
     border: 1px solid #6AC6F8;

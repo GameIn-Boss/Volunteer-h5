@@ -112,6 +112,11 @@
   color: #333333;
   letter-spacing: 0;
   font-weight: 200;
+  letter-spacing: 0;
+  line-height: 17px;
+  font-weight: 200;
+  padding-left: 15px;
+  padding-right:8px;
 }
 .page-certificate-container-teachsupport{
   font-size: 14px;

@@ -157,14 +157,20 @@ class ShopPage extends React.Component {
     return (
       <div className="page-shop-main-container">
         <div className="page-shop-main-header">
+          
           {
             user.isLogin ?
 
               <div className="left">{t('我的星币n', {n: t(scoreName) || t('星币')})}:<span>{usercenter && usercenter.data && usercenter.data.user && usercenter.data.user.score?usercenter.data.user.score:0}</span></div>
 
               :
+              
               <div className="left">{t('我的星币n', {n: t(scoreName) || t('星币')})}:<span className="redfonts">{t('请先登录')}</span></div>
-
+          }
+          { window.orgCode ==  'QJ0dNk6eLO'? 
+           <Link to="http://api.volzdx.cn/images/%E5%85%91%E6%8D%A2%E7%BB%86%E5%88%99.jpeg"><div className="exchange">{t('兑换细则')}</div></Link>
+          :
+          null
           }
           {
             user.isLogin ?
@@ -172,6 +178,7 @@ class ShopPage extends React.Component {
               :
               <div className="right" onClick={this.onLogin}>{t('前往登录')}</div>
           }
+
         </div>
         <div className="page-shop-content-header" ref="LaunchContent">
           {this.renderSlick()}

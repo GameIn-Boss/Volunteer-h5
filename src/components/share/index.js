@@ -52,8 +52,8 @@ const WXS = (option = {}) => {
     desxName = "让我们携手共建更美好的世界！";
   }
   if (orgCode == "kQBeXDWeyK") {
-    desxName = "爱与奉献，绽放希望";
   }
+  
   const newOption = {
     title: `${option.title || orgInfo.name}`,
     desc: removeHTMLTag(option.desc || desxName),
@@ -69,7 +69,7 @@ const WXS = (option = {}) => {
       if (option.success) {
         option.success();
       }
-    }
+    },
   };
 
   console.log("微信分享设置:", newOption);
