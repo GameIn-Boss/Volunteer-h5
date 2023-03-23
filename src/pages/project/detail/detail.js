@@ -82,6 +82,12 @@ class ProjectDetailContent extends React.Component {
                     )}-${parseTimeStringToDateString(detailData.end)}`,
                     islast: false
                 });
+            }else if (attr == "time_public" && detailData.time_public) {
+                arr.push({
+                    label: t('活动时间'),
+                    value: `${detailData.start_time}-${detailData.end_time}`,   
+                 islast: false
+                });
             } else if (
                 attr == "reward_time_public" &&
                 detailData.reward_time_public &&
@@ -152,7 +158,7 @@ class ProjectDetailContent extends React.Component {
                                 );
                             })}
                     </ul>
-                    {detailData.volunteer_security_public ? (
+                    {detailData.volunteer_security_public && detailData.volunteer_security? (
                         <div className="project-guard">
                             <img src="/images/icon_safeguard.png" alt="保障" />
                             <span>{t('志愿保障')}</span>
@@ -424,7 +430,7 @@ class ProjectDetailPage extends React.Component {
             showShareTip: true
         });
     }
-    handleActionClickSitch(action, projectId, customConfig, paymentConfig) {
+    handleActionClickSitch(action, projectId, customConfig, paymentConfig,stationConfig) {
         if (action === "join") {
             if (projectId == 1035) {
                 window.location.href = "http://lxi.me/17i1a";
@@ -437,16 +443,21 @@ class ProjectDetailPage extends React.Component {
                     "http://wx.zgzyzfw.n.gongyibao.cn/#/donform?accId=cc0b9f9a-2cef-4b0c-829f-d2f29ee87534&proId=bdb2cac7-ac34-4446-bcd9-5d3ee4f4c3ad&paymethod=1&projectTitle=%E5%BE%AE%E7%88%B1%E7%89%B5%E6%89%8B&rf=0.30765105282089134";
                 return;
             }
-            if (!customConfig && !paymentConfig) {
+            if (!customConfig && !paymentConfig && !stationConfig ) {
                 const {
                     detail: { data: detailData }
                 } = this.props;
                 this.props.joinProject(projectId, detailData.join_verify_status);
-            } else if (customConfig || paymentConfig) {
+            } else if (customConfig || paymentConfig || stationConfig) {
                 // window.location.replace(`/project/signup/${projectId}`)
                 window.location.href = `/project/signup/${projectId}`;
                 // history.replace(`/project/signup/${projectId}`)
             }
+            // if (stationConfig) {
+            //     // window.location.replace(`/project/signup/${projectId}`)
+            //     window.location.href = `/project/station/${projectId}`;
+            //     // history.replace(`/project/signup/${projectId}`)
+            // }
         } else if (action === "quit") {
             this.setState({ ...this.state, showDialog: true });
         }
@@ -459,9 +470,9 @@ class ProjectDetailPage extends React.Component {
             detail: { data: detailData },
             t,
         } = this.props;
+        const stationConfig = detailData.station_config || null;
         const customConfig = detailData.custom_config || null;
         const paymentConfig = detailData.custom_payment_config || null;
-
         return () => {
             // in_blacklist 黑名单 0不在，1在
             // realRegister 机构实名 1 要求  0 否
@@ -477,7 +488,8 @@ class ProjectDetailPage extends React.Component {
                         action,
                         projectId,
                         customConfig,
-                        paymentConfig
+                        paymentConfig,
+                        stationConfig
                     );
                     // 要求实名切用户未实名过，通过ID判断
                 } else if (realRegister == 1 && user.isLogin) {
@@ -497,6 +509,21 @@ class ProjectDetailPage extends React.Component {
                         isVerify = true;
                     }
                     let is_has_required = false;
+                    custom_config.extends && custom_config.extends.length && custom_config.extends.forEach(item => {
+                        if (item.is_required) {
+                            is_has_required = true;
+                        }
+                    })
+                    if (is_has_required && !user.extends) {
+                        isVerify = true;
+                    }
+                    if (user.extends && is_has_required) {
+                        custom_config.extends.forEach(item => {
+                            if (item.is_required && (!user.extends[item.key] || (user.extends[item.key] && !user.extends[item.key].length))) {
+                                isVerify = true;
+                            }
+                        })
+                    }
                     custom_config.extends && custom_config.extends.length && custom_config.extends.forEach(item => {
                         if (item.is_required) {
                             is_has_required = true;
@@ -538,7 +565,8 @@ class ProjectDetailPage extends React.Component {
                             action,
                             projectId,
                             customConfig,
-                            paymentConfig
+                            paymentConfig,
+                            stationConfig
                         );
                     }
                 }

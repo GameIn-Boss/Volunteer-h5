@@ -163,9 +163,18 @@ class Certificate extends React.Component {
             </div>
           ) : null}
 
-          <div className="page-certificate-container-content">
-            证书编号：{this.props.user.identifier}
-          </div>
+            {
+              window.orgCode !==  'QJ0dNk6eLO'? (
+                <div className="page-certificate-container-content">
+                证书编号：{this.props.user.identifier}
+              </div>
+              ) : 
+              <div className="page-certificate-container-content">
+              {/* 证书编号：{this.props.user.identifier} */}
+            </div>
+            }
+        
+      
           {
               window.orgCode !==  'QJ0dNk6eLO'? (
                 <div className="page-certificate-container-content">
@@ -173,7 +182,7 @@ class Certificate extends React.Component {
               </div>
               ) : 
               <div className="page-certificate-container-content">
-              注册成为{this.certOrg}志愿者
+              {/* 注册成为{this.certOrg}志愿者 */}
             </div>
             }
         

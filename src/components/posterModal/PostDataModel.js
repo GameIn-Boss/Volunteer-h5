@@ -151,7 +151,7 @@ function getUserName(userData) {
 }
 
 function getTeamPhoto(teamData) {
-    if (teamData.team_photo && teamData.team_photo[0]) return teamData.team_photo[0];
+    // if (teamData.team_photo && teamData.team_photo[0]) return teamData.team_photo[0];
     if (teamData.logo) return teamData.logo;
     if (teamData.team_photo && teamData.team_photo[0]) return teamData.team_photo[0];
     if (window.orgInfo.logo) return window.orgInfo.logo;
