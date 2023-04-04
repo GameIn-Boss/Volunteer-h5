@@ -194,6 +194,10 @@
   background-image: url(/images/my/circle.png);
   position: relative;
 }
+.page-my-item-icon-yggz{
+  background-image: url(/images/my/yggz.png);
+  position: relative;
+}
 .page-my-item-icon-circle-red-point{
   display:block;
   width: 8px;
