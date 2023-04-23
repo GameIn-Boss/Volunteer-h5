@@ -150,6 +150,11 @@
     "page": "./pages/my/certificate/certificate",
     "chunk": "main"
   },
+  {
+    "path": "/my/sanyibook",
+    "page": "./pages/my/certificate/sanyibook",
+    "chunk": "main"
+  },
 
   {
     "path": "/my/certificateBMW",

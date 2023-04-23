@@ -36,6 +36,15 @@
   position: relative;
   margin-right: 15px;
 }
+.page-my-header-sanyi-container{
+  width: 24px;
+  height: 24px;
+  background-image: url(/images/my/sanyibook.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  margin-right: 15px;
+}
 .page-my-header-messages-red-point{
   display:block;
   width: 8px;
