@@ -410,14 +410,13 @@ class MyPage extends React.Component {
               </div>
             </li>
           )}
-          {console.info(this.props.usercenter.data)}
 
-          {/* {this.props.usercenter.data.yggz_link !== null ? null : (
+          {this.props.user.yggz_link == null ? null : (
           <li>
             <div>
-              <Link to={this.props.usercenter.data.yggz_link}>
+              <Link to={this.props.user.yggz_link}>
                 <div className="page-my-item-box">
-                  <i className="page-my-item-icon page-my-item-icon-yggz">
+                <i className="page-my-item-icon page-my-item-icon-yggz">
                     {this.props.usercenter.data === null ? (
                       <span />
                     ) : (
@@ -429,8 +428,7 @@ class MyPage extends React.Component {
                       />
                     )}
                   </i>
-
-                  {t('一根拐杖”防跌倒评估')}
+                  {t('“一根拐杖”防跌倒评估')}
                 </div>
                 <span className="page-my-item-big" />
               </Link>
@@ -438,7 +436,7 @@ class MyPage extends React.Component {
             </div>
           </li>
           )
-        } */}
+        }
             {window.orgCode === 'yJrb2kKdWL' ? null : (
           <li>
             <div>
