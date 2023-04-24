@@ -63,10 +63,10 @@
 }
 
 .page-certificate-container-name {
-  font-size     : 15px;
-  color         : #262626;
+  font-size     : 11px;
+  color         : #000000;
   letter-spacing: 0;
-  margin-top    : 13px;
+  margin-top    : 15px;
   text-align    : left;
   line-height   : 19px;
   min-width     : 80px;

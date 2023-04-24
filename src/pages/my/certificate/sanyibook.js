@@ -9,7 +9,6 @@ import React, { PropTypes } from "react";
 import autoBind from "react-autobind";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-
 import Avatar from "../../../components/avatar/avatar";
 import Star from "../../../components/star/star";
 import { dateTextToDateText } from "../../../utils/funcs";
@@ -52,6 +51,10 @@ class Certificate extends React.Component {
 
     componentWillMount() {
         this.props.requestUserInfo();
+        console.log(this.props.requestUserInfo());
+        // if(this.props.requestUserInfo() == undefined){
+        //   window.location.href = `/my/login/`;
+        // }
     }
 
     componentDidMount() { }
@@ -182,10 +185,9 @@ class Certificate extends React.Component {
                         /> */}
                     {/* </div> */}
                     <div className="page-certificate-container-name">
-                        <span>{this.props.user.real_name}</span>
-                        {/* {
-                            this.props.user.political === 1 ? <img src="/images/my/tuanyuan.png" alt="" /> : null
-                        }
+                        <span>{this.props.user.real_name} </span>
+                    
+                        {/* 
                         {
                             this.props.user.political === 2 ? <img src="/images/my/dangyuan.png" alt="" /> : null
                         } */}
@@ -243,8 +245,10 @@ class Certificate extends React.Component {
         const { language } = i18n;
         const { dataUrl } = this.state;
         if (!listData || !listData.id) {
-            return null;
+          window.location.href = `/my/login/`;
+          return null;
         }
+        
         console.log(listData);
         // return <div className="page-certificate-main-container">
         //     {this.renderCertificate()}
