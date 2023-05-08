@@ -59,6 +59,7 @@ class ProjectDetailContent extends React.Component {
         autoBind(this);
         this.state = {};
     }
+
     componentWillMount() {
         const { data: detailData, t } = this.props;
         var arr = [];
@@ -120,10 +121,16 @@ class ProjectDetailContent extends React.Component {
         });
     }
     render() {
+        
         const { content } = this.state;
         const { data: detailData, t } = this.props;
+        <p>111211111111</p>
+
         return (
+            
             <div>
+                    <p>111231231211132131231231231231</p>
+
                 <div className="project-detail-list">
                     <ul>
                         {content &&
@@ -222,6 +229,53 @@ class ProjectDetailPage extends React.Component {
                             this.props.quitProject(this.projectId);
                         } else {
                             this.setState({ ...this.state, showDialog: false });
+                            this.props.storeLoginSource(`/project/detail/${this.projectId}`);
+
+                            window.location.href = `/my/login`;
+                        }
+                    }
+                }
+            ]
+        };
+        this.dialogjoin = {
+            title: `${this.state.dialogType ? t('报名须知') : t('登录提示')}`,
+            buttons: [
+                {
+                    type: "default",
+                    label: t('取消'),
+                    onClick: () => this.setState({ ...this.state, showDialogjoin: false })
+                },
+                {
+                    type: "primary",
+                    label: t('确认'),
+                    onClick: () => {
+                        if (this.state.dialogType) {
+                            const { projectId } = this;
+                            const realRegister = window.orgInfo.real_name_register;
+                            const {
+                                user,
+                                detail: { data: detailData },
+                                t,
+                            } = this.props;
+                            
+                            const customConfig = detailData.custom_config || null;
+                            const paymentConfig = detailData.custom_payment_config || null;
+                            if (!customConfig && !paymentConfig) {
+                                const {
+                                    detail: { data: detailData }
+                                } = this.props;
+                                this.props.joinProject(this.projectId, detailData.join_verify_status);
+                                this.setState({ ...this.state, showDialogjoin: false });
+
+                            } else if (customConfig || paymentConfig) {
+                                // window.location.replace(`/project/signup/${projectId}`)
+                                window.location.href = `/project/signup/${this.projectId}`;
+                                this.setState({ ...this.state, showDialogjoin: false });
+
+                                // history.replace(`/project/signup/${projectId}`)
+                            }
+                        } else {
+                            this.setState({ ...this.state, showDialogjoin: false })
                             this.props.storeLoginSource(`/project/detail/${this.projectId}`);
 
                             window.location.href = `/my/login`;
@@ -430,27 +484,7 @@ class ProjectDetailPage extends React.Component {
     }
     handleActionClickSitch(action, projectId, customConfig, paymentConfig) {
         if (action === "join") {
-            if (projectId == 1035) {
-                window.location.href = "http://lxi.me/17i1a";
-                return;
-            } else if (projectId == 1043) {
-                window.location.href = "http://lxi.me/4hwr6";
-                return;
-            } else if (projectId == 2129) {
-                window.location.href =
-                    "http://wx.zgzyzfw.n.gongyibao.cn/#/donform?accId=cc0b9f9a-2cef-4b0c-829f-d2f29ee87534&proId=bdb2cac7-ac34-4446-bcd9-5d3ee4f4c3ad&paymethod=1&projectTitle=%E5%BE%AE%E7%88%B1%E7%89%B5%E6%89%8B&rf=0.30765105282089134";
-                return;
-            }
-            if (!customConfig && !paymentConfig) {
-                const {
-                    detail: { data: detailData }
-                } = this.props;
-                this.props.joinProject(projectId, detailData.join_verify_status);
-            } else if (customConfig || paymentConfig) {
-                // window.location.replace(`/project/signup/${projectId}`)
-                window.location.href = `/project/signup/${projectId}`;
-                // history.replace(`/project/signup/${projectId}`)
-            }
+            this.setState({ ...this.state, showDialogjoin: true });
         } else if (action === "quit") {
             this.setState({ ...this.state, showDialog: true });
         }
@@ -465,7 +499,6 @@ class ProjectDetailPage extends React.Component {
         } = this.props;
         const customConfig = detailData.custom_config || null;
         const paymentConfig = detailData.custom_payment_config || null;
-
         return () => {
             // in_blacklist 黑名单 0不在，1在
             // realRegister 机构实名 1 要求  0 否
@@ -592,6 +625,7 @@ class ProjectDetailPage extends React.Component {
             detail: { data: detailData, tabIndex },
             user
         } = this.props;
+
     if (window.orgCode === 'yJrb2kKdWL') {
         const postData = PostDataModel_Project_Sy(detailData, user);
         return this.state.visible ? <ModalSy postData={postData} visible={this.state.visible} maskCloseable={this.closeModal} /> : null;
@@ -869,6 +903,9 @@ class ProjectDetailPage extends React.Component {
         );
     }
     render() {
+
+        <p>1112312333333333231231</p>
+
         const {
             detail: { data: detailData, tabIndex },
             t
@@ -911,11 +948,26 @@ class ProjectDetailPage extends React.Component {
                         ? t('确定要退出活动吗') + '？'
                         : t('只有登录的用户才能点赞和评论哦～')}
                 </Dialog>
+                <Dialog
+                    type="ios"
+                    title={this.dialogjoin.title}
+                    buttons={this.dialogjoin.buttons}
+                    show={this.state.showDialogjoin}
+                    >
+                    {this.state.dialogType
+                        ? <div className="jointips">
+                        <p >1、践行“奉献、友爱、互助、进步”的志愿服务精神;</p>
+                        <p>2、遵守本项目的管理规范，服从组织安排，参加必要的岗前培训;</p>
+                        <p>3、不得在志愿服务中从事营利性或违背社会公德的活动;</p>
+                        <p>4、尊重服务对象的人格尊严，维护其合法权益。</p></div> 
+                        : t('只有登录的用户才能点赞和评论哦～')}
+                </Dialog>
                 {this.renderModal()}
             </div>
         );
     }
 }
+ProjectDetailPage.title = 2222;
 
 ProjectDetailPage.propTypes = {
     requestProjectDetail: PropTypes.func,
@@ -941,8 +993,7 @@ ProjectDetailPage.propTypes = {
     })
 };
 
-ProjectDetailPage.title = i18next.t("活动详情");
-
+console.log(ProjectDetailPage)
 export default connect(
     state => ({
         detail: state.project.detail,

@@ -150,7 +150,7 @@ export default {
     '收藏成功': 'Collect successfully',
     '取消收藏成功': 'Cancel successfully',
     '分享': 'Share',
-    '活动详情': 'Project details',
+    '活动详情': '活动详情',
     '活动社区': 'Project community',
     '确定要退出活动吗': 'Quit',
     '团队成员(人)': 'Team member(people)',

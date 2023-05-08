@@ -272,6 +272,11 @@
     "chunk": "main"
   },
   {
+    "path": "/my/thx",
+    "page": "./pages/home/thx/thx",
+    "chunk": "main"
+  },
+  {
     "path": "/my/profile/detail/:userId",
     "page": "./pages/my/profile/profile",
     "chunk": "main"

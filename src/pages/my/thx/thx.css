@@ -1,0 +1,115 @@
+.page-thx{
+  width: 100%;
+  height: 750px;
+  background: #e7e4e4;
+
+  overflow-y:scroll;
+}
+.page-box{
+  background: #ffffff;
+  border-radius: 10.74px;
+  width: 350px;
+  height: 330px;
+  margin-top: 20px;
+  margin-left: 12px;
+}
+.page-box-text{
+  top: 230px;
+  left: 20px;
+  color: #F59A23;
+  position: absolute;
+
+}
+.page-box-content{
+  top: 260px;
+  left: 20px;
+  font-size: 13px;
+  color: #727272;
+  position: absolute;
+
+}
+.page-box-yicai-title{
+  top: 590px;
+  left: 20px;
+  color: #677DEB;
+  position: absolute;
+
+}
+.page-box-yicai-content{
+  top: 620px;
+  left: 20px;
+  font-size: 13px;
+  color: #727272;
+  position: absolute;
+
+}
+.image-yicaishop{
+  border-radius: 10.74px 10.74px 0 0;
+  width: 350px;
+  height: 200px;
+  margin-top: 20px;
+  margin-left: 12px;
+  position: absolute;
+}
+.image-yicai{
+  border-radius: 10.74px 10.74px 0 0;
+  width: 350px;
+  height: 200px;
+  margin-top: 30px;
+  margin-left: 12px;
+  position: absolute;
+}
+.page-messagesitem-header{
+  display: flex;
+  flex-direction: reverse;
+  margin-bottom: 20px;
+}
+.page-messagesitem-header img{
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.page-messagesitem-header-title-container{
+  display: flex;
+  flex-direction: column;
+  height: 30px;
+  justify-content: space-between;
+  margin-left:10px;
+}
+.page-messagesitem-header-title-container-bussiness{
+  font-size: 15px;
+  color: #333333;
+  letter-spacing: 0;
+  line-height: 15px;
+  height: 15px;
+  margin-bottom: 4px;
+}
+.page-messagesitem-header-title-container-date{
+  font-size: 11px;
+  color: #999999;
+}
+.page-messagesitem-messagestitle{
+  font-size: 18px;
+  color: #333333;
+  margin-bottom: 8px;
+}
+.page-messagesitem-content{
+  font-size: 14px;
+  color: #666666;
+  line-height: 20px;
+  width:100%;
+  overflow:hidden;
+  white-space:wrap;
+  padding-bottom: 20px;
+}
+.page-messages-no-info{
+  padding: 20px;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  background: #fff;
+  font-weight: 200;
+}
+.page-messagesitem-header-img{
+  margin-right: 10px;
+}
