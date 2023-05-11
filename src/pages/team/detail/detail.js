@@ -831,6 +831,7 @@ class TeamDetailPage extends React.Component {
     );
   }
 }
+TeamDetailPage.title = '溢彩星志愿者团队';
 
 TeamDetailPage.propTypes = {
   requestTeamDetail: PropTypes.func,
@@ -863,7 +864,6 @@ TeamDetailPage.propTypes = {
   })
 };
 
-TeamDetailPage.title = i18next.t("团队详情");
 
 export default connect(
   state => ({

@@ -64,6 +64,8 @@ class ProjectDetailContent extends React.Component {
         const { data: detailData, t } = this.props;
         var arr = [];
         for (let attr in detailData) {
+            ProjectDetailPage.title = detailData.name;
+
             if (attr == "service_object_public" && detailData.service_object_public && detailData.service_object.length) {
                 const serviceObjects = detailData.service_object
                     .map(obj => obj.service_object_name)
@@ -124,12 +126,10 @@ class ProjectDetailContent extends React.Component {
         
         const { content } = this.state;
         const { data: detailData, t } = this.props;
-        <p>111211111111</p>
 
         return (
             
             <div>
-                    <p>111231231211132131231231231231</p>
 
                 <div className="project-detail-list">
                     <ul>
@@ -180,7 +180,6 @@ class ProjectDetailContent extends React.Component {
         );
     }
 }
-
 class ProjectDetailPage extends React.Component {
     constructor(props) {
         super(props);
@@ -904,7 +903,6 @@ class ProjectDetailPage extends React.Component {
     }
     render() {
 
-        <p>1112312333333333231231</p>
 
         const {
             detail: { data: detailData, tabIndex },
@@ -967,8 +965,7 @@ class ProjectDetailPage extends React.Component {
         );
     }
 }
-ProjectDetailPage.title = 2222;
-
+ProjectDetailPage.title = '溢彩星志愿活动';
 ProjectDetailPage.propTypes = {
     requestProjectDetail: PropTypes.func,
     feelingAction: PropTypes.func,
@@ -993,7 +990,6 @@ ProjectDetailPage.propTypes = {
     })
 };
 
-console.log(ProjectDetailPage)
 export default connect(
     state => ({
         detail: state.project.detail,
