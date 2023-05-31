@@ -21,6 +21,8 @@ class ModalSy extends React.Component {
       avatars: PropTypes.string,
       username: PropTypes.string,
       contentText: PropTypes.string,
+      identifier: PropTypes.string,
+      num_type: PropTypes.string,
       url: PropTypes.string,
       type:PropTypes.string
     }),
@@ -37,13 +39,15 @@ class ModalSy extends React.Component {
   componentWillMount() {
     const that = this;
     this.createQrcode();
-    if (this.props.postData.postImage && this.props.postData.avatars && this.props.postData.username && this.props.postData.contentText && this.props.postData.url) {
+    if (this.props.postData.postImage && this.props.postData.avatars && this.props.postData.identifier && this.props.postData.username&& this.props.postData.num_type && this.props.postData.contentText && this.props.postData.url) {
       ImageToBase64([`${this.props.postData.postImage}`, `${this.props.postData.avatars}`], ["/images/default_banner.png", "/images/my/register.png"], base64Array => {
           console.log('base64Array:::',base64Array.slice(0))
           that.setState(
             {
               contentText: this.props.postData.contentText,
               username: this.props.postData.username,
+              identifier : this.props.postData.identifier,
+              num_type : this.props.postData.num_type,
               base64Array: base64Array.slice(0)
             },
             () => {
@@ -62,12 +66,15 @@ class ModalSy extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const that = this;
-    if (nextProps.postData.postImage && nextProps.postData.avatars && nextProps.postData.username && nextProps.postData.contentText && nextProps.postData.url) {
+    if (nextProps.postData.postImage && nextProps.postData.avatars && nextProps.postData.username  && nextProps.postData.num_type && nextProps.postData.identifier && nextProps.postData.contentText && nextProps.postData.url) {
       ImageToBase64([`${nextProps.postData.postImage}`, `${nextProps.postData.avatars}`], ["/images/default_banner.png", "/images/my/register.png"], base64Array => {
           that.setState(
             {
               contentText: nextProps.postData.contentText,
               username: nextProps.postData.username,
+              identifier : this.props.postData.identifier,
+              num_type : this.props.postData.num_type,
+
               base64Array: base64Array.slice(0)
             },
             () => {
@@ -169,7 +176,7 @@ htm2Click = () => {
                     <div style={{ fontSize: "12px", transform: "scale(0.83)", paddingTop: "17px", color: "#fff",paddingLeft:"5px", textAlign: 'left' }}>
                       {/*{t('长按识别二维码 一起来做志愿者')}*/}
                       <div>{t('长按识别活动二维码')}</div>
-                      <div>{t('成为三一公益同行者')}</div>
+                      <div>{t('成为溢彩星公益同行者')}</div>
                     </div>
                   </div>
                 </div>

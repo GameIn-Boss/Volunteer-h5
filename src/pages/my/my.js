@@ -575,6 +575,21 @@ class MyPage extends React.Component {
                 </div>
               </li>)
           }
+               {
+            orgCode === "7N1aM8AeWm" ? null :
+              (<li>
+                <div>
+                  <Link to="/my/proof/applys">
+                    <div className="page-my-item-box">
+                      <i className="page-my-item-icon page-my-item-icon-proof" />
+                      {t('申请服务证书')}
+                    </div>
+                    <span className="page-my-item-big" />
+                  </Link>
+                  <div className="line1px" />
+                </div>
+              </li>)
+          }
           {orgCode === "wMvbmOeYAl" || orgCode === "7N1aM8AeWm" ? (
             <li />
           ) : (

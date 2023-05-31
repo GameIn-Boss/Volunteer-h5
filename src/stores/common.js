@@ -45,7 +45,28 @@ export const requestUserInfo = noRedirect => (dispatch) => {
     console.log(e);
   });
 };
+export const certificateInfo = noRedirect => (dispatch) => {
 
+  const token = getToken();
+
+  // 用户信息请求为非强依赖请求，如果本地没有 token 即未登录则直接忽略即可
+  if (!token) {
+    console.log('用户未登录，忽略 requestUserInfo');
+    return;
+  }
+  console.log(dispatch);
+  console.log(noRedirect);
+
+  fetch(`/certificateInfo?id=${noRedirect}`, {
+  // fetch(`/certificateInfo?id=83`, {
+    method: 'GET',
+    noRedirect,
+  }).then((json) => {
+    if (json) {
+      dispatch({ type: USERINFO_FULFILLED, payload: json });
+    }
+  })
+};
 /**
  * 用户
  * 

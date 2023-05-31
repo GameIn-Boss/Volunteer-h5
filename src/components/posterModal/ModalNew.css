@@ -365,8 +365,8 @@
 }
 
 .page-certificate-container-title {
-    font-size     : 23px;
-    font-weight   : 500;
+    font-size     : 15px;
+    font-weight   : 400;
     color         : #C09248;
     letter-spacing: 0;
     text-align    : left;
@@ -374,8 +374,8 @@
     min-width     : 80px;
     height        : 19px;
     position      : absolute;
-    top           : 227px;
-    left          : 150px;
+    top           : 270px;
+    left          : 70px;
 }
 
 .page-certificate-container-subTitle {
@@ -403,21 +403,38 @@
     min-width     : 80px;
     height        : 19px;
     position      : absolute;
-    top           : 282px;
-    left          : 148px;
+    top           : 342px;
+    left          : 48px;
     line-height   : 24px;
+    text-indent: 2em;
     width         : 244px;
 }
+.page-certificate-container-content-te {
+    font-size     : 13px;
+    font-weight   : 300;
+    color         : #333333;
+    letter-spacing: 0;
+    text-align    : left;
+    line-height   : 19px;
+    min-width     : 80px;
+    height        : 19px;
+    position      : absolute;
+    top           : 410px;
+    left          : 48px;
+    line-height   : 24px;
+    width         : 244px;
+    text-indent: 2em;
 
+}
 .page-certificate-container-footer {
-    color      : #333333;
-    font-weight: 400;
+    color      : #7a5a08;
+    font-weight: 200;
     font-size  : 12px;
     line-height: 19px;
     text-align : right;
     position   : absolute;
     left       : 197px;
-    top        : 447px;
+    top        : 487px;
     transform  : scale(0.9);
 }
 

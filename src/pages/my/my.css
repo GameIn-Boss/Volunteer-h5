@@ -190,6 +190,9 @@
 .page-my-item-icon-applys{
   background-image: url(/images/my/applys.png)
 }
+.page-my-item-icon-proof{
+  background-image: url(/images/my/proof.png)
+}
 .page-my-item-icon-circle{
   background-image: url(/images/my/circle.png);
   position: relative;

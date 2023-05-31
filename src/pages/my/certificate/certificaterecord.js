@@ -9,27 +9,46 @@ import React, { PropTypes } from "react";
 import autoBind from "react-autobind";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-
+import Link from "../../../components/link/link";
 import Avatar from "../../../components/avatar/avatar";
 import Star from "../../../components/star/star";
 import { dateTextToDateText } from "../../../utils/funcs";
-import { requestUserInfo } from "../../../stores/common";
-import "./certificateSanyi.css";
+import { certificateInfo } from "../../../stores/common";
+import "./certificaterecord.css";
+import { Dialog } from "react-weui";
+import "weui/dist/style/weui.css";
+import "react-weui/build/packages/react-weui.css";
+
 import history from "../../history";
 import html2canvas from "html2canvas";
 import { ImageToBase64 } from "../../../utils/funcs";
 import { translate } from 'react-i18next';
 import i18next from 'i18next';
+import queryString from 'query-string';
+
 class Certificate extends React.Component {
     constructor(props) {
         super(props);
         autoBind(this);
+   
         this.BussinessInfo = window.orgInfo.name || "和众泽益志愿服务中心";
         this.certTitle = window.orgInfo.cert_title || "和众泽益";
         this.certOrg = window.orgInfo.cert_org || "和众泽益";
         this.certCachet = window.orgInfo.cert_cachet || "/images/my/zdx.png";
         this.certAuthOrg = window.orgInfo.cert_auth_org || "和众泽益志愿服务中心";
         const { user: listData } = props;
+        this.dialog = {
+            title:'驳回原因',
+            buttons: [
+                {
+                    type: "default",
+                    label: '我知道了',
+                    onClick: () => this.setState({ ...this.state, showDialog: false })
+                }
+            ]
+        };
+        const params = queryString.parse(location.search);
+        this.CertificateId = params.id;
         const register = listData.regitser_time
             ? dateTextToDateText(
                 listData.regitser_time ? listData.regitser_time.split(" ")[0] : 0
@@ -46,12 +65,27 @@ class Certificate extends React.Component {
             certCachet: this.certAuthOrg,
             dataUrl: null,
             register,
-            now
+            now,     
+            visible: false,
+            actionSheet: false,
+            actions: [
+                {
+                    label: '我知道了',
+                    onClick: this.hide
+                }
+            ],
+            dialogType: true,
+            showDialog: true
         };
     }
-
+    hide() {
+        this.setState({ actionSheet: false });
+    }
     componentWillMount() {
-        this.props.requestUserInfo();
+        const params = queryString.parse(location.search);
+        this.CertificateId = params.id;
+        console.log(this.CertificateId)
+        this.props.certificateInfo(this.CertificateId);
     }
 
     componentDidMount() { }
@@ -90,7 +124,6 @@ class Certificate extends React.Component {
                             }
                         );
                     },
-                    0
                 );
             })
 
@@ -146,7 +179,12 @@ class Certificate extends React.Component {
             that.setState({ dataUrl });
         });
     };
+    //  authadd(){
+    //     console.log(1)
+    //     this.props.authaddAction();
 
+        
+    //   }
     renderCertificate() {
         const { user: listData } = this.props;
         if (!listData) {
@@ -159,7 +197,7 @@ class Certificate extends React.Component {
         return (
             <div className="page-certificate-bg">
                 <div className="page-certificate-container-border" ref="LaunchContent">
-                    <img src={this.state.bgImage || '/images/my/tkzs.png'} className='page-certificate-bg-img' ref="bgImage"></img>
+                    <img src={this.state.bgImage || '/images/my/certificationauth.png'} className='page-certificate-bg-img' ref="bgImage"></img>
                     {/* <div className="page-certificate-container-content-certnumber">
             编号：<span>{this.props.user.identifier}</span>
           </div> */}
@@ -174,12 +212,44 @@ class Certificate extends React.Component {
                             id="avatars"
                             style={{
                                 display: "block",
-                                width: "85px",
-                                height: "85px",
+                                width: "70px",
+                                height: "70px",
                                 // borderRadius: "50%",
                                 objectFit: "cover"
                             }}
                         />
+                              <div className="page-certificate-container-content-username">
+                             <span>{this.props.user.real_name}</span>
+                            </div>
+                             <div className="page-certificate-container-content-idnumber">
+                             <span>{this.props.user.id_number}</span>
+                            </div>
+                            <div className="page-certificate-container-content-numtype">
+                            <span>
+                            {this.props.user.num_type == 0 ? '身份证' : ''}
+                            {this.props.user.num_type == 1 ? '身份证' : ''}
+                            {this.props.user.num_type == 2 ? '香港' : ''}
+                            {this.props.user.num_type == 3 ? '澳门' : ''}
+                            {this.props.user.num_type == 4 ? '台湾' : ''}
+                            {this.props.user.num_type == 5 ? '护照' : ''}
+                            </span>
+                            </div>
+                            {this.props.user.verify_status == 1 ? 
+                            <img
+                            src='/images/my/zdx.png'
+                            style={{
+                                marginTop:"150px",
+                                marginLeft:"50px",
+                                width: "120px",
+                                height: "120px",
+                            }}                        />
+                            : ''}
+                                <div className="page-certificate-container-content-identifier">
+                             <span>{this.props.user.identifier}</span>
+                            </div>
+                            {/* <div className="page-certificate-container-content-idnumber">
+                             <span>{this.props.user.id_number}</span>
+                            </div> */}
                     </div>
                    
                     {this.props.user.stars ? (
@@ -193,39 +263,40 @@ class Certificate extends React.Component {
                         </div>
                     ) : null}
                     <div className="page-certificate-container-content-register">
-                        <span>{this.state.register}注册成为泰康志愿者</span>
+                        {this.state.identifier}
                     </div>
-                    {/* <div className="page-certificate-container-content-register-title">
-                        巾帼志愿者
-                    </div> */}
-                     {/* <div className="page-certificate-container-id">
-                        {this.props.user.number || 12927}
-                    </div> */}
-                    {/* <div className="page-certificate-container-grouth-level">
-                        {this.props.user.growth_level || 1}
-                    </div> */}
-                    {/* <div className="page-certificate-container-score">
-                        {this.props.user.score}
-                    </div> */}
                     <div className="page-certificate-container-projects">
-                        {this.props.user.join_project_count}
+                        {this.props.user.project_count}
                     </div>
                     <div className="page-certificate-container-hours">
                         {`${this.props.user.reward_time}`.length > 5 ? `${this.props.user.reward_time}`.split('.')[0] : `${this.props.user.reward_time}`}
                     </div>
 
                     <div className="page-certificate-container-year">
-                        {new Date().getFullYear()}
+                    {this.props.user.year}
                     </div>
                     <div className="page-certificate-container-month">
-                        {new Date().getMonth() + 1}
+                    {this.props.user.mouth}
                     </div>
                     <div className="page-certificate-container-day">
-                        {new Date().getDate()}
+                    {this.props.user.day}
                     </div>
                 </div>
+                {this.props.user.verify_status == 2 ? 
+                <Dialog
+                        type="ios"
+                        title='驳回原因'
+                        buttons={this.dialog.buttons}
+                        show= {this.state.showDialog}
+                        >
+                    {this.props.user.verify_msg}
+
+                </Dialog>
+            : null}
             </div>
+            
         );
+  
     }
 
 
@@ -238,12 +309,16 @@ class Certificate extends React.Component {
             return null;
         }
         console.log(listData);
-     
+        console.log( this.props.certificateInfo)
+
+        // return <div className="page-certificate-main-container">
+        //     {this.renderCertificate()}
+        // </div>;
         return (
             <div>
                 <div
                     style={{
-                        position: "absolute",
+                        // position: "absolute",
                         left: "0",
                         top: "0",
                         width: "100%",
@@ -269,7 +344,6 @@ class Certificate extends React.Component {
                         />
                     ) : (
                         <div className="page-certificate-main-container">
-                            {/** TODO: */}
                             {this.renderCertificate()}
                         </div>
                     )}
@@ -287,7 +361,11 @@ class Certificate extends React.Component {
 Certificate.title = i18next.t('我的证书');
 
 Certificate.propTypes = {
-    requestUserInfo: PropTypes.func,
+    certificateInfo: PropTypes.shape({
+     
+        real_name: PropTypes.string,
+
+    }),
     user: PropTypes.shape({
         token: PropTypes.string,
         id: PropTypes.number,
@@ -297,6 +375,7 @@ Certificate.propTypes = {
         avatars: PropTypes.string,
         real_name: PropTypes.string,
         nation: PropTypes.string,
+        project_count: PropTypes.number,
         sex: PropTypes.number,
         isLogin: PropTypes.bool,
         birthday: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -319,5 +398,6 @@ Certificate.propTypes = {
 
 export default connect(
     state => ({ user: state.user }),
-    dispatch => bindActionCreators({ requestUserInfo }, dispatch)
+    dispatch => bindActionCreators({ certificateInfo }, dispatch)
+
 )(translate('translations')(Certificate));

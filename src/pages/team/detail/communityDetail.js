@@ -90,7 +90,7 @@ class CommunityDetailPage extends React.Component {
                     ) : (
                         <div className="page-circle-rendercommunity-container">
                             <img
-                                src="/images/my/information.png"
+                                src="/images/my/icon.png"
                                 className="page-circle-rendercommunity-img"
                             />
                             <div className="page-circle-rendercommunity-info">

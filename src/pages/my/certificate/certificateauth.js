@@ -9,12 +9,14 @@ import React, { PropTypes } from "react";
 import autoBind from "react-autobind";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
+import Link from "../../../components/link/link";
+import { authaddAction } from "../my.store";
 
 import Avatar from "../../../components/avatar/avatar";
 import Star from "../../../components/star/star";
 import { dateTextToDateText } from "../../../utils/funcs";
 import { requestUserInfo } from "../../../stores/common";
-import "./certificateSanyi.css";
+import "./certificateauth.css";
 import history from "../../history";
 import html2canvas from "html2canvas";
 import { ImageToBase64 } from "../../../utils/funcs";
@@ -90,7 +92,6 @@ class Certificate extends React.Component {
                             }
                         );
                     },
-                    0
                 );
             })
 
@@ -100,12 +101,14 @@ class Certificate extends React.Component {
     createBase64BgImage = (callback) => {
         var that = this;
         var shareContent = this.refs["bgImage"];
+        console.log(shareContent)
         var width = shareContent.offsetWidth;
         var height = shareContent.offsetHeight;
         var canvas = document.createElement("canvas");
         var scale = 4;
         canvas.width = width * scale;
         canvas.height = height * scale;
+        console.log(canvas.height)
         canvas.getContext("2d").scale(scale, scale);
         var opts = {
             scale: scale,
@@ -146,7 +149,12 @@ class Certificate extends React.Component {
             that.setState({ dataUrl });
         });
     };
+    //  authadd(){
+    //     console.log(1)
+    //     this.props.authaddAction();
 
+        
+    //   }
     renderCertificate() {
         const { user: listData } = this.props;
         if (!listData) {
@@ -159,7 +167,7 @@ class Certificate extends React.Component {
         return (
             <div className="page-certificate-bg">
                 <div className="page-certificate-container-border" ref="LaunchContent">
-                    <img src={this.state.bgImage || '/images/my/tkzs.png'} className='page-certificate-bg-img' ref="bgImage"></img>
+                    <img src={this.state.bgImage || '/images/my/certificationauth.png'} className='page-certificate-bg-img' ref="bgImage"></img>
                     {/* <div className="page-certificate-container-content-certnumber">
             编号：<span>{this.props.user.identifier}</span>
           </div> */}
@@ -174,12 +182,34 @@ class Certificate extends React.Component {
                             id="avatars"
                             style={{
                                 display: "block",
-                                width: "85px",
-                                height: "85px",
+                                width: "70px",
+                                height: "70px",
                                 // borderRadius: "50%",
                                 objectFit: "cover"
                             }}
                         />
+                              <div className="page-certificate-container-content-username">
+                             <span>{this.props.user.username}</span>
+                            </div>
+                             <div className="page-certificate-container-content-idnumber">
+                             <span>{this.props.user.id_number}</span>
+                            </div>
+                            <div className="page-certificate-container-content-numtype">
+                            <span>
+                            {this.props.user.num_type == 0 ? '身份证' : ''}
+                            {this.props.user.num_type == 1 ? '身份证' : ''}
+                            {this.props.user.num_type == 2 ? '香港' : ''}
+                            {this.props.user.num_type == 3 ? '澳门' : ''}
+                            {this.props.user.num_type == 4 ? '台湾' : ''}
+                            {this.props.user.num_type == 5 ? '护照' : ''}
+                            </span>
+                            </div>
+                            <div className="page-certificate-container-content-identifier">
+                             <span>{this.props.user.identifier}</span>
+                            </div>
+                            {/* <div className="page-certificate-container-content-idnumber">
+                             <span>{this.props.user.id_number}</span>
+                            </div> */}
                     </div>
                    
                     {this.props.user.stars ? (
@@ -193,8 +223,9 @@ class Certificate extends React.Component {
                         </div>
                     ) : null}
                     <div className="page-certificate-container-content-register">
-                        <span>{this.state.register}注册成为泰康志愿者</span>
+             {this.state.identifier}
                     </div>
+
                     {/* <div className="page-certificate-container-content-register-title">
                         巾帼志愿者
                     </div> */}
@@ -224,8 +255,14 @@ class Certificate extends React.Component {
                         {new Date().getDate()}
                     </div>
                 </div>
+                <div className="page-certificate-container-btn" onClick={this.props.authaddAction}>
+                申请志愿证明
+          </div>
+            
             </div>
+            
         );
+  
     }
 
 
@@ -237,8 +274,7 @@ class Certificate extends React.Component {
         if (!listData || !listData.id) {
             return null;
         }
-        console.log(listData);
-     
+
         return (
             <div>
                 <div
@@ -248,36 +284,42 @@ class Certificate extends React.Component {
                         top: "0",
                         width: "100%",
                         height: "100%",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center"
+                        // display: "flex",
+                        // marginBottom: '10px',
+                        // justifyContent: "center",
+                        // alignItems: "center"
                     }}
                 >
                     {dataUrl ? (
+                        <div>
                         <img
                             style={{
                                 width: "357px",
                                 display: "block",
                                 position: "relative",
                                 top: 0,
-                                bottom: 0,
+                                // bottom: 10,
                                 left: 0,
                                 right: 0,
                                 margin: "auto"
                             }}
                             src={`${this.state.dataUrl}`}
                         />
+                        <div className="page-certificate-container-btn" onClick={this.props.authaddAction}>
+                        申请志愿证明
+                        </div>
+                        </div>
                     ) : (
-                        <div className="page-certificate-main-container">
+                        <div >
                             {/** TODO: */}
                             {this.renderCertificate()}
                         </div>
                     )}
-                    {dataUrl ? null : (
+                    {/* {dataUrl ? null : (
                         <div className="page-certificate-main-mask">
                             <img className="loading-img" src="/images/loadingimg.png" />
                         </div>
-                    )}
+                    )} */}
                 </div>
             </div>
         );
@@ -287,6 +329,7 @@ class Certificate extends React.Component {
 Certificate.title = i18next.t('我的证书');
 
 Certificate.propTypes = {
+    authaddAction: PropTypes.func,
     requestUserInfo: PropTypes.func,
     user: PropTypes.shape({
         token: PropTypes.string,
@@ -319,5 +362,6 @@ Certificate.propTypes = {
 
 export default connect(
     state => ({ user: state.user }),
-    dispatch => bindActionCreators({ requestUserInfo }, dispatch)
+    dispatch => bindActionCreators({ requestUserInfo,authaddAction }, dispatch)
+
 )(translate('translations')(Certificate));

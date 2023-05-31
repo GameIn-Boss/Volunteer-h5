@@ -155,7 +155,10 @@ class ModalNew extends React.Component {
             </div> */}
 
             <div className="page-certificate-container-content">
-                <span style={{ color: '#C09248' }}>“{this.props.postData.projectName}”</span>
+               感谢您参与 <span style={{ color: '#C09248' }}>“{this.props.postData.projectName}”</span>志愿活动，用行动传递温暖关爱。
+            </div>
+            <div className="page-certificate-container-content-te">
+            特颁此证
             </div>
             <div className="page-certificate-container-footer">
                 {/* <div>中金公益基金会</div> */}

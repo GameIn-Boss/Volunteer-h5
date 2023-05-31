@@ -440,6 +440,9 @@ const correctUserInfoReducer = (state = {
       return state;
   }
 };
+
+
+
 // 个人中心首页
 export const userCenterAction = () => ({
   type: 'USER_CENTER_DATA',
@@ -592,6 +595,27 @@ export const applyAction = () => ({
            switchUrl: `${window.apiHost}/api/v2`
          })
        });
+  export const authaddAction = () => ({
+
+
+        payload: fetch("/auth/addauth", {
+          switchUrl: `${window.apiHost}/api/v2`,
+          method: "POST",
+          data: {
+            id: 1,
+            type: 1, // 0-项目, 1-团队
+          },
+          successWords: '申请志愿证明成功',
+        }
+        ),
+      });
+  export const authAction = () => ({
+        type: "APPLY_DATA",
+        payload: fetch("/auth/list", {
+          method: "GET",
+          switchUrl: `${window.apiHost}/api/v2`
+        })
+      });
 const applyReducer = (state = {
   fetching: false,
   failed: false,

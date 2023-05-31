@@ -177,6 +177,16 @@
     "chunk": "main"
   },
   {
+    "path": "/my/certificateauth",
+    "page": "./pages/my/certificate/certificateauth",
+    "chunk": "main"
+  },
+  {
+    "path": "/my/certificaterecord/:certificateId",
+    "page": "./pages/my/certificate/certificaterecord",
+    "chunk": "main"
+  },
+  {
     "path": "/my/fundingApplication/list",
     "page": "./pages/my/fundingApplication/list",
     "chunk": "main"
@@ -246,9 +256,25 @@
     "page": "./pages/my/duration/applys",
     "chunk": "main"
   },
+  
   {
     "path": "/my/duration/post",
     "page": "./pages/my/duration/post",
+    "chunk": "main"
+  },
+  {
+    "path": "/my/proof",
+    "page": "./pages/my/proof/proof",
+    "chunk": "main"
+  },
+  {
+    "path": "/my/proof/applys",
+    "page": "./pages/my/proof/applys",
+    "chunk": "main"
+  },
+  {
+    "path": "/my/proof/post",
+    "page": "./pages/my/proof/post",
     "chunk": "main"
   },
   {

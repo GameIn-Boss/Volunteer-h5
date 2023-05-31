@@ -731,7 +731,7 @@ class TeamDetailPage extends React.Component {
           ) : (
             <div className="page-circle-rendercommunity-no-info-container">
               <img
-                src="/images/my/information.png"
+                src="/images/my/icon.png"
                 className="page-circle-rendercommunity-img"
               />
               <div className="page-circle-rendercommunity-info">
@@ -831,7 +831,6 @@ class TeamDetailPage extends React.Component {
     );
   }
 }
-TeamDetailPage.title = '溢彩星志愿者团队';
 
 TeamDetailPage.propTypes = {
   requestTeamDetail: PropTypes.func,
@@ -864,6 +863,7 @@ TeamDetailPage.propTypes = {
   })
 };
 
+TeamDetailPage.title = "溢彩星志愿者团队";
 
 export default connect(
   state => ({
