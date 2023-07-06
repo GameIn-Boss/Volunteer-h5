@@ -111,6 +111,16 @@
     "chunk": "main"
   },
   {
+    "path": "/wuqing/team",
+    "page": "./pages/wuqingteam/list/list",
+    "chunk": "main"
+  },
+  {
+    "path": "/wuqing/detail/:teamId",
+    "page": "./pages/wuqingteam/detail/detail",
+    "chunk": "main"
+  },
+  {
     "path": "/team/list/type/:type/category/:category/target/:target",
     "page": "./pages/team/list/list",
     "chunk": "main"
