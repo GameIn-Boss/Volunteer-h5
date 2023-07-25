@@ -49,7 +49,7 @@ class MessagesItem extends React.Component {
     if (!data) {
       return null;
     } else if (data && !data.length) {
-      return <div className="page-announceitem-empty-tip">目前还没有公告消息</div>;
+      return <div className="page-announceitem-empty-tip">目前还没有志愿头条消息</div>;
     }
 
     return (

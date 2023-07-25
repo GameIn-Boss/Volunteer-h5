@@ -461,7 +461,7 @@ class HomePage extends React.Component {
                     <span>
                       {home.data && home.data.sanlitun
                         ? t('联盟活动')
-                        : t('精品活动')}
+                        : t('最新活动')}
                     </span>
                     <div className="label-line" />
                   </div>

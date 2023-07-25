@@ -76,7 +76,7 @@ class Messages extends React.Component {
 }
 
 
-Messages.title = '公告';
+Messages.title = '志愿头条';
 
 Messages.propTypes = {
   announceAction: PropTypes.func,

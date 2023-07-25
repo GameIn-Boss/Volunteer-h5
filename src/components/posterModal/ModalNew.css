@@ -394,7 +394,7 @@
 }
 
 .page-certificate-container-content {
-    font-size     : 13px;
+    font-size     : 12px;
     font-weight   : 300;
     color         : #333333;
     letter-spacing: 0;
@@ -403,7 +403,7 @@
     min-width     : 80px;
     height        : 19px;
     position      : absolute;
-    top           : 342px;
+    top           : 322px;
     left          : 48px;
     line-height   : 24px;
     text-indent: 2em;

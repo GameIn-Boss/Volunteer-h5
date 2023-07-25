@@ -36,7 +36,7 @@ export default {
     '最新': 'Latest',
     '最热': 'Popular',
     '联盟活动': 'Alliance activities',
-    '精品活动': 'Boutique activities',
+    '最新活动': 'Boutique activities',
     '询问': 'Inquiry',
     '请填写': 'Please fill in',
 

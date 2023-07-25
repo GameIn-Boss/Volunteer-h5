@@ -5,7 +5,7 @@ import Alert from 'react-s-alert';
 import fetch from '../../utils/fetch';
 import { API_HOST } from '../../utils/config';
 
-// 公告
+// 志愿头条
 // 我的消息详情
 // TODO:
 export const announceDetailAction = Id => ({

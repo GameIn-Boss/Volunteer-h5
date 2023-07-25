@@ -71,8 +71,17 @@ class SignPage extends React.Component {
     }
     const { failed: tFailed, fetching: tFetching } = this.props.clockinginfo;
     const { failed: nFailed, fetching: nFetching } = nextProps.clockinginfo;
-    if (!tFailed && tFetching && !nFailed && !nFetching) {
-      Alert.success(nextProps.t('打卡成功'));
+
+    if (!tFailed && tFetching && !nFailed   && !nFetching) {
+      if (nextProps.clickinfo.data.clock_info.type == 1) {
+        Alert.success(nextProps.t('打卡成功'));
+      }
+      if(nextProps.clickinfo.data.clock_info.type == 2 && nextProps.clockinginfo.data == ''){
+        Alert.success('您已签到，请在活动结束后，完成签退！');
+      }
+      if(nextProps.clickinfo.data.clock_info.type == 2 && JSON.stringify(nextProps.clockinginfo.data) !== '[]'){
+        Alert.success(nextProps.t('签退成功'));
+      }
       // location.replace(`/sign/signdetail/detail/${this.proid}/${this.Id}`);
       //打卡成功后重新获取数据，更新页面，页面state太多，不知道更新哪些，直接全部获取
       console.info(JSON.stringify(nextProps.clockinginfo.data));

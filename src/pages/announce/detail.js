@@ -34,7 +34,7 @@ class MessagesDetail extends React.Component {
       detailData &&
       detailData.id === parseInt(this.Id, 10)
     ) {
-      document.title = detailData && detailData.title || '公告详情';
+      document.title = detailData && detailData.title || '志愿头条详情';
       if (window.userAgent) {
         wx.ready(() => {
           WXShare({
@@ -77,7 +77,7 @@ class MessagesDetail extends React.Component {
 }
 
 
-MessagesDetail.title = '公告详情';
+MessagesDetail.title = '志愿头条详情';
 
 MessagesDetail.propTypes = {
   announceDetail: PropTypes.arrayOf(PropTypes.shape({
