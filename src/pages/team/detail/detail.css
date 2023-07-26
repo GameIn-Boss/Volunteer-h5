@@ -252,7 +252,7 @@
   width: 100%;
   position: absolute;
 }
-..page-team-detail-render-project-container-main .component-projects{
+.page-team-detail-render-project-container-main .component-projects{
   width: 100%;
   flex:1;
   overflow-y: scroll;

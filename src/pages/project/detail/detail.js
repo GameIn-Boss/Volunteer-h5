@@ -497,6 +497,7 @@ class ProjectDetailPage extends React.Component {
             t,
         } = this.props;
         const customConfig = detailData.custom_config || null;
+        const stationConfig = detailData.station_config || null;
         const paymentConfig = detailData.custom_payment_config || null;
         return () => {
             // in_blacklist 黑名单 0不在，1在
@@ -513,6 +514,7 @@ class ProjectDetailPage extends React.Component {
                         action,
                         projectId,
                         customConfig,
+                        stationConfig,
                         paymentConfig
                     );
                     // 要求实名切用户未实名过，通过ID判断
@@ -548,6 +550,22 @@ class ProjectDetailPage extends React.Component {
                             }
                         })
                     }
+                    custom_config.extends && custom_config.extends.length && custom_config.extends.forEach(item => {
+                        if (item.is_required) {
+                            is_has_required = true;
+                        }
+                    })
+                    if (is_has_required && !user.extends) {
+                        isVerify = true;
+                    }
+                    if (user.extends && is_has_required) {
+                        custom_config.extends.forEach(item => {
+                            if (item.is_required && (!user.extends[item.key] || (user.extends[item.key] && !user.extends[item.key].length))) {
+                                isVerify = true;
+                            }
+                        })
+                    }
+
                     this.props.storeLoginSource(`/project/detail/${this.projectId}`);
                     if (isVerify && user.have_pwd == 1) {
                         let bindlink = '/my/profile/bind_profile/alert';
@@ -574,6 +592,7 @@ class ProjectDetailPage extends React.Component {
                             action,
                             projectId,
                             customConfig,
+                            stationConfig,
                             paymentConfig
                         );
                     }

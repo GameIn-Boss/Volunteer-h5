@@ -48,7 +48,8 @@ class SignPage extends React.Component {
         .add(1, "days")
         .valueOf();
 
-      let now = +new Date();
+      let now = + new Date();
+      
       if (now <= end) {
         isBeyond = false;
       } else {
@@ -56,6 +57,8 @@ class SignPage extends React.Component {
       }
 
       let isAfterToday = false;
+      console.log(secondDayEnd);
+
       if (now <= secondDayEnd) {
         isAfterToday = false;
       } else {
@@ -188,6 +191,7 @@ class SignPage extends React.Component {
     console.log("=================================detaildata==================================", detaildata)
     if (Object.keys(userData).length === 0) {
       // 没超过时间，没打卡，显示打卡球
+      console.log
       if (!isBeyond) {
         renderDom = (
           <div className="sign-ball-content">
@@ -422,6 +426,7 @@ class SignPage extends React.Component {
     let endPoint = false;
     if (Object.keys(userData).length === 0) {
       // 没超过时间，没打卡，显示打卡球
+
       if (!isBeyond) {
         renderfirstDom = (
           <div className="sign-ball-content">
@@ -1002,8 +1007,11 @@ class SignPage extends React.Component {
               />
               <div className="line1px-v" />
               <div className="detail-title">
+               
                 {t('签到时间')} &nbsp; &nbsp;
-                {moment(data.begin).format("YYYY-MM-DD HH:mm")}
+               
+                {!data.start_time ? moment(data.begin).format("YYYY-MM-DD HH:mm") : data.start_time }
+                {/* {moment(data.begin).format("YYYY-MM-DD HH:mm")} */}
               </div>
               {renderfirstDom}
             </li>
@@ -1015,7 +1023,8 @@ class SignPage extends React.Component {
               <div className="line1px-v" />
               <div className="detail-title">
                 {t('签退时间')} &nbsp; &nbsp;
-                {moment(data.end).format("YYYY-MM-DD HH:mm")}
+                {!data.end_time ? moment(data.end).format("YYYY-MM-DD HH:mm") : data.end_time }
+
               </div>
               {rendersecondDom}
             </li>

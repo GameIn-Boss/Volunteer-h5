@@ -127,6 +127,7 @@ class SignUpPage extends React.Component {
             checkeAll: false,
             extendsArray: {},
             showMultiple: false,
+            stationArray: {},
             previewData: []
         };
         this.CustomChildren = ({ extra, onClick }) => (
@@ -156,6 +157,11 @@ class SignUpPage extends React.Component {
             this.initialPic(Ndetail.data.custom_config);
             this.customConfig = Ndetail.data.custom_config;
         }
+        if (Ldetail.fetching && !Ldetail.failed && !Ndetail.fetching && !Ndetail.failed && Ndetail.data && Ndetail.data.station_config) {
+            this.initialPic(Ndetail.data.station_config);
+            this.stationConfig = Ndetail.data.station_config;
+        }
+
         if (Ldetail.fetching && !Ldetail.failed && !Ndetail.fetching && !Ndetail.failed && Ndetail.data && Ndetail.data.custom_payment_config) {
             let data = [];
             let total = null;
@@ -265,6 +271,37 @@ class SignUpPage extends React.Component {
                                 {item}
                             </RadioItem>
                         ))}
+                        {/* {station_num.map((item, index) => (
+                            <RadioItem checked={this.state[key] === item} key={index} onChange={() => this.onChange(item, key)} onClick={() => this.onClick(item, key)}>
+                                {item}
+                            </RadioItem>
+                        ))} */}
+                    </List>
+                </div>
+                <div className="line1px" />
+            </div>
+        )
+    }
+    renderOtherInfoSelectstation(item) {
+        const data = item;
+        const key = data.key;
+        const options = data.options;
+        return (
+            <div>
+                <div className="page-signUp-danxuan">
+                    {
+                        Number(item.is_required) == 1 ?
+                            <span className="page-project-signUp-verify-header-start page-project-signUp-verify-header-other-start">*</span>
+                            :
+                            null
+                    }
+                    <List renderHeader={() => data.label}>
+                        {options.map((item, index) => ( 
+                            <RadioItem checked={this.state[key] === item.name}  disabled={item.join_num == item.people_count} key={index} onChange={() => this.onChange(item.name, key)} onClick={() => this.onClick(item.name, key)}>
+                                {item.name} <div className="page-signUp-danxuanstation">招募人数：{item.count}</div>
+                            </RadioItem>                   
+                            ))}                     
+
                     </List>
                 </div>
                 <div className="line1px" />
@@ -292,6 +329,8 @@ class SignUpPage extends React.Component {
         const key = e.target.id;
         const value = e.target.value;
         this.pushExtendsArray(key, value);
+        this.pushStationArray(key, value);
+
     }
 
     //多选控件
@@ -595,10 +634,45 @@ class SignUpPage extends React.Component {
     * value 值
     * isMany 是否多选 true是 false否
     * */
+    pushStationArray(key, value, isMany) {
+        const stationArray = this.state.stationArray;
+        if (!isMany) {
+            if (value == '-1') {
+                if (key in stationArray) {
+                    delete stationArray[key];
+                } else {
+                    return;
+                }
+            } else {
+                stationArray[key] = value;
+            }
+        }
+
+        this.setState({
+            ...this.state,
+            stationArray
+        })
+        // this.extendsArray = extendsArray;
+
+    }
+    
+
     pushExtendsArray(key, value, isMany) {
         const extendsArray = this.state.extendsArray;
         const windowOrgConfig = this.customConfig;
+        const stationArray = this.state.stationArray;
 
+        if (!isMany) {
+            if (value == '-1') {
+                if (key in stationArray) {
+                    delete stationArray[key];
+                } else {
+                    return;
+                }
+            } else {
+                stationArray[key] = value;
+            }
+        }
 
         if (!isMany) {
             if (value == '-1') {
@@ -649,6 +723,35 @@ class SignUpPage extends React.Component {
         })
         // this.extendsArray = extendsArray;
 
+    }
+    renderStationInfo() {
+
+        if (this.props.detail.data === null || this.props.detail.data.station_config === null) {
+            return null
+        }
+        return (
+            <div>
+                {
+                    this.props.detail.data.station_config && this.props.detail.data.station_config.length ?
+                        this.props.detail.data.station_config.map((item, index) => {
+                            switch (Number(item.type)) {//单项选择
+                                case 1:
+                                    return (
+                                        <div key={index}>
+                                            {this.renderOtherInfoSelectstation(item)}
+                                        </div>
+                                    );
+                                    break;
+                                default:
+                                    return
+                            }
+
+                        })
+                        :
+                        null
+                }
+            </div>
+        )
     }
 
     renderOtherInfo() {
@@ -804,6 +907,8 @@ class SignUpPage extends React.Component {
     }
     onSubmmit() {
         const extendsArray = this.state.extendsArray;
+        console.log(extendsArray);
+        const stationArray = this.state.stationArray;
         let data = {};
         let pay = {};
         data.id = this.projectId;
@@ -817,6 +922,19 @@ class SignUpPage extends React.Component {
             }
             data.extends = extendsArray;
         }
+        if (this.stationConfig && this.stationConfig.length > 0) {
+
+            if (isRequired(this.stationConfig, stationArray)) {
+
+                isEmpty = false;
+                return;
+            }
+
+            data.station = stationArray;
+        }
+        console.log(data.station)
+
+
         if (this.state.data && this.state.data.length > 0) {
             let payData = this.state.data;
             for (var i = 0; i < payData.length; i++) {
@@ -833,7 +951,7 @@ class SignUpPage extends React.Component {
                 }
             }
             console.log(111)
-            data.payment = pay;
+            data.payment = pay;       
             this.props.joinPayProject(data);
             return
         }
@@ -854,6 +972,9 @@ class SignUpPage extends React.Component {
         const { t } = this.props;
         return (
             <div className="page-project-signUp">
+                {//岗位信息
+                    this.renderStationInfo()
+                }
 
                 {//自定义信息
                     this.renderOtherInfo()
