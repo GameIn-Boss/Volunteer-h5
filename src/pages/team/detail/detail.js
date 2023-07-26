@@ -781,7 +781,7 @@ class TeamDetailPage extends React.Component {
     } = this.props;
     const currentTeamId = parseInt(this.teamId, 10);
     const dataTeamId = detailData ? detailData.id : "";
-
+    // alert(dataTeamId );
     if (currentTeamId !== dataTeamId) {
       return null;
     }
