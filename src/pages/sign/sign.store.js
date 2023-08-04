@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 import fetch from "../../utils/fetch";
-export const clocking = data => ({
+export const clocking = (data,proid) => ({
   type: "V2_CHECKIN_ING",
-  payload: fetch(`/clock/${data.id}`, {
+  payload: fetch(`/clock/${data.id}/bak/${proid}`, {
     method: 'POST',
       data,
     switchUrl: `${window.apiHost}/api/v2`
@@ -10,13 +10,16 @@ export const clocking = data => ({
 });
 
 const clockingReducer = (
+
   state = {
     fetching: false,
     failed: false,
     data: null
   },
   action
+  
 ) => {
+
   switch (action.type) {
     case "V2_CHECKIN_ING_PENDING":
       return { ...state, fetching: true, failed: false };
@@ -34,9 +37,9 @@ const clockingReducer = (
   }
 };
 
-export const requestClockInfo = id => ({
+export const requestClockInfo = (id,proid) => ({
   type: "V2_CHECKIN_INFO",
-  payload: fetch(`/clock/${id}/info`, {
+  payload: fetch(`/clock/${id}/info/${proid}`, {
     method: "GET",
     switchUrl: `${window.apiHost}/api/v2`
   })

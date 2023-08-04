@@ -29,7 +29,7 @@ class SignPage extends React.Component {
   }
 
   componentWillMount() {
-    this.props.requestClockInfo(this.Id);
+    this.props.requestClockInfo(this.Id,this.proid);
     this.props.requestProjectDetail(this.proid);
     isWeChatMiniApp().then((res) => {
       this.setState({ isWeChatMiniApp: res })
@@ -88,7 +88,7 @@ class SignPage extends React.Component {
       // location.replace(`/sign/signdetail/detail/${this.proid}/${this.Id}`);
       //打卡成功后重新获取数据，更新页面，页面state太多，不知道更新哪些，直接全部获取
       console.info(JSON.stringify(nextProps.clockinginfo.data));
-      this.props.requestClockInfo(this.Id);
+      this.props.requestClockInfo(this.Id,this.proid);
       this.props.requestProjectDetail(this.proid);
       this.openShare(nextProps.clockinginfo.data);
     }
@@ -177,7 +177,7 @@ class SignPage extends React.Component {
 
   }
   handleBallClick = (data) => {
-    this.props.clocking(data);
+    this.props.clocking(data,this.proid);
   }
   renderClock = () => {
     const { data: detaildata } = this.props.clickinfo;
@@ -1010,8 +1010,8 @@ class SignPage extends React.Component {
                
                 {t('签到时间')} &nbsp; &nbsp;
                
-                {!data.start_time ? moment(data.begin).format("YYYY-MM-DD HH:mm") : data.start_time }
-                {/* {moment(data.begin).format("YYYY-MM-DD HH:mm")} */}
+                {/* {!data.start_time ? moment(data.begin).format("YYYY-MM-DD HH:mm") : data.start_time } */}
+                {moment(data.begin).format("YYYY-MM-DD HH:mm")}
               </div>
               {renderfirstDom}
             </li>

@@ -183,7 +183,6 @@ class TeamDetailPage extends React.Component {
     if (user.isLogin) {
       this.props.requestUserInfo();
     }
-
     this.props.requestTeamDetail(this.teamId);
     this.props.requestTeamProjectList(this.teamId);
     if (lastTeamId === 0) {

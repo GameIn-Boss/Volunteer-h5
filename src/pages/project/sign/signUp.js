@@ -128,6 +128,7 @@ class SignUpPage extends React.Component {
             extendsArray: {},
             showMultiple: false,
             stationArray: {},
+            dateArray: {},
             previewData: []
         };
         this.CustomChildren = ({ extra, onClick }) => (
@@ -153,14 +154,19 @@ class SignUpPage extends React.Component {
     componentWillReceiveProps(nextProps) {
         const { detail: Ldetail, joinPay: Lpay, join: Ljoin } = this.props;
         const { detail: Ndetail, joinPay: Npay, join: Njoin } = nextProps;
-        if (Ldetail.fetching && !Ldetail.failed && !Ndetail.fetching && !Ndetail.failed && Ndetail.data && Ndetail.data.custom_config) {
-            this.initialPic(Ndetail.data.custom_config);
-            this.customConfig = Ndetail.data.custom_config;
-        }
         if (Ldetail.fetching && !Ldetail.failed && !Ndetail.fetching && !Ndetail.failed && Ndetail.data && Ndetail.data.station_config) {
             this.initialPic(Ndetail.data.station_config);
             this.stationConfig = Ndetail.data.station_config;
         }
+        if (Ldetail.fetching && !Ldetail.failed && !Ndetail.fetching && !Ndetail.failed && Ndetail.data && Ndetail.data.custom_config) {
+            this.initialPic(Ndetail.data.custom_config);
+            this.customConfig = Ndetail.data.custom_config;
+        }
+        if (Ldetail.fetching && !Ldetail.failed && !Ndetail.fetching && !Ndetail.failed && Ndetail.data && Ndetail.data.project_join_date) {
+            this.initialPic(Ndetail.data.project_join_date);
+            this.dateConfig = Ndetail.data.project_join_date;
+        }
+
 
         if (Ldetail.fetching && !Ldetail.failed && !Ndetail.fetching && !Ndetail.failed && Ndetail.data && Ndetail.data.custom_payment_config) {
             let data = [];
@@ -308,6 +314,32 @@ class SignUpPage extends React.Component {
             </div>
         )
     }
+    renderOtherInfoSelectdate(item) {
+        const data = item;
+        const key = data.key;
+        const options = data.options;
+        return (
+            <div>
+                <div className="page-signUp-danxuan">
+                    {
+                        Number(item.is_required) == 1 ?
+                            <span className="page-project-signUp-verify-header-start page-project-signUp-verify-header-other-start">*</span>
+                            :
+                            null
+                    }
+                    <List renderHeader={() => data.label}>
+                        {options.map((item, index) => ( 
+                            <RadioItem checked={this.state[key] === item.name} key={index} onChange={() => this.onChange(item.name, key)} onClick={() => this.onClick(item.name, key)}>
+                                {item.name} <div className="page-signUp-danxuanstation">报名日期：{item.count}</div>
+                            </RadioItem>                   
+                            ))}                     
+
+                    </List>
+                </div>
+                <div className="line1px" />
+            </div>
+        )
+    }
     onClick = (value, key) => {
         const sceondValue = this.state[key];
         if (value == sceondValue) {
@@ -329,13 +361,16 @@ class SignUpPage extends React.Component {
         const key = e.target.id;
         const value = e.target.value;
         this.pushExtendsArray(key, value);
-        this.pushStationArray(key, value);
+        // this.pushStationArray(key, value);
 
     }
 
     //多选控件
     handleOtherInfoMoreClick = (key, val) => {
         this.pushExtendsArray(key, val, true)
+    };
+    handleOtherInfoMoreClickdate = (key, val) => {
+        this.pushDateArray(key, val, true)
     };
 
     renderOtherInfoCheckbox(item1) {
@@ -366,7 +401,34 @@ class SignUpPage extends React.Component {
             </div>
         )
     }
-
+    renderOtherInfoCheckboxdate(item1) {
+        const CheckboxItem = Checkbox.CheckboxItem;
+        let labels = item1.options.split(',');
+        let data = [];
+        labels.map((item, index) => {
+            let obj = {};
+            obj.value = index;
+            obj.label = item;
+            data.push(obj);
+        });
+        return (
+            <div className="page-project-signUp-other-title">
+                {
+                    Number(item1.is_required) === 1 ?
+                        <span className="page-project-signUp-verify-header-start page-project-signUp-verify-header-other-start">*</span>
+                        :
+                        null
+                }
+                <List renderHeader={() => item1.label}>
+                    {data.map(i => (
+                        <CheckboxItem key={`${item1.key}${i.value}`} onChange={() => this.handleOtherInfoMoreClickdate(item1.key, i.label)}>
+                            {i.label}
+                        </CheckboxItem>
+                    ))}
+                </List>
+            </div>
+        )
+    }
     //单行
     renderOtherInfoInput(item) {
         const data = item;
@@ -656,12 +718,66 @@ class SignUpPage extends React.Component {
 
     }
     
+    pushDateArray(key, value, isMany) {
+        const dateArray = this.state.dateArray;
+        if (!isMany) {
+            if (value == '-1') {
+                if (key in dateArray) {
+                    delete dateArray[key];
+                } else {
+                    return;
+                }
+            } else {
+                dateArray[key] = value;
+            }
+        }else {
+
+            if (key in dateArray) {
+
+                //判断多选选项是否已被选，有的话去掉
+                if (dateArray[key].indexOf(value) !== -1) {
+                    //已存在,需要排序
+                    let dateArrays = dateArray[key].split(',');
+                    let itemIndex = dateArrays.indexOf(value);
+                    dateArrays.splice(itemIndex, 1);
+                    if (dateArrays.length <= 0) {
+                        delete dateArray[key];
+                    } else {
+                        dateArray[key] = dateArrays.join(',');
+                    }
+                } else {
+                    //没有被选择,需要排序.
+                    dateArray[key] = String(dateArray[key]) + ',' + value;
+                }
+                if (key in dateArray && dateArray[key].split(',').length > 1) {
+                    //长度大于1时进行排序
+                    windowOrgConfig.map(i => {
+                        if (i.key === key) {
+                            dateArray[key] = this.softArr(i.options.split(','), dateArray[key].split(',')).join(',');
+                            return;
+                        }
+                    })
+                }
+            } else {
+                //不在多extendsArray里，直接添加。
+                dateArray[key] = value;
+            }
+    }
+
+        this.setState({
+            ...this.state,
+            dateArray
+        })
+        // this.extendsArray = extendsArray;
+
+    }
+    
 
     pushExtendsArray(key, value, isMany) {
         const extendsArray = this.state.extendsArray;
         const windowOrgConfig = this.customConfig;
         const stationArray = this.state.stationArray;
-
+        const dateArray = this.state.dateArray;
         if (!isMany) {
             if (value == '-1') {
                 if (key in stationArray) {
@@ -673,7 +789,6 @@ class SignUpPage extends React.Component {
                 stationArray[key] = value;
             }
         }
-
         if (!isMany) {
             if (value == '-1') {
                 if (key in extendsArray) {
@@ -719,7 +834,7 @@ class SignUpPage extends React.Component {
         }
         this.setState({
             ...this.state,
-            extendsArray
+            extendsArray,
         })
         // this.extendsArray = extendsArray;
 
@@ -739,6 +854,35 @@ class SignUpPage extends React.Component {
                                     return (
                                         <div key={index}>
                                             {this.renderOtherInfoSelectstation(item)}
+                                        </div>
+                                    );
+                                    break;
+                                default:
+                                    return
+                            }
+
+                        })
+                        :
+                        null
+                }
+            </div>
+        )
+    }
+    renderDateInfo() {
+       
+        if (this.props.detail.data === null || this.props.detail.data.project_join_date === null) {
+            return null
+        }
+        return (
+            <div>
+                {
+                    this.props.detail.data.project_join_date && this.props.detail.data.project_join_date.length ?
+                        this.props.detail.data.project_join_date.map((item, index) => {
+                            switch (Number(item.type)) {
+                                case 2:
+                                    return (
+                                        <div key={index}>
+                                            {this.renderOtherInfoCheckboxdate(item)}
                                         </div>
                                     );
                                     break;
@@ -821,6 +965,7 @@ class SignUpPage extends React.Component {
                                         </div>
                                     );
                                     break;
+                               
                                 default:
                                     return
                             }
@@ -907,8 +1052,10 @@ class SignUpPage extends React.Component {
     }
     onSubmmit() {
         const extendsArray = this.state.extendsArray;
-        console.log(extendsArray);
         const stationArray = this.state.stationArray;
+        const dateArray = this.state.dateArray;
+        console.log(dateArray);
+
         let data = {};
         let pay = {};
         data.id = this.projectId;
@@ -932,7 +1079,18 @@ class SignUpPage extends React.Component {
 
             data.station = stationArray;
         }
-        console.log(data.station)
+        if (this.dateConfig && this.dateConfig.length > 0) {
+            console.log(dateArray)
+            if (isRequired(this.dateConfig, dateArray)) {
+
+                isEmpty = false;
+                return;
+            }
+
+            data.date = dateArray;
+        }
+        // console.log(data.date)
+
 
 
         if (this.state.data && this.state.data.length > 0) {
@@ -975,9 +1133,13 @@ class SignUpPage extends React.Component {
                 {//岗位信息
                     this.renderStationInfo()
                 }
+                
 
                 {//自定义信息
                     this.renderOtherInfo()
+                }
+                {//日期信息
+                    this.renderDateInfo()
                 }
                 {this.renderOrder()}
                 <div className="take-up" />

@@ -428,17 +428,17 @@
     border-radius: 50%;
     width: 21px;
     height: 21px;
-    /* border-color: #108ee9;
-    background: #108ee9; */
+    /* border-color: #F6AB00;
+    background: #F6AB00; */
   }
   .page-signUp-danxuan  .am-radio-checked .am-radio-inner{
     left: 0;
     top: 15px;
-    border: 1px solid #108ee9;
+    border: 1px solid #F6AB00;
     border-radius: 50%;
     width: 21px;
     height: 21px;
-    background: #108ee9;
+    background: #F6AB00;
    
   }
   .page-signUp-danxuan   .am-radio.am-radio-checked .am-radio-inner:after{
@@ -603,5 +603,5 @@
     position: absolute;
     bottom: 12px;
     font-size: 13px;
-    color: #576B95;
+    color: #F6AB00;
 }

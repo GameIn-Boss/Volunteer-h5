@@ -60,7 +60,7 @@ export const joinTeam = (teamId, detailData) => ({
       id: teamId,
       type: 1, // 0-退出, 1-加入
     },
-    successWords: detailData.join_type === 1 ? i18next.t('您已加入该团队') : i18next.t('已成功申请，请耐心等待审核'),
+    successWords: detailData.join_type === 1 ? i18next.t('您已加入该团队') : i18next.t('报名成功，等待审核，工作人员会联系您告知培训相关事宜'),
   }),
 });
 

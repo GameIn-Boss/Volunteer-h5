@@ -259,14 +259,16 @@ class ProjectDetailPage extends React.Component {
                             
                             const customConfig = detailData.custom_config || null;
                             const paymentConfig = detailData.custom_payment_config || null;
-                            if (!customConfig && !paymentConfig) {
+                            const stationConfig = detailData.stationConfig || null;
+                            const dateConfig = detailData.project_join_date || null;
+                            if (!customConfig && !paymentConfig && !stationConfig && !dateConfig) {
                                 const {
                                     detail: { data: detailData }
                                 } = this.props;
                                 this.props.joinProject(this.projectId, detailData.join_verify_status);
                                 this.setState({ ...this.state, showDialogjoin: false });
 
-                            } else if (customConfig || paymentConfig) {
+                            } else if (customConfig || paymentConfig || stationConfig || dateConfig) {
                                 // window.location.replace(`/project/signup/${projectId}`)
                                 window.location.href = `/project/signup/${this.projectId}`;
                                 this.setState({ ...this.state, showDialogjoin: false });
@@ -481,7 +483,7 @@ class ProjectDetailPage extends React.Component {
             showShareTip: true
         });
     }
-    handleActionClickSitch(action, projectId, customConfig, paymentConfig) {
+    handleActionClickSitch(action, projectId, customConfig, paymentConfig,stationConfig,dateConfig) {
         if (action === "join") {
             this.setState({ ...this.state, showDialogjoin: true });
         } else if (action === "quit") {
@@ -498,6 +500,7 @@ class ProjectDetailPage extends React.Component {
         } = this.props;
         const customConfig = detailData.custom_config || null;
         const stationConfig = detailData.station_config || null;
+        const dateConfig = detailData.project_join_date || null;
         const paymentConfig = detailData.custom_payment_config || null;
         return () => {
             // in_blacklist 黑名单 0不在，1在
@@ -515,6 +518,7 @@ class ProjectDetailPage extends React.Component {
                         projectId,
                         customConfig,
                         stationConfig,
+                        dateConfig,
                         paymentConfig
                     );
                     // 要求实名切用户未实名过，通过ID判断
@@ -593,7 +597,8 @@ class ProjectDetailPage extends React.Component {
                             projectId,
                             customConfig,
                             stationConfig,
-                            paymentConfig
+                            paymentConfig,
+                            dateConfig
                         );
                     }
                 }
@@ -724,8 +729,11 @@ class ProjectDetailPage extends React.Component {
             actionClassName = "project-action-available";
             action = "join";
         } else if (isLogin && detailData.join_status === 0 && detailData.join_verify_status === 1) {
-            actionLabel = t('等待审核');
-            actionClassName = "project-action-audit";
+            // actionLabel = t('等待审核');
+            // actionClassName = "project-action-audit";
+            actionLabel = t('我要退出');
+            actionClassName = "project-action-quit";
+            action = "quit";
         } else if (joined) {
             actionLabel = t('我要退出');
             actionClassName = "project-action-quit";
