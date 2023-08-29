@@ -26,12 +26,12 @@ export const requestTeamDemandList = teamId => ({
   payload: fetch('/wuqingdemand', { method: 'GET', data: { team_id: teamId, page_size: 1000 } }),
 });
 
-export const requestGoodsList = data => ({
+export const requestGoodsList = teamId => ({
   type: 'SHOP_GOODS_LIST',
-  meta: {
-    more: data.more,
-  },
-  payload: fetch('/wuqinggoods', { method: 'GET', data, loading: !data.more }),
+  // meta: {
+  //   more: data.more,
+  // },
+  payload: fetch('/wuqinggoods', { method: 'GET',  data: { team_id: teamId } }),
 });
 
 /**

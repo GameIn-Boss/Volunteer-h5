@@ -51,7 +51,7 @@ class Wuqing extends React.Component {
                 <div>
                  
                   <Link to={`/wuqing/detail/${project.id}`} className="project-main">
-                    <Image className="image" src='http://api.volzdx.cn/image//uploads//2023-06//610951686571054.jpeg' defaultSrc="/images/default_banner.png" alt="项目图片" />
+                    <Image className="image" src={`${project.team_photo}`}  alt="项目图片" />
                     <div className="project-name">
                       {project.name}
 

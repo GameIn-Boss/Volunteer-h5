@@ -400,7 +400,7 @@ class TeamDetailPage extends React.Component {
           className="team-photo"
           src={detailData.logo}
           alt="团队图片"
-          defaultSrc="http://api.volzdx.cn/image//uploads//2023-06//610951686571054.jpeg"
+          defaultSrc={detailData.team_photo}
         />
       );
     }

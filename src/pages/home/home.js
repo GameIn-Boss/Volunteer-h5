@@ -143,7 +143,12 @@ class HomePage extends React.Component {
     } else if(window.orgCode === '7N1aM8AeWm') {
       target='/my/login';
     }
-
+    // if(window.orgInfo.language_change === 0){
+    //   // language = 'zh-CN';
+    //   i18n.changeLanguage("zh-CN");
+    //   setCookie('i18nextLng', "zh-CN");
+    //   location.reload();
+    // }
     const changeGlobalLanguage = () => {
       i18n.changeLanguage(language === 'zh-CN' ? 'en-US' : 'zh-CN');
       setCookie('i18nextLng', language === 'zh-CN' ? 'en-US' : 'zh-CN');
