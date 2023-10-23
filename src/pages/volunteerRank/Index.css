@@ -1,5 +1,5 @@
 .volunteer-rank-top {
-    height: 196px;
+    height: 235px;
     background-image: radial-gradient(50% 153%, #FFFFFF 0%, #EAE9E4 100%);
 }
 .volunteer-rank-top-avatar {
@@ -101,7 +101,7 @@
 
 .volunteer-rank-bot-box {
     display: flex;
-    height: 69px;
+    height: 75px;
     align-items: center;
     padding: 0 43px;
     justify-content: space-between;
