@@ -117,6 +117,18 @@
 .page-project-signUp-verify-header-other-start {
     top: 23px;
 }
+.page-project-signUp-verify-header-start-date {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    color: red;
+    font-size: 12px;
+
+}
+
+.page-project-signUp-verify-header-other-start-date {
+    top: 36px;
+}
 
 .page-project-signUp-verify-header-box-pic-fonts {
     font-size: 15px;
@@ -476,6 +488,82 @@
 
  }
  .page-signUp-danxuanstation{
+    flex: 1 1 0%;
+    color: #545151d9;
+    font-size: 12px;
+    /* text-align: right; */
+    /* width: auto; */
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
+    /* white-space: nowrap; */
+    /* padding: 0; */
+    display: flex;
+    /* height: 44px; */
+    white-space: pre-wrap;
+
+ }
+ .page-signUp-duoxuan{
+    position: relative;
+}
+.page-signUp-duoxuan .am-list-line{
+    /* padding-left: 40px; */
+    position: relative;
+  }
+  .page-signUp-duoxuan .am-list .am-list-item.am-radio-item .am-list-line .am-list-extra .am-radio-inner{
+    left: 0;
+    top: 15px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 21px;
+    height: 21px;
+    /* border-color: #108ee9;
+    background: #108ee9; */
+  }
+  .page-signUp-duoxuan  .am-radio-checked .am-radio-inner{
+    left: 0;
+    top: 15px;
+    border: 1px solid #108ee9;
+    border-radius: 50%;
+    width: 21px;
+    height: 21px;
+    background: #108ee9;
+   
+  }
+  .page-signUp-duoxuan   .am-radio.am-radio-checked .am-radio-inner:after{
+    border-color: #fff;
+    
+  }
+  .page-signUp-duoxuan  .am-radio-inner:after{
+    position: absolute;
+    display: none;
+    top: 2px;
+    right: 6px;
+    z-index: 999;
+    width: 5px;
+    height: 11px;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    content: ' ';
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+ }
+ .page-signUp-duoxuan .am-list-item .am-list-line .am-list-content{
+    flex: 1 1 0%;
+    color: #545151d9;
+    font-size: 13px;
+    line-height: 25px;
+    text-align: left;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0;
+    /* display: flex;
+    height: 44px; */
+    white-space: pre-wrap;
+
+ }
+ .page-signUp-duoxuanstation{
     flex: 1 1 0%;
     color: #545151d9;
     font-size: 12px;

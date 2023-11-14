@@ -517,14 +517,14 @@ class TeamDetailPage extends React.Component {
       <ShopItem data={listData && listData.list || null} />
     )
   }
-  renderDemand() {
+  renderDemand(teamname) {
     const { demand: {  allDemandList} } = this.props;
 
     const showLoadingMore = allDemandList.data && (allDemandList.data.current_page < allDemandList.data.last_page)
     const windowHeight = document.documentElement.clientHeight;
     return(
     <div className="demand" style={{minHeight: `${windowHeight}px`}}>
-         <Link to='/demand/sponsor' className="demand-sponsor">
+         <Link to={`/demand/sponsor/${teamname}`} className="demand-sponsor">
         <Image src="/images/demand/set_up.png" resize={{width: 98, height: 98}} style={{width: '98px', height: '98px'}}/>
       </Link>
   {this.publicDemand(allDemandList) }
@@ -661,7 +661,8 @@ class TeamDetailPage extends React.Component {
       <div className="page-team-detail">
                       {this.renderBasic()}
                       <div className="line1px" />
-
+                     
+                     { this.teamId == 11975 ?
         <Tab
           tabs={[
             {
@@ -673,14 +674,35 @@ class TeamDetailPage extends React.Component {
               component: this.renderItem()
             },
             {
-              label: t("微心愿"),
-              component: this.renderDemand()
+              
+              label: t("电力服务"),
+              component: this.renderDemand(detailData.id)
             }
           ]}
           onChange={this.onTabChange}
           selectedIndex={tabTeamIndex}
-        />
-
+        /> 
+        :
+        <Tab
+        tabs={[
+          {
+            label: t("志愿活动"),
+            component: this.renderProjects()
+          },
+          {
+            label: t("积分商城"),
+            component: this.renderItem()
+          },
+          {
+            
+            label: t("微心愿"),
+            component: this.renderDemand(detailData.id)
+          }
+        ]}
+        onChange={this.onTabChange}
+        selectedIndex={tabTeamIndex}
+      /> 
+      }
         <ActionSheet
           menus={this.state.menus}
           actions={this.state.actions}

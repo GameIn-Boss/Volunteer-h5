@@ -21,6 +21,9 @@ class DemandSponsor extends React.Component {
   constructor(props) {
     super(props);
     autoBind(this);
+     
+      this.teamid = props.route.params.teamid
+
   }
 
   componentDidMount() {
@@ -37,7 +40,7 @@ class DemandSponsor extends React.Component {
   }
 
   onSubmit() {
-    const {name, phone, category, title, content, village, addr} = this;
+    const {teamid,name, phone, category, title, content, village, addr} = this;
     if(!judgeValue('求助人', name.value) || !judgeValue('电话', phone.value) || !judgeValue('标题', title.value) || !judgeValue('求助信息', content.value) || !judgeValue('详细地址', addr.value)) {
       return;
     }
@@ -50,6 +53,8 @@ class DemandSponsor extends React.Component {
       return;
     }
     const data = {
+      
+      teamid: teamid.value,
       name: name.value,
       phone: phone.value,
       category: category.value,
@@ -66,6 +71,10 @@ class DemandSponsor extends React.Component {
     const windowHeight = document.documentElement.clientHeight;
     const orgInfo = window.orgInfo;
     return(<div className="sponsor" style={{minHeight: `${windowHeight}px`}}>
+    {/* <div className="sponsor-line sponsor-line-ipt"> */}
+        {/* <div className="sponsor-line-ipt-label">团队名称</div> */}
+        <input className="sponsor-line-ipt-value" value={this.teamid} ref={val => this.teamid = val} type="hidden" disabled="disabled" />
+      {/* </div> */}
       <div className="sponsor-line sponsor-line-ipt">
         <div className="sponsor-line-ipt-label">求助人</div>
         <input className="sponsor-line-ipt-value" ref={val => this.name = val} type="text" placeholder="输入姓名"/>

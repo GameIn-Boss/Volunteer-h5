@@ -421,7 +421,11 @@ class MyPage extends React.Component {
     } // todo 维他奶需要定制化证书
     if (orgCode === "yJrb2kKdWL") {
       return "/my/certificateSanyi";
-    } // todo 三一需要定制化证书
+    } 
+    if (orgCode === "4openRe7Az") {
+      return "/my/certificateHzzy";
+    } 
+    // todo 三一需要定制化证书
     return '/my/certificate';
   }
 

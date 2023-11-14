@@ -192,6 +192,11 @@
     "chunk": "main"
   },
   {
+    "path": "/my/certificatehzzy",
+    "page": "./pages/my/certificate/certificateHzzy",
+    "chunk": "main"
+  },
+  {
     "path": "/my/fundingApplication/list",
     "page": "./pages/my/fundingApplication/list",
     "chunk": "main"
@@ -568,6 +573,11 @@
   },
   {
     "path": "/demand/sponsor",
+    "page": "./pages/demand/sponsor",
+    "chunk": "main"
+  },
+  {
+    "path": "/demand/sponsor/:teamid",
     "page": "./pages/demand/sponsor",
     "chunk": "main"
   },

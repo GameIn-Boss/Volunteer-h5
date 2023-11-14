@@ -128,7 +128,9 @@ class SignUpPage extends React.Component {
             extendsArray: {},
             showMultiple: false,
             stationArray: {},
-            previewData: []
+            previewData: [],
+            stationDateArray: {}
+
         };
         this.CustomChildren = ({ extra, onClick }) => (
 
@@ -160,6 +162,10 @@ class SignUpPage extends React.Component {
         if (Ldetail.fetching && !Ldetail.failed && !Ndetail.fetching && !Ndetail.failed && Ndetail.data && Ndetail.data.custom_config) {
             this.initialPic(Ndetail.data.custom_config);
             this.customConfig = Ndetail.data.custom_config;
+        }
+        if (Ldetail.fetching && !Ldetail.failed && !Ndetail.fetching && !Ndetail.failed && Ndetail.data && Ndetail.data.date_station_config) {
+            this.initialPic(Ndetail.data.date_station_config);
+            this.stationDateConfig = Ndetail.data.date_station_config;
         }
 
         if (Ldetail.fetching && !Ldetail.failed && !Ndetail.fetching && !Ndetail.failed && Ndetail.data && Ndetail.data.custom_payment_config) {
@@ -329,6 +335,8 @@ class SignUpPage extends React.Component {
         const value = e.target.value;
         this.pushExtendsArray(key, value);
         this.pushStationArray(key, value);
+        this.pushStationDateArray(key, value);
+
     }
 
     //多选控件
@@ -364,6 +372,47 @@ class SignUpPage extends React.Component {
             </div>
         )
     }
+ //多选控件
+ handleOtherDateInfoMoreClick = (key, val) => {
+
+    this.pushStationDateArray(key, val);
+};
+
+renderOtherDateInfoCheckbox(item1) {
+    const CheckboxItem = Checkbox.CheckboxItem;
+    const data = item1;
+        const key = data.key;
+        const options = data.station_date_config;
+    return (
+        <div className="page-signUp-duoxuan">
+            {
+                Number(item1.is_required) === 1 ?
+                    <span className="page-project-signUp-verify-header-start page-project-signUp-verify-header-other-start">*</span>
+                    :
+                    null
+            }
+                 <span className="page-project-signUp-verify-header-start-date page-project-signUp-verify-header-other-start-date">* 最多可选{data.date_count}个期</span>
+
+                         <List renderHeader={() => data.label  }>       
+
+
+                        {options.map((item1, index) => ( 
+                            <CheckboxItem  key={`${data.key}${item1.join_station_date}`} disabled={item1.join_num == item1.people_count}  onChange={() => this.handleOtherDateInfoMoreClick(data.key, item1.join_station_date)}>
+                                {item1.join_station_date}  <div className="page-signUp-duoxuanstation">招募人数：{item1.count}</div>
+                            </CheckboxItem>                   
+                            ))}                     
+                    </List>
+            {/* <List renderHeader={() => item1.label}>
+                {data.map(i => (
+                    <CheckboxItem key={`${item1.key}${i.value}`} onChange={() => this.handleOtherDateInfoMoreClick(item1.key, i.label)}>
+                        {i.label}
+                    </CheckboxItem>
+                ))}
+            </List> */}
+        </div>
+    )
+}
+
 
     //单行
     renderOtherInfoInput(item) {
@@ -653,7 +702,46 @@ class SignUpPage extends React.Component {
         // this.extendsArray = extendsArray;
 
     }
-    
+    pushStationDateArray(key, value, isMany) {
+        const stationDateArray = this.state.stationDateArray;
+        if (key in stationDateArray) {
+
+            //判断多选选项是否已被选，有的话去掉
+            if (stationDateArray[key].indexOf(value) !== -1) {
+                //已存在,需要排序
+                let stationDateArrays = stationDateArray[key].split(',');
+                let itemIndex = stationDateArrays.indexOf(value);
+                stationDateArrays.splice(itemIndex, 1);
+                if (stationDateArrays.length <= 0) {
+                    delete stationDateArray[key];
+                } else {
+                    stationDateArray[key] = stationDateArrays.join(',');
+                }
+            } else {
+                //没有被选择,需要排序.
+                stationDateArray[key] = String(stationDateArray[key]) + ',' + value;
+            }
+            if (key in stationDateArray && stationDateArray[key].split(',').length > 1) {
+                //长度大于1时进行排序
+                windowOrgConfig.map(i => {
+                    if (i.key === key) {
+                        stationDateArray[key] = this.softArr(i.options.split(','), stationDateArray[key].split(',')).join(',');
+                        return;
+                    }
+                })
+            }
+        } else {
+            //不在多extendsArray里，直接添加。
+            stationDateArray[key] = value;
+        }
+        this.setState({
+            ...this.state,
+            stationDateArray
+        })
+        // this.extendsArray = extendsArray;
+
+    }
+
     pushExtendsArray(key, value, isMany) {
         const extendsArray = this.state.extendsArray;
         const stationArray = this.state.stationArray;
@@ -720,6 +808,46 @@ class SignUpPage extends React.Component {
         // this.extendsArray = extendsArray;
 
     }
+        //多选日期岗位
+        renderStationDateInfo() {
+
+            if (this.props.detail.data === null || this.props.detail.data.date_station_config === null) {
+                return null
+            }
+            return (
+                <div>
+                    {
+                        this.props.detail.data.date_station_config && this.props.detail.data.date_station_config.length ?
+                            this.props.detail.data.date_station_config.map((item, index) => {
+                                switch (Number(item.type)) {//单项选择
+                                    case 1:
+                                        return (
+                                            <div key={index}>
+                                                {this.renderOtherInfoSelect(item)}
+                                            </div>
+                                        );
+                                        break;
+                                    //多项选择
+                                    case 2:
+                                        return (
+                                            <div key={index}>
+                                                {this.renderOtherDateInfoCheckbox(item)}
+                                            </div>
+                                        );
+                                        break;
+                                    //单行输入
+                               
+                                    default:
+                                        return
+                                }
+    
+                            })
+                            :
+                            null
+                    }
+                </div>
+            )
+        }
     
     renderStationInfo() {
 
@@ -905,6 +1033,8 @@ class SignUpPage extends React.Component {
         const extendsArray = this.state.extendsArray;
         console.log(extendsArray);
         const stationArray = this.state.stationArray;
+        const stationDateArray = this.state.stationDateArray;
+
         let data = {};
         let pay = {};
         data.id = this.projectId;
@@ -929,6 +1059,17 @@ class SignUpPage extends React.Component {
             data.station = stationArray;
         }
         console.log(data.station)
+        if (this.stationDateConfig && this.stationDateConfig.length > 0) {
+
+            if (isRequired(this.stationDateConfig, stationDateArray)) {
+
+                isEmpty = false;
+                return;
+            }
+
+            data.datestation = stationDateArray;
+        }
+        console.log(data.datestation)
 
         if (this.state.data && this.state.data.length > 0) {
             let payData = this.state.data;
@@ -971,10 +1112,14 @@ class SignUpPage extends React.Component {
                 {//岗位信息
                     this.renderStationInfo()
                 }
+                {//岗位信息
+                    this.renderStationDateInfo()
+                }
                 {//自定义信息
                     this.renderOtherInfo()
                 }
-    
+       
+
                 {this.renderOrder()}
                 <div className="take-up" />
 

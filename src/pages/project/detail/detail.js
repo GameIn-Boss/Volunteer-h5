@@ -430,7 +430,7 @@ class ProjectDetailPage extends React.Component {
             showShareTip: true
         });
     }
-    handleActionClickSitch(action, projectId, customConfig, paymentConfig,stationConfig) {
+    handleActionClickSitch(action, projectId, customConfig, paymentConfig,stationConfig,stationDateConfig) {
         if (action === "join") {
             if (projectId == 1035) {
                 window.location.href = "http://lxi.me/17i1a";
@@ -443,12 +443,12 @@ class ProjectDetailPage extends React.Component {
                     "http://wx.zgzyzfw.n.gongyibao.cn/#/donform?accId=cc0b9f9a-2cef-4b0c-829f-d2f29ee87534&proId=bdb2cac7-ac34-4446-bcd9-5d3ee4f4c3ad&paymethod=1&projectTitle=%E5%BE%AE%E7%88%B1%E7%89%B5%E6%89%8B&rf=0.30765105282089134";
                 return;
             }
-            if (!customConfig && !paymentConfig && !stationConfig ) {
+            if (!customConfig && !paymentConfig && !stationConfig && !stationDateConfig) {
                 const {
                     detail: { data: detailData }
                 } = this.props;
                 this.props.joinProject(projectId, detailData.join_verify_status);
-            } else if (customConfig || paymentConfig || stationConfig) {
+            } else if (customConfig || paymentConfig || stationConfig || stationDateConfig) {
                 // window.location.replace(`/project/signup/${projectId}`)
                 window.location.href = `/project/signup/${projectId}`;
                 // history.replace(`/project/signup/${projectId}`)
@@ -471,6 +471,7 @@ class ProjectDetailPage extends React.Component {
             t,
         } = this.props;
         const stationConfig = detailData.station_config || null;
+        const stationDateConfig = detailData.date_station_config || null;
         const customConfig = detailData.custom_config || null;
         const paymentConfig = detailData.custom_payment_config || null;
         return () => {
@@ -489,7 +490,8 @@ class ProjectDetailPage extends React.Component {
                         projectId,
                         customConfig,
                         paymentConfig,
-                        stationConfig
+                        stationConfig,
+                        stationDateConfig
                     );
                     // 要求实名切用户未实名过，通过ID判断
                 } else if (realRegister == 1 && user.isLogin) {
@@ -566,7 +568,8 @@ class ProjectDetailPage extends React.Component {
                             projectId,
                             customConfig,
                             paymentConfig,
-                            stationConfig
+                            stationConfig,
+                            stationDateConfig
                         );
                     }
                 }
