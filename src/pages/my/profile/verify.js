@@ -540,7 +540,8 @@ class Verify extends React.Component {
     const township = this.props.address.data.township;
 
     let shouldShowAddressDetail = false;
-    if (window.orgCode !== 'kQBeXDWeyK') {
+
+    if (window.orgCode !== 'kQBeXDWeyK' &&window.orgCode !== "EKQe1wRbJY" && window.orgCode !== "Wpmbk5XezJ") {
        shouldShowAddressDetail = true;
     }
     // let  shouldShowAddressDetail = true;
@@ -1211,12 +1212,13 @@ class Verify extends React.Component {
     if (window.orgCode !== 'kQBeXDWeyK' && window.orgCode !== "EKQe1wRbJY") {
       shouldShowNation = true;
     }
-    if (window.orgCode !== "EKQe1wRbJY") {
+    if (window.orgCode !== "EKQe1wRbJY" && window.orgCode !== "Wpmbk5XezJ") {
       shouldShowIdCard = true;
     }
-    if (window.orgCode !== "EKQe1wRbJY") {
+    if (window.orgCode !== "EKQe1wRbJY" ) {
       shouldShowAddr = true;
     }
+
 
     return (
       <div className="page-my-profile-verify-container">

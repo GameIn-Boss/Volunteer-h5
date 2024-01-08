@@ -552,7 +552,7 @@ class BindInfo extends React.Component {
         const township = this.props.address.data.township;
 
         let shouldShowAddressDetail = false;
-        if (window.orgCode !== 'kQBeXDWeyK') {
+        if (window.orgCode !== 'kQBeXDWeyK' && window.orgCode !== 'Wpmbk5XezJ' ) {
             shouldShowAddressDetail = true;
         }
         return (
