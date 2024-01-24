@@ -1212,7 +1212,7 @@ class Verify extends React.Component {
     if (window.orgCode !== 'kQBeXDWeyK' && window.orgCode !== "EKQe1wRbJY") {
       shouldShowNation = true;
     }
-    if (window.orgCode !== "EKQe1wRbJY" && window.orgCode !== "Wpmbk5XezJ") {
+    if (window.orgCode !== "EKQe1wRbJY") {
       shouldShowIdCard = true;
     }
     if (window.orgCode !== "EKQe1wRbJY" ) {

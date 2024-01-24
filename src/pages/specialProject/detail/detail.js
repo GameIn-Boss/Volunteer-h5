@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { Dialog, ActionSheet } from "react-weui";
 import "weui/dist/style/weui.css";
 import "react-weui/build/packages/react-weui.css";
+import Projects from '../../../components/projects/projects';
 
 import { connect } from "react-redux";
 import classnames from "classnames";
@@ -62,64 +63,20 @@ class ProjectDetailContent extends React.Component {
     componentWillMount() {
         const { data: detailData, t } = this.props;
         var arr = [];
-        for (let attr in detailData) {
-            if (attr == "service_object_public" && detailData.service_object_public && detailData.service_object.length) {
-                const serviceObjects = detailData.service_object
-                    .map(obj => obj.service_object_name)
-                    .join("、");
-                arr.push({ label: t('服务对象'), value: serviceObjects, islast: false });
-            } else if (attr == "join_end_public" && detailData.join_end_public && !detailData.jinyun_state) {
+         
                 arr.push({
-                    label: t('招募截止'),
-                    value: detailData.join_end,
-                    islast: false
-                });
-            } else if (attr == "begin_public" && detailData.begin_public) {
-                arr.push({
-                    label: t('活动日期'),
+                    label: t('项目实施时间'),
                     value: `${parseTimeStringToDateString(
                         detailData.begin
                     )}-${parseTimeStringToDateString(detailData.end)}`,
                     islast: false
                 });
-            }else if (attr == "time_public" && detailData.time_public) {
                 arr.push({
-                    label: t('活动时间'),
-                    value: `${detailData.start_time}-${detailData.end_time}`,   
-                 islast: false
-                });
-            } else if (
-                attr == "reward_time_public" &&
-                detailData.reward_time_public &&
-                !detailData.jinyun_state
-            ) {
-                arr.push({
-                    label: t('服务时长'),
-                    value: `${detailData.reward_time}${t('小时')}`,
+                    label: t('项目地点'),
+                    value: `${parseTimeStringToDateString(detailData.province_name)}${parseTimeStringToDateString(detailData.city_name)}${parseTimeStringToDateString(detailData.county_name)}${parseTimeStringToDateString(detailData.addr)}`,
                     islast: false
                 });
-            } else if (
-                attr == "contact_phone_public" &&
-                detailData.contact_phone_public
-            ) {
-                arr.push({
-                    label: t('联系人姓名'),
-                    value: detailData.contact_name,
-                    islast: false
-                });
-                arr.push({
-                    label: t('联系人电话'),
-                    value: detailData.contact_phone,
-                    islast: false
-                });
-            }
-            // if (detailData.special_id != 0 ) {
-                
-            // }
-        }
-        if (detailData.special_id != 0 ) {
-                arr.push({ label: t('所属项目'), value: detailData.special, islast: false });
-         }
+              
         if (arr && arr.length > 0) {
             arr[arr.length - 1].islast = true;
         }
@@ -164,18 +121,7 @@ class ProjectDetailContent extends React.Component {
                                 );
                             })}
                     </ul>
-                    {detailData.volunteer_security_public && detailData.volunteer_security? (
-                        <div className="project-guard">
-                            <img src="/images/icon_safeguard.png" alt="保障" />
-                            <span>{t('志愿保障')}</span>
-                            <div className="line1px-v" />
-                            <div className="guard-detail">
-                                {detailData.volunteer_security
-                                    ? detailData.volunteer_security
-                                    : t('无')}
-                            </div>
-                        </div>
-                    ) : null}
+                  
                 </div>
             </div>
         );
@@ -673,8 +619,8 @@ class ProjectDetailPage extends React.Component {
         }
 
         const content = detailData.content;
-        // join_status: [integer] 0审核中 1通过 2驳回, 详情页下发，登陆后如加入活动才有此字段
-        // activity_status: [integer] 活动状态 1 招募中，2进行中 3已结束
+        // join_status: [integer] 0审核中 1通过 2驳回, 详情页下发，登陆后如加入项目才有此字段
+        // activity_status: [integer] 项目状态 1 招募中，2进行中 3已结束
         const joined =
             isLogin && (detailData.join_status === 0 || detailData.join_status === 1);
         const fulled = detailData.join_people_count === detailData.people_count;
@@ -698,7 +644,7 @@ class ProjectDetailPage extends React.Component {
             actionLabel = t('招募截止');
             actionClassName = "project-action-full";
         } else if (!joined && detailData.project_status > 9) {
-            actionLabel = t('活动审核中');
+            actionLabel = t('项目审核中');
             actionClassName = "project-action-full";
         } else if (!joined) {
             actionLabel = t('我要报名');
@@ -723,30 +669,11 @@ class ProjectDetailPage extends React.Component {
             <div>
                 <div className="header">
                     {this.renderSlick()}
-                    <Link
-                        to={`/team/detail/${detailData.team.id}`}
-                        className="header-addition"
-                    >
-                        <div className="team-info">
-                            <Avatar
-                                src={detailData.team.logo}
-                                size={{ width: 30, radius: 4 }}
-                            />
-                            <span style={{ marginLeft: "10px" }}>{detailData.team.name}</span>
-                        </div>
-                        <img src="/images/my/more.png" />
-                    </Link>
+                  
                 </div>
                 <div className="body">
                     <div className="project-name">{detailData.name}</div>
-                    <div className="project-category">
-                        <div style={{ color: "#666666", marginBottom: "4px" }}>
-                            {detailData.category_public
-                                ? `# ${serviceCategories.join("、")}${detailData.jinyun_state ? (detailData.category.length ? '、津云活动':'津云活动'):''}`
-                                : null}
-                        </div>
-                        <div>{detailData.created_at.split(" ")[0]}</div>
-                    </div>
+                   
 
                     {detailData.addr_public ? (
                         <div className="project-category">
@@ -780,7 +707,7 @@ class ProjectDetailPage extends React.Component {
                         />
                     ) : null}
                     <div className="project-description">
-                        <div>{t('活动介绍')}</div>
+                        <div>{t('项目介绍')}</div>
                         <p
                             dangerouslySetInnerHTML={{
                                 __html: content
@@ -796,49 +723,16 @@ class ProjectDetailPage extends React.Component {
                             backgroundRepeat: 'no-repeat',
                         }} />
                     </div>
-                    <div className="project-description-takeup" />
                 </div>
-                {
-                    !detailData.jinyun_state && <div className="foot">
-                        <div className="line1px" />
-                        <Link
-                            to=""
-                            onClick={this.handleFavoriteClick}
-                            className="project-action project-action-favorite"
-                        >
-                            <span
-                                className={classnames({
-                                    selected: detailData.collection_status
-                                })}
-                            />
-                            <span>{t('收藏')}</span>
-                        </Link>
-                        <Link
-                            to=""
-                            onClick={e =>
-                                this.setState({
-                                    visible: true
-                                })
-                            }
-                            className="project-action project-action-share"
-                        >
-                            <span />
-                            <span>{t('分享')}</span>
-                        </Link>
+                <div className="project-description-takeup" />
+                <div className="line1px-vs" />
 
-                        {action === "two" ? (
-                            this.renderTwoBtn()
-                        ) : (
-                                <Link
-                                    to=""
-                                    onClick={this.handleActionClick(action)}
-                                    className={`project-action-main ${actionClassName}`}
-                                >
-                                    {actionLabel}
-                                </Link>
-                            )}
-                    </div>
-                }
+                <div className="project-list">
+
+                <span>{t('活动列表')}</span>
+                </div>
+
+            <Projects projects={detailData ? detailData.list : null} />
 
             </div>
         );
@@ -918,8 +812,7 @@ class ProjectDetailPage extends React.Component {
             <div className="page-project-detail">
                 <Tab
                     tabs={[
-                        { label: t('活动详情'), component: this.renderBasic() },
-                        { label: t('活动社区'), component: this.renderCommunity() }
+                        { label: t('项目详情'), component: this.renderBasic() },
                     ]}
                     onChange={this.onTabChange}
                     selectedIndex={tabIndex}
@@ -941,7 +834,7 @@ class ProjectDetailPage extends React.Component {
                     show={this.state.showDialog}
                 >
                     {this.state.dialogType
-                        ? t('确定要退出活动吗') + '？'
+                        ? t('确定要退出项目吗') + '？'
                         : t('只有登录的用户才能点赞和评论哦～')}
                 </Dialog>
                 {this.renderModal()}
@@ -974,7 +867,7 @@ ProjectDetailPage.propTypes = {
     })
 };
 
-ProjectDetailPage.title = i18next.t("活动详情");
+ProjectDetailPage.title = i18next.t("项目详情");
 
 export default connect(
     state => ({

@@ -11,6 +11,8 @@ import Link from "../../components/link/link";
 import Image from "../../components/image/image";
 import Avatar from "../../components/avatar/avatar";
 import Projects from "../../components/projects/projects";
+import SpecialProjects from '../../components/specialprojects/projects';
+
 import Menus from "../../components/menus/menus";
 import Announcement from "../../components/announcement/announcement";
 import {
@@ -458,6 +460,25 @@ class HomePage extends React.Component {
                   </Link>
                 </div>
               )}
+              {orgCode === "Wpmbk5XezJ" ?
+
+                <div className="project-list">
+             <div className="list-header">
+                  <div className="main-label">
+                    <div className="label-line" />
+                    <span>
+                     {t('专项活动')}
+                    </span>
+                    <div className="label-line" />
+                  </div>
+                </div> 
+              
+                <div className="line1px" />
+                <SpecialProjects projects={(home.data && home.data.specialproject) || []} />
+              </div>
+              : (
+                null
+              )}
               <div className="project-list">
             {orgCode === "yJrb2kKdWL" ? null :(
                 <div className="list-header">
@@ -476,6 +497,7 @@ class HomePage extends React.Component {
                 <div className="line1px" />
                 <Projects projects={(home.data && home.data.project) || []} />
               </div>
+            
             </div>
           )}
         </div>

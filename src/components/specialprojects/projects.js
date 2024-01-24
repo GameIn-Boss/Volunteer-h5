@@ -12,7 +12,7 @@ import { parseTimeStringToDateString, parseDistance, isVolunteerInsure } from '.
 import { translate } from 'react-i18next';
 import i18next from 'i18next';
 
-class Projects extends React.Component {
+class SpecialProjects extends React.Component {
 
   constructor(props) {
     super(props);
@@ -82,23 +82,24 @@ class Projects extends React.Component {
             // let statusClassnames =
             return <li key={project.id}>
                 <div>
-                  <Link to={`/team/detail/${project.team.id}`} className="project-header">
-                    <Avatar src={team.logo} size={{ width: 30, radius: 4 }} />
-                    <div className="org-name">{team.name}</div>
-                  </Link>
-                  <Link to={`/project/detail/${project.id}`} className="project-main">
+              
+                  <Link to={`/special/detail/${project.id}`} className="project-main">
                     <Image className="image" src={(project.photo && project.photo.length && Array.isArray(project.photo) && project.photo[0]) || project.list_photo} defaultSrc="/images/default_banner.png" alt="项目图片" />
                     <div className="project-name">
                       {project.name}
 
-                      <div className={classnames({
-                          "project-name-logo": volunteer
-                        })} />
+                 
                     </div>
                     <div className="project-date">
                       {t('活动日期')}：{parseTimeStringToDateString(project.begin)}-{parseTimeStringToDateString(project.end)}
-                      </div>
-
+                    
+                  </div>
+                  {/* <div className="project-footer">
+                    <div className="project-location">
+                      {name.length&&name || t('全国')} {project.distance == -1 ? '' : (project.distance > 0 ? parseDistance(project.distance) : '0km')}
+                    </div>
+             
+                  </div> */}
                     {showLabel ? <div className={classnames({
                           "project-status": true,
                           [t("project-status-employed")]:
@@ -167,21 +168,7 @@ class Projects extends React.Component {
                             {/*project.progress === 4,*/}
                         {/*})} />}*/}
                   </Link>
-
-                  <div className="project-footer">
-                    <div className="project-location">
-                      {name.length&&name || t('全国')} {project.distance == -1 ? '' : (project.distance > 0 ? parseDistance(project.distance) : '0km')}
-                    </div>
-                      {
-                          project.people_count_public == 1 ? <div className="project-members">
-                      <span>
-                      {Number(project.id) == 2009 ? 588 : project.join_people_count}
-                      </span>
-                              &nbsp;/&nbsp;
-                              <span>{project.people_count}</span>
-                          </div> : null
-                      }
-                  </div>
+                  
                 </div>
               </li>;
           })
@@ -191,12 +178,12 @@ class Projects extends React.Component {
   }
 }
 
-Projects.propTypes = {
+SpecialProjects.propTypes = {
   projects: PropTypes.arrayOf(PropTypes.shape({
 
   })),
   showLabel: PropTypes.bool,
 };
 
-export default translate('translations')(Projects);
+export default translate('translations')(SpecialProjects);
 

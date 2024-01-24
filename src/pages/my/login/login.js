@@ -347,7 +347,7 @@ class Login extends React.Component {
     }
 
     let shoudShowPrivacyPolicy = false;
-    if (window.orgCode === 'kQBeXDWeyK' || window.orgCode === 'joQeZ6JepZ' || window.orgCode === 'EKQe1wRbJY' || window.orgCode === 'KGRb4x1bBL' ||  window.orgCode === 'Wpmbk5XezJ') {
+    if (window.orgCode === 'kQBeXDWeyK' || window.orgCode === 'joQeZ6JepZ' || window.orgCode === 'EKQe1wRbJY' || window.orgCode === 'KGRb4x1bBL' ||  window.orgCode === 'Wpmbk5XezJ'||  window.orgCode === '4openZle7A' ) {
       shoudShowPrivacyPolicy = true;
     }
 
@@ -390,7 +390,13 @@ class Login extends React.Component {
     if (window.orgCode === 'Wpmbk5XezJ') {
       privacyPolicyPath = '/html/privacyPolicygonghui.html';
     }
-    
+        if (window.orgCode === '4openZle7A') {
+      userAgreePath = '/html/yangguanguseragree.html';
+    }
+    if (window.orgCode === '4openZle7A') {
+      privacyPolicyPath = 'https://carliferesourses.sinosig.com/CarlifePro/carlifStatic/login/html/gwindex.html?agreeCode=PTB05&from_wecom=1';
+    }
+
     return <div className="page-login-agree">
       <div
         className="page-login-checkbox"
@@ -411,10 +417,11 @@ class Login extends React.Component {
   }
 
   shouldCheckboxAgree() {
-    if (window.orgCode === 'mWZdPNwaKg' || window.orgCode === 'kQBeXDWeyK' || window.orgCode === 'joQeZ6JepZ' ||  window.orgCode === 'EKQe1wRbJY' ||  window.orgCode === 'KGRb4x1bBL' ||  window.orgCode === 'Wpmbk5XezJ') {
+    if (window.orgCode === 'mWZdPNwaKg' || window.orgCode === 'kQBeXDWeyK' || window.orgCode === 'joQeZ6JepZ' ||  window.orgCode === 'EKQe1wRbJY' ||  window.orgCode === 'KGRb4x1bBL' ||  window.orgCode === 'Wpmbk5XezJ'||  window.orgCode === '4openZle7A') {
       return true;
     }
     return false;
+
   }
 
 
