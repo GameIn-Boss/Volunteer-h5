@@ -1132,8 +1132,55 @@ class Verify extends React.Component {
           is_required: 1,
         })
       }
-    } else {
+    } else if(window.orgCode = '4openZle7A'){
+      const usersexItem = this.filterItemByKey(orgInfoArr, '阳光性别');
+      if (usersexItem) {
+        infoArr.push(usersexItem);
+      }
+      const userTypeItem = this.filterItemByKey(orgInfoArr, '阳光特长');
+      if (userTypeItem) {
+        infoArr.push(userTypeItem);
+      }
+     
+      const targetString = this.state.extendsArray['阳光特长'];  
+      const qita = /其他/.test(targetString);
+      console.log(qita);
+      if (this.state.extendsArray && this.state.extendsArray['阳光特长'] && qita) {
+        const subgoodatItem = this.filterItemByKey(orgInfoArr, '其他特长');
+        if (subgoodatItem) infoArr.push({
+          ...subgoodatItem,
+          is_required: 1,
+        })
+      }
+      const usergoodatItem = this.filterItemByKey(orgInfoArr, '阳光身份');
+      if (usergoodatItem) {
+        infoArr.push(usergoodatItem);
+      }
+      
+      if (this.state.extendsArray && this.state.extendsArray['阳光身份'] && this.state.extendsArray['阳光身份'] === '员工') {
+        const subTypeItem = this.filterItemByKey(orgInfoArr, '阳光公司');
+        if (subTypeItem) infoArr.push({
+          ...subTypeItem,
+          is_required: 1,
+        })
+      }
+      if (this.state.extendsArray && this.state.extendsArray['阳光身份'] && this.state.extendsArray['阳光身份'] === '其他') {
+        const subTypeItem = this.filterItemByKey(orgInfoArr, '其他身份');
+        if (subTypeItem) infoArr.push({
+          ...subTypeItem,
+          is_required: 1,
+        })
+      }
+      if (this.state.extendsArray && this.state.extendsArray['阳光公司'] && this.state.extendsArray['阳光公司'] === '其他') {
+        const subcompanyItem = this.filterItemByKey(orgInfoArr, '其他公司');
+        if (subcompanyItem) infoArr.push({
+          ...subcompanyItem,
+          is_required: 1,
+        })
+      }
+    }else{
       infoArr = orgInfoArr;
+
     }
     return infoArr;
   }

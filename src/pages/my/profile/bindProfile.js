@@ -271,13 +271,11 @@ class BindInfo extends React.Component {
         // console.info(this.state); return;
         const { user, t } = this.props;
         if (
-            (stateOrgData.open_nation && checkEmpty(people, t('民族'))) ||
+            // (stateOrgData.open_nation && checkEmpty(people, t('民族'))) ||
             (stateOrgData.open_addr && checkEmpty(`${province}`, t('省份'))) ||
-            (stateOrgData.open_addr && checkEmpty(`${city}`, t('城市'))) ||
-            (stateOrgData.open_addr && checkEmpty(`${county}`, t('区县'))) ||
-            // (stateOrgData.open_addr && checkEmpty(`${township}`, t('街道')))
-            (stateOrgData.open_addr && window.orgInfo.area_level === 4 && checkEmpty(`${township}`, t('街道')))
-
+            (stateOrgData.open_addr && checkEmpty(`${city}`, t('城市'))) 
+            // (stateOrgData.open_addr && checkEmpty(`${county}`, t('区县'))) ||
+            // (stateOrgData.open_addr && window.orgInfo.area_level === 4 && checkEmpty(township, t('街道')))
             // (stateOrgData.open_addr && checkEmpty(`${address}`, t('详细地址')))
         ) {
             return;
@@ -552,7 +550,7 @@ class BindInfo extends React.Component {
         const township = this.props.address.data.township;
 
         let shouldShowAddressDetail = false;
-        if (window.orgCode !== 'kQBeXDWeyK' && window.orgCode !== 'Wpmbk5XezJ' ) {
+        if (window.orgCode !== 'kQBeXDWeyK') {
             shouldShowAddressDetail = true;
         }
         return (
@@ -607,7 +605,7 @@ class BindInfo extends React.Component {
                             </select>
                         </label>
                     </div>
-                    <div className="line1px" />
+                    {/* <div className="line1px" />
                     <div className="page-my-profile-verify-header-box">
                         {this.state.winOrgInfo.open_addr === 1 ? (
                             <span className="page-my-profile-verify-header-start">*</span>
@@ -660,8 +658,8 @@ class BindInfo extends React.Component {
                                 </select>
                             </label>
                         </div>
-                    }
-                    {
+                    } */}
+                    {/* {
                         shouldShowAddressDetail ?
                             <div>
                                 <div className="line1px" />
@@ -682,7 +680,7 @@ class BindInfo extends React.Component {
                                 </div>
                             </div>
                             : null
-                    }
+                    } */}
                     <div className="line1px" />
                 </div>
             </div>
@@ -1111,23 +1109,39 @@ class BindInfo extends React.Component {
             if (emailItem) {
                 infoArr.push(emailItem);
             }
-            const userTypeItem = this.filterItemByKey(orgInfoArr, '用户身份-中金');
+            const userTypeItem = this.filterItemByKey(orgInfoArr, '用户身份-泰康');
             if (userTypeItem) {
                 infoArr.push(userTypeItem);
             }
-            if (this.state.extendsArray && this.state.extendsArray['用户身份-中金'] && this.state.extendsArray['用户身份-中金'] === '中金在职员工') {
-                const departmentItem = this.filterItemByKey(orgInfoArr, '部门--中金');
+            if (this.state.extendsArray && this.state.extendsArray['用户身份-泰康'] && this.state.extendsArray['用户身份-泰康'] === '泰康员工') {
+                const departmentItem = this.filterItemByKey(orgInfoArr, '部门-泰康');
                 if (departmentItem) infoArr.push({
                     ...departmentItem,
                     is_required: 1,
                 });
-                const userNumberItem = this.filterItemByKey(orgInfoArr, '员工号-中金');
+            }  
+            if (this.state.extendsArray && this.state.extendsArray['用户身份-泰康'] && this.state.extendsArray['用户身份-泰康'] === '泰康居民') {
+                const departmentItem = this.filterItemByKey(orgInfoArr, '泰康-居民');
                 if (departmentItem) infoArr.push({
-                    ...userNumberItem,
+                    ...departmentItem,
                     is_required: 1,
                 });
-            }
-            if (this.state.extendsArray && this.state.extendsArray['用户身份-中金'] && this.state.extendsArray['用户身份-中金'] === '爱心之友') {
+            }  
+            if (this.state.extendsArray && this.state.extendsArray['用户身份-泰康'] && this.state.extendsArray['用户身份-泰康'] === '泰康员工') {
+                const departmentItem = this.filterItemByKey(orgInfoArr, 'OA');
+                if (departmentItem) infoArr.push({
+                    ...departmentItem,
+                    is_required: 1,
+                });
+            }  
+            if (this.state.extendsArray && this.state.extendsArray['用户身份-泰康'] && this.state.extendsArray['用户身份-泰康'] === '泰康伙伴') {
+                const departmentItem = this.filterItemByKey(orgInfoArr, '代理人账号');
+                if (departmentItem) infoArr.push({
+                    ...departmentItem,
+                    is_required: 1,
+                });
+            }  
+              if (this.state.extendsArray && this.state.extendsArray['用户身份-中金'] && this.state.extendsArray['用户身份-中金'] === '爱心之友') {
                 const subTypeItem = this.filterItemByKey(orgInfoArr, '中金-爱心之友');
                 if (subTypeItem) infoArr.push({
                     ...subTypeItem,
@@ -1230,9 +1244,9 @@ class BindInfo extends React.Component {
                             {//出生日期
                                 this.props.user.birthday.length ? this.renderBirthday() : null
                             }
-                            {//民族
+                            {/* {//民族
                                 shouldShowNation ? this.renderNation() : null
-                            }
+                            } */}
                             {//地址
                                 this.renderAddr()}
                             {//自定义信息

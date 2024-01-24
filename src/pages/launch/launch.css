@@ -175,7 +175,32 @@
 
 }
 
+/*三一公益*/
+.page-launch .tabs li .tab-icon-home.yangguang  {
+  background-image: url(/images/tab_home.png);
+}
 
+.page-launch .tabs li .tab-icon-home.active.yangguang{
+  background-image: url(/images/yangguanghome.jpg);
+}
+
+.page-launch .tabs li .tab-icon-signin.yangguang{
+  background-image: url(/images/tab_signin.png);}
+
+.page-launch .tabs li .tab-icon-signin.active.yangguang{
+  background-image: url(/images/yangguangclock.jpg);
+
+}
+
+.page-launch .tabs li .tab-icon-me.yangguang{
+  background-image: url(/images/tab_me.png);
+
+}
+
+.page-launch .tabs li .tab-icon-me.active.yangguang{
+  background-image: url(/images/yangguangperson.jpg);
+
+}
 .page-launch .tabs li a span {
   font-size: 10px;
   color: #333333;
