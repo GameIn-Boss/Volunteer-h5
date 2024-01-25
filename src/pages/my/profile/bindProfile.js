@@ -550,7 +550,7 @@ class BindInfo extends React.Component {
         const township = this.props.address.data.township;
 
         let shouldShowAddressDetail = false;
-        if (window.orgCode !== 'kQBeXDWeyK') {
+        if (window.orgCode !== 'kQBeXDWeyK'  && window.orgCode !== "Wpmbk5XezJ" && window.orgCode !== "4openZle7A") {
             shouldShowAddressDetail = true;
         }
         return (
@@ -605,7 +605,7 @@ class BindInfo extends React.Component {
                             </select>
                         </label>
                     </div>
-                    {/* <div className="line1px" />
+                    <div className="line1px" />
                     <div className="page-my-profile-verify-header-box">
                         {this.state.winOrgInfo.open_addr === 1 ? (
                             <span className="page-my-profile-verify-header-start">*</span>
@@ -630,6 +630,7 @@ class BindInfo extends React.Component {
                             </select>
                         </label>
                     </div>
+                    {/* 
                     {
                         window.orgInfo.area_level === 4 && <div className="line1px" />
                     }
@@ -1227,7 +1228,7 @@ class BindInfo extends React.Component {
         const { t } = this.props;
 
         let shouldShowNation = false;
-        if (window.orgCode !== 'kQBeXDWeyK') {
+        if (window.orgCode !== 'kQBeXDWeyK' && window.orgCode !== "Wpmbk5XezJ" && window.orgCode !== "4openZle7A") {
             shouldShowNation = true;
         }
         return (

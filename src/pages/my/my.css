@@ -12,7 +12,10 @@
 .page-my-item-container li{
   list-style: none;
 }
-
+.jointips{
+  text-align:justify;
+text-justify:inter-ideograph;
+}
 .page-my-header{
   width: 100%;
   display: flex;

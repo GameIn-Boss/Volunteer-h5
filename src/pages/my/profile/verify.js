@@ -18,13 +18,15 @@ import { loginAction } from "../login/login.store";
 import { getQueryString } from "../../../utils/funcs";
 import uploadImage from "../../../utils/uploadImage";
 import "./verify.css";
-import { List, Checkbox, DatePicker, Radio } from "antd-mobile";
+import { List, Checkbox, DatePicker, Radio,Modal} from "antd-mobile";
 
 import "antd-mobile/lib/date-picker/style/css";
 import "antd-mobile/lib/checkbox/style/css";
 import "antd-mobile/lib/Radio/style/css";
+import "antd-mobile/lib/modal/style/css";
+
 import "./verifyAntd.css";
-import { Dialog, Gallery, GalleryDelete, Button, Icon } from "react-weui";
+import { Dialog, Gallery, GalleryDelete, Button, Icon} from "react-weui";
 import "weui/dist/style/weui.css";
 import "react-weui/build/packages/react-weui.css";
 import { cardtype, people } from '../../../utils/config';
@@ -210,6 +212,8 @@ class Verify extends React.Component {
       window.fastclick.destroy();
       window.fastclick = null;
     }
+
+    
   }
 
   componentWillReceiveProps(nextProps) {
@@ -234,6 +238,26 @@ class Verify extends React.Component {
       if (from === '/my/login') {
         target = '/my';
       }
+      if(window.orgCode == "4openZle7A"){
+        Modal.alert(<div>公益承诺</div>,
+        <div style={{ 'text-align': 'left' }}>          
+            <p>
+            我自愿申请加入阳光保险志愿服务队伍。
+            </p>
+            <p>
+            我承诺，尽己所能，不计报酬，帮助他人，服务社会，传递阳光关爱，自觉践行我是一缕阳光，温暖整个世界的志愿服务精神，为建设团结互助、平等友爱、共同前进的美好社会贡献力量。
+            </p>
+            <p>
+            我承诺在志愿服务期间，完全服从志愿服者组织的相关规定和安排，认真完成志愿服务工作。
+            </p>
+            <p>
+            承诺人：{this.realname.value} 
+            </p>
+        </div>, [{
+            text: '确认',onPress:()=>{window.location.replace(target);}
+        }]);
+        return;
+      }
       window.location.replace(target);
       // history.replace(target);
     }
@@ -243,6 +267,7 @@ class Verify extends React.Component {
     if (!window.fastclick && isAndroid) {
       window.fastclick = FastClick.attach(document.body);
     }
+    
   }
 
   // 初始化上传照片
@@ -455,6 +480,7 @@ class Verify extends React.Component {
     return (
       <div>
         <div className="page-my-profile-verify-header-box">
+          
           {this.state.winOrgInfo.open_id_number === 1 ? (
             <span className="page-my-profile-verify-header-start">*</span>
           ) : null}
@@ -541,7 +567,7 @@ class Verify extends React.Component {
 
     let shouldShowAddressDetail = false;
 
-    if (window.orgCode !== 'kQBeXDWeyK' &&window.orgCode !== "EKQe1wRbJY" && window.orgCode !== "Wpmbk5XezJ") {
+    if (window.orgCode !== 'kQBeXDWeyK' &&window.orgCode !== "EKQe1wRbJY" && window.orgCode !== "Wpmbk5XezJ" && window.orgCode !== "4openZle7A") {
        shouldShowAddressDetail = true;
     }
     // let  shouldShowAddressDetail = true;
@@ -1132,7 +1158,7 @@ class Verify extends React.Component {
           is_required: 1,
         })
       }
-    } else if(window.orgCode = '4openZle7A'){
+    } else if(window.orgCode === '4openZle7A'){
       const usersexItem = this.filterItemByKey(orgInfoArr, '阳光性别');
       if (usersexItem) {
         infoArr.push(usersexItem);
@@ -1144,8 +1170,26 @@ class Verify extends React.Component {
      
       const targetString = this.state.extendsArray['阳光特长'];  
       const qita = /其他/.test(targetString);
-      console.log(qita);
-      if (this.state.extendsArray && this.state.extendsArray['阳光特长'] && qita) {
+      const yundong = /运动/.test(targetString);
+      const yueqi = /乐器/.test(targetString);
+
+    
+      if (this.state.extendsArray && this.state.extendsArray['阳光特长'] && yundong) {
+        const subgoodatItemyd = this.filterItemByKey(orgInfoArr, '运动特长');
+        if (subgoodatItemyd) infoArr.push({
+          ...subgoodatItemyd,
+          is_required: 1,
+        })
+      }
+      if (this.state.extendsArray && this.state.extendsArray['阳光特长'] && yueqi ) {
+        const subgoodatItemyq = this.filterItemByKey(orgInfoArr, '乐器特长');
+        if (subgoodatItemyq) infoArr.push({
+          ...subgoodatItemyq,
+          is_required: 1,
+        })
+      }
+       
+      if (this.state.extendsArray && this.state.extendsArray['阳光特长'] &&  qita) {
         const subgoodatItem = this.filterItemByKey(orgInfoArr, '其他特长');
         if (subgoodatItem) infoArr.push({
           ...subgoodatItem,
@@ -1158,6 +1202,13 @@ class Verify extends React.Component {
       }
       
       if (this.state.extendsArray && this.state.extendsArray['阳光身份'] && this.state.extendsArray['阳光身份'] === '员工') {
+        const subTypeItem = this.filterItemByKey(orgInfoArr, '阳光公司');
+        if (subTypeItem) infoArr.push({
+          ...subTypeItem,
+          is_required: 1,
+        })
+      }
+      if (this.state.extendsArray && this.state.extendsArray['阳光身份'] && this.state.extendsArray['阳光身份'] === '业务员') {
         const subTypeItem = this.filterItemByKey(orgInfoArr, '阳光公司');
         if (subTypeItem) infoArr.push({
           ...subTypeItem,
@@ -1256,10 +1307,10 @@ class Verify extends React.Component {
     let shouldShowNation = false;
     let shouldShowIdCard = false;
     let shouldShowAddr = false;
-    if (window.orgCode !== 'kQBeXDWeyK' && window.orgCode !== "EKQe1wRbJY") {
+    if (window.orgCode !== 'kQBeXDWeyK' && window.orgCode !== "EKQe1wRbJY" && window.orgCode !== '4openZle7A') {
       shouldShowNation = true;
     }
-    if (window.orgCode !== "EKQe1wRbJY") {
+    if (window.orgCode !== "EKQe1wRbJY"  && window.orgCode !== '4openZle7A') {
       shouldShowIdCard = true;
     }
     if (window.orgCode !== "EKQe1wRbJY" ) {

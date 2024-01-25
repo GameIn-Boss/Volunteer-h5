@@ -431,7 +431,7 @@ class MyPage extends React.Component {
 
   renderPageMyContainer() {
     const { t } = this.props;
-
+   
     return (
       <div>
         <ul className="page-my-item-container">

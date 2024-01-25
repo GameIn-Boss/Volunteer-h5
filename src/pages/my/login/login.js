@@ -56,11 +56,12 @@ class Login extends React.Component {
     const { login: cLogin } = this.props;
     const { login: nLogin } = nextProps;
     const realRegister = window.orgInfo.real_name_register;
+
+
     if (cLogin.fetching && !cLogin.failed && !nLogin.fetching && !nLogin.failed) {
 
       let target = '/my';
       const { from } = nLogin;
-
       if (realRegister && !nLogin.data) {
         if (from) {
           target = from;
@@ -118,6 +119,7 @@ class Login extends React.Component {
             }
           })
         }
+          
         if (isVerify && nLogin.data.have_pwd == 1) {
           let bindlink = '/my/profile/bind_profile/alert';
           if (window.orgCode === 'oBDbDkxal2') {
