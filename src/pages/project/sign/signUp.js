@@ -129,7 +129,9 @@ class SignUpPage extends React.Component {
             showMultiple: false,
             stationArray: {},
             previewData: [],
-            stationDateArray: {}
+            stationDateArray: {},
+            dialogType: true,
+            showDialog: false
 
         };
         this.CustomChildren = ({ extra, onClick }) => (
@@ -146,13 +148,94 @@ class SignUpPage extends React.Component {
 
             </div>
         );
-    }
+        this.dialog = {
+            title: `${this.state.dialogType ? '志愿者活动前责任确认书' : t('登录提示')}`,
+            buttons: [
+                {
+                    type: "default",
+                    label: '取消',
+                    onClick: () => this.setState({ ...this.state, showDialog: false })
+                },
+                {
+                    type: "primary",
+                    label: '确认',
+                    onClick: () => {
+                        const extendsArray = this.state.extendsArray;
+                        console.log(extendsArray);
+                        const stationArray = this.state.stationArray;
+                        const stationDateArray = this.state.stationDateArray;
 
+                        let data = {};
+                        let pay = {};
+                        data.id = this.projectId;
+                        data.type = 1;
+                        if (this.customConfig && this.customConfig.length > 0) {
+
+                            if (isRequired(this.customConfig, extendsArray)) {
+
+                                isEmpty = false;
+                                return;
+                            }
+                            data.extends = extendsArray;
+                        }
+                        if (this.stationConfig && this.stationConfig.length > 0) {
+
+                            if (isRequired(this.stationConfig, stationArray)) {
+
+                                isEmpty = false;
+                                return;
+                            }
+
+                            data.station = stationArray;
+                        }
+                        console.log(data.station)
+                        if (this.stationDateConfig && this.stationDateConfig.length > 0) {
+
+                            if (isRequired(this.stationDateConfig, stationDateArray)) {
+
+                                isEmpty = false;
+                                return;
+                            }
+
+                            data.datestation = stationDateArray;
+                        }
+                        console.log(data.datestation)
+
+                        if (this.state.data && this.state.data.length > 0) {
+                            let payData = this.state.data;
+                            for (var i = 0; i < payData.length; i++) {
+                                if (Number(payData[i].is_required) == 1) {
+                                    const key = payData[i].key;
+                                    const num = payData[i].num;
+                                    pay[`${key}`] = num;
+                                } else if (Number(payData[i].is_required) == 0) {
+                                    if (payData[i].switch) {
+                                        const key = payData[i].key;
+                                        const num = payData[i].num;
+                                        pay[`${key}`] = num;
+                                    }
+                                }
+                            }
+                            console.log(111)
+                            data.payment = pay;       
+
+                            this.props.joinPayProject(data);
+                            return
+                        }
+                        this.props.joinProjectAction(data);
+
+                    }
+                }
+            ]
+        };
+    }
+   
     componentWillMount() {
         this.props.requestProjectDetail(this.projectId)
 
     }
     componentWillReceiveProps(nextProps) {
+        // return;
         const { detail: Ldetail, joinPay: Lpay, join: Ljoin } = this.props;
         const { detail: Ndetail, joinPay: Npay, join: Njoin } = nextProps;
         if (Ldetail.fetching && !Ldetail.failed && !Ndetail.fetching && !Ndetail.failed && Ndetail.data && Ndetail.data.station_config) {
@@ -1030,6 +1113,10 @@ renderOtherDateInfoCheckbox(item1) {
         )
     }
     onSubmmit() {
+        if (window.orgCode === '4openZle7A') {
+            this.setState({ ...this.state, showDialogjoin: true });
+            return;
+        }        
         const extendsArray = this.state.extendsArray;
         console.log(extendsArray);
         const stationArray = this.state.stationArray;
@@ -1146,7 +1233,25 @@ renderOtherDateInfoCheckbox(item1) {
                         <div className="btn" onClick={this.onSubmmit}>{t('提交')}</div>
                     </div>
                 </div>
-
+                <Dialog
+                    type="ios"
+                    title={this.dialog.title}
+                    buttons={this.dialog.buttons}
+                    show={this.state.showDialogjoin}
+                    >
+                     <div className="jointips">
+                           <p >感谢您参与本次志愿者活动！在活动开始之前，我们需要您确认以下责任并同意遵守。</p> 
+                           <p >1.确认您的愿意参与志愿者活动并自愿承担活动所带来的风险和责任。</p> 
+                           <p >2.确认您的个人信息和联系方式准确无误，您的身份证信息将仅用作志愿者保险购买。</p> 
+                           <p >3.确认您将遵守活动组织者的规定，不泄露项目受益人相关的敏感信息。</p> 
+                           <p >4.确认您将遵守活动时间、地点和内容的安排，如有变更将及时通知。</p> 
+                           <p >5.确认您将遵守法律法规和道德规范，不从事任何违法、不道德的活动或行为。</p> 
+                           <p > 6.确认您将积极传播阳光保险的正能量，不进行任何损害阳光保险声誉或利益的活动或行为。</p> 
+                           <p >  在确认上述责任后，我们将认为您已经理解并同意遵守以上要求。</p> 
+                           <p > 再次感谢您的参与和支持！</p> 
+                      </div> 
+                       
+                </Dialog>
                 <Gallery src={this.state.previewData} show={this.state.showMultiple} defaultIndex={this.state.defaultIndex}>
                     <Button
                         style={BackButtonStyle}
@@ -1156,7 +1261,9 @@ renderOtherDateInfoCheckbox(item1) {
                         Back
           </Button>
                 </Gallery>
+              
             </div>
+            
         );
     }
 }

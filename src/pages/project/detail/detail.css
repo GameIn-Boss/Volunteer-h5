@@ -18,7 +18,10 @@
   width: 100%;
   height: 220px;
 } */
-
+.jointips{
+    text-align:justify;
+    text-justify:inter-ideograph;
+}
 .page-project-detail .slick-container {
     overflow: hidden;
     position: relative;

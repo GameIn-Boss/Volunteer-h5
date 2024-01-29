@@ -181,7 +181,6 @@ class ProjectDetailContent extends React.Component {
         );
     }
 }
-
 class ProjectDetailPage extends React.Component {
     constructor(props) {
         super(props);
@@ -230,6 +229,54 @@ class ProjectDetailPage extends React.Component {
                             this.props.quitProject(this.projectId);
                         } else {
                             this.setState({ ...this.state, showDialog: false });
+                            this.props.storeLoginSource(`/project/detail/${this.projectId}`);
+
+                            window.location.href = `/my/login`;
+                        }
+                    }
+                }
+            ]
+        };
+        this.dialogjoin = {
+            title: `${this.state.dialogType ? '志愿者活动前责任确认书': t('登录提示')}`,
+            buttons: [
+                {
+                    type: "default",
+                    label: t('取消'),
+                    onClick: () => this.setState({ ...this.state, showDialogjoin: false })
+                },
+                {
+                    type: "primary",
+                    label: t('确认'),
+                    onClick: () => {
+                        if (this.state.dialogType) {
+                            const { projectId } = this;
+                            const realRegister = window.orgInfo.real_name_register;
+                            const {
+                                user,
+                                detail: { data: detailData },
+                                t,
+                            } = this.props;
+                            
+                            const customConfig = detailData.custom_config || null;
+                            const paymentConfig = detailData.custom_payment_config || null;
+                            const stationConfig = detailData.stationConfig || null;
+                            const dateConfig = detailData.project_join_date || null;
+                            if (!customConfig && !paymentConfig && !stationConfig && !dateConfig) {
+                                const {
+                                    detail: { data: detailData }
+                                } = this.props;
+                                this.props.joinProject(this.projectId, detailData.join_verify_status);
+                                this.setState({ ...this.state, showDialogjoin: false });
+
+                            } else if (customConfig || paymentConfig || stationConfig || dateConfig) {
+                                // window.location.replace(`/project/signup/${projectId}`)
+                                window.location.href = `/project/signup/${this.projectId}`;
+
+                                // history.replace(`/project/signup/${projectId}`)
+                            }
+                        } else {
+                            this.setState({ ...this.state, showDialogjoin: false })
                             this.props.storeLoginSource(`/project/detail/${this.projectId}`);
 
                             window.location.href = `/my/login`;
@@ -438,6 +485,7 @@ class ProjectDetailPage extends React.Component {
     }
     handleActionClickSitch(action, projectId, customConfig, paymentConfig,stationConfig,stationDateConfig) {
         if (action === "join") {
+         
             if (projectId == 1035) {
                 window.location.href = "http://lxi.me/17i1a";
                 return;
@@ -450,10 +498,15 @@ class ProjectDetailPage extends React.Component {
                 return;
             }
             if (!customConfig && !paymentConfig && !stationConfig && !stationDateConfig) {
+                if (window.orgCode === '4openZle7A') {
+                    this.setState({ ...this.state, showDialogjoin: true });
+                    return;
+                }
                 const {
                     detail: { data: detailData }
                 } = this.props;
                 this.props.joinProject(projectId, detailData.join_verify_status);
+                
             } else if (customConfig || paymentConfig || stationConfig || stationDateConfig) {
                 // window.location.replace(`/project/signup/${projectId}`)
                 window.location.href = `/project/signup/${projectId}`;
@@ -466,6 +519,7 @@ class ProjectDetailPage extends React.Component {
             // }
         } else if (action === "quit") {
             this.setState({ ...this.state, showDialog: true });
+
         }
     }
     handleActionClick(action) {
@@ -547,6 +601,7 @@ class ProjectDetailPage extends React.Component {
                             }
                         })
                     }
+
                     this.props.storeLoginSource(`/project/detail/${this.projectId}`);
                     if (isVerify && user.have_pwd == 1) {
                         let bindlink = '/my/profile/bind_profile/alert';
@@ -625,6 +680,7 @@ class ProjectDetailPage extends React.Component {
             detail: { data: detailData, tabIndex },
             user
         } = this.props;
+
     if (window.orgCode === 'yJrb2kKdWL') {
         const postData = PostDataModel_Project_Sy(detailData, user);
         return this.state.visible ? <ModalSy postData={postData} visible={this.state.visible} maskCloseable={this.closeModal} /> : null;
@@ -902,6 +958,8 @@ class ProjectDetailPage extends React.Component {
         );
     }
     render() {
+
+
         const {
             detail: { data: detailData, tabIndex },
             t
@@ -943,6 +1001,28 @@ class ProjectDetailPage extends React.Component {
                     {this.state.dialogType
                         ? t('确定要退出活动吗') + '？'
                         : t('只有登录的用户才能点赞和评论哦～')}
+                </Dialog>
+                <Dialog
+                    type="ios"
+                    title={this.dialogjoin.title}
+                    buttons={this.dialogjoin.buttons}
+                    show={this.state.showDialogjoin}
+                    >
+                    {this.state.dialogType
+                        ? <div className="jointips">
+                           <p >感谢您参与本次志愿者活动！在活动开始之前，我们需要您确认以下责任并同意遵守。</p> 
+                           <p >1.确认您的愿意参与志愿者活动并自愿承担活动所带来的风险和责任。</p> 
+                           <p >2.确认您的个人信息和联系方式准确无误，您的身份证信息将仅用作志愿者保险购买。</p> 
+                           <p >3.确认您将遵守活动组织者的规定，不泄露项目受益人相关的敏感信息。</p> 
+                           <p >4.确认您将遵守活动时间、地点和内容的安排，如有变更将及时通知。</p> 
+                           <p >5.确认您将遵守法律法规和道德规范，不从事任何违法、不道德的活动或行为。</p> 
+                           <p > 6.确认您将积极传播阳光保险的正能量，不进行任何损害阳光保险声誉或利益的活动或行为。</p> 
+                           <p >  在确认上述责任后，我们将认为您已经理解并同意遵守以上要求。</p> 
+                           <p > 再次感谢您的参与和支持！</p> 
+                      </div> 
+                        : t('只有登录的用户才能点赞和评论哦～')}
+
+                        
                 </Dialog>
                 {this.renderModal()}
             </div>

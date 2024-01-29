@@ -18,7 +18,10 @@
     z-index: 999;
     
 }
-
+.jointips{
+    text-align:justify;
+text-justify:inter-ideograph;
+}
 .page-project-signUp .am-list-header {
     min-height: 50px;
     color: #666666;
