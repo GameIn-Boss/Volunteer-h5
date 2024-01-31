@@ -56,7 +56,8 @@ class MessagesItem extends React.Component {
       <div>
         {
         data.map((item,i) => (
-          <Link to={`/announcee/detail/${item.id}`} key={i}>
+      
+          <Link to={item.jump_mode == 0 ? `/announcee/detail/${item.id}` :item.herf } key={i}>
             <div className="page-announceitem" >
               <div className="main">
                 <div>
