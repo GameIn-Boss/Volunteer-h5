@@ -303,8 +303,9 @@ class SignUpPage extends React.Component {
                     }
                     <List renderHeader={() => data.label}>
                         {options.map((item, index) => ( 
-                            <RadioItem checked={this.state[key] === item.name}  disabled={item.join_num == item.people_count} key={index} onChange={() => this.onChange(item.name, key)} onClick={() => this.onClick(item.name, key)}>
-                                {item.name} <div className="page-signUp-danxuanstation">招募人数：{item.count}</div>
+                            <RadioItem  checked={this.state[key] === item.name}  key={index} onChange={() => this.onChange(item.name, key)} onClick={() => this.onClick(item.name, key)}>
+                                {item.name} 
+                                {/* <div className="page-signUp-danxuanstation">招募人数：{item.count}</div>  disabled={item.join_num == item.people_count} */}
                             </RadioItem>                   
                             ))}                     
 
