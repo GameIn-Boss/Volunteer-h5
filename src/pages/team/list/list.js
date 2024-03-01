@@ -301,7 +301,6 @@ class TeamListPage extends React.Component {
     );
   }
 }
-
 TeamListPage.propTypes = {
   requestTeamList: PropTypes.func,
   list: PropTypes.shape({
