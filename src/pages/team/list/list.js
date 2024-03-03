@@ -13,6 +13,7 @@ import { isWindowReachBottom } from '../../../utils/funcs';
 import { getAreaCity } from '../../home/home.store';
 import {
   requestTeamList,
+  requestSubTeamList
 } from './list.store';
 import { translate } from 'react-i18next';
 import i18next from 'i18next';
@@ -52,7 +53,7 @@ class TeamListPage extends React.Component {
 
     // getCity(
     //   (city, str) => {
-        
+
     //     this.props.getAreaCity(city);
     //   },
     //   () => {
@@ -85,8 +86,8 @@ class TeamListPage extends React.Component {
     const { type: ntype, category: ncategory, target: ntarget } = nextprops.route.params;
 
     if ((type === ntype) &&
-        (category === ncategory) &&
-        (target === ntarget)) {
+      (category === ncategory) &&
+      (target === ntarget)) {
       return;
     }
 
@@ -147,12 +148,84 @@ class TeamListPage extends React.Component {
     });
   }
 
+  fetchSubTeams(subTeamId) {
+    console.info(subTeamId);
+    // todo: 这里调用 redux 里的请求
+    this.props.requestSubTeamList({
+      id: subTeamId,
+    });
+  }
+
+  renderTeams() {
+    const { list: { data: listData }, t } = this.props;
+    const { area: { data: areaData } } = this.props;
+
+    const showLoadingMore = listData &&
+      listData.page && (listData.page.current_page < listData.page.total_page);
+
+    if (window.orgCode === 'yJrb2kKdWL') {
+      return (
+        <div className="sybody">
+          <div className="team-list">
+            <Teams teams={listData ? listData.list : null} />
+          </div>
+          {
+            showLoadingMore
+              ?
+              <div className="component-loading-more">
+                <img src="/images/icon_loading.png" alt="loading" />
+                {t('正在加载')}
+              </div>
+              : null
+          }
+          <div className="takeup" />
+        </div>
+      )
+    }
+    if (window.orgCode === '4openZle7A') {
+      return (
+        <div className="body">
+          <div className="team-list">
+            <Teams teams={listData ? listData.list : null} handleShowSubTeams={(subTeamId) => { this.fetchSubTeams(subTeamId) }} />
+          </div>
+          {
+            showLoadingMore
+              ?
+              <div className="component-loading-more">
+                <img src="/images/icon_loading.png" alt="loading" />
+                {t('正在加载')}
+              </div>
+              : null
+          }
+          <div className="takeup" />
+        </div>
+      )
+    }
+    return (
+      <div className="body">
+        <div className="team-list">
+          <Teams teams={listData ? listData.list : null} />
+        </div>
+        {
+          showLoadingMore
+            ?
+            <div className="component-loading-more">
+              <img src="/images/icon_loading.png" alt="loading" />
+              {t('正在加载')}
+            </div>
+            : null
+        }
+        <div className="takeup" />
+      </div>
+    )
+  }
+
   render() {
     const { list: { data: listData }, t } = this.props;
     const { area: { data: areaData } } = this.props;
 
     const showLoadingMore = listData &&
-        listData.page && (listData.page.current_page < listData.page.total_page);
+      listData.page && (listData.page.current_page < listData.page.total_page);
     let { type, category, target } = this.props.route.params;
 
 
@@ -164,7 +237,7 @@ class TeamListPage extends React.Component {
         <div className="header">
           <div className="search-bar-container">
             <Link className="component-search-bar" to="/team/search">
-              <input className="input" placeholder={t('搜索团队')}  disabled="disabled" />
+              <input className="input" placeholder={t('搜索团队')} disabled="disabled" />
             </Link>
           </div>
         </div>
@@ -182,127 +255,95 @@ class TeamListPage extends React.Component {
             />
           </div>
         )}
+        {this.renderTeams()}
         {window.orgCode === 'yJrb2kKdWL' ?
-          <div className="sybody">
-          <div className="team-list">
-            <Teams teams={listData ? listData.list : null} />
+          <div className="tabs-container">
+            <div className="line1px" />
+            <ul className="tabs">
+              <li>
+                <Link to="/">
+                  <div
+                    className={classnames({
+                      'tab-icon': true,
+                      'tab-icon-home-sanyi': true,
+                    })}
+                  />
+                  <span>{t('首页')}</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/sign">
+                  <div
+                    className={classnames({
+                      'tab-icon': true,
+                      'tab-icon-sign-sanyi': true,
+                    })}
+                  />
+                  <span>{t('活动打卡')}</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/my">
+                  <div
+                    className={classnames({
+                      'tab-icon': true,
+                      'tab-icon-me-sanyi': true,
+                    })}
+                  />
+                  <span>{t('个人中心')}</span>
+                </Link>
+              </li>
+            </ul>
           </div>
-          {
-            showLoadingMore
-            ?
-              <div className="component-loading-more">
-                <img src="/images/icon_loading.png" alt="loading" />
-                {t('正在加载')}
-            </div>
-            : null
-          }
-          <div className="takeup" />
-        </div>
-        :
-      <div className="body">
-      <div className="team-list">
-        <Teams teams={listData ? listData.list : null} />
-      </div>
-      {
-        showLoadingMore
-        ?
-          <div className="component-loading-more">
-            <img src="/images/icon_loading.png" alt="loading" />
-            {t('正在加载')}
-        </div>
-        : null
-      }
-      <div className="takeup" />
-    </div>
-    }
-       
-        {window.orgCode === 'yJrb2kKdWL' ? 
-        <div className="tabs-container">
-          <div className="line1px" />
-          <ul className="tabs">
-            <li>
-              <Link to="/">
-                <div
-                  className={classnames({
-                    'tab-icon': true,
-                    'tab-icon-home-sanyi': true,
-                  })}
-                />
-                <span>{t('首页')}</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/sign">
-                <div
-                  className={classnames({
-                    'tab-icon': true,
-                    'tab-icon-sign-sanyi': true,
-                  })}
-                />
-                <span>{t('活动打卡')}</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/my">
-                <div
-                  className={classnames({
-                    'tab-icon': true,
-                    'tab-icon-me-sanyi': true,
-                  })}
-                />
-                <span>{t('个人中心')}</span>
-              </Link>
-            </li>
-          </ul>
-        </div>
-        :
-        <div className="tabs-container">
-        <div className="line1px" />
-        <ul className="tabs">
-          <li>
-            <Link to="/">
-              <div
-                className={classnames({
-                  'tab-icon': true,
-                  'tab-icon-home': true,
-                })}
-              />
-              <span>{t('首页')}</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/sign">
-              <div
-                className={classnames({
-                  'tab-icon': true,
-                  'tab-icon-sign': true,
-                })}
-              />
-              <span>{t('签到打卡')}</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/my">
-              <div
-                className={classnames({
-                  'tab-icon': true,
-                  'tab-icon-me': true,
-                })}
-              />
-              <span>{t('个人中心')}</span>
-            </Link>
-          </li>
-        </ul>
-      </div>
-                }
+          :
+          <div className="tabs-container">
+            <div className="line1px" />
+            <ul className="tabs">
+              <li>
+                <Link to="/">
+                  <div
+                    className={classnames({
+                      'tab-icon': true,
+                      'tab-icon-home': true,
+                    })}
+                  />
+                  <span>{t('首页')}</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/sign">
+                  <div
+                    className={classnames({
+                      'tab-icon': true,
+                      'tab-icon-sign': true,
+                    })}
+                  />
+                  <span>{t('签到打卡')}</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/my">
+                  <div
+                    className={classnames({
+                      'tab-icon': true,
+                      'tab-icon-me': true,
+                    })}
+                  />
+                  <span>{t('个人中心')}</span>
+                </Link>
+              </li>
+            </ul>
+          </div>
+        }
 
       </div>
-      
+
     );
   }
 }
 TeamListPage.propTypes = {
   requestTeamList: PropTypes.func,
+  requestSubTeamList: PropTypes.func,
   list: PropTypes.shape({
     data: PropTypes.shape({
       list: PropTypes.arrayOf(PropTypes.shape({})),
@@ -332,6 +373,6 @@ export default connect(
     area: state.home.getAreaCity,
   }),
   dispatch => bindActionCreators({
-    requestTeamList, getAreaCity,
+    requestTeamList, requestSubTeamList, getAreaCity,
   }, dispatch),
 )(translate('translations')(TeamListPage));
