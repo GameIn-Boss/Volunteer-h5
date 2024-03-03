@@ -42,17 +42,20 @@ export default (state = {
       function processTeam(team, id, list) {
         console.info(`判断了id = ${id}, 当前team 的 id 为 ${team.id}`, team)
         if (id === team.id) {
-          console.info(`id是 ${id} ，已经更新了subTeams`)
+          console.info(`id是 ${id} ，已经更新了subTeams， team 是 ${team.name}`)
+          if (team.id === 933) {
+            console.info('============== id 是 933, list是',list)
+          }
           return {
             ...team,
             subTeams: list
           };
         }
 
-        if (team.subteams) {
+        if (team.subTeams) {
           return {
             ...team,
-            subteams: team.subteams.map(subteam => processTeam(subteam, id, list))
+            subTeams: team.subTeams.map(subteam => processTeam(subteam, id, list))
           };
         }
 
