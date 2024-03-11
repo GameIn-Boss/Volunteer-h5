@@ -1106,10 +1106,7 @@ class BindInfo extends React.Component {
         const orgInfoArr = winOrgStateInfo && winOrgStateInfo.extends || [];
         let infoArr = [];
         if (window.orgCode === 'kQBeXDWeyK') {
-            const emailItem = this.filterItemByKey(orgInfoArr, '邮箱-中金');
-            if (emailItem) {
-                infoArr.push(emailItem);
-            }
+         
             const userTypeItem = this.filterItemByKey(orgInfoArr, '用户身份-泰康');
             if (userTypeItem) {
                 infoArr.push(userTypeItem);
@@ -1142,13 +1139,7 @@ class BindInfo extends React.Component {
                     is_required: 1,
                 });
             }  
-              if (this.state.extendsArray && this.state.extendsArray['用户身份-中金'] && this.state.extendsArray['用户身份-中金'] === '爱心之友') {
-                const subTypeItem = this.filterItemByKey(orgInfoArr, '中金-爱心之友');
-                if (subTypeItem) infoArr.push({
-                    ...subTypeItem,
-                    is_required: 1,
-                })
-            }
+            
         } else {
             infoArr = orgInfoArr;
         }

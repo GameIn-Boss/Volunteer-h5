@@ -88,9 +88,12 @@ class Teams extends React.Component {
                 <span>{team.team_size} {t('人')}</span>
               </div>
             </div>
-          </Link>
-          {this.renderSubTeams(!!team.below_status, team.id, team.subTeams || null)}
-          <div className="line1px" />
+          </Link>      
+          
+    
+         { window.orgCode === '4openZle7A' ? this.renderSubTeams(!!team.below_status, team.id, team.subTeams || null) :null}
+
+        <div className="line1px" />
         </li>))
       }
     </ul>
