@@ -1124,7 +1124,14 @@ class Verify extends React.Component {
                     is_required: 1,
                 });
             }  
-    return infoArr;
+            // if (this.state.extendsArray && this.state.extendsArray['用户身份-泰康']) {
+              const departmentItem = this.filterItemByKey(orgInfoArr, '特长技能');
+              if (departmentItem) infoArr.push({
+                  ...departmentItem,
+                  is_required: 1,
+              });
+            // } 
+          return infoArr;
   }
   renderOtherInfo() {
     let infoArr = this.filterOrgCunstomedArr();

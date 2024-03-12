@@ -1141,6 +1141,13 @@ class BindInfo extends React.Component {
                     is_required: 1,
                 });
             }  
+            // if (this.state.extendsArray && this.state.extendsArray['用户身份-泰康']) {
+                const departmentItem = this.filterItemByKey(orgInfoArr, '特长技能');
+                if (departmentItem) infoArr.push({
+                    ...departmentItem,
+                    is_required: 1,
+                });
+            //   } 
               // if (this.state.extendsArray && this.state.extendsArray['用户身份-中金'] && this.state.extendsArray['用户身份-中金'] === '爱心之友') {
             //     const subTypeItem = this.filterItemByKey(orgInfoArr, '中金-爱心之友');
             //     if (subTypeItem) infoArr.push({
