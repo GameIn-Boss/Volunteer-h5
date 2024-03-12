@@ -121,7 +121,7 @@ class Login extends React.Component {
         }
           
         if (isVerify && nLogin.data.have_pwd == 1) {
-          let bindlink = '/my/profile/bind_profile/alert';
+          let bindlink = '/my/profile/verify?target=/my';
           if (window.orgCode === 'oBDbDkxal2') {
             bindlink = '/my/profile/bind_profile_starbucks/alert';
           }
