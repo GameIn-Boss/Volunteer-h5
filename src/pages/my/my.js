@@ -41,11 +41,13 @@ class MyPage extends React.Component {
   }
 
   componentWillMount() {
-    this.props.requestUserInfo();
+    // this.props.requestUserInfo();
     // this.props.userCenterAction();
   }
 
   componentDidMount() {
+    this.props.requestUserInfo();
+
     this.props.userCenterAction();
     this.props.userAchieve();
   }
