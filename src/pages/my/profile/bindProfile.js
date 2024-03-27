@@ -1106,43 +1106,108 @@ class BindInfo extends React.Component {
         const orgInfoArr = winOrgStateInfo && winOrgStateInfo.extends || [];
         let infoArr = [];
         if (window.orgCode === 'kQBeXDWeyK') {
-         
-            const userTypeItem = this.filterItemByKey(orgInfoArr, '用户身份-泰康');
-            if (userTypeItem) {
-                infoArr.push(userTypeItem);
+            const emailItem = this.filterItemByKey(orgInfoArr, '邮箱-中金');
+            if (emailItem) {
+              infoArr.push(emailItem);
             }
-            if (this.state.extendsArray && this.state.extendsArray['用户身份-泰康'] && this.state.extendsArray['用户身份-泰康'] === '泰康员工') {
-                const departmentItem = this.filterItemByKey(orgInfoArr, '部门-泰康');
-                if (departmentItem) infoArr.push({
-                    ...departmentItem,
-                    is_required: 1,
-                });
-            }  
-            if (this.state.extendsArray && this.state.extendsArray['用户身份-泰康'] && this.state.extendsArray['用户身份-泰康'] === '泰康居民') {
-                const departmentItem = this.filterItemByKey(orgInfoArr, '泰康-居民');
-                if (departmentItem) infoArr.push({
-                    ...departmentItem,
-                    is_required: 1,
-                });
-            }  
-            if (this.state.extendsArray && this.state.extendsArray['用户身份-泰康'] && this.state.extendsArray['用户身份-泰康'] === '泰康员工') {
-                const departmentItem = this.filterItemByKey(orgInfoArr, 'OA');
-                if (departmentItem) infoArr.push({
-                    ...departmentItem,
-                    is_required: 1,
-                });
-            }  
-            if (this.state.extendsArray && this.state.extendsArray['用户身份-泰康'] && this.state.extendsArray['用户身份-泰康'] === '泰康伙伴') {
-                const departmentItem = this.filterItemByKey(orgInfoArr, '代理人账号');
-                if (departmentItem) infoArr.push({
-                    ...departmentItem,
-                    is_required: 1,
-                });
-            }  
+            const userTypeItem = this.filterItemByKey(orgInfoArr, '用户身份-中金');
+            if (userTypeItem) {
+              infoArr.push(userTypeItem);
+            }
+            if (this.state.extendsArray && this.state.extendsArray['用户身份-中金'] && this.state.extendsArray['用户身份-中金'] === '中金在职员工') {
+              const departmentItem = this.filterItemByKey(orgInfoArr, '部门--中金');
+              if (departmentItem) infoArr.push({
+                ...departmentItem,
+                is_required: 1,
+              });
+              const userNumberItem = this.filterItemByKey(orgInfoArr, '员工号-中金');
+              if (departmentItem) infoArr.push({
+                ...userNumberItem,
+                is_required: 1,
+              });
+            }
+            if (this.state.extendsArray && this.state.extendsArray['用户身份-中金'] && this.state.extendsArray['用户身份-中金'] === '爱心之友') {
+              const subTypeItem = this.filterItemByKey(orgInfoArr, '中金-爱心之友');
+              if (subTypeItem) infoArr.push({
+                ...subTypeItem,
+                is_required: 1,
+              })
+            }
+          } else if(window.orgCode === '4openZle7A'){
+            const usersexItem = this.filterItemByKey(orgInfoArr, '阳光性别');
+            if (usersexItem) {
+              infoArr.push(usersexItem);
+            }
+            const userTypeItem = this.filterItemByKey(orgInfoArr, '阳光特长');
+            if (userTypeItem) {
+              infoArr.push(userTypeItem);
+            }
+           
+            const targetString = this.state.extendsArray['阳光特长'];  
+            const qita = /其他/.test(targetString);
+            const yundong = /运动/.test(targetString);
+            const yueqi = /乐器/.test(targetString);
+      
+          
+            if (this.state.extendsArray && this.state.extendsArray['阳光特长'] && yundong) {
+              const subgoodatItemyd = this.filterItemByKey(orgInfoArr, '运动特长');
+              if (subgoodatItemyd) infoArr.push({
+                ...subgoodatItemyd,
+                is_required: 1,
+              })
+            }
+            if (this.state.extendsArray && this.state.extendsArray['阳光特长'] && yueqi ) {
+              const subgoodatItemyq = this.filterItemByKey(orgInfoArr, '乐器特长');
+              if (subgoodatItemyq) infoArr.push({
+                ...subgoodatItemyq,
+                is_required: 1,
+              })
+            }
+             
+            if (this.state.extendsArray && this.state.extendsArray['阳光特长'] &&  qita) {
+              const subgoodatItem = this.filterItemByKey(orgInfoArr, '其他特长');
+              if (subgoodatItem) infoArr.push({
+                ...subgoodatItem,
+                is_required: 1,
+              })
+            }
+            const usergoodatItem = this.filterItemByKey(orgInfoArr, '阳光身份');
+            if (usergoodatItem) {
+              infoArr.push(usergoodatItem);
+            }
             
-        } else {
+            if (this.state.extendsArray && this.state.extendsArray['阳光身份'] && this.state.extendsArray['阳光身份'] === '员工') {
+              const subTypeItem = this.filterItemByKey(orgInfoArr, '阳光公司');
+              if (subTypeItem) infoArr.push({
+                ...subTypeItem,
+                is_required: 1,
+              })
+            }
+            if (this.state.extendsArray && this.state.extendsArray['阳光身份'] && this.state.extendsArray['阳光身份'] === '业务员') {
+              const subTypeItem = this.filterItemByKey(orgInfoArr, '阳光公司');
+              if (subTypeItem) infoArr.push({
+                ...subTypeItem,
+                is_required: 1,
+              })
+            }
+            if (this.state.extendsArray && this.state.extendsArray['阳光身份'] && this.state.extendsArray['阳光身份'] === '其他') {
+              const subTypeItem = this.filterItemByKey(orgInfoArr, '其他身份');
+              if (subTypeItem) infoArr.push({
+                ...subTypeItem,
+                is_required: 1,
+              })
+            }
+            if (this.state.extendsArray && this.state.extendsArray['阳光公司'] && this.state.extendsArray['阳光公司'] === '其他') {
+              const subcompanyItem = this.filterItemByKey(orgInfoArr, '其他公司');
+              if (subcompanyItem) infoArr.push({
+                ...subcompanyItem,
+                is_required: 1,
+              })
+            }
+          }else{
             infoArr = orgInfoArr;
-        }
+      
+          }
         return infoArr;
     }
 
