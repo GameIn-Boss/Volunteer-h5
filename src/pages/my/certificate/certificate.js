@@ -151,6 +151,7 @@ class Certificate extends React.Component {
           <div className="page-certificate-container-name">
             {this.props.user.real_name}
           </div>
+              {/* <img src="/images/my/zdx.png"/> */}
 
           {this.props.user.stars ? (
             <div
@@ -214,9 +215,9 @@ class Certificate extends React.Component {
             ) : (
               <div/>
             )}
-            {window.orgCode == "qM7e5Ba2vp" ? (
-              <img src="/images/my/zdx.png" className="second"/>
-            ) : null}
+            {/* {window.orgCode == "qM7e5Ba2vp" ? ( */}
+              {/* <img src="/images/my/zdx.png" className="second"/> */}
+            {/* ) : null} */}
           </div>
         </div>
       </div>
