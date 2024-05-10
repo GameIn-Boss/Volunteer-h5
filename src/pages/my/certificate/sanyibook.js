@@ -26,7 +26,7 @@ class Certificate extends React.Component {
         this.BussinessInfo = window.orgInfo.name || "和众泽益志愿服务中心";
         this.certTitle = window.orgInfo.cert_title || "和众泽益";
         this.certOrg = window.orgInfo.cert_org || "和众泽益";
-        this.certCachet = window.orgInfo.cert_cachet || "/images/my/zdx.png";
+        this.certCachet = window.orgInfo.cert_cachet || "/images/my/sanyic.png";
         this.certAuthOrg = window.orgInfo.cert_auth_org || "和众泽益志愿服务中心";
         const { user: listData } = props;
         const register = listData.regitser_time
@@ -79,7 +79,7 @@ class Certificate extends React.Component {
             this.createBase64BgImage(() => {
                 ImageToBase64(
                     [this.certCachet, nextProps.user.avatars],
-                    ["/images/my/zdx.png", "/images/my/touxiangBMW.png"],
+                    ["/images/my/sanyic.png", "/images/my/touxiangBMW.png"],
                     base64Array => {
                         console.info(base64Array);
                         that.setState(
@@ -192,7 +192,7 @@ class Certificate extends React.Component {
                             this.props.user.political === 2 ? <img src="/images/my/dangyuan.png" alt="" /> : null
                         } */}
                     </div>
-                    {this.props.user.stars ? (
+                    {/* {this.props.user.stars ? (
                         <div
                             className="page-certificate-container-star"
                             style={{ width: `${starWidth}` }}
@@ -201,7 +201,7 @@ class Certificate extends React.Component {
                                 size={{ width: 15, height: 14, score: this.props.user.stars }}
                             />
                         </div>
-                    ) : null}
+                    ) : null} */}
                     {/* <div className="page-certificate-container-content-register">
                         <span className="bmw-typnextlight">感谢您于{this.state.register}注册成为</span>
                     </div> */}

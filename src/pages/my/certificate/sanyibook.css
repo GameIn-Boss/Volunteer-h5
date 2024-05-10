@@ -42,7 +42,7 @@
 
 .page-certificate-container-border {
   width                 : 357px;
-  height                : 608px;
+  height                : 500px;
   /* background-image   : url(/images/my/certificate-bgBMW2.png); */
   background-position   : center;
   background-color      : #fff;
@@ -63,20 +63,19 @@
 }
 
 .page-certificate-container-name {
-  font-size     : 11px;
-  color         : #000000;
+  font-size     : 10px;
+  color         : #262626;
   letter-spacing: 0;
-  margin-top    : 15px;
+  margin-top    :14.5px;
   text-align    : left;
   line-height   : 19px;
   min-width     : 80px;
   height        : 19px;
-  font-weight   : 600;
+  font-weight   : 400;
+
   position      : absolute;
-  top           : 221px;
-  left          : 124px;
-  display: flex;
-  gap: 8px;
+  top           : 144px;
+  left:110px;
 }
 
 .page-certificate-container-star {
@@ -114,9 +113,9 @@
 }
 
 .page-certificate-container-content-title {
-  font-size     : 55px;
+  font-size     : 25px;
   font-weight   : 900;
-  color         : #CF1322;
+  color         : #B88849;
   letter-spacing: 0;
   margin-top    : 14px;
   text-align    : center;
@@ -124,12 +123,29 @@
   min-width     : 80px;
   height        : 19px;
   position      : absolute;
-  top           : 115px;
+  top           : 175px;
+  left          : 169px;
+  font-style    : italic;
+}
+
+.page-certificate-container-content-subtitle {
+  font-size     : 10px;
+  font-weight   : 300;
+  color         : #A40000;
+  letter-spacing: 0;
+  margin-top    : 14px;
+  text-align    : center;
+  line-height   : 19px;
+  min-width     : 80px;
+  height        : 19px;
+  position      : absolute;
+  top           : 210px;
+  left          : 169px;
 }
 
 .page-certificate-container-content-avatar {
-  top     : 47px;
-  left    : 30px;
+  top     : 166px;
+  left    : 54px;
   position: absolute;
 }
 
@@ -158,118 +174,7 @@
   min-width     : 80px;
   height        : 19px;
   position      : absolute;
-  top           : 367px;
-}
-
-.page-certificate-container-hours-box {
-  width             : 90%;
-  height            : 59px;
-  display           : flex;
-  justify-content   : space-around;
-  margin-top        : 10px;
-  margin-bottom     : 53px;
-  /* padding-bottom : 106px; */
-  /* border-bottom  : 1px solid #dddd; */
-  position          : absolute;
-  top               : 418px;
-}
-
-.page-certificate-container-hours-item-number {
-  /* font-family       : 'BMWTYPENEXT-LIGHT'; */
-  font-size         : 11px;
-  color             : #262626;
-  letter-spacing    : 0;
-  /* font-weight    : 400; */
-  display           : flex;
-  align-items       : center;
-  text-align        : center;
-  justify-content   : center;
-}
-
-.page-certificate-container-grouth-level {
-  width: 38px;
-  letter-spacing: 0;
-  top: 88px;
-  position: absolute;
-  font-size: 14px;
-  color: #FFF;
-  font-weight: 200;
-} 
-
-.page-certificate-container-id {
-  width: 84px;
-  letter-spacing: 0;
-  top: 155px;
-  position: absolute;
-  font-size: 28px;
-  left: 47px;
-  color: #FFF;
-  font-weight: 400;
-  text-align: center;
-} 
-
-.page-certificate-container-score {
-  width         : 178px;
-  letter-spacing: 0;
-  top           : 216px;
-  position      : absolute;
-  font-size     : 34px;
-  color         : #FDD759;
-  font-weight   : 400;
-}
-
-.page-certificate-container-projects {
-  width         : 178px;
-  letter-spacing: 0;
-  top           : 315px;
-  position      : absolute;
-  font-size     : 34px;
-  color         : #FDD759;
-  font-weight   : 400;
-}
-
-
-.page-certificate-container-hours {
-  width         : 178px;
-  letter-spacing: 0;
-  top           : 414px;
-  position      : absolute;
-  font-size     : 34px;
-  color         : #FDD759;
-  font-weight   : 400;
-}
-
-.page-certificate-container-year {
-  width: 38px;
-  letter-spacing: 0;
-  top: 510px;
-  left: 247px;
-  position: absolute;
-  font-size: 13px;
-  color: #FFFFFFBA;
-  font-weight: 200;
-}
-
-.page-certificate-container-month {
-  width: 38px;
-  letter-spacing: 0;
-  top: 510px;
-  left: 292px;
-  position: absolute;
-  font-size: 13px;
-  color: #FFFFFFBA;
-  font-weight: 200;
-}
-
-.page-certificate-container-day {
-  width: 38px;
-  letter-spacing: 0;
-  top: 510px;
-  left: 319px;
-  position: absolute;
-  font-size: 13px;
-  color: #FFFFFFBA;
-  font-weight: 200;
+  top           : 364px;
 }
 
 .page-certificate-container-hours-item-subTitle {
@@ -343,6 +248,8 @@
   align-items     : center;
 }
 
+
+
 .loading-img {
   animation: spinner 1s linear infinite;
   width    : 50px;
@@ -351,11 +258,11 @@
 
 @keyframes spinner {
   0% {
-      transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
   }
 
   100% {
-      transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
   }
 }
 
@@ -365,8 +272,55 @@
 
 .page-certificate-bg-img {
   position   : absolute;
-  margin-top : 45px;
+  /* padding : 10px 13px; */
   width      : 357px;
-  height     : 505px;
+  height     : 500px;
 }
 
+.page-certificate-container-hours-item-join_project_count {
+  font-size     : 36px;
+  font-weight   : 400;
+  color         : #A40000;
+  letter-spacing: -2px;
+  text-align    : center;
+  line-height   : 19px;
+  min-width     : 80px;
+  height        : 19px;
+  position      : absolute;
+  top           : 316px;
+  left          : 49px;
+}
+
+.page-certificate-container-hours-item-reward_time {
+  font-size     : 36px;
+  font-weight   : 400;
+  color         : #A40000;
+  letter-spacing: -2px;
+  text-align    : center;
+  line-height   : 19px;
+  min-width     : 80px;
+  height        : 19px;
+  position      : absolute;
+  top           : 395px;
+  left          : 49px;
+}
+
+.page-certificate-container-footer {
+  font-size     : 10px;
+  font-weight   : 300;
+  color         : white;
+  text-align    : center;
+  line-height   : 19px;
+  min-width     : 80px;
+  height        : 19px;
+  position      : absolute;
+  top           : 547px;
+  /* left       : 49px; */
+  display       : flex;
+  flex-wrap     : wrap;
+}
+
+.page-certificate-container-footer span {
+  margin: 0px auto;
+  width : 100%;
+}
