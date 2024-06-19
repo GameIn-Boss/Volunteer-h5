@@ -1,6 +1,5 @@
 /* global wx:false */
 /* eslint  "jsx-a11y/no-static-element-interactions":"off", "react/no-array-index-key":"off" */
-
 import React, { PropTypes } from 'react';
 import autoBind from 'react-autobind';
 import Alert from 'react-s-alert';
@@ -25,11 +24,11 @@ import i18next from 'i18next';
 import locale_ZN from 'antd-mobile/es/date-picker/locale/zh_CN';
 import locale_US from 'antd-mobile/es/date-picker/locale/en_US';
 import {
-    requestProjectDetail,
+    requestProjectDetailAnswer,
 } from '../detail/detail.store';
 import {
     joinPayProject,
-    joinProjectAction
+    joinProjectActionAnswer
 } from '../sign/sign.store';
 import {
     getData,
@@ -44,6 +43,10 @@ import {
 import { Dialog, Gallery, GalleryDelete, Button, Icon } from "react-weui";
 import "weui/dist/style/weui.css";
 import "react-weui/build/packages/react-weui.css";
+const locale = {
+    prevText: 'Prev',
+    nextText: 'Next',
+  };
 function formatDate(x, y) {
     /* eslint no-confusing-arrow: 0 */
     const pad = n => n < 10 ? `0${n}` : n;
@@ -82,7 +85,7 @@ function checkEmpty(value, label) {
 
 //判断自定义信息必填的是否为空
 function isRequired(arr, stateData) {
-
+console.log(stateData);
     for (let i = 0; i < arr.length; i++) {
         if (Number(arr[i].is_required) && Number(arr[i].is_required) === 1) {
 
@@ -122,14 +125,16 @@ class SignUpPage extends React.Component {
         super(props);
         autoBind(this);
         this.projectId = props.route.params.projectId;
+        this.answerId = props.route.params.answerId;
+        this.answerNum = props.route.params.answerNum;
 
         this.state = {
             checkeAll: false,
             extendsArray: {},
             showMultiple: false,
-            stationArray: {},
+            answerArray: {},
             previewData: [],
-            stationDateArray: {},
+            answerDateArray: {},
             dialogType: true,
             showDialog: false
 
@@ -162,44 +167,27 @@ class SignUpPage extends React.Component {
                     onClick: () => {
                         const extendsArray = this.state.extendsArray;
                         console.log(extendsArray);
-                        const stationArray = this.state.stationArray;
-                        const stationDateArray = this.state.stationDateArray;
+                        const answerArray = this.state.answerArray;
+                        const answerDateArray = this.state.answerDateArray;
 
                         let data = {};
                         let pay = {};
                         data.id = this.projectId;
+                        data.answerid = this.answerId;
                         data.type = 1;
-                        if (this.customConfig && this.customConfig.length > 0) {
+                  
+                        if (this.answerConfig && this.answerConfig.length > 0) {
 
-                            if (isRequired(this.customConfig, extendsArray)) {
-
-                                isEmpty = false;
-                                return;
-                            }
-                            data.extends = extendsArray;
-                        }
-                        if (this.stationConfig && this.stationConfig.length > 0) {
-
-                            if (isRequired(this.stationConfig, stationArray)) {
+                            if (isRequired(this.answerConfig, answerArray)) {
 
                                 isEmpty = false;
                                 return;
                             }
 
-                            data.station = stationArray;
+                            data.answer = answerArray;
                         }
-                        console.log(data.station)
-                        if (this.stationDateConfig && this.stationDateConfig.length > 0) {
-
-                            if (isRequired(this.stationDateConfig, stationDateArray)) {
-
-                                isEmpty = false;
-                                return;
-                            }
-
-                            data.datestation = stationDateArray;
-                        }
-                        console.log(data.datestation)
+                        console.log(data.answer)
+                 
 
                         if (this.state.data && this.state.data.length > 0) {
                             let payData = this.state.data;
@@ -222,7 +210,7 @@ class SignUpPage extends React.Component {
                             this.props.joinPayProject(data);
                             return
                         }
-                        this.props.joinProjectAction(data);
+                        this.props.joinProjectActionAnswer(data);
 
                     }
                 }
@@ -231,24 +219,26 @@ class SignUpPage extends React.Component {
     }
    
     componentWillMount() {
-        this.props.requestProjectDetail(this.projectId)
+        this.props.requestProjectDetailAnswer(this.projectId,this.answerId,this.answerNum)
 
     }
     componentWillReceiveProps(nextProps) {
         // return;
         const { detail: Ldetail, joinPay: Lpay, join: Ljoin } = this.props;
         const { detail: Ndetail, joinPay: Npay, join: Njoin } = nextProps;
-        if (Ldetail.fetching && !Ldetail.failed && !Ndetail.fetching && !Ndetail.failed && Ndetail.data && Ndetail.data.station_config) {
-            this.initialPic(Ndetail.data.station_config);
-            this.stationConfig = Ndetail.data.station_config;
+
+        if (Ldetail.fetching && !Ldetail.failed && !Ndetail.fetching && !Ndetail.failed && Ndetail.data && Ndetail.data.answer_config) {
+
+            this.initialPic(Ndetail.data.answer_config);
+            this.answerConfig = Ndetail.data.answer_config;
         }
-        if (Ldetail.fetching && !Ldetail.failed && !Ndetail.fetching && !Ndetail.failed && Ndetail.data && Ndetail.data.custom_config) {
-            this.initialPic(Ndetail.data.custom_config);
-            this.customConfig = Ndetail.data.custom_config;
-        }
-        if (Ldetail.fetching && !Ldetail.failed && !Ndetail.fetching && !Ndetail.failed && Ndetail.data && Ndetail.data.date_station_config) {
-            this.initialPic(Ndetail.data.date_station_config);
-            this.stationDateConfig = Ndetail.data.date_station_config;
+        // if (Ldetail.fetching && !Ldetail.failed && !Ndetail.fetching && !Ndetail.failed && Ndetail.data && Ndetail.data.custom_config) {
+        //     this.initialPic(Ndetail.data.custom_config);
+        //     this.customConfig = Ndetail.data.custom_config;
+        // }
+        if (Ldetail.fetching && !Ldetail.failed && !Ndetail.fetching && !Ndetail.failed && Ndetail.data && Ndetail.data.date_answer_config) {
+            this.initialPic(Ndetail.data.date_answer_config);
+            this.answerDateConfig = Ndetail.data.date_answer_config;
         }
 
         if (Ldetail.fetching && !Ldetail.failed && !Ndetail.fetching && !Ndetail.failed && Ndetail.data && Ndetail.data.custom_payment_config) {
@@ -277,8 +267,25 @@ class SignUpPage extends React.Component {
 
             })
         }
+
+        // var answer_num = parseInt(Ndetail.data.answer_num);
         if (Ljoin.fetching && !Ljoin.failed && !Njoin.fetching && !Njoin.failed) {
-            window.location.replace(`/project/success/${this.projectId}`)
+            var answerId = parseInt(nextProps.route.params.answerId) 
+            var answerNum = parseInt(nextProps.route.params.answerNum) 
+            answerId += 1;
+            console.log(Ldetail.data);
+            console.log(Ndetail.data);
+
+           if( answerId >= answerNum){
+                if(Ldetail.data.custom_config || Ldetail.data.station_config || Ldetail.data.date_station_config || Ndetail.data.custom_config || Ndetail.data.station_config || Ndetail.data.date_station_config){
+                    window.location.replace(`/project/signup/${this.projectId}`);
+                }else{
+                    window.location.replace(`/project/success/${this.projectId}`)
+                }
+           }else{
+                window.location.replace(`/answer/${this.projectId}/${answerId}/${answerNum}` )
+
+           }
         }
         if (!Lpay.fetching && Lpay.failed && Npay.fetching && !Npay.failed) {
             // history.replace(`/project/success/${this.projectId}`)
@@ -360,42 +367,21 @@ class SignUpPage extends React.Component {
                                 {item}
                             </RadioItem>
                         ))}
-                        {/* {station_num.map((item, index) => (
+                        {/* {answer_num.map((item, index) => (
                             <RadioItem checked={this.state[key] === item} key={index} onChange={() => this.onChange(item, key)} onClick={() => this.onClick(item, key)}>
                                 {item}
                             </RadioItem>
                         ))} */}
                     </List>
+                    
                 </div>
+                
                 <div className="line1px" />
+               
             </div>
         )
     }
-    renderOtherInfoSelectstation(item) {
-        const data = item;
-        const key = data.key;
-        const options = data.options;
-        return (
-            <div>
-                <div className="page-signUp-danxuan">
-                    {
-                        Number(item.is_required) == 1 ?
-                            <span className="page-project-signUp-verify-header-start page-project-signUp-verify-header-other-start">*</span>
-                            :
-                            null
-                    }
-                    <List renderHeader={() => data.label}>
-                        {options.map((item, index) => ( 
-                            <RadioItem checked={this.state[key] === item.name}  disabled={item.join_num == item.people_count} key={index} onChange={() => this.onChange(item.name, key)} onClick={() => this.onClick(item.name, key)}>
-                                {item.name} <div className="page-signUp-danxuanstation">招募人数：{item.count}</div>
-                            </RadioItem>                   
-                            ))}                     
-                    </List>
-                </div>
-                <div className="line1px" />
-            </div>
-        )
-    }
+
     onClick = (value, key) => {
         const sceondValue = this.state[key];
         if (value == sceondValue) {
@@ -461,40 +447,6 @@ class SignUpPage extends React.Component {
     this.pushStationDateArray(key, val);
 };
 
-renderOtherDateInfoCheckbox(item1) {
-    const CheckboxItem = Checkbox.CheckboxItem;
-    const data = item1;
-        const key = data.key;
-        const options = data.station_date_config;
-    return (
-        <div className="page-signUp-duoxuan">
-            {
-                Number(item1.is_required) === 1 ?
-                    <span className="page-project-signUp-verify-header-start page-project-signUp-verify-header-other-start">*</span>
-                    :
-                    null
-            }
-                 <span className="page-project-signUp-verify-header-start-date page-project-signUp-verify-header-other-start-date">* 最多可选{data.date_count}个日期</span>
-
-                         <List renderHeader={() => data.label  }>       
-
-
-                        {options.map((item1, index) => ( 
-                            <CheckboxItem  key={`${data.key}${item1.join_station_date}`} disabled={item1.join_num == item1.people_count}  onChange={() => this.handleOtherDateInfoMoreClick(data.key, item1.join_station_date)}>
-                                {item1.join_station_date}  <div className="page-signUp-duoxuanstation">招募人数：{item1.count}</div>
-                            </CheckboxItem>                   
-                            ))}                     
-                    </List>
-            {/* <List renderHeader={() => item1.label}>
-                {data.map(i => (
-                    <CheckboxItem key={`${item1.key}${i.value}`} onChange={() => this.handleOtherDateInfoMoreClick(item1.key, i.label)}>
-                        {i.label}
-                    </CheckboxItem>
-                ))}
-            </List> */}
-        </div>
-    )
-}
 
 
     //单行
@@ -765,188 +717,99 @@ renderOtherDateInfoCheckbox(item1) {
     * isMany 是否多选 true是 false否
     * */
     pushStationArray(key, value, isMany) {
-        const stationArray = this.state.stationArray;
+        const answerArray = this.state.answerArray;
         if (!isMany) {
             if (value == '-1') {
-                if (key in stationArray) {
-                    delete stationArray[key];
+                if (key in answerArray) {
+                    delete answerArray[key];
                 } else {
                     return;
                 }
             } else {
-                stationArray[key] = value;
+                answerArray[key] = value;
             }
         }
 
         this.setState({
             ...this.state,
-            stationArray
-        })
-        // this.extendsArray = extendsArray;
-
-    }
-    pushStationDateArray(key, value, isMany) {
-        const stationDateArray = this.state.stationDateArray;
-        if (key in stationDateArray) {
-
-            //判断多选选项是否已被选，有的话去掉
-            if (stationDateArray[key].indexOf(value) !== -1) {
-                //已存在,需要排序
-                let stationDateArrays = stationDateArray[key].split(',');
-                let itemIndex = stationDateArrays.indexOf(value);
-                stationDateArrays.splice(itemIndex, 1);
-                if (stationDateArrays.length <= 0) {
-                    delete stationDateArray[key];
-                } else {
-                    stationDateArray[key] = stationDateArrays.join(',');
-                }
-            } else {
-                //没有被选择,需要排序.
-                stationDateArray[key] = String(stationDateArray[key]) + ',' + value;
-            }
-            if (key in stationDateArray && stationDateArray[key].split(',').length > 1) {
-                //长度大于1时进行排序
-                windowOrgConfig.map(i => {
-                    if (i.key === key) {
-                        stationDateArray[key] = this.softArr(i.options.split(','), stationDateArray[key].split(',')).join(',');
-                        return;
-                    }
-                })
-            }
-        } else {
-            //不在多extendsArray里，直接添加。
-            stationDateArray[key] = value;
-        }
-        this.setState({
-            ...this.state,
-            stationDateArray
+            answerArray
         })
         // this.extendsArray = extendsArray;
 
     }
 
     pushExtendsArray(key, value, isMany) {
-        const extendsArray = this.state.extendsArray;
-        const stationArray = this.state.stationArray;
-        const windowOrgConfig = this.customConfig;
+        const answerArray = this.state.answerArray;
+        const windowOrgConfig = this.answerConfig;
 
         if (!isMany) {
             if (value == '-1') {
-                if (key in stationArray) {
-                    delete stationArray[key];
+                if (key in answerArray) {
+                    delete answerArray[key];
                 } else {
                     return;
                 }
             } else {
-                stationArray[key] = value;
+                answerArray[key] = value;
             }
-        }
-        if (!isMany) {
-            if (value == '-1') {
-                if (key in extendsArray) {
-                    delete extendsArray[key];
-                } else {
-                    return;
-                }
-            } else {
-                extendsArray[key] = value;
-            }
-        } else {
+        }else
+         {
             //多选
-            if (key in extendsArray) {
+            if (key in answerArray) {
 
                 //判断多选选项是否已被选，有的话去掉
-                if (extendsArray[key].indexOf(value) !== -1) {
+                if (answerArray[key].indexOf(value) !== -1) {
                     //已存在,需要排序
-                    let extendsArrays = extendsArray[key].split(',');
-                    let itemIndex = extendsArrays.indexOf(value);
-                    extendsArrays.splice(itemIndex, 1);
-                    if (extendsArrays.length <= 0) {
-                        delete extendsArray[key];
+                    let answerArrays = answerArray[key].split(',');
+                    let itemIndex = answerArrays.indexOf(value);
+                    answerArrays.splice(itemIndex, 1);
+                    if (answerArrays.length <= 0) {
+                        delete answerArray[key];
                     } else {
-                        extendsArray[key] = extendsArrays.join(',');
+                        answerArray[key] = answerArrays.join(',');
                     }
                 } else {
                     //没有被选择,需要排序.
-                    extendsArray[key] = String(extendsArray[key]) + ',' + value;
+                    answerArray[key] = String(answerArray[key]) + ',' + value;
                 }
-                if (key in extendsArray && extendsArray[key].split(',').length > 1) {
+                if (key in answerArray && answerArray[key].split(',').length > 1) {
                     //长度大于1时进行排序
                     windowOrgConfig.map(i => {
                         if (i.key === key) {
-                            extendsArray[key] = this.softArr(i.options.split(','), extendsArray[key].split(',')).join(',');
+                            answerArray[key] = this.softArr(i.options.split(','), answerArray[key].split(',')).join(',');
                             return;
                         }
                     })
                 }
             } else {
-                //不在多extendsArray里，直接添加。
-                extendsArray[key] = value;
+                //不在多answerArray里，直接添加。
+                answerArray[key] = value;
             }
         }
         this.setState({
             ...this.state,
-            extendsArray
+            answerArray
         })
         // this.extendsArray = extendsArray;
 
     }
         //多选日期岗位
-        renderStationDateInfo() {
+       
+    renderStationInfo1() {
 
-            if (this.props.detail.data === null || this.props.detail.data.date_station_config === null) {
-                return null
-            }
-            return (
-                <div>
-                    {
-                        this.props.detail.data.date_station_config && this.props.detail.data.date_station_config.length ?
-                            this.props.detail.data.date_station_config.map((item, index) => {
-                                switch (Number(item.type)) {//单项选择
-                                    case 1:
-                                        return (
-                                            <div key={index}>
-                                                {this.renderOtherInfoSelect(item)}
-                                            </div>
-                                        );
-                                        break;
-                                    //多项选择
-                                    case 2:
-                                        return (
-                                            <div key={index}>
-                                                {this.renderOtherDateInfoCheckbox(item)}
-                                            </div>
-                                        );
-                                        break;
-                                    //单行输入
-                               
-                                    default:
-                                        return
-                                }
-    
-                            })
-                            :
-                            null
-                    }
-                </div>
-            )
-        }
-    
-    renderStationInfo() {
-
-        if (this.props.detail.data === null || this.props.detail.data.station_config === null) {
+        if (this.props.detail.data === null || this.props.detail.data.answer_config === null) {
             return null
         }
         return (
             <div>
                 {
-                    this.props.detail.data.station_config && this.props.detail.data.station_config.length ?
-                        this.props.detail.data.station_config.map((item, index) => {
+                    this.props.detail.data.answer_config && this.props.detail.data.answer_config.length ?
+                        this.props.detail.data.answer_config.map((item, index) => {
                             switch (Number(item.type)) {//单项选择
                                 case 1:
                                     return (
                                         <div key={index}>
-                                            {this.renderOtherInfoSelectstation(item)}
+                                            {this.renderOtherInfoSelectanswer(item)}
                                         </div>
                                     );
                                     break;
@@ -963,14 +826,14 @@ renderOtherDateInfoCheckbox(item1) {
     }
     renderOtherInfo() {
 
-        if (this.props.detail.data === null || this.props.detail.data.custom_config === null) {
+        if (this.props.detail.data === null || this.props.detail.data.answer_config === null) {
             return null
         }
         return (
             <div>
                 {
-                    this.props.detail.data.custom_config && this.props.detail.data.custom_config.length ?
-                        this.props.detail.data.custom_config.map((item, index) => {
+                    this.props.detail.data.answer_config && this.props.detail.data.answer_config.length ?
+                        this.props.detail.data.answer_config.map((item, index) => {
                             switch (Number(item.type)) {//单项选择
                                 case 1:
                                     return (
@@ -1113,51 +976,37 @@ renderOtherDateInfoCheckbox(item1) {
         )
     }
     onSubmmit() {
-        if (window.orgCode === '4openZle7A') {
-            this.setState({ ...this.state, showDialogjoin: true });
-            return;
-        }        
-        const extendsArray = this.state.extendsArray;
-        console.log(extendsArray);
-        const stationArray = this.state.stationArray;
-        const stationDateArray = this.state.stationDateArray;
+       
+        // const extendsArray = this.state.extendsArray;
+        const answerArray = this.state.answerArray;
+        // const answerDateArray = this.state.answerDateArray;
 
         let data = {};
         let pay = {};
         data.id = this.projectId;
         data.type = 1;
-        if (this.customConfig && this.customConfig.length > 0) {
+        data.answerid = this.answerId;
+        // if (this.customConfig && this.customConfig.length > 0) {
 
-            if (isRequired(this.customConfig, extendsArray)) {
+        //     if (isRequired(this.customConfig, extendsArray)) {
 
-                isEmpty = false;
-                return;
-            }
-            data.extends = extendsArray;
-        }
-        if (this.stationConfig && this.stationConfig.length > 0) {
+        //         isEmpty = false;
+        //         return;
+        //     }
+        //     data.extends = extendsArray;
+        // }
+        if (this.answerConfig && this.answerConfig.length > 0) {
 
-            if (isRequired(this.stationConfig, stationArray)) {
-
-                isEmpty = false;
-                return;
-            }
-
-            data.station = stationArray;
-        }
-        console.log(data.station)
-        if (this.stationDateConfig && this.stationDateConfig.length > 0) {
-
-            if (isRequired(this.stationDateConfig, stationDateArray)) {
+            if (isRequired(this.answerConfig, answerArray)) {
 
                 isEmpty = false;
                 return;
             }
 
-            data.datestation = stationDateArray;
+            data.answer = answerArray;
         }
-        console.log(data.datestation)
 
+   
         if (this.state.data && this.state.data.length > 0) {
             let payData = this.state.data;
             for (var i = 0; i < payData.length; i++) {
@@ -1173,13 +1022,13 @@ renderOtherDateInfoCheckbox(item1) {
                     }
                 }
             }
-            console.log(111)
             data.payment = pay;       
 
             this.props.joinPayProject(data);
             return
         }
-        this.props.joinProjectAction(data);
+
+        this.props.joinProjectActionAnswer(data);
 
 
     }
@@ -1196,12 +1045,12 @@ renderOtherDateInfoCheckbox(item1) {
         const { t } = this.props;
         return (
             <div className="page-project-signUp">
-                {//岗位信息
+                {/* {//岗位信息
                     this.renderStationInfo()
                 }
                 {//岗位信息
                     this.renderStationDateInfo()
-                }
+                } */}
                 {//自定义信息
                     this.renderOtherInfo()
                 }
@@ -1230,7 +1079,7 @@ renderOtherDateInfoCheckbox(item1) {
                                 : null
                         }
 
-                        <div className="btn" onClick={this.onSubmmit}>{t('提交')}</div>
+                        <div className="btn" onClick={this.onSubmmit}>{t('下一步')}</div>
                     </div>
                 </div>
                 <Dialog
@@ -1269,9 +1118,9 @@ renderOtherDateInfoCheckbox(item1) {
 }
 
 SignUpPage.propTypes = {
-    requestProjectDetail: PropTypes.func,
+    requestProjectDetailAnswer: PropTypes.func,
     joinPayProject: PropTypes.func,
-    joinProjectAction: PropTypes.func,
+    joinProjectActionAnswer: PropTypes.func,
     detail: PropTypes.shape({
         fetchingId: PropTypes.string,
         data: PropTypes.shape({}),
@@ -1284,6 +1133,9 @@ SignUpPage.propTypes = {
     route: PropTypes.shape({
         params: PropTypes.shape({
             projectId: PropTypes.string,
+            answerId: PropTypes.string,
+            answerNum: PropTypes.string,
+            
         }),
     }),
 };
@@ -1297,8 +1149,8 @@ export default connect(
         join: state.project.projectSign.joinProject,
     }),
     dispatch => bindActionCreators({
-        requestProjectDetail,
+        requestProjectDetailAnswer,
         joinPayProject,
-        joinProjectAction
+        joinProjectActionAnswer
     }, dispatch),
 )(translate('translations')(SignUpPage));

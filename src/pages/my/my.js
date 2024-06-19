@@ -92,7 +92,22 @@ class MyPage extends React.Component {
       </div>
     );
   }
-
+  renderPagesanyirescueTemplate() {
+    return (
+      <div className="page-my-header-sanyirescure-container">
+        {this.props.usercenter.data === null ? (
+          <span />
+        ) : (
+          <span
+            className={classnames({
+              "page-my-header-messages-red-point":
+                this.props.usercenter.data.msg_count >= 1
+            })}
+          />
+        )}
+      </div>
+    );
+  }
   onPreview(e) {
     var key = e.target.getAttribute("data-key");
     var arr = [];
@@ -438,6 +453,28 @@ class MyPage extends React.Component {
         {window.orgCode !== 'yJrb2kKdWL' ? null : (
               <li>
                 <div>
+                  <Link to="/my/sanyirescue">
+                    <div className="page-my-item-box">
+                      {this.renderPagesanyirescueTemplate()}
+                      {t('应急救护培训公益证书')}
+                      {/*<i className="page-my-item-icon page-my-item-icon-news" />我的消息*/}
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                      {/* {
+                        this.props.usercenter.data && this.props.usercenter.data.msg_count > 0 ?
+                          <span className="page-my-message-msg_count">{this.props.usercenter.data && this.props.usercenter.data.msg_count}</span> : null
+                      } */}
+                      <span className="page-my-item-big" />
+                    </div>
+                  </Link>
+                  <div className="line1px" />
+                </div>
+              </li>
+            )
+          } 
+        {window.orgCode !== 'yJrb2kKdWL' ? null : (
+              <li>
+                <div>
                   <Link to="/my/sanyibook">
                     <div className="page-my-item-box">
                       {this.renderPagesanyiTemplate()}
@@ -568,8 +605,7 @@ class MyPage extends React.Component {
                 </div>
               </li>)
           } */}
-          {
-            orgCode === "yJrb2kKdWL" ? null :(
+       
             <li>
                 <div>
                   <Link to="/my/family">
@@ -582,8 +618,7 @@ class MyPage extends React.Component {
                   <div className="line1px" />
                 </div>
               </li>
-              )
-          }
+      
           <li>
             <div>
               <Link to="/my/collects">
@@ -658,7 +693,7 @@ class MyPage extends React.Component {
               <div className="line1px" />
             </div>
           </li>
-            )}
+            )} 
         </ul>
       </div>
     );

@@ -133,6 +133,10 @@ export const joinProjectAction = data => ({
   type: "PROJECT_JOINPROJECT_DATA",
   payload: fetch(`/project/join/${data.id}`, { data })
 });
+export const joinProjectActionAnswer = data => ({
+  type: "PROJECT_JOINPROJECT_DATA",
+  payload: fetch(`/project/answer/${data.id}`, { data })
+});
 const joinProjectReducer = (
   state = {
     fetching: false,

@@ -686,7 +686,7 @@ class Profile extends React.Component {
                     <div className="page-profile-fonts">{t('民族')}</div>
                     <div className="page-profile-edit-right-box">{otherFamily.data.nation}</div>
                 </div>
-                <div className="page-profile-header-line">{t('现居住地址')}</div>
+                {/* <div className="page-profile-header-line">{t('现居住地址')}</div>
                 <div className="page-profile-header-box">
                     <div className="page-profile-fonts">{t('省份')}</div>
                     <div className="page-profile-edit-right-box">{otherFamily.data.province_name}</div>
@@ -703,19 +703,19 @@ class Profile extends React.Component {
                 </div>
                 {
                     otherFamily.data.township_name && <div className="line1px" />
-                }
-                {
+                } */}
+                {/* {
                     otherFamily.data.township_name &&
                     <div className="page-profile-header-box">
                         <div className="page-profile-fonts">{t('街道')}</div>
                         <div className="page-profile-edit-right-box">{otherFamily.data.township_name}</div>
                     </div>
                 }
-                <div className="line1px" />
-                <div className="page-profile-header-box">
+                <div className="line1px" /> */}
+                {/* <div className="page-profile-header-box">
                     <div className="page-profile-fonts">{t('详细地址')}</div>
                     <div className="page-profile-edit-right-box">{otherFamily.data.addr}</div>
-                </div>
+                </div> */}
                 <div className="page-profile-header-cut"></div>
                 <div className="page-profile-header-box">
                     <div className="page-profile-fonts page-profile-fonts-main">{t('密码')}</div>

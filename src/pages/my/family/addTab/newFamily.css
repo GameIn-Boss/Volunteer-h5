@@ -14,6 +14,10 @@
 .pages-add-new-family-ipt {
     flex: 1;
 }
+.page-my-profile-verify-header-start {
+  
+    color: red;
+}
 .pages-add-new-family-ipt input {
     width: 100%;
     color: #999999;

@@ -261,23 +261,28 @@ class ProjectDetailPage extends React.Component {
                             const customConfig = detailData.custom_config || null;
                             const paymentConfig = detailData.custom_payment_config || null;
                             const stationConfig = detailData.stationConfig || null;
+                            const answerConfig = detailData.answerConfig || null;
                             const dateConfig = detailData.project_join_date || null;
-                            if (!customConfig && !paymentConfig && !stationConfig && !dateConfig) {
+                            if (!customConfig && !paymentConfig && !stationConfig && !dateConfig&& !answerConfig) {
                                 const {
                                     detail: { data: detailData }
                                 } = this.props;
                                 this.props.joinProject(this.projectId, detailData.join_verify_status);
                                 this.setState({ ...this.state, showDialogjoin: false });
 
-                            } else if (customConfig || paymentConfig || stationConfig || dateConfig) {
+                            } else if (customConfig || paymentConfig || stationConfig || dateConfig || answerConfig) {
                                 // window.location.replace(`/project/signup/${projectId}`)
-                                window.location.href = `/project/signup/${this.projectId}`;
+                                if (answerConfig) {
+                                    window.location.href = `/answer/${projectId}/0`;
+                                }else{
+                                    window.location.href = `/project/signup/${this.projectId}`;
+                                }
 
                                 // history.replace(`/project/signup/${projectId}`)
                             }
                         } else {
                             this.setState({ ...this.state, showDialogjoin: false })
-                            this.props.storeLoginSource(`/project/detail/${this.projectId}`);
+                            this.props.storeLoginSource(`/project/detail/${this.projectId}/1`);
 
                             window.location.href = `/my/login`;
                         }
@@ -483,7 +488,8 @@ class ProjectDetailPage extends React.Component {
             showShareTip: true
         });
     }
-    handleActionClickSitch(action, projectId, customConfig, paymentConfig,stationConfig,stationDateConfig) {
+    handleActionClickSitch(action, projectId, customConfig, paymentConfig,stationConfig,stationDateConfig,answerConfig,answer_num) {
+       
         if (action === "join") {
          
             if (projectId == 1035) {
@@ -497,7 +503,7 @@ class ProjectDetailPage extends React.Component {
                     "http://wx.zgzyzfw.n.gongyibao.cn/#/donform?accId=cc0b9f9a-2cef-4b0c-829f-d2f29ee87534&proId=bdb2cac7-ac34-4446-bcd9-5d3ee4f4c3ad&paymethod=1&projectTitle=%E5%BE%AE%E7%88%B1%E7%89%B5%E6%89%8B&rf=0.30765105282089134";
                 return;
             }
-            if (!customConfig && !paymentConfig && !stationConfig && !stationDateConfig) {
+            if (!customConfig && !paymentConfig && !stationConfig && !stationDateConfig && !answerConfig) {
                 if (window.orgCode === '4openZle7A') {
                     this.setState({ ...this.state, showDialogjoin: true });
                     return;
@@ -507,16 +513,18 @@ class ProjectDetailPage extends React.Component {
                 } = this.props;
                 this.props.joinProject(projectId, detailData.join_verify_status);
                 
-            } else if (customConfig || paymentConfig || stationConfig || stationDateConfig) {
+            } else if (customConfig || paymentConfig || stationConfig || stationDateConfig || answerConfig) {
                 // window.location.replace(`/project/signup/${projectId}`)
-                window.location.href = `/project/signup/${projectId}`;
+
+                if (answer_num !== 0) {
+                    window.location.href = `/answer/${projectId}/0/${answer_num}`;
+                }else{
+                    window.location.href = `/project/signup/${projectId}`;
+
+                }
                 // history.replace(`/project/signup/${projectId}`)
             }
-            // if (stationConfig) {
-            //     // window.location.replace(`/project/signup/${projectId}`)
-            //     window.location.href = `/project/station/${projectId}`;
-            //     // history.replace(`/project/signup/${projectId}`)
-            // }
+
         } else if (action === "quit") {
             this.setState({ ...this.state, showDialog: true });
 
@@ -531,9 +539,15 @@ class ProjectDetailPage extends React.Component {
             t,
         } = this.props;
         const stationConfig = detailData.station_config || null;
+        const answerConfig = detailData.answer_config || null;
+        const answer_num = detailData.answer_num || 0;
+
         const stationDateConfig = detailData.date_station_config || null;
         const customConfig = detailData.custom_config || null;
         const paymentConfig = detailData.custom_payment_config || null;
+
+        
+        
         return () => {
             // in_blacklist 黑名单 0不在，1在
             // realRegister 机构实名 1 要求  0 否
@@ -545,13 +559,16 @@ class ProjectDetailPage extends React.Component {
             } else if (user.isLogin && !user.in_blacklist) {
                 // 不要求实名
                 if (realRegister == 0) {
+
                     this.handleActionClickSitch(
                         action,
                         projectId,
                         customConfig,
                         paymentConfig,
                         stationConfig,
-                        stationDateConfig
+                        answerConfig,
+                        stationDateConfig,
+                        answer_num
                     );
                     // 要求实名切用户未实名过，通过ID判断
                 } else if (realRegister == 1 && user.isLogin) {
@@ -630,7 +647,9 @@ class ProjectDetailPage extends React.Component {
                             customConfig,
                             paymentConfig,
                             stationConfig,
-                            stationDateConfig
+                            answerConfig,
+                            stationDateConfig,
+                            answer_num
                         );
                     }
                 }

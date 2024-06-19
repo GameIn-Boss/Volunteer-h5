@@ -34,6 +34,29 @@ export const requestProjectDetail = (projectId) => {
 
 
 /**
+ * 答题详情 Action
+ * @param {string} projectId
+ */
+export const requestProjectDetailAnswer = (projectId,answer_id) => {
+  const params = queryString.parse(location.search);
+  const preview = params.preview;
+  const data = {};
+
+  if (preview === '1') {
+    data.preview = 1;
+  }
+
+  return {
+    type: 'PROJECT_DETAIL',
+    meta: {
+      id: projectId,
+      
+    },
+    payload: fetch(`/answer/${projectId}/${answer_id}`, { method: 'GET', data }),
+  };
+};
+
+/**
  * 项目收藏 Action
  */
 export const collectProject = projectId => ({

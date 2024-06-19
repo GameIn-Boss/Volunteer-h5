@@ -176,13 +176,13 @@ class NewFamily extends React.Component {
         const username = this.username.value.replace(/(^\s+)|(\s+$)/g, '');
         const userpassword = this.userpassword.value.replace(/(^\s+)|(\s+$)/g, '');
         const idNumber = this.idNumber.value.replace(/(^\s+)|(\s+$)/g, '');
-        const addressDetail = this.addressDetail.value.replace(/(^\s+)|(\s+$)/g, '');
+        // const addressDetail = this.addressDetail.value.replace(/(^\s+)|(\s+$)/g, '');
         this.setState({
             ...this.state,
             username,
             userpassword,
             idNumber,
-            addressDetail
+            // addressDetail
         });
     }
     addFamilyPeople() {
@@ -196,10 +196,10 @@ class NewFamily extends React.Component {
         const city = this.state.city;
         const county = this.state.county;
         const { township } = this.state;
-        const addressDetail = this.state.addressDetail;
+        // const addressDetail = this.state.addressDetail;
         const cardtype = this.state.cardtype;
         if (checkEmpty(username, t('姓名')) || checkEmpty(userpassword, t('密码'))
-            || checkEmpty(idNumber, t('身份证号')) || checkEmpty(addressDetail, t('详细地址'))
+            || checkEmpty(idNumber, t('身份证号')) 
             || checkStr(username, t('姓名'))) {
             return;
         }
@@ -214,7 +214,10 @@ class NewFamily extends React.Component {
                 return;
             }
         }
-        if (isChoose(nation, t('民族')) || isChoose(province, t('省份')) || isChoose(city, t('城市')) || isChoose(county, t('区县')) || (window.orgInfo.area_level === 4 && isChoose(township, t('街道'))) || isChoose(relations, t('关系'))) {
+        // if (isChoose(nation, t('民族')) || isChoose(province, t('省份')) || isChoose(city, t('城市')) || isChoose(county, t('区县')) || (window.orgInfo.area_level === 4 && isChoose(township, t('街道'))) || isChoose(relations, t('关系'))) {
+        //     return
+        // }
+            if (  isChoose(relations, t('关系'))) {
             return
         }
         if (userpassword.length <= 5 || userpassword.length >= 19) {
@@ -238,7 +241,7 @@ class NewFamily extends React.Component {
         if (window.orgInfo.area_level === 4) {
             data.township_id = township;
         }
-        data.addr = addressDetail;
+        // data.addr = addressDetail;
         data.num_type = cardtype;
         this.props.addFamilyPeople(data);
     }
@@ -253,6 +256,8 @@ class NewFamily extends React.Component {
         return (
             <div>
                 <div className="pages-add-new-family-box">
+                <span className="page-my-profile-verify-header-start">*</span>
+
                     <div className="pages-add-new-family-type">{t('姓名')}</div>
                     <div className="pages-add-new-family-ipt">
                         <input type="text" ref={(c) => { this.username = c; }} onBlur={this.onTextChanged} />
@@ -260,6 +265,8 @@ class NewFamily extends React.Component {
                 </div>
                 <div className="line1px"></div>
                 <div className="pages-add-new-family-box">
+                <span className="page-my-profile-verify-header-start">*</span>
+
                     <div className="pages-add-new-family-type">{t('证件类型')}</div>
                     <div className="pages-add-new-family-ipt">
                         <label htmlFor="cardtype">
@@ -282,6 +289,8 @@ class NewFamily extends React.Component {
                 </div>
                 <div className="line1px"></div>
                 <div className="pages-add-new-family-box">
+                <span className="page-my-profile-verify-header-start">*</span>
+
                     <div className="pages-add-new-family-type">{t('证件号码')}</div>
                     <div className="pages-add-new-family-ipt">
                         <input type="text" ref={(c) => { this.idNumber = c }} onKeyUp={this.onTextChanged} />
@@ -289,6 +298,7 @@ class NewFamily extends React.Component {
                 </div>
                 <div className="line1px"></div>
                 <div className="pages-add-new-family-box">
+
                     <div className="pages-add-new-family-type">{t('民族')}</div>
                     <div className="pages-add-new-family-ipt">
                         <label htmlFor="people">
@@ -300,8 +310,10 @@ class NewFamily extends React.Component {
                         </label>
                     </div>
                 </div>
-                <div className="pages-add-new-family-address">{t('现居住地址')}</div>
+
+                {/* <div className="pages-add-new-family-address">{t('现居住地址')}</div>
                 <div className="pages-add-new-family-box">
+
                     <div className="pages-add-new-family-type">{t('省份')}</div>
                     <div className="pages-add-new-family-ipt">
                         <label htmlFor="province">
@@ -313,8 +325,9 @@ class NewFamily extends React.Component {
                         </label>
                     </div>
                 </div>
-                <div className="line1px"></div>
-                <div className="pages-add-new-family-box">
+                <div className="line1px"></div> */}
+                {/* <div className="pages-add-new-family-box">
+
                     <div className="pages-add-new-family-type">{t('城市')}</div>
                     <div className="pages-add-new-family-ipt">
                         <label htmlFor="city">
@@ -325,9 +338,10 @@ class NewFamily extends React.Component {
                             </select>
                         </label>
                     </div>
-                </div>
-                <div className="line1px"></div>
+                </div> */}
+                {/* <div className="line1px"></div>
                 <div className="pages-add-new-family-box">
+
                     <div className="pages-add-new-family-type">{t('区县')}</div>
                     <div className="pages-add-new-family-ipt">
                         <label htmlFor="county">
@@ -338,12 +352,13 @@ class NewFamily extends React.Component {
                             </select>
                         </label>
                     </div>
-                </div>
+                </div> */}
                 {
                     window.orgInfo.area_level === 4 && <div className="line1px" />
                 }
-                {
+                {/* {
                     window.orgInfo.area_level === 4 && <div className="pages-add-new-family-box">
+
                         <div className="pages-add-new-family-type">{t('街道')}</div>
                         <div className="pages-add-new-family-ipt">
                             <label htmlFor="township">
@@ -355,16 +370,19 @@ class NewFamily extends React.Component {
                             </label>
                         </div>
                     </div>
-                }
-                <div className="line1px"></div>
-                <div className="pages-add-new-family-box">
-                    <div className="pages-add-new-family-type">{t('详细地址')}</div>
+                } */}
+                {/* <div className="line1px"></div>
+                <div className="pages-add-new-family-box"> */}
+
+                    {/* <div className="pages-add-new-family-type">{t('详细地址')}</div>
                     <div className="pages-add-new-family-ipt">
                         <input type="text" ref={(c) => { this.addressDetail = c }} onKeyUp={this.onTextChanged} />
-                    </div>
-                </div>
+                    </div> */}
+                {/* </div> */}
                 <div className="pages-add-new-family-space"></div>
                 <div className="pages-add-new-family-box">
+                <span className="page-my-profile-verify-header-start">*</span>
+
                     <div className="pages-add-new-family-type">{t('密码')}</div>
                     <div className="pages-add-new-family-ipt">
                         <input type="password" ref={(c) => { this.userpassword = c }} onKeyUp={this.onTextChanged} />
@@ -372,6 +390,8 @@ class NewFamily extends React.Component {
                 </div>
                 <div className="line1px"></div>
                 <div className="pages-add-new-family-box">
+                <span className="page-my-profile-verify-header-start">*</span>
+
                     <div className="pages-add-new-family-type">{t('关系')}</div>
                     <div className="pages-add-new-family-ipt">
                         <label htmlFor="relations">

@@ -86,6 +86,11 @@
     "chunk": "main"
   },
   {
+    "path": "/answer/:projectId/:answerId/:answerNum",
+    "page": "./pages/project/sign/answer",
+    "chunk": "main"
+  },
+  {
     "path": "/project/success/:projectId",
     "page": "./pages/project/sign/success",
     "chunk": "main"
@@ -181,7 +186,11 @@
     "page": "./pages/my/certificate/sanyibook",
     "chunk": "main"
   },
-
+  {
+    "path": "/my/sanyirescue",
+    "page": "./pages/my/certificate/sanyirescue",
+    "chunk": "main"
+  },
   {
     "path": "/my/certificateBMW",
     "page": "./pages/my/certificate/certificateBMW",
