@@ -96,7 +96,8 @@ const cardtype = [
   { id: "2", name: "香港居民身份证" },
   { id: "3", name: "澳门居民身份证" },
   { id: "4", name: "台湾居民身份证" },
-  { id: "5", name: "护照" }
+  { id: "5", name: "护照" },
+  { id: "6", name: "港澳通行证" }
 ];
 let isEmpty = false;
 

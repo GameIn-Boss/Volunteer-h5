@@ -472,20 +472,16 @@ class MyPage extends React.Component {
               </li>
             )
           } 
-        {window.orgCode !== 'yJrb2kKdWL' ? null : (
+        {/* {window.orgCode !== 'yJrb2kKdWL' ? null : (
               <li>
                 <div>
                   <Link to="/my/sanyibook">
                     <div className="page-my-item-box">
                       {this.renderPagesanyiTemplate()}
                       {t('“万物复书”爱心公益证书')}
-                      {/*<i className="page-my-item-icon page-my-item-icon-news" />我的消息*/}
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                      {/* {
-                        this.props.usercenter.data && this.props.usercenter.data.msg_count > 0 ?
-                          <span className="page-my-message-msg_count">{this.props.usercenter.data && this.props.usercenter.data.msg_count}</span> : null
-                      } */}
+                     
                       <span className="page-my-item-big" />
                     </div>
                   </Link>
@@ -493,7 +489,7 @@ class MyPage extends React.Component {
                 </div>
               </li>
             )
-          }
+          } */}
 
           {window.orgInfo.funding_application === 0 ? null : (
             <li>

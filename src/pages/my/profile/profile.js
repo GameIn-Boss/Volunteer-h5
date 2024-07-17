@@ -137,6 +137,9 @@ class Profile extends React.Component {
                 case 5:
                     num_type = t('护照');
                     break;
+                case 6:
+                    num_type = t('港澳通行证');
+                    break;
                 default:
                     num_type = t('内地居民身份证');
                     break;

@@ -34,5 +34,6 @@ export const cardtype = [
     { id: "2", name: "香港居民身份证", en_US: 'Hong Kong Identity Card' },
     { id: "3", name: "澳门居民身份证", en_US: 'Macau Identity Card' },
     { id: "4", name: "台湾居民身份证", en_US: 'Taiwan Identity Card' },
-    { id: "5", name: "护照", en_US: 'Passport' }
+    { id: "5", name: "护照", en_US: 'Passport' },
+    { id: "6", name: "港澳通行证", en_US: 'Hong Kong and Macao pass' }
 ];
