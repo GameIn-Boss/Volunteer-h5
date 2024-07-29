@@ -54,11 +54,66 @@
     "page": "./pages/home/subpage/city_page",
     "chunk": "main"
   },
+    {
+    "path": "/my/project_certificate",
+    "page": "./pages/my/thxCertificate/duration",
+    "chunk": "main"
+  },
   {
     "path": "/homesearch",
     "page": "./pages/home/subpage/search",
     "chunk": "main"
   },
+
+  {
+    "path": "/projectthx/detail/:projectthxId",
+    "page": "./pages/projectthx/detail/detail",
+    "chunk": "main"
+  },
+  {
+    "path": "/projectthx/detail/community/:projectthxId",
+    "page": "./pages/projectthx/detail/communityDetail",
+    "chunk": "main"
+  },
+  {
+    "path": "/projectthx/receipt/:sn",
+    "page": "./pages/projectthx/sign/receipt",
+    "chunk": "main"
+  },
+  {
+    "path": "/projectthx/signup/:projectthxId",
+    "page": "./pages/projectthx/sign/signUp",
+    "chunk": "main"
+  },
+  {
+    "path": "/projectthx/success/:projectthxId",
+    "page": "./pages/projectthx/sign/success",
+    "chunk": "main"
+  },
+  {
+    "path": "/projectthx/list",
+    "page": "./pages/projectthx/list/list",
+    "chunk": "main"
+  },
+  {
+    "path": "/projectthx/list/recommend",
+    "page": "./pages/projectthx/list/list",
+    "chunk": "main"
+  },
+  {
+    "path": "/projectthx/list/type/:type/category/:category/target/:target",
+    "page": "./pages/projectthx/list/list",
+    "chunk": "main"
+  },
+  {
+    "path": "/projectthx/search",
+    "page": "./pages/projectthx/search/search",
+    "chunk": "main"
+  },
+
+
+
+
 
   {
     "path": "/project/detail/:projectId",

@@ -10,6 +10,7 @@ import { ImageToBase64 } from "../../utils/funcs";
 import fetch from "../../utils/fetch";
 import { translate } from 'react-i18next';
 import moment from "moment";
+
 class ModalNew extends React.Component {
     static propTypes = {
 
@@ -37,7 +38,7 @@ class ModalNew extends React.Component {
     componentWillMount() {
         const that = this;
         if (this.props.postData.postImage && this.props.postData.avatars && this.props.postData.username) {
-            ImageToBase64([`${this.props.postData.postImage}`, `${this.props.postData.avatars}`], ["/images/default_banner.png", "/images/WechatIMG2130.jpg"], base64Array => {
+            ImageToBase64([`${this.props.postData.postImage}`, `${this.props.postData.avatars}`], ["/images/default_banner.png", "/images/my/register.png"], base64Array => {
                 console.log('base64Array:::', base64Array.slice(0))
                 console.info('走到A点')
                 that.setState(
@@ -127,8 +128,8 @@ class ModalNew extends React.Component {
                 中金公益志愿者
             </div> */}
             <div className="page-certificate-container-title">
-            王嘉铭
-
+            {/* 王嘉铭 */}
+{this.props.postData.username}
             </div>
             <div className="page-certificate-container-avatar">
                 <img
@@ -156,7 +157,7 @@ class ModalNew extends React.Component {
             </div> */}
 
             <div className="page-certificate-container-content">
-               感谢您参与 <span style={{ color: '#C09248' }}>“{this.props.postData.projectName}”</span>志愿活动，志愿服务时长3小时，用行动传递温暖关爱。
+               感谢您参与 <span style={{ color: '#C09248' }}>“{this.props.postData.projectName}”</span>志愿活动，用行动传递温暖关爱。
             </div>
             <div className="page-certificate-container-content-te">
             特颁此证
@@ -165,8 +166,8 @@ class ModalNew extends React.Component {
             </div>
             <div className="page-certificate-container-footer">
                 {/* <div>中金公益基金会</div> */}
-                {/* <div>{moment().format('YYYY年MM月DD日')}</div> */}
-                <div>2024年03月27日</div>
+                <div>{moment().format('YYYY年MM月DD日')}</div>
+                {/* <div>2024年03月27日</div> */}
             </div>
 
         </div>

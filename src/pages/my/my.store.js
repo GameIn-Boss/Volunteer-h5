@@ -162,6 +162,10 @@ export const rewardTimeAction = () => ({
   type: 'REWARDTIME_DATA',
   payload: fetch('/user/reward/time', { method: 'GET' }),
 });
+export const thxCertificate = () => ({
+  type: 'REWARDTIME_DATA',
+  payload: fetch('/user/reward/time', { method: 'GET' }),
+});
 const rewardTimeReducer = (state = {
   fetching: false,
   failed: false,
