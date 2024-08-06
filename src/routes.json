@@ -217,6 +217,11 @@
     "chunk": "main"
   },
   {
+    "path": "/my/certificateYg",
+    "page": "./pages/my/certificate/certificateYg",
+    "chunk": "main"
+  },
+  {
     "path": "/my/certificatehzzy",
     "page": "./pages/my/certificate/certificateHzzy",
     "chunk": "main"

@@ -438,8 +438,13 @@ class MyPage extends React.Component {
       return "/my/certificateSanyi";
     } 
     if (orgCode === "4openRe7Az") {
-      return "/my/certificateHzzy";
+      return "/my/certificateHZZY";
     } 
+    
+    if (orgCode === "4openZle7A") {
+      return "/my/certificateYg";
+    } 
+    
     // todo 三一需要定制化证书
     return '/my/certificate';
   }
