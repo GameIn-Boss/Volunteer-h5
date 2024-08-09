@@ -155,7 +155,7 @@ htm2Click = () => {
             {this.state.dataUrl ? <div><img src={this.state.dataUrl}
              className="poster-modal-new-wrap-container-padding-image-sy" />
              <div style={{color:'#fff',textAlign:'center',fontSize:'12px',marginTop:'12px',fontWeight:'200'}}>
-                {t('长按保存图片到手机')}</div> </div>: <div className="poster-modal-new-wrap-container-padding-sy" ref="LaunchContent">
+                {t('长按保存到本地')}</div> </div>: <div className="poster-modal-new-wrap-container-padding-sy" ref="LaunchContent">
                 <div>
                   <div className="content">
                     <img className="project-img" src={this.state.base64Array && this.state.base64Array[0]} />

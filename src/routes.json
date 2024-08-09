@@ -56,7 +56,7 @@
   },
     {
     "path": "/my/project_certificate",
-    "page": "./pages/my/thxCertificate/duration",
+    "page": "./pages/my/certificatethx/duration",
     "chunk": "main"
   },
   {

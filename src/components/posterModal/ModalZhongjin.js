@@ -201,7 +201,7 @@ class ModalNew extends React.Component {
                         <div>
                             <img src={this.state.dataUrl || undefined} className="poster-modal-new-wrap-container-padding-image-zhongjin" />
                             <div style={{ color: '#fff', textAlign: 'center', fontSize: '12px', marginTop: '12px', fontWeight: '200' }}>
-                                {t('长按保存图片到手机')}
+                                {t('长按保存到本地')}
                             </div>
                         </div>
                         :

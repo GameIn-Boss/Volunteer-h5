@@ -45,7 +45,6 @@ class DurationProjects extends React.Component {
     this.props.HandleClick(data);
   }
   poster=(data)=>{
-console.log(this.poster)
     this.setState({
       ...this.state,
       visible: true,
@@ -90,6 +89,7 @@ console.log(this.poster)
     }
     return <div>
         <div style={{ height: "800px", overflowY: "auto" }}>
+          
           {isEntry ? <ul className="component-duration-projects">
               {durationProject.map(project => {
                 const { team } = project;

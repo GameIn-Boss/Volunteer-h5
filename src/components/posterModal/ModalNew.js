@@ -145,7 +145,7 @@ htm2Click = () => {
         <div className="poster-modal-new-wrap" onClick={this._closeModal}>
             <div className="poster-modal-new-close-btn" onClick={()=>{this._closeModal()}}></div>
           <div className="poster-modal-new-wrap-container" onClick={this._clearEvent}>
-            {this.state.dataUrl ? <div><img src={this.state.dataUrl} className="poster-modal-new-wrap-container-padding-image" /><div style={{color:'#fff',textAlign:'center',fontSize:'12px',marginTop:'12px',fontWeight:'200'}}>{t('长按保存图片到手机')}</div> </div>: <div className="poster-modal-new-wrap-container-padding" ref="LaunchContent">
+            {this.state.dataUrl ? <div><img src={this.state.dataUrl} className="poster-modal-new-wrap-container-padding-image" /><div style={{color:'#fff',textAlign:'center',fontSize:'12px',marginTop:'12px',fontWeight:'200'}}>{t('长按保存到本地')}</div> </div>: <div className="poster-modal-new-wrap-container-padding" ref="LaunchContent">
                 <div>
                   <div className="content">
                     <img className="project-img" src={this.state.base64Array && this.state.base64Array[0]} />

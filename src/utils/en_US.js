@@ -454,7 +454,7 @@ export default {
     '参加活动次数已累计超过': 'The number of participated projects has exceeded',
     '活动签到打卡次数已累计超过': 'The number of check-in has exceeded',
 
-    '长按保存图片到手机': 'Long press to save the picture to the phone',
+    '长按保存到本地': 'Long press to save the picture to the phone',
     '长按识别二维码 一起来做志愿者': 'Long press to identify the QR code to be volunteers together',
     '长按识别二维码': 'Long press to identify the QR code',
     '一起来做志愿者': 'to be volunteers together',
