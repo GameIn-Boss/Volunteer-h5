@@ -143,7 +143,10 @@ class Circle extends React.Component {
           </div>
         :
           <div className="page-circle-rendercommunity-container">
+            {orgCode == 'yMYer06bOB' ?  
+            <img src="/images/my/information-qlzy.png" className="page-circle-rendercommunity-img" />:
             <img src="/images/my/information.png" className="page-circle-rendercommunity-img" />
+          }
             <div className="page-circle-rendercommunity-info">{t('还没有动态信息')}</div>
           </div>
         }

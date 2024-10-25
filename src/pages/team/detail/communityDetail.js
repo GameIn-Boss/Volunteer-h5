@@ -98,11 +98,14 @@ class CommunityDetailPage extends React.Component {
                             </div>
                         </div>
                     )}
+                 {orgCode == 'yMYer06bOB' ?  
 
-                <div
-                    className="page-team-detail-community-link"
-                    onClick={this.onPublish}
-                />
+                <div className="page-team-detail-community-link-qlzy" onClick={this.onPublish} />
+                :
+                <div className="page-team-detail-community-link" onClick={this.onPublish} />
+
+                }
+               
             </div>
         );
     }

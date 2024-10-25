@@ -30,6 +30,10 @@
   font-size: 24px;
   color: #6AC6F8;
 }
+.page-duration-top-area-view-duration-box-qlzy p span{
+  font-size: 24px;
+  color: #D2251D;
+}
 .page-duration-main-box{
   flex: 1;
   width: 100%;

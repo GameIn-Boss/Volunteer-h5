@@ -72,6 +72,7 @@ class LaunchPage extends React.Component {
     let vitasoy = false;
     let sanyi = false;
     let yangguang = false;
+    let qlzy = false;
     // VWPe9xdLyw 星巴克
     // mxkazpYdJ0 大都会
     // EKQe1wRbJY 维他奶
@@ -92,6 +93,9 @@ class LaunchPage extends React.Component {
     if (window.orgCode === '4openZle7A') {
       yangguang = true;
     }
+    if (window.orgCode === 'yMYer06bOB') {
+      qlzy = true;
+    }
     return (
       <div className="page-launch">
         <div className="content">{page}</div>
@@ -108,6 +112,7 @@ class LaunchPage extends React.Component {
                   vitasoy: vitasoy,
                   sanyi: sanyi,
                   yangguang: yangguang,
+                  qlzy: qlzy,
                   
 
                 })}
@@ -127,6 +132,7 @@ class LaunchPage extends React.Component {
                   vitasoy: vitasoy,
                   sanyi: sanyi,
                   yangguang: yangguang,
+                  qlzy: qlzy,
 
 
                 })}
@@ -155,6 +161,7 @@ class LaunchPage extends React.Component {
                   vitasoy,
                   sanyi: sanyi,
                   yangguang: yangguang,
+                  qlzy: qlzy,
 
 
                 })}

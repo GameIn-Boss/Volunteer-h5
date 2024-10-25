@@ -102,9 +102,21 @@
   letter-spacing: 0;
   line-height: 13px;
 }
+.components-community-item-footer-del-qlzy{
+  font-size: 13px;
+  color: #D82229;
+  letter-spacing: 0;
+  line-height: 13px;
+}
 .components-community-item-business-container{
   font-size: 13px;
   color: #6AC6F8;
+  letter-spacing: 0;
+  line-height: 13px;
+}
+.components-community-item-business-container-qlzy{
+  font-size: 13px;
+  color: #D82229;
   letter-spacing: 0;
   line-height: 13px;
 }

@@ -429,7 +429,11 @@ class TeamDetailPage extends React.Component {
 
     if (!joined && !auditing) {
       actionLabel = t('我要加入');
-      actionClassName = "team-action-available";
+      if (window.orgCode === 'yMYer06bOB') {
+        actionClassName = "team-action-available-qlzy";
+      }else{
+        actionClassName = "team-action-available";
+      }
       action = "join";
     } else if (joined) {
       actionLabel = t('我要退出');
@@ -584,11 +588,18 @@ class TeamDetailPage extends React.Component {
           </div>
 
           <div className="team-description-backhome">
-            <Link to="/" style={{
-              backgroundImage: `url(${t('backhome')})`,
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-            }} />
+          {orgCode == 'yMYer06bOB' ?  
+                      <Link to="/" style={{
+                            backgroundImage: `url(/images/my/backhome-qlzy.png)`,
+                            backgroundSize: 'cover',
+                            backgroundRepeat: 'no-repeat',
+                        }} />:
+                        <Link to="/" style={{
+                            backgroundImage: `url(${t('backhome')})`,
+                            backgroundSize: 'cover',
+                            backgroundRepeat: 'no-repeat',
+                        }} />
+                        }
           </div>
         </div>
         {
@@ -730,20 +741,24 @@ class TeamDetailPage extends React.Component {
             ))
           ) : (
             <div className="page-circle-rendercommunity-no-info-container">
-              <img
-                src="/images/my/information.png"
-                className="page-circle-rendercommunity-img"
-              />
+              {orgCode == 'yMYer06bOB' ?  
+            <img src="/images/my/information-qlzy.png" className="page-circle-rendercommunity-img" />:
+            <img src="/images/my/information.png" className="page-circle-rendercommunity-img" />
+          }
               <div className="page-circle-rendercommunity-info">
                 {t('还没有动态信息')}
               </div>
             </div>
           )}
 
-        <div
-          className="page-team-detail-community-link"
-          onClick={this.onPublish}
-        />
+       
+           {orgCode == 'yMYer06bOB' ?  
+
+<div className="page-team-detail-community-link-qlzy" onClick={this.onPublish} />
+:
+<div className="page-team-detail-community-link" onClick={this.onPublish} />
+
+}
       </div>
     );
   }

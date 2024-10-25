@@ -17,6 +17,16 @@
   justify-content: center;
   align-items: center;
 }
+.page-ponit-pic-container-qlzy{
+
+  width: 100%;
+  height: 160px;
+  background: url(/images/collectiblesqlzy.jpg) no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .page-ponit-pic-title{
     text-align: center;
   height: 82px;
@@ -67,6 +77,29 @@
   line-height: 50px;
   font-size: 15px;
   color: #6AC6F8;
+}
+.page-ponit-tab-container-qlzy-li{
+  flex:1;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-ponit-tab-container-qlzy-line-v{
+  height: 30px;
+  margin-top: 10px;
+}
+.page-ponit-tab-container-qlzy-li-current{
+  height: 50px;
+  line-height: 50px;
+  font-size: 15px;
+  color: #666666;
+}
+.page-ponit-tab-container-qlzy-li-current.active{
+  height: 50px;
+  line-height: 50px;
+  font-size: 15px;
+  color: #D2251D;
 }
 .page-point-income-pay-container{
   width: 100%;
@@ -184,6 +217,17 @@ td{
     font-family: PingFangSC-Regular;
     font-size: 14px;
     color: #FFFFFF;
+}
+.commonweal-box-instruction-btn-qlzy {
+  margin-top: 28px;
+  width: 100%;
+  height: 42px;
+  line-height: 42px;
+  text-align: center;
+  background: #D2251D;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #FFFFFF;
 }
 .checkScoreMethod {
     color: #fff;

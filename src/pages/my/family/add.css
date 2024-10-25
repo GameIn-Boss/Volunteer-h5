@@ -60,6 +60,16 @@
   font-size: 16px;
   color: #666666;
   margin-top: 41px;
+}.page-add-submmit-qlzy{
+  width: 300px;
+  height: 50px;
+  background: #D82229;
+  border-radius: 100px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 16px;
+  color: #ffffff;
+  margin-top: 41px;
 }
 .page-add-agree{
   margin-top: 18px;
@@ -113,8 +123,36 @@
 .page-add-family-tab-ul-container li.active{
   border-bottom: 3px solid #6AC6F8!important;
 }
+.page-add-family-tab-ul-container-qlzy {
+  width: 100%;
+}
+.page-add-family-tab-ul-container-qlzy a {
+  color: #A1A1A1;
+}
+.page-add-family-tab-ul-container-qlzy {
+  height: 53px;
+  width: 100%;
+  display: flex;
+}
+.page-add-family-tab-ul-container-qlzy li {
+  flex: 1;
+  text-align: center;
+  line-height: 53px;
+  color: #A1A1A1;
+  font-size: 15px;
+  border-bottom: 3px solid #EBEBEB;
+}
+.page-add-family-tab-ul-container li.active{
+  border-bottom: 3px solid #6AC6F8!important;
+}
 .active a {
   color: #6AC6F8;
+}
+.page-add-family-tab-ul-container-qlzy li.active{
+  border-bottom: 3px solid #D82229!important;
+}
+.activer-qlzy a {
+  color: #D82229;
 }
 .page-add-family-tab-top {
   background-color: #fff;

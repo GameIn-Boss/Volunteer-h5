@@ -53,7 +53,32 @@ class Tab extends React.Component {
   render() {
     const { selectedIndex } = this.state;
     const { tabs } = this.props;
-
+    if (window.orgCode === 'yMYer06bOB') {
+      return (
+        <div className="component-tab-qlzy">
+          <div className="tab-header">
+            <ul className="tabs">
+              {
+                tabs.map((tab, idx) => <li
+                  key={idx} className={classnames({ selected: idx === selectedIndex })}
+                >
+                  <a onClick={this.handleTabSelected(idx)}>{tab.label}</a>
+                </li>)
+              }
+            </ul>
+            <div className="line1px" />
+          </div>
+          {
+            tabs.map((tab, idx) => <div
+              key={idx} className={classnames({ 'tab-panel': true, 'tab-panel-show': idx === selectedIndex })}
+            >
+              {tab.component}
+            </div>,
+            )
+          }
+        </div>
+      );
+  }else{
     return (
       <div className="component-tab">
         <div className="tab-header">
@@ -78,7 +103,7 @@ class Tab extends React.Component {
         }
       </div>
     );
-  }
+  }}
 }
 
 Tab.propTypes = {

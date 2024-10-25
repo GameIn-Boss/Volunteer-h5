@@ -63,24 +63,47 @@ class Collects extends React.Component {
         <div style={{ width: '100%', height: '50px' }}>
           <ul className="page-collects-tab-ul-container">
             <li>
+            {orgCode == 'yMYer06bOB' ?  
               <Link to="/my/collects/">
                 <div
                   className={classnames({
-                    'page-collects-tab-ul-container-li-current': true,
+                    'page-collects-tab-ul-container-li-current-qlzy': true,
                     active: path === '/my/collects/',
                   })}
                 >{t('团队收藏')}</div>
               </Link>
+              :
+              <Link to="/my/collects/">
+              <div
+                className={classnames({
+                  'page-collects-tab-ul-container-li-current': true,
+                  active: path === '/my/collects/',
+                })}
+              >{t('团队收藏')}</div>
+            </Link>
+              }
             </li>
             <li>
+            {orgCode == 'yMYer06bOB' ?  
+
               <Link to="/my/collects/project">
                 <div
                   className={classnames({
-                    'page-collects-tab-ul-container-li-current': true,
+                    'page-collects-tab-ul-container-li-current-qlzy': true,
                     active: path === '/my/collects/project',
                   })}
                 >{t('项目收藏')}</div>
               </Link>
+              :
+              <Link to="/my/collects/project">
+              <div
+                className={classnames({
+                  'page-collects-tab-ul-container-li-current': true,
+                  active: path === '/my/collects/project',
+                })}
+              >{t('项目收藏')}</div>
+            </Link>
+              }
             </li>
           </ul>
           <div className="line1px" style={{ width: '100%' }} />

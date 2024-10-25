@@ -89,20 +89,23 @@ class CommunityDetailPage extends React.Component {
                         ))
                     ) : (
                         <div className="page-circle-rendercommunity-container">
-                            <img
-                                src="/images/my/information.png"
-                                className="page-circle-rendercommunity-img"
-                            />
+                            {orgCode == 'yMYer06bOB' ?  
+            <img src="/images/my/information-qlzy.png" className="page-circle-rendercommunity-img" />:
+            <img src="/images/my/information.png" className="page-circle-rendercommunity-img" />
+          }
                             <div className="page-circle-rendercommunity-info">
                                 {t('还没有动态信息')}
                             </div>
                         </div>
                     )}
 
-                <div
-                    className="page-team-detail-community-link"
-                    onClick={this.onPublish}
-                />
+                    {orgCode == 'yMYer06bOB' ?  
+
+                    <div className="page-team-detail-community-link-qlzy" onClick={this.onPublish} />
+                    :
+                    <div className="page-team-detail-community-link" onClick={this.onPublish} />
+
+                    }
             </div>
         );
     }

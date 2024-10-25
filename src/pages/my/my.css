@@ -73,13 +73,13 @@ text-justify:inter-ideograph;
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
-    position: relative;
+  position: relative;
 }
 
 .page-my-photo{
   width: 80px;
   height: 80px;
-  border-radius: 8px;
+  border-radius: 50px;
   margin-right: 15px;
 }
 .page-my-user-info{
@@ -110,11 +110,16 @@ text-justify:inter-ideograph;
   display: flex;
   justify-content: space-around;
   margin-bottom: 20px;
+  /* background: radial-gradient(141% 141% at 0% 0%, rgba(210, 37, 29, 0.81) 0%, #D2251D 100%); */
+  border-radius: 8px;
 }
+
 .page-my-record-item{
   height: 40px;
   display: flex;
   flex-direction: column;
+ /* background: radial-gradient(141% 141% at 0% 0%, rgba(210, 37, 29, 0.81) 0%, #D2251D 100%); */
+
   justify-content:space-between;
 }
 .page-my-record-item-top{
@@ -137,6 +142,46 @@ text-justify:inter-ideograph;
   line-height: 14px;
   text-align: center;
 }
+.page-my-record-container-qlzy{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  height: 70px;
+  background: radial-gradient(141% 141% at 0% 0%, rgba(210, 37, 29, 0.81) 0%, #D2251D 100%);
+  border-radius: 8px;
+}
+
+.page-my-record-item-qlzy{
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  justify-content:space-between;
+}
+.page-my-record-item-top-qlzy{
+  text-align: center;
+  font-size: 13px;
+  color: #F8F8F8;
+  letter-spacing: 0;
+  line-height: 14px;
+}
+.page-my-record-item-num-qlzy{
+  font-size: 20px;
+  color: #F8F8F8;
+  letter-spacing: 0;
+  line-height: 14px;
+  font-weight: 400; 
+}
+.page-my-record-item-bottom-qlzy{
+  font-size: 13px;
+  color: #F8F8F8;
+  letter-spacing: 0;
+  line-height: 14px;
+  text-align: center;
+  font-weight: 200; 
+}
+
 .page-my-line{
   height: 9px;
   background: #F8F8F8;
@@ -432,6 +477,17 @@ td{
     color: #FFFFFF;
 }
 
+.commonweal-box-instruction-btn-qlzy {
+  margin-top: 28px;
+  width: 100%;
+  height: 42px;
+  line-height: 42px;
+  text-align: center;
+  background: #D2251D;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #FFFFFF;
+}
 
 .page-setting-quit{
   margin-bottom: 10px;
@@ -443,6 +499,18 @@ td{
   justify-content: center;
   font-size: 16px;
   color: #6AC6F8;
+}
+.page-setting-quit-qlzy
+{
+margin-bottom: 10px;
+width:100%;
+height: 50px;
+background: #fff;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 16px;
+color: #fa3434;
 }
 .page-my-item-container-padding .weui-gallery__opr {
     position: absolute;

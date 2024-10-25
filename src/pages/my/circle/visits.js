@@ -184,8 +184,11 @@ class CircleVists extends React.Component {
         }
             </div> : 
             <div className="page-circle-rendercommunity-container">
+          {orgCode == 'yMYer06bOB' ?  
+            <img src="/images/my/information-qlzy.png" className="page-circle-rendercommunity-img" />:
             <img src="/images/my/information.png" className="page-circle-rendercommunity-img" />
-            <div className="page-circle-rendercommunity-info">{t('还没有动态信息')}</div>
+          }
+              <div className="page-circle-rendercommunity-info">{t('还没有动态信息')}</div>
           </div>
 
         }
@@ -212,7 +215,13 @@ class CircleVists extends React.Component {
     return (
       <div className="page-circlevisits-container">
         {this.renderCommunity()}
+        {orgCode == 'yMYer06bOB' ?  
+
+        <div className="page-circlevisits-team-detail-community-link-qlzy" onClick={this.onPublish} />
+        :
         <div className="page-circlevisits-team-detail-community-link" onClick={this.onPublish} />
+
+        }
         <Dialog type="ios" title={this.dialogA.title} buttons={this.dialogA.buttons} show={this.state.showDialogA}>
           {t('只有登录的用户才能点赞和评论哦～')}
         </Dialog>

@@ -44,7 +44,8 @@ class Service extends React.Component {
               <h3>{t('平台介绍')}</h3>
               <p>Platform introduction</p>
             </div>
-            <div className="page-service-item-bg page-service-item-bg1" />
+            {orgCode === "yMYer06bOB" ?   <div className="page-service-item-bg page-service-item-bg1-qlzy" /> :   <div className="page-service-item-bg page-service-item-bg1" /> }
+          
 
           </div>
           <div className="line1px" />
@@ -55,7 +56,7 @@ class Service extends React.Component {
               <h3>{t('使用帮助')}</h3>
               <p>Use help</p>
             </div>
-            <div className="page-service-item-bg page-service-item-bg2" />
+            {orgCode === "yMYer06bOB" ?   <div className="page-service-item-bg page-service-item-bg2-qlzy" /> :   <div className="page-service-item-bg page-service-item-bg2" /> }
 
           </div>
           <div className="line1px" />
@@ -71,7 +72,7 @@ class Service extends React.Component {
               <h3>{t('客服中心')}</h3>
               <p>Customer service center</p>
             </div>
-            <div className="page-service-item-bg page-service-item-bg3" />
+            {orgCode === "yMYer06bOB" ?   <div className="page-service-item-bg page-service-item-bg3-qlzy" /> :   <div className="page-service-item-bg page-service-item-bg3" /> }
           </div>
         </Link>
 

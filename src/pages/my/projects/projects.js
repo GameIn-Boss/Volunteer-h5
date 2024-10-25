@@ -60,7 +60,53 @@ class Projects extends React.Component {
     const { route: { path }, t } = this.props;
     return (
       <div className="page-projects-container">
-        <div style={{ width: '100%', height: '50px' }}>
+  {orgCode == 'yMYer06bOB' ?          <div style={{ width: '100%', height: '50px' }}>
+          <ul className="page-projects-tab-container">
+            <li>
+              <Link to="/my/projects/">
+                <div
+                  className={classnames({
+                    'page-projects-li-a-div-style-qlzy': true,
+                    active: path === '/my/projects/',
+                  })}
+                >{t('全部')}</div>
+              </Link>
+            </li>
+            <li>
+              <Link to="/my/projects/wait">
+                <div
+                  className={classnames({
+                    'page-projects-li-a-div-style-qlzy': true,
+                    active: path === '/my/projects/wait',
+                  })}
+                >{t('待录用')}</div>
+              </Link>
+            </li>
+            <li>
+              <Link to="/my/projects/pass">
+                <div
+                  className={classnames({
+                    'page-projects-li-a-div-style-qlzy': true,
+                    active: path === '/my/projects/pass',
+                  })}
+                >{t('已录用')}</div>
+              </Link>
+            </li>
+            <li>
+              <Link to="/my/projects/end">
+                <div
+                  className={classnames({
+                    'page-projects-li-a-div-style-qlzy': true,
+                    active: path === '/my/projects/end',
+                  })}
+                >{t('已结束')}</div>
+              </Link>
+            </li>
+          </ul>
+          <div className="line1px" style={{ width: '100%' }} />
+        </div>
+
+        :  <div style={{ width: '100%', height: '50px' }}>
           <ul className="page-projects-tab-container">
             <li>
               <Link to="/my/projects/">
@@ -105,6 +151,7 @@ class Projects extends React.Component {
           </ul>
           <div className="line1px" style={{ width: '100%' }} />
         </div>
+}
         <div className="page-projects-content-main">
           {page}
         </div>

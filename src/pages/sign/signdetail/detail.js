@@ -192,27 +192,54 @@ class SignPage extends React.Component {
         );
       } else {
         // 没打卡，超出时间显示补卡
-        renderDom = (
-          <Link to={`/sign/replacement/${this.proid}/${this.Id}`}>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                color: "#A0D9F7"
-              }}
-            >
-              <img
-                src="/images/sign/signedit.png"
-                style={{ width: "16px", marginRight: "5px" }}
-              />
-              {t('申请补卡')}
-              <img
-                src="/images/sign/signmore.png"
-                style={{ width: "4px", marginLeft: "4px" }}
-              />
-            </div>
-          </Link>
-        );
+        if(orgCode == 'yMYer06bOB'){
+          renderDom = (
+            <Link to={`/sign/replacement/${this.proid}/${this.Id}`}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  color: "#A0D9F7"
+                }}
+              >
+                <img
+                  src="/images/sign/signedit.png"
+                  style={{ width: "16px", marginRight: "5px" }}
+                />
+                {t('申请补卡')}
+                <img
+                  src="/images/sign/signmore.png"
+                  style={{ width: "4px", marginLeft: "4px" }}
+                />
+  
+              </div>
+            </Link>
+          );
+        }else{
+          renderDom = (
+            <Link to={`/sign/replacement/${this.proid}/${this.Id}`}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  color: "#A0D9F7"
+                }}
+              >
+                <img
+                  src="/images/sign/signedit.png"
+                  style={{ width: "16px", marginRight: "5px" }}
+                />
+                {t('申请补卡')}
+                <img
+                  src="/images/sign/signmore.png"
+                  style={{ width: "4px", marginLeft: "4px" }}
+                />
+  
+              </div>
+            </Link>
+          );
+        }
+       
       }
       firstPoint = true;
     } else if (Object.keys(userData).length > 0) {
@@ -366,9 +393,13 @@ class SignPage extends React.Component {
         <div className="project-detail-list">
           <ul>
             <li>
-              <div
-                className={`item-point ${firstPoint ? "item-point-color" : ""}`}
-              />
+              {orgCode == 'yMYer06bOB' ?  <div
+                className={`item-point ${firstPoint ? "item-point-color-qlzy" : ""}`}
+              />: <div
+              className={`item-point ${firstPoint ? "item-point-color" : ""}`}
+            />}
+             
+
               <div className="line1px-v" />
               <div className="detail-title">
                 {t('打卡开始时间')} &nbsp; &nbsp;
@@ -386,9 +417,11 @@ class SignPage extends React.Component {
               <div className="detail-content" />
             </li>
             <li>
-              <div
-                className={`item-point ${endPoint ? "item-point-color" : ""}`}
-              />
+            {orgCode == 'yMYer06bOB' ?  <div
+                className={`item-point ${firstPoint ? "item-point-color-qlzy" : ""}`}
+              />: <div
+              className={`item-point ${firstPoint ? "item-point-color" : ""}`}
+            />}
               <div className="detail-title">
                 {t('预计可获得服务时长')}{data.reward_time}{t('小时')}
               </div>

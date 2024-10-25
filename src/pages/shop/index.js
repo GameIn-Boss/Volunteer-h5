@@ -160,8 +160,14 @@ class ShopPage extends React.Component {
           
           {
             user.isLogin ?
+            <div>
+            {orgCode == 'yMYer06bOB' ?  
 
-              <div className="left">{t('我的星币n', {n: t(scoreName) || t('星币')})}:<span>{usercenter && usercenter.data && usercenter.data.user && usercenter.data.user.score?usercenter.data.user.score:0}</span></div>
+              <div className="left-qlzy">{t('我的星币n', {n: t(scoreName) || t('星币')})}:<span>{usercenter && usercenter.data && usercenter.data.user && usercenter.data.user.score?usercenter.data.user.score:0}</span></div>
+:
+<div className="left">{t('我的星币n', {n: t(scoreName) || t('星币')})}:<span>{usercenter && usercenter.data && usercenter.data.user && usercenter.data.user.score?usercenter.data.user.score:0}</span></div>
+}
+</div>
 
               :
               
@@ -174,22 +180,39 @@ class ShopPage extends React.Component {
           }
           {
             user.isLogin ?
-              <Link to="/shop/record"><div className="right">{t('兑换记录btn')}</div></Link>
+              <Link to="/shop/record">
+              {orgCode == 'yMYer06bOB' ?  
+                <div className="right-qlzy">{t('兑换记录btn')}</div>
+                :   <div className="right">{t('兑换记录btn')}</div>}
+                </Link>
               :
-              <div className="right" onClick={this.onLogin}>{t('前往登录')}</div>
+              <div>
+                {orgCode == 'yMYer06bOB' ?  
+                <div className="right-qlzy" onClick={this.onLogin}>{t('前往登录')}</div>
+                :   <div className="right" onClick={this.onLogin}>{t('前往登录')}</div>}
+             </div>
           }
 
         </div>
         <div className="page-shop-content-header" ref="LaunchContent">
           {this.renderSlick()}
           {this.renderItem()}
+          {orgCode == 'yMYer06bOB' ?  
           <div className="page-shop-backhome">
+            <Link to="/" style={{
+              backgroundImage: `url("/images/my/backhome-qlzy.png")`,
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+            }} />
+          </div>
+            :
+            <div className="page-shop-backhome">
             <Link to="/" style={{
               backgroundImage: `url(${t('backhome')})`,
               backgroundSize: 'cover',
               backgroundRepeat: 'no-repeat',
             }} />
-          </div>
+            </div>}
           {
             showLoadingMore
               ?

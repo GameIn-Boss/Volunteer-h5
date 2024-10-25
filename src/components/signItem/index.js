@@ -21,16 +21,25 @@ class SignItem extends React.Component {
     return (
       <div className="no-record">
         <div>
-          <img src="/images/sign.png" alt="" />
+        {orgCode == 'yMYer06bOB' ?  
+            <img src="/images/signqlzy.png" alt="" />
+
+            :
+            <img src="/images/sign.png" alt="" />
+            }
         </div>
         <span>
           <p>{t('还没有活动可以签到')}</p>
           <p>{t('快去加入活动吧')}</p>
         </span>
         <div className="sign-btn-container">
-          <Link to="/project/list" className="sign-btn">
+
+        {orgCode === 'yMYer06bOB' ?  <Link to="/project/list" className="sign-btn-qlzy">
             {t('浏览活动')}
-          </Link>
+          </Link>:     <Link to="/project/list" className="sign-btn">
+            {t('浏览活动')}
+          </Link>}
+         
         </div>
       </div>
     );

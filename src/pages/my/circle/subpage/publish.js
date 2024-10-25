@@ -124,7 +124,13 @@ class CirclePublish extends React.Component {
         <div className="page-circlepublish-images-container">
             <UploadPhoto onChange={this.onPhotoChange} multiple={false} length={3} totle={9} />
         </div>
-        <div className="page-circlepublish-btn" onClick={this.onPublish}>{t('发表')}</div>
+        {orgCode == 'yMYer06bOB' ?  
+
+<div className="page-circlepublish-btn-qlzy" onClick={this.onPublish}>{t('发表')}</div>
+:
+<div className="page-circlepublish-btn" onClick={this.onPublish}>{t('发表')}</div>
+
+}
 
       </div>
     );

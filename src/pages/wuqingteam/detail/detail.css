@@ -367,7 +367,16 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
-
+.page-team-detail-community-link-qlzy{
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  background-image: url(/images/my/release-qlzy.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 .page-team-detail .page-circle-rendercommunity-img{
   width: 150px;
   height: 150px;

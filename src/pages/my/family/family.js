@@ -87,22 +87,42 @@ class Family extends React.Component {
                         {
                             isHouseholder === '户主' || isHouseholder === ''?
                                 <Link to="/my/family/add">
-                                    <div className="pages-family-top-area-btn">{t('添加成员')}</div>
+                                      {orgCode == 'yMYer06bOB' ?  
+                                        <div className="pages-family-top-area-btn-qlzy">{t('添加成员')}</div>
+                                        :
+                                        <div className="pages-family-top-area-btn">{t('添加成员')}</div>
+                                        }
+                                   
+                                    
                                 </Link>
                                 : null
                         }
 
                     </div>
                     <div className="page-family-top-area-view">
-                        <div className="page-family-top-area-view-family-box">
-                            <p><span>{listData ? listData.data.family_size : 0}</span>{t('人')}</p>
-                            <p>{t('家庭成员')}</p>
-                        </div>
+                    {orgCode == 'yMYer06bOB' ?  
+                            <div className="page-family-top-area-view-family-box-qlzy">
+                                <p><span>{listData ? listData.data.family_size : 0}</span>{t('人')}</p>
+                                <p>{t('家庭成员')}</p>
+                            </div>:
+                            <div className="page-family-top-area-view-family-box">
+                                <p><span>{listData ? listData.data.family_size : 0}</span>{t('人')}</p>
+                                <p>{t('家庭成员')}</p>
+                            </div>
+                    }
+                       
                         <div className="page-family-top-area-view-line"/>
-                        <div className="page-family-top-area-view-family-box">
-                            <p><span>{listData ? listData.data.reward_time : 0}</span>{t('小时')}</p>
-                            <p>{t('志愿总时长')}</p>
-                        </div>
+                 
+                        {orgCode == 'yMYer06bOB' ?  
+                                   <div className="page-family-top-area-view-family-box-qlzy">
+                                   <p><span>{listData ? listData.data.reward_time : 0}</span>{t('小时')}</p>
+                                   <p>{t('志愿总时长')}</p>
+                               </div>:
+                                  <div className="page-family-top-area-view-family-box">
+                                  <p><span>{listData ? listData.data.reward_time : 0}</span>{t('小时')}</p>
+                                  <p>{t('志愿总时长')}</p>
+                              </div>
+                    }
                     </div>
                 </div>
                 <div className="page-family-take-up"/>

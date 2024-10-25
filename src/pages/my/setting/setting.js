@@ -48,10 +48,13 @@ class Setting extends React.Component {
           </Link>
         )
       }
-
+      {orgCode == 'yMYer06bOB' ?  
+      <a className="page-setting-quit-qlzy" onClick={this.props.logoutAction}>
+        {t('退出登录')}
+      </a>:
       <a className="page-setting-quit" onClick={this.props.logoutAction}>
         {t('退出登录')}
-      </a>
+      </a>}
     </div>;
   }
 }

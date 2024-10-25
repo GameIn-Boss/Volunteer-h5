@@ -100,7 +100,10 @@ class Projects extends React.Component {
                                                 <div className="component-shopItem-condition">{item.condition}</div>
                                             </div>
                                             <div className="component-shopItem-price-container">
-                                                <div className="new">{item.points}</div>
+                                            {orgCode == 'yMYer06bOB' ?  
+                                             <div className="new-qlzy">{item.points}</div>:
+                                             <div className="new">{item.points}</div>
+                                            }
                                                 <div className="fonts">{t(scoreName) || t('星币')}</div>
                                                 <div className="old">{t('￥n元', { n: item.price })}</div>
                                             </div>
@@ -148,8 +151,11 @@ class Projects extends React.Component {
                                             </div>
 
                                             <div className="component-shopItem-price-container">
-                                                <div className="new">{item && item.goods_id && item.goods_id.points ? item.goods_id.points : null}</div>
-                                                <div className="fonts">{t(scoreName) || t('星币')}</div>
+                                            {orgCode == 'yMYer06bOB' ?  
+                                            <div className="new-qlzy">{item && item.goods_id && item.goods_id.points ? item.goods_id.points : null}</div>:
+                                            <div className="new">{item && item.goods_id && item.goods_id.points ? item.goods_id.points : null}</div>
+                                            }
+                                            <div className="fonts">{t(scoreName) || t('星币')}</div>
                                                 <div className="old">
                                                   {t('￥n元', { n: item && item.goods_id && item.goods_id.price ? item.goods_id.price : null })}
                                                   </div>

@@ -180,7 +180,13 @@
     "path": "/my/certificate",
     "page": "./pages/my/certificate/certificate",
     "chunk": "main"
+  },  
+  {
+    "path": "/my/certificateQlzy",
+    "page": "./pages/my/certificate/certificateQlzy",
+    "chunk": "main"
   },
+  
   {
     "path": "/my/sanyibook",
     "page": "./pages/my/certificate/sanyibook",
@@ -624,6 +630,11 @@
   {
     "path": "/volunteer_rank/:id",
     "page": "./pages/volunteerRank/detail",
+    "chunk": "main"
+  },
+  {
+    "path": "/volunteer_rank_qlzy/:id",
+    "page": "./pages/volunteerRank/qlzydetail",
     "chunk": "main"
   },
   {

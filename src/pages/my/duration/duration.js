@@ -41,7 +41,25 @@ class Duration extends React.Component {
     const { reward: { data: listData }, t } = this.props;
     return (
       <div className="page-duration">
-
+           {orgCode === "yMYer06bOB" ? 
+        <div className="page-duration-top-area-view">
+          <div className="page-duration-top-area-view-duration-box-qlzy">
+            <p>
+              <span>
+                {this.props.reward.data === null ? 0 : this.props.reward.data.join_project_count}
+              </span>{t('个项目')}</p>
+            <p>{t('参加的项目')}</p>
+          </div>
+          <div className="page-duration-top-area-view-line" />
+          <div className="page-duration-top-area-view-duration-box-qlzy">
+            <p>
+              <span>
+                {(Number(this.props.reward.data && this.props.reward.data.reward_time || 0) + (this.props.reward.data && this.props.reward.data.jinyun_timeSum || 0) / 3600).toFixed(1)}
+              </span>{t('小时')}</p>
+            <p>{t('志愿总时长')}</p>
+          </div>
+        </div>
+        :
         <div className="page-duration-top-area-view">
           <div className="page-duration-top-area-view-duration-box">
             <p>
@@ -54,11 +72,11 @@ class Duration extends React.Component {
           <div className="page-duration-top-area-view-duration-box">
             <p>
               <span>
-                {(Number(this.props.reward.data && this.props.reward.data.reward_time || 0) + (this.props.reward.data && this.props.reward.data.jinyun_timeSum || 0) / 3600).toFixed(2)}
+                {(Number(this.props.reward.data && this.props.reward.data.reward_time || 0) + (this.props.reward.data && this.props.reward.data.jinyun_timeSum || 0) / 3600).toFixed(1)}
               </span>{t('小时')}</p>
             <p>{t('志愿总时长')}</p>
           </div>
-        </div>
+        </div>}
         <div className="line1px" />
 
         <div className="page-duration-main-box">
@@ -68,7 +86,7 @@ class Duration extends React.Component {
               textAlign: 'center',
               
             }}>
-              津云平台项目总时长 {((this.props.reward.data && this.props.reward.data.jinyun_timeSum || 0) / 3600).toFixed(2)} 小时
+              津云平台项目总时长 {((this.props.reward.data && this.props.reward.data.jinyun_timeSum || 0) / 3600).toFixed(1)} 小时
             </div> : null
           }
         </div>

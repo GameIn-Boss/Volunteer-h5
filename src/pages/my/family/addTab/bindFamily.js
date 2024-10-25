@@ -130,7 +130,8 @@ class BindFamily extends React.Component {
             </div>
           <div className="line1px" />
         </div>
-        <div className="pages-add-bind-family-btn" onClick={this.bindFamily}>{t('添加')}</div>
+        {orgCode == 'yMYer06bOB' ?  <div className="pages-add-bind-family-btn-qlzy" onClick={this.bindFamily}>{t('添加')}</div>:
+        <div className="pages-add-bind-family-btn" onClick={this.bindFamily}>{t('添加')}</div>}
       </div>
     );
   }

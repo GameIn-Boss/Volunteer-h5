@@ -23,6 +23,13 @@
   color: #000;
   border-bottom: 2px solid transparent;
 }
+.page-projects-li-a-div-style-qlzy{
+  padding:0 5px;
+  height: 47px;
+  line-height: 47px;
+  color: #000;
+  border-bottom: 2px solid transparent;
+}
 .page-projects-li-a-div-style.active{
   padding:0 5px;
   height: 47px;
@@ -31,7 +38,14 @@
   border-bottom: 2px solid #6AC6F8;
 
 }
+.page-projects-li-a-div-style-qlzy.active{
+  padding:0 5px;
+  height: 47px;
+  line-height: 47px;
+  color: #D82229;
+  border-bottom: 2px solid #D82229;
 
+}
 .page-projects-content-main{
   flex: 1;
   overflow-y: scroll;

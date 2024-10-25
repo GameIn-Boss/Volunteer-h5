@@ -113,12 +113,24 @@ class DurationProjects extends React.Component {
                             </div>
                           </Link>
                         </div>
+                        {orgCode === "yMYer06bOB" ? 
+                        <div style={{ display: "flex",color: "#D2251D", justifyContent: "center", alignItems: "center" }}>
+                     
 
-                        <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                          <div style={{ fontSize: "13px", color: "#6AC6F8", border: "1px solid #6AC6F8", borderRadius: "4px", padding: "2px 4px" }} onClick={() => this.poster(project)}>
+                          <div style={{ fontSize: "13px", color: "#D2251D", border: "1px solid #D2251D", borderRadius: "4px", padding: "2px 4px" }} onClick={() => this.poster(project)}>
                             {generatePosterText}
                           </div>
+                          </div>
+
+                          :
+                          <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+
+                          <div style={{ fontSize: "13px", color: "#6AC6F8", border: "1px solid #6AC6F8", borderRadius: "4px", padding: "2px 4px" }} onClick={() => this.poster(project)}>
+                          {generatePosterText}
                         </div>
+                        
+                        </div>
+                      }
                       </div>
                     </div>
 
@@ -132,10 +144,15 @@ class DurationProjects extends React.Component {
                           </div>
                           {team.name}
                         </div>
+                        {orgCode === "yMYer06bOB" ? 
                         <div className="component-duration-projects-footer-date-box">
                           {t('已获得时长')}：
-                          <span>{project.my_reward_time}{t('小时')}</span>
+                          <span style={{color:"#D2251D"}}>{project.my_reward_time}{t('小时')}</span>
                         </div>
+                          : <div className="component-duration-projects-footer-date-box">
+                          {t('已获得时长')}：
+                          <span>{project.my_reward_time}{t('小时')}</span>
+                          </div>}
                       </Link>
                     </div>
                   </li>;

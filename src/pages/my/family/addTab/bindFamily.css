@@ -47,3 +47,15 @@
     color: #666666;
     margin: 40px auto 0;
 }
+
+.pages-add-bind-family-btn-qlzy {
+    width: 300px;
+    height: 50px;
+    background-color: #D82229;
+    border-radius: 200px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    color: #ffffff;
+    margin: 40px auto 0;
+}

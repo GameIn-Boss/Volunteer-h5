@@ -11,7 +11,7 @@ import moment from 'moment';
 import { translate } from 'react-i18next';
 import i18next from 'i18next';
 
-import './detail.css';
+import './qlzydetail.css';
 
 class Detail extends React.Component {
   constructor(props) {
@@ -107,15 +107,14 @@ class Detail extends React.Component {
           )}
           {/*<span className="volunteer-rank-detail-top-detail-level">用户等级： Lv.04</span>*/}
         </div>
-        <div className="volunteer-rank-detail-top-detail-slogan">{data.slogan}</div>
         <div className="volunteer-rank-detail-top-detail-time">
           <div>
-            <p>{Number(data.reward_time_year).toFixed(2)}{t('时')}</p>
-            <p>{t('年度时长')}</p>
+            <span style={{fontSize:'18px',color:'rgba(0, 0, 0, 0.95)'}}>{Number(data.reward_time_year).toFixed(1)}</span><span style={{fontSize:'12px',color:'rgba(0, 0, 0, 0.85)'}}>{t('小时')}</span>
+            <p style={{fontSize:'14px',color:'rgba(0, 0, 0, 0.65)'}}>{t('年度志愿时长')}</p>
           </div>
           <div>
-            <p>{Number(data.reward_time).toFixed(2)}{t('时')}</p>
-            <p>{t('总时长')}</p>
+            <span style={{fontSize:'18px',color:'rgba(0, 0, 0, 0.95)'}}>{Number(data.reward_time).toFixed(1)}</span><span style={{fontSize:'12px',color:'rgba(0, 0, 0, 0.85)'}}>{t('小时')}</span>
+            <p style={{fontSize:'14px',color:'rgba(0, 0, 0, 0.65)'}}>{t('总志愿时长')}</p>
           </div>
         </div>
       </div>
@@ -131,17 +130,22 @@ class Detail extends React.Component {
       return <div></div>
     }
     return(<div className="volunteer-rank-detail-project">
-  <div className="volunteer-rank-detail-achieve-title">
-        <i className="volunteer-rank-detail-project-title-icon"></i>{t('Ta的项目')}
+  {/* <div className="volunteer-rank-detail-achieve-title">
+        <i className="volunteer-rank-detail-project-title-icon"></i>{t('Ta的项目')} */}
+         <div className="project-label-box">
+        <div className="project-label"></div> <span  className="project-label-text">TA的项目</span>
+      </div>
+      {/* </div>  */}
+     
 
- </div> 
       {
         data.project.map((item, index) => (<Link to={`/project/detail/${item.project_id}`} key={index} className="volunteer-rank-detail-project-detail">
-          <Image defaultSrc={window.orgInfo.logo} src={item.project.list_photo} resize={{width: 135, height: 78}} className="volunteer-rank-detail-project-detail-img"/>
+          <Image defaultSrc={window.orgInfo.logo} src={item.project.photoitem} resize={{width: 135, height: 78}} className="volunteer-rank-detail-project-detail-img"/>
           <div className="volunteer-rank-detail-project-detail-info">
-            <div className="volunteer-rank-detail-project-detail-info-title">{item.project.name}</div>
-            <div>{t('活动日期')}：{moment(item.project.begin).format('YYYY.MM.DD')} - {moment(item.project.end).format('YYYY.MM.DD')}</div>
-            <div>{t('已获得时长')}：{Number(item.reward_time).toFixed(2)}{t('时')}</div>
+          <div className="volunteer-rank-detail-project-detail-info-title">{item.project.name}</div>
+          {/* <div className="volunteer-rank-detail-project-detail-info-service_target-box"><p className="volunteer-rank-detail-project-detail-info-service_target">{item.project.province_name}</p></div> */}
+          <div>{t('活动时间')}：{moment(item.project.begin).format('YYYY.MM.DD')}</div>
+            <div>{t('发起方')}：{item.team_name}</div>
           </div>
         </Link>))
       }
@@ -157,8 +161,8 @@ class Detail extends React.Component {
       return <div></div>
     }
     return(<div className="volunteer-rank-team-project">
-      <div className="volunteer-rank-detail-achieve-title">
-        <i className="volunteer-rank-detail-team-title-icon"></i>{t('Ta的团队')}
+      <div className="project-label-box">
+        <div className="project-label"></div> <span  className="project-label-text">TA的团队</span>
       </div>
       {
         data.team.map((item, index)=>(<Link to={`/team/detail/${item.team_id}`} className="volunteer-rank-detail-team-detail" key={index}>
@@ -168,7 +172,7 @@ class Detail extends React.Component {
             <div className="volunteer-rank-detail-team-detail-info-both">
             <span>
               <i className="volunteer-rank-detail-team-detail-info-icon-time"></i>
-              {t('时长')}：{Number(item.team.reward_time).toFixed(2)}{t('小时')}
+              {t('时长')}：{Number(item.team.reward_time).toFixed(1)}{t('小时')}
             </span>
               <span>
               <i className="volunteer-rank-detail-team-detail-info-icon-people"></i>

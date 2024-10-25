@@ -305,13 +305,17 @@ class Replacement extends React.Component {
                 />
             </div>
             <div className="pages-sign-project-apply-line">
-    <div className="pages-sign-project-apply-line-img-title">{window.orgCode === 'mWZdPNwaKg' ? t('活动证明图片'):t('活动证明图片(默认)')}</div>
+            <div className="pages-sign-project-apply-line-img-title">{window.orgCode === 'mWZdPNwaKg' ? t('活动证明图片'):t('活动证明图片(默认)')}</div>
                 <div className="pages-sign-project-apply-line-img-box">
                     <UploadPhoto onChange={this.onPhotoChange} multiple={false} length={3} totle={3} />
-
                 </div>
             </div>
+            {orgCode == 'yMYer06bOB' ?  
+            <div className="pages-sign-project-apply-line-submit-qlzy" onClick={this.onSubmit}>{t('提交')}</div>
+            :
             <div className="pages-sign-project-apply-line-submit" onClick={this.onSubmit}>{t('提交')}</div>
+
+            }
         </div>
     }
 }

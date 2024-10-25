@@ -1229,6 +1229,40 @@ class Verify extends React.Component {
           is_required: 1,
         })
       }
+    }else if(window.orgCode === 'yMYer06bOB'){
+         
+      const jntc = this.filterItemByKey(orgInfoArr, '齐鲁技能及特长');
+      if (jntc) {
+        infoArr.push(jntc);
+      }
+      const shcool = this.filterItemByKey(orgInfoArr, '齐鲁毕业院校');
+      if (shcool) {
+        infoArr.push(shcool);
+      }
+      const zy = this.filterItemByKey(orgInfoArr, '齐鲁专业');
+      if (zy) {
+        infoArr.push(zy);
+      }
+      const jkzk = this.filterItemByKey(orgInfoArr, '齐鲁健康状况');
+      if (jkzk) {
+        infoArr.push(jkzk);
+      }
+      const zjmm = this.filterItemByKey(orgInfoArr, '齐鲁政治面貌');
+      if (zjmm) {
+        infoArr.push(zjmm);
+      }
+      const qlzyuser = this.filterItemByKey(orgInfoArr, '齐鲁身份选择');
+      if (qlzyuser) {
+        infoArr.push(qlzyuser);
+      }
+      if (this.state.extendsArray && this.state.extendsArray['齐鲁身份选择'] && this.state.extendsArray['齐鲁身份选择'] === '员工') {
+          const subTypeItem = this.filterItemByKey(orgInfoArr, '齐鲁公司');
+          if (subTypeItem) infoArr.push({
+            ...subTypeItem,
+            is_required: 1,
+          })
+        }
+
     }else{
       infoArr = orgInfoArr;
 
@@ -1341,9 +1375,15 @@ class Verify extends React.Component {
               {//自定义信息
                 this.renderOtherInfo()}
             </div>
-            <div className="page-my-profile-verify-btn" onClick={this.onSubmit}>
+            {/* <div className="page-my-profile-verify-btn" onClick={this.onSubmit}>
               提交
-            </div>
+            </div> */}
+
+
+            {orgCode === 'yMYer06bOB' ? <div className="page-my-profile-verify-btn-qlzy" onClick={this.onSubmit}>  提交
+                        </div>:     <div className="page-my-profile-verify-btn" onClick={this.onSubmit}>
+                            提交
+                        </div>}
           </div>
         )}
         <Gallery

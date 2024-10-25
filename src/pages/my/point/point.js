@@ -117,12 +117,19 @@ class PointPage extends React.Component {
             </tbody>
           </table>
         </div>
+        {orgCode === "yMYer06bOB" ?         <div
+          className="commonweal-box-instruction-btn-qlzy"
+          onClick={this.closeModalNewInstruction}
+        >
+          {t('我知道了')}
+        </div>
+        :
         <div
           className="commonweal-box-instruction-btn"
           onClick={this.closeModalNewInstruction}
         >
           {t('我知道了')}
-        </div>
+        </div>}
       </div>
     );
   }
@@ -146,7 +153,9 @@ class PointPage extends React.Component {
     console.log(page);
     return (
       <div className="page-ponit">
-        <div className="page-ponit-pic-container">
+       {orgCode === "yMYer06bOB" ?    
+
+        <div className="page-ponit-pic-container-qlzy">
           <div className="page-ponit-pic-title">
             <span>
               {t('我的星币明细n', { n: t(scoreName) || t('星币') })}{t('(个)')}
@@ -161,12 +170,28 @@ class PointPage extends React.Component {
             </span>
           </div>
         </div>
+      :  <div className="page-ponit-pic-container">
+        <div className="page-ponit-pic-title">
+          <span>
+            {t('我的星币明细n', { n: t(scoreName) || t('星币') })}{t('(个)')}
+          </span>
+          <span style={{ margin: "13px 0 13px" }}>
+            {this.props.usercenter.data == null
+              ? 0
+              : this.props.usercenter.data.user.score}
+          </span>
+          <span className="checkScoreMethod" onClick={this.checkScoreMethod}>
+            {t('查看星币获取方法n', {n: t(scoreName) || t('星币')})}
+          </span>
+        </div>
+        </div>}
+        {orgCode === "yMYer06bOB" ?    
         <div className="page-ponit-tab-container">
-          <div className="page-ponit-tab-container-li">
+          <div className="page-ponit-tab-container-qlzy-li">
             <Link to="/my/point">
               <div
                 className={classnames({
-                  "page-ponit-tab-container-li-current": true,
+                  "page-ponit-tab-container-qlzy-li-current": true,
                   active: path === "/my/point"
                 })}
               >
@@ -175,13 +200,13 @@ class PointPage extends React.Component {
             </Link>
           </div>
           <div>
-            <div className="line1px-v page-ponit-tab-container-line-v" />
+            <div className="line1px-v page-ponit-tab-container-qlzy-line-v" />
           </div>
-          <div className="page-ponit-tab-container-li">
+          <div className="page-ponit-tab-container-qlzy-li">
             <Link to="/my/point/pay">
               <div
                 className={classnames({
-                  "page-ponit-tab-container-li-current": true,
+                  "page-ponit-tab-container-qlzy-li-current": true,
                   active: path === "/my/point/pay"
                 })}
               >
@@ -190,6 +215,37 @@ class PointPage extends React.Component {
             </Link>
           </div>
         </div>
+        :
+        <div className="page-ponit-tab-container">
+        <div className="page-ponit-tab-container-li">
+          <Link to="/my/point">
+            <div
+              className={classnames({
+                "page-ponit-tab-container-li-current": true,
+                active: path === "/my/point"
+              })}
+            >
+              {t('星币获取n', {n: t(scoreName) || t('星币')})}
+            </div>
+          </Link>
+        </div>
+        <div>
+          <div className="line1px-v page-ponit-tab-container-line-v" />
+        </div>
+        <div className="page-ponit-tab-container-li">
+          <Link to="/my/point/pay">
+            <div
+              className={classnames({
+                "page-ponit-tab-container-li-current": true,
+                active: path === "/my/point/pay"
+              })}
+            >
+              {t('星币支出n', {n: t(scoreName) || t('星币')})}
+            </div>
+          </Link>
+        </div>
+      </div>
+        }
         <div className="page-ponit-content">{page}</div>
         {this.renderModalNewScore()}
       </div>

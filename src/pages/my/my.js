@@ -221,13 +221,21 @@ class MyPage extends React.Component {
     }
     return (
       <div className="page-my-photo-container">
+   {orgCode === "yMYer06bOB" ? 
+
         <Avatar
           src={user.avatars ? user.avatars : ""}
           data-key={user.avatars || ""}
-          size={{ width: 80, radius: 8 }}
+          size={{ width: 80, radius: 50 }}
           defaultSrc="/images/my/register.png"
           onClick={this.onPreview}
-        />
+        />: <Avatar
+        src={user.avatars ? user.avatars : ""}
+        data-key={user.avatars || ""}
+        size={{ width: 80, radius: 8 }}
+        defaultSrc="/images/my/register.png"
+        onClick={this.onPreview}
+      />}
         <div className="page-my-user-info">
 
           <p className="page-my-user-info-nick">
@@ -315,58 +323,60 @@ class MyPage extends React.Component {
       rewordTime = (Number(this.props.usercenter.data.user && this.props.usercenter.data.user.reward_time || 0) + (this.props.usercenter.data.user && this.props.usercenter.data.user.jinyun_timeSum || 0) / 3600);
     }
     return (
-      <div className="page-my-record-container">
+
+      orgCode === "yMYer06bOB" ? 
+        <div className="page-my-record-container-qlzy">
         <Link to="/my/teams">
-          <div className="page-my-record-item">
-            <p className="page-my-record-item-top">
-              <b className="page-my-record-item-num">
+          <div className="page-my-record-item-qlzy">
+            <p className="page-my-record-item-top-qlzy">
+              <b className="page-my-record-item-num-qlzy">
                 {this.props.usercenter.data == null
                   ? 0
                   : this.props.usercenter.data.team_count}
               </b>
               {t('个center')}
             </p>
-            <p className="page-my-record-item-bottom">{t('我的团队')}</p>
+            <p className="page-my-record-item-bottom-qlzy">{t('我的团队')}</p>
           </div>
         </Link>
 
         <Link to="/my/projects">
-          <div className="page-my-record-item">
-            <p className="page-my-record-item-top">
-              <b className="page-my-record-item-num">
+          <div className="page-my-record-item-qlzy">
+            <p className="page-my-record-item-top-qlzy">
+              <b className="page-my-record-item-num-qlzy">
                 {this.props.usercenter.data == null
                   ? 0
                   : this.props.usercenter.data.project_count}
               </b>
               {t('个center')}
             </p>
-            <p className="page-my-record-item-bottom">{t('我的活动')}</p>
+            <p className="page-my-record-item-bottom-qlzy">{t('我的活动')}</p>
           </div>
         </Link>
         <Link to="/my/duration">
-          <div className="page-my-record-item">
-            <p className="page-my-record-item-top">
-              <b className="page-my-record-item-num">
+          <div className="page-my-record-item-qlzy">
+            <p className="page-my-record-item-top-qlzy">
+              <b className="page-my-record-item-num-qlzy">
                 {this.props.usercenter.data === null ?
                   0
                   :
-                  rewordTime.toFixed(2)}
+                  rewordTime.toFixed(1)}
               </b>
               {t('小时center')}
             </p>
             {orgCode === "yJrb2kKdWL" ? (
-              <p className="page-my-record-item-bottom">{t('公益时长')}</p>
+              <p className="page-my-record-item-bottom-qlzy">{t('公益时长')}</p>
               ):(
-              <p className="page-my-record-item-bottom">{t('服务时长')}</p>
+              <p className="page-my-record-item-bottom-qlzy">{t('服务时长')}</p>
               )}
           </div>
         </Link>
         {/* <!-- 积分入口 --> */}
         {window.orgInfo.volunteer_feedback === 0 ? null : (
           <Link to="/my/point">
-            <div className="page-my-record-item">
-              <p className="page-my-record-item-top">
-                <b className="page-my-record-item-num">
+            <div className="page-my-record-item-qlzy">
+              <p className="page-my-record-item-top-qlzy">
+                <b className="page-my-record-item-num-qlzy">
                   {this.props.usercenter.data == null
                     ? 0
                     : this.props.usercenter.data.user.score}
@@ -381,18 +391,106 @@ class MyPage extends React.Component {
                     })}
                     </p>         
                     ):(
-                    <p className="page-my-record-item-bottom">
+                      orgCode === "yMYer06bOB" ? 
+                    <p className="page-my-record-item-bottom-qlzy">
                     {t('n志愿星币m', {
                       n: n ? (t(n) === 'Volunteer' ? 'My' : t(n)) : t('志愿center'),
                       m: t(scoreName) || t('星币')
                     })}
-                  </p>            
+                  </p>      
+                   :      
+                   <p className="page-my-record-item-bottom">
+                    {t('n志愿星币m', {
+                      n: n ? (t(n) === 'Volunteer' ? 'My' : t(n)) : t('志愿center'),
+                      m: t(scoreName) || t('星币')
+                    })}
+                  </p>   
                )}
 
             </div>
           </Link>
         )}
       </div>
+:
+<div className="page-my-record-container">
+<Link to="/my/teams">
+  <div className="page-my-record-item">
+    <p className="page-my-record-item-top">
+      <b className="page-my-record-item-num">
+        {this.props.usercenter.data == null
+          ? 0
+          : this.props.usercenter.data.team_count}
+      </b>
+      {t('个center')}
+    </p>
+    <p className="page-my-record-item-bottom">{t('我的团队')}</p>
+  </div>
+</Link>
+
+<Link to="/my/projects">
+  <div className="page-my-record-item">
+    <p className="page-my-record-item-top">
+      <b className="page-my-record-item-num">
+        {this.props.usercenter.data == null
+          ? 0
+          : this.props.usercenter.data.project_count}
+      </b>
+      {t('个center')}
+    </p>
+    <p className="page-my-record-item-bottom">{t('我的活动')}</p>
+  </div>
+</Link>
+<Link to="/my/duration">
+  <div className="page-my-record-item">
+    <p className="page-my-record-item-top">
+      <b className="page-my-record-item-num">
+        {this.props.usercenter.data === null ?
+          0
+          :
+          rewordTime.toFixed(1)}
+      </b>
+      {t('小时center')}
+    </p>
+    {orgCode === "yJrb2kKdWL" ? (
+      <p className="page-my-record-item-bottom">{t('公益时长')}</p>
+      ):(
+      <p className="page-my-record-item-bottom">{t('服务时长')}</p>
+      )}
+  </div>
+</Link>
+{/* <!-- 积分入口 --> */}
+{window.orgInfo.volunteer_feedback === 0 ? null : (
+  <Link to="/my/point">
+    <div className="page-my-record-item">
+      <p className="page-my-record-item-top">
+        <b className="page-my-record-item-num">
+          {this.props.usercenter.data == null
+            ? 0
+            : this.props.usercenter.data.user.score}
+        </b>{" "}
+        {language === 'zh-CN' ? (scoreName || '星币') : ''}
+      </p>
+      {orgCode === "yJrb2kKdWL" ? (
+         <p className="page-my-record-item-bottom">
+            {t('公益积分', {
+              n: n ? (t(n) === 'Volunteer' ? 'My' : t(n)) : t('志愿center'),
+              m: t(scoreName) || t('星币')
+            })}
+            </p>         
+            ):(
+            <p className="page-my-record-item-bottom">
+            {t('n志愿星币m', {
+              n: n ? (t(n) === 'Volunteer' ? 'My' : t(n)) : t('志愿center'),
+              m: t(scoreName) || t('星币')
+            })}
+          </p>            
+       )}
+
+    </div>
+  </Link>
+)}
+</div>
+
     );
   }
 
@@ -443,6 +541,9 @@ class MyPage extends React.Component {
     
     if (orgCode === "4openZle7A") {
       return "/my/certificateYg";
+    } 
+      if (orgCode === "yMYer06bOB") {
+      return "/my/certificateQlzy";
     } 
     
     // todo 三一需要定制化证书
@@ -908,12 +1009,21 @@ class MyPage extends React.Component {
             </tbody>
           </table>
         </div>
-        <div
-          className="commonweal-box-instruction-btn"
-          onClick={this.closeModalNewInstruction}
-        >
-          {t('我知道了')}
-        </div>
+        {orgCode == 'yMYer06bOB' ?  
+                 <div
+                 className="commonweal-box-instruction-btn-qlzy"
+                 onClick={this.closeModalNewInstruction}
+               >
+                 {t('我知道了')}
+               </div>
+                :    <div
+                className="commonweal-box-instruction-btn"
+                onClick={this.closeModalNewInstruction}
+              >
+                {t('我知道了')}
+              </div>}
+       
+        
       </div>
     );
   }
@@ -982,9 +1092,12 @@ class MyPage extends React.Component {
         {window.orgCode === 'K4oeERva0B' ? (
           <div>
             <div className="page-my-line" />
-            <a className="page-setting-quit" onClick={this.props.logoutAction}>
+            {orgCode === 'yMYer06bOB' ?  <a className="page-setting-quit-qlzy" onClick={this.props.logoutAction}>
               {t('退出登录')}
-            </a>
+            </a>:     <a className="page-setting-quit" onClick={this.props.logoutAction}>
+              {t('退出登录')}
+            </a>}
+           
           </div>
         ) : null}
       </div>

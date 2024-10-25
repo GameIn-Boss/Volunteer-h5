@@ -125,7 +125,26 @@ class Addmember extends React.Component {
         return (
             <div className="page-add-family-tab-container">
                 <div className="page-add-family-tab-top" style={{ width: '100%', height: '53px' }}>
-                    <ul className="page-add-family-tab-ul-container">
+                    
+                {orgCode == 'yMYer06bOB' ?  
+                        <ul className="page-add-family-tab-ul-container-qlzy">
+                        <li className={classnames({
+                    active: path==='/my/family/add'
+                })}>
+                            <Link to="/my/family/add">
+                                <div style={{color:'#D82229' }}>{t('绑定家庭成员')}
+                                </div>
+                            </Link>
+                        </li>
+                        <li className={classnames({
+                  active: path ==='/my/family/add/newfamily'
+                  })}>
+                            <Link to="/my/family/add/newfamily">
+                                <div  style={{color:'#D82229' }}>{t('新建家庭成员')}</div>
+                            </Link>
+                        </li>
+                    </ul>
+                    :  <ul className="page-add-family-tab-ul-container">
                         <li className={classnames({
                     active: path==='/my/family/add'
                 })}>
@@ -141,7 +160,7 @@ class Addmember extends React.Component {
                                 <div>{t('新建家庭成员')}</div>
                             </Link>
                         </li>
-                    </ul>
+                    </ul>}
                 </div>
                 <div className="page-add-family-tab-content">
                     {pages}

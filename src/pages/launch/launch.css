@@ -175,7 +175,7 @@
 
 }
 
-/*三一公益*/
+/*阳光保险*/
 .page-launch .tabs li .tab-icon-home.yangguang  {
   background-image: url(/images/tab_home.png);
 }
@@ -199,6 +199,32 @@
 
 .page-launch .tabs li .tab-icon-me.active.yangguang{
   background-image: url(/images/yangguangperson.jpg);
+
+}
+/*阳光保险*/
+.page-launch .tabs li .tab-icon-home.qlzy  {
+  background-image: url(/images/tab_home.png);
+}
+
+.page-launch .tabs li .tab-icon-home.active.qlzy{
+  background-image: url(/images/tab_home_qlzy.png);
+}
+
+.page-launch .tabs li .tab-icon-signin.qlzy{
+  background-image: url(/images/tab_signin.png);}
+
+.page-launch .tabs li .tab-icon-signin.active.qlzy{
+  background-image: url(/images/tab_signin_qlzy.jpg);
+
+}
+
+.page-launch .tabs li .tab-icon-me.qlzy{
+  background-image: url(/images/tab_me.png);
+
+}
+
+.page-launch .tabs li .tab-icon-me.active.qlzy{
+  background-image: url(/images/qlzy-me.png);
 
 }
 .page-launch .tabs li a span {

@@ -347,10 +347,11 @@ class SignBall extends React.Component {
           alignItems: "center"
         }}
       >
+       {orgCode === "yMYer06bOB" ?
         <div
           className={classnames({
             "page-signball-shape": true,
-            "page-signball-islight": isSign
+            "page-signball-islight-qlzy": isSign
           })}
           onClick={this.handleClick}
         >
@@ -358,6 +359,17 @@ class SignBall extends React.Component {
           <div className="page-signball-date">{time}</div>
           {this.renderDistanceInfo()}
         </div>
+        :   <div
+        className={classnames({
+          "page-signball-shape": true,
+          "page-signball-islight": isSign
+        })}
+        onClick={this.handleClick}
+      >
+        <div className="page-signball-title">{this.props.ballTitle}</div>
+        <div className="page-signball-date">{time}</div>
+        {this.renderDistanceInfo()}
+      </div>}
         <div style={{ backgroud: 'black', width: '375px' }}>
           {/* {this.state.isWeChatMiniApp === null ? '没判断成功' : (this.state.isWeChatMiniApp ? '是小程序里了' : '没在小程序')}
           {this.state.console}

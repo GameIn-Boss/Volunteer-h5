@@ -75,7 +75,7 @@
 
 
 .page-sign-detail .page-signball-shape{
-  width: 141px;
+  width: 1t1px;
   height: 141px;
   border-radius: 50%;
   display: flex;
@@ -91,6 +91,10 @@
 .page-sign-detail .page-signball-islight{
    background: url(/images/sign/signball.png) no-repeat;
   background-size: cover;
+}
+.page-sign-detail .page-signball-islight-qlzy{
+  background: url(/images/sign/signball-qlzy.png) no-repeat;
+ background-size: cover;
 }
 .page-sign-detail .page-signball-title{
   width: 100%;

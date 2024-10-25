@@ -151,9 +151,14 @@ class Forget extends React.Component {
                 this.verifyCode = c;
               }} onChange={this.onTextChanged} />
           </label>
+          {orgCode == 'yMYer06bOB' ?  
+          <div className="page-forget-code-qlzy" onClick={this.onSend}>
+            {buttonString}
+          </div>:
           <div className="page-forget-code" onClick={this.onSend}>
             {buttonString}
           </div>
+  }
         </div>
         <div className="page-forget-item">
           <label htmlFor="password">
@@ -163,10 +168,14 @@ class Forget extends React.Component {
               }} onChange={this.onTextChanged} />
           </label>
         </div>
-
-        <div className="page-forget-submmit" onClick={this.onSubmit}>
-          {user&&user.have_pwd === 1 ? t('确认修改') : t('确认设置')}
-        </div>
+        {orgCode == 'yMYer06bOB' ?  
+      <div className="page-forget-submmit-qlzy" onClick={this.onSubmit}>
+      {user&&user.have_pwd === 1 ? t('确认修改') : t('确认设置')}
+    </div>:
+       <div className="page-forget-submmit" onClick={this.onSubmit}>
+       {user&&user.have_pwd === 1 ? t('确认修改') : t('确认设置')}
+     </div>}
+       
       </div>;
   }
 }

@@ -315,10 +315,12 @@ class Login extends React.Component {
           </div>
           <div className="page-login-forget">
             <Link to="/my/forget">
-              <span className="page-login-forget-item">{t('忘记密码')}</span>
+   {orgCode == 'yMYer06bOB' ?  <span className="page-login-forget-item-qlzy">{t('忘记密码')}</span>:  <span className="page-login-forget-item">{t('忘记密码')}</span>}
+
             </Link>
           </div>
-          <div className="page-login-entry " onClick={this.submit}>{t('登录')}</div>
+          {orgCode == 'yMYer06bOB' ? <div className="page-login-entry-qlzy" onClick={this.submit}>{t('登录')}</div> :  <div className="page-login-entry" onClick={this.submit}>{t('登录')}</div>}
+         
         </div>
       </div>
     );
@@ -335,7 +337,19 @@ class Login extends React.Component {
       {
         t('提交代表已阅读')
       }
-      <span className="page-login-agreement">《{userAgreeText}》</span>
+{orgCode == 'yMYer06bOB' ?
+ <div>
+  <Link to='https://qilu.wechat.volzdx.cn/html/qlzyuseragree.html'>
+  <span className="page-login-agreement-qlzy">《{userAgreeText}》</span>
+  </Link>
+  <Link to='https://qilu.wechat.volzdx.cn/html/qlzyprivacy.html'>
+  <span className="page-login-agreement-qlzy">《{t('隐私政策')}》</span>
+  </Link>
+
+</div> 
+: <span className="page-login-agreement">《{userAgreeText}》</span>}
+      
+      
 
     </div>
   }
@@ -349,7 +363,7 @@ class Login extends React.Component {
     }
 
     let shoudShowPrivacyPolicy = false;
-    if (window.orgCode === 'kQBeXDWeyK' || window.orgCode === 'joQeZ6JepZ' || window.orgCode === 'EKQe1wRbJY' || window.orgCode === 'KGRb4x1bBL' ||  window.orgCode === 'Wpmbk5XezJ'||  window.orgCode === '4openZle7A' ) {
+    if (window.orgCode === 'kQBeXDWeyK' || window.orgCode === 'joQeZ6JepZ' || window.orgCode === 'EKQe1wRbJY' || window.orgCode === 'KGRb4x1bBL' ||  window.orgCode === 'Wpmbk5XezJ'||  window.orgCode === '4openZle7A'||  window.orgCode === 'yMYer06bOB' ) {
       shoudShowPrivacyPolicy = true;
     }
 
@@ -394,6 +408,12 @@ class Login extends React.Component {
     }
         if (window.orgCode === '4openZle7A') {
       userAgreePath = '/html/yangguanguseragree.html';
+    }
+    if (window.orgCode === 'yMYer06bOBq') {
+      userAgreePath = '/html/qlzyuseragree.html';
+    }
+    if (window.orgCode === 'yMYer06bOBq') {
+      privacyPolicyPath = '/html/qlzyprivacy.html';
     }
     if (window.orgCode === '4openZle7A') {
       privacyPolicyPath = 'https://carliferesourses.sinosig.com/CarlifePro/carlifStatic/login/html/gwindex.html?agreeCode=PTB05&from_wecom=1';
@@ -446,9 +466,14 @@ class Login extends React.Component {
           <div className="page-login-item">
             <input type="number" ref={(c) => { this.usercode = c; }} onChange={this.onTextChanged}
               placeholder={t('手机验证码')} className="page-login-item-input" />
-            <div className="page-login-item-code" onClick={this.onSend}>{this.state.buttonString}</div>
+           
+            {orgCode == 'yMYer06bOB' ?  <div className="page-login-item-code-qlzy" onClick={this.onSend}>{this.state.buttonString}</div> :   <div className="page-login-item-code" onClick={this.onSend}>{this.state.buttonString}</div>}
+
+
           </div>
-          <div className="page-login-entry page-login-quick-login" onClick={this.submit}>{t('登录/注册')}</div>
+          {orgCode == 'yMYer06bOB' ? <div className="page-login-entry-qlzy" onClick={this.submit}>{t('登录/注册')}</div> :  <div className="page-login-entry page-login-quick-login" onClick={this.submit}>{t('登录/注册')}</div>}
+
+         
         </div>
         {
           this.shouldCheckboxAgree() ? this.checkboxAgreeRender() : this.nomarlAgreeRender()

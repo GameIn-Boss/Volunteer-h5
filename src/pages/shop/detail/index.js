@@ -127,7 +127,10 @@ class ShopDetailPage extends React.Component {
                     <div className="page-shop-goods-content-top-title">{data.g_name}</div>
                     <div className="page-shop-goods-content-top-price-container">
                         <div className="price-container">
-                            <div className="price"><span>{data.points}</span>{t(scoreName) || t('星币')}</div>
+                        {orgCode == 'yMYer06bOB' ?   <div className="price-qlzy"><span>{data.points}</span>{t(scoreName) || t('星币')}</div>:  <div className="price"><span>{data.points}</span>{t(scoreName) || t('星币')}</div>}
+
+                           
+
                             <div className="now">{t('￥n元', { n: data.price })}</div>
                         </div>
                         {data.g_num? <div className="num">{t('库存n件', {n: data.g_num})}</div> : null}
@@ -180,7 +183,11 @@ class ShopDetailPage extends React.Component {
         let action = '';
         if (user.isLogin) {
             if((data.g_num>0|| data.g_num == null) && data.change_num == 1){
-                actionClassName = 'page-shop-goods-main-btn';
+                if(orgCode == 'yMYer06bOB' ){
+                    actionClassName = 'page-shop-goods-main-btn-qlzy';
+                }else{
+                    actionClassName = 'page-shop-goods-main-btn';
+                }
                 actionLabel=t('立即兑换');
                 action = 'sure'
             }else if(data.g_num == 0){
@@ -193,7 +200,11 @@ class ShopDetailPage extends React.Component {
                 action = ''
             }
         } else {
-            actionClassName = 'page-shop-goods-main-btn';
+            if(orgCode == 'yMYer06bOB' ){
+                actionClassName = 'page-shop-goods-main-btn-qlzy';
+            }else{
+                actionClassName = 'page-shop-goods-main-btn';
+            }
             actionLabel=t('立即兑换');
             action = 'sure'
         }

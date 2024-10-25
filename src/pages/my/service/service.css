@@ -24,6 +24,7 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
+
 .page-service-item-bg1{
   background-image: url(/images/my/platform.png);
 }
@@ -32,6 +33,15 @@
 }
 .page-service-item-bg3{
   background-image: url(/images/my/consulting.png);
+}
+.page-service-item-bg1-qlzy{
+  background-image: url(/images/my/platform-qlzy.png);
+}
+.page-service-item-bg2-qlzy{
+  background-image: url(/images/my/help-qlzy.png);
+}
+.page-service-item-bg3-qlzy{
+  background-image: url(/images/my/consulting-qlzy.png);
 }
 .page-service-item-fonts-box h3{
   font-size: 20px;

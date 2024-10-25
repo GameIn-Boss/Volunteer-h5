@@ -45,7 +45,12 @@ class SignItem extends React.Component {
             actionClassName = "project-info-time-reject";
             actionLabel = t('被驳回');
           } else if (record.status == 4) {
-            actionClassName = "project-info-time-done";
+            if(orgCode === "yMYer06bOB" ){
+              actionClassName = "project-info-time-done-qlzy";
+            }else{
+              actionClassName = "project-info-time-done";
+
+            }
             actionLabel = t('已签到');
           } else if (record.status == 3 || record.status == 2) {
             actionClassName = "project-info-time-card";
@@ -56,27 +61,47 @@ class SignItem extends React.Component {
             timeDom = (
                   <div className="project-info-time">
                     {t('获得服务时长')}&nbsp;&nbsp;
-                    <span style={{ color: "#6AC6F8" }}>
+                    {orgCode == 'yMYer06bOB' ?  
+                    <span style={{ color: "#D2251D" }}>
                       {record.user_reward_time}{t('小时')}
                     </span>
+                    :
+                    <span style={{ color: "#6AC6F8" }}>
+                    {record.user_reward_time}{t('小时')}
+                  </span>
+                    }
                   </div>
             );
           } else if (record.status == 5){
             timeDom = (
               <div className="project-info-time">
                 {t('预计可获得服务时长')}&nbsp;&nbsp;
+                {orgCode == 'yMYer06bOB' ?  
+                <span style={{ color: "#D2251D" }}>
+                  {record.user_reward_time}{t('小时')}
+                </span>
+                :
                 <span style={{ color: "#6AC6F8" }}>
                   {record.user_reward_time}{t('小时')}
                 </span>
+                }
               </div>
             );
           } else {
             timeDom = (
               <div className="project-info-time">
                 {t('预计最多可获得服务时长')}&nbsp;&nbsp;
-                    <span style={{ color: "#6AC6F8" }}>
-                      {record.reward_time}{t('小时')}
-                    </span>
+                {orgCode == 'yMYer06bOB' ?  
+                 <span style={{ color: "#D2251D" }}>
+                 {record.reward_time}{t('小时')}
+               </span>
+                :
+                <span style={{ color: "#6AC6F8" }}>
+                {record.reward_time}{t('小时')}
+              </span>
+              }
+
+                   
                </div>
             );
           }

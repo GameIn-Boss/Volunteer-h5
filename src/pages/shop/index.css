@@ -29,12 +29,30 @@
     font-size: 15px;
     color: #484848;
  }
+ .page-shop-main-container  .page-shop-main-header .left-qlzy{
+    height: 32px;
+    line-height: 32px;
+    padding-left: 37px;
+    background: url(/images/shop/star.png) no-repeat;
+    background-size:32px 32px;
+    background-position: 2px center;
+    font-size: 15px;
+    color: #484848;
+ }
  .page-shop-main-container  .page-shop-main-header .left span{
     font-size: 16px;
     color: #6AC6F8;
     padding-left: 10px;
  }
+ .page-shop-main-container  .page-shop-main-header .left-qlzy span{
+    font-size: 16px;
+    color: #D82229;
+    padding-left: 10px;
+ }
  .page-shop-main-container  .page-shop-main-header .left .redfonts{
+    color: red;
+ }
+ .page-shop-main-container  .page-shop-main-header .left-qlzy .redfonts{
     color: red;
  }
  .page-shop-main-container  .page-shop-main-header .right{
@@ -48,6 +66,18 @@
     align-items: center;
     font-size: 14px;
     color: #6AC6F8;
+}
+.page-shop-main-container  .page-shop-main-header .right-qlzy{
+    width: 75px;
+    height: 28px;
+    background: #FFFFFF;
+    border: 1px solid #D82229;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #D82229;
 }
 .page-shop-main-container  .page-shop-main-header .exchange{
     width:75px;

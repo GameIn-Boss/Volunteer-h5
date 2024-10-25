@@ -141,7 +141,11 @@ class ProjectDetailContent extends React.Component {
                                     var temphref = `tel:${item.value}`;
                                     return (
                                         <li>
-                                            <div className="item-point" />
+                                            {orgCode == 'yMYer06bOB' ?  
+                                            <div className="item-point-qlzy" />
+                                                :
+                                                <div className="item-point" />
+                                                }
                                             {item.islast ? null : <div className="line1px-v" />}
 
                                             <div style={{ display: "flex" }}>
@@ -153,8 +157,11 @@ class ProjectDetailContent extends React.Component {
                                 }
                                 return (
                                     <li>
-                                        <div className="item-point" />
-                                        {item.islast ? null : <div className="line1px-v" />}
+                                    {orgCode == 'yMYer06bOB' ?  
+                                            <div className="item-point-qlzy" />
+                                                :
+                                                <div className="item-point" />
+                                                }                                        {item.islast ? null : <div className="line1px-v" />}
 
                                         <div style={{ display: "flex" }}>
                                             <div className="detail-title">{item.label}</div>
@@ -777,7 +784,11 @@ class ProjectDetailPage extends React.Component {
             actionClassName = "project-action-full";
         } else if (!joined) {
             actionLabel = t('我要报名');
-            actionClassName = "project-action-available";
+            if (window.orgCode === 'yMYer06bOB') {
+                actionClassName = "project-action-available-qlzy";
+              }else{
+                actionClassName = "project-action-available";
+              }
             action = "join";
         } else if (isLogin && detailData.join_status === 0 && detailData.join_verify_status === 1) {
             actionLabel = t('等待审核');
@@ -864,13 +875,23 @@ class ProjectDetailPage extends React.Component {
                             }}
                         />
                     </div>
+
                     <div className="project-description-backhome">
+                    {orgCode == 'yMYer06bOB' ?  <Link to="/" style={{
+                            backgroundImage: `url(/images/my/backhome-qlzy.png)`,
+                            backgroundSize: 'cover',
+                            backgroundRepeat: 'no-repeat',
+                        }} />:
                         <Link to="/" style={{
                             backgroundImage: `url(${t('backhome')})`,
                             backgroundSize: 'cover',
                             backgroundRepeat: 'no-repeat',
                         }} />
+                        }
+                  
+
                     </div>
+
                     <div className="project-description-takeup" />
                 </div>
                 {
@@ -959,20 +980,26 @@ class ProjectDetailPage extends React.Component {
                         ))
                     ) : (
                         <div className="page-circle-rendercommunity-container">
-                            <img
-                                src="/images/my/information.png"
-                                className="page-circle-rendercommunity-img"
-                            />
+                            {orgCode == 'yMYer06bOB' ?  
+            <img src="/images/my/information-qlzy.png" className="page-circle-rendercommunity-img" />:
+            <img src="/images/my/information.png" className="page-circle-rendercommunity-img" />
+          }
                             <div className="page-circle-rendercommunity-info">
                                 {t('还没有动态信息')}
                             </div>
                         </div>
                     )}
-
+         {orgCode == 'yMYer06bOB' ?  
                 <div
-                    className="page-project-detail-community-link"
-                    onClick={this.onPublish}
-                />
+                className="page-project-detail-community-link-qlzy"
+                onClick={this.onPublish}
+            />
+                :   <div
+                className="page-project-detail-community-link"
+                onClick={this.onPublish}
+            />}
+
+               
             </div>
         );
     }

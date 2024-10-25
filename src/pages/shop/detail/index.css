@@ -65,6 +65,11 @@
     color: #6AC6F8;
     padding-right: 5px;
 }
+.page-shop-goods-content-top-price-container .price-container .price-qlzy span{
+    font-size: 19px;
+    color: #D82229;
+    padding-right: 5px;
+}
 .page-shop-goods-content-top-price-container .price-container .now{
     font-size: 14px;
     color: #F8BE1C;
@@ -125,6 +130,20 @@
       font-weight: 600;
       color: #666666;
   }
+  .page-shop-goods-main-btn-qlzy{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #D82229;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+}
   .page-shop-goods-main-btn-end{
     position: fixed;
     bottom: 0;

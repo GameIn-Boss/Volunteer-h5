@@ -91,51 +91,101 @@ class Index extends React.Component {
     if (!list.length) {
       return null;
     }
-    return (<div className="volunteer-rank-top">
-      <div className="volunteer-rank-top-avatar">
-        {
-          list[1] && <Link to={`/volunteer_rank/${list[1].user_id}`} className="volunteer-rank-top-left">
-            <Avatar src={list[1].user && list[1].user.avatars} size={{ width: 72, height: 72 }} />
-            <i className="volunteer-rank-top-second-king"></i>
-            <i className="volunteer-rank-top-second-plate"></i>
-          </Link>
-        }
-        {
-          list[0] && <Link to={`/volunteer_rank/${list[0].user_id}`} className="volunteer-rank-top-center">
-            <Avatar src={list[0].user && list[0].user.avatars} size={{ width: 90, height: 90 }} />
-            <i className="volunteer-rank-top-first-king"></i>
-            <i className="volunteer-rank-top-first-plate"></i>
-          </Link>
-        }
-        {
-          list[2] && <Link to={`/volunteer_rank/${list[2].user_id}`} className="volunteer-rank-top-right">
-            <Avatar src={list[2].user && list[2].user.avatars} size={{ width: 72, height: 72 }} />
-            <i className="volunteer-rank-top-third-king"></i>
-            <i className="volunteer-rank-top-third-plate"></i>
-          </Link>
-        }
-      </div>
-      <div className="volunteer-rank-top-name">
-        {
-          list[1] && <Link to={`/volunteer_rank/${list[1].user_id}`}>
-            <p>{list[1].real_name.length ? list[1].real_name : list[1].user.username}</p>
-            <p className="volunteer-rank-top-name-time">{Number(list[1].reward_time).toFixed(2)}{t('时')}</p>
-          </Link>
-        }
-        {
-          list[0] && <Link to={`/volunteer_rank/${list[0].user_id}`}>
-            <p>{list[0].real_name.length ? list[0].real_name : list[0].user.username}</p>
-            <p className="volunteer-rank-top-name-time">{Number(list[0].reward_time).toFixed(2)}{t('时')}</p>
-          </Link>
-        }
-        {
-          list[2] && <Link to={`/volunteer_rank/${list[2].user_id}`}>
-            <p>{list[2].real_name.length ? list[2].real_name : list[2].user.username}</p>
-            <p className="volunteer-rank-top-name-time">{Number(list[2].reward_time).toFixed(2)}{t('时')}</p>
-          </Link>
-        }
-      </div>
-    </div>)
+    if(orgCode == 'yMYer06bOB'){
+      return (<div className="volunteer-rank-top">
+
+        <div className="volunteer-rank-top-avatar">
+          {
+            list[1] && <Link to={`/volunteer_rank_qlzy/${list[1].user_id}`} className="volunteer-rank-top-left">
+              <Avatar src={list[1].user && list[1].user.avatars} size={{ width: 72, height: 72 }} />
+              <i className="volunteer-rank-top-second-king"></i>
+              <i className="volunteer-rank-top-second-plate"></i>
+            </Link>
+          }
+          {
+            list[0] && <Link to={`/volunteer_rank_qlzy/${list[0].user_id}`} className="volunteer-rank-top-center">
+              <Avatar src={list[0].user && list[0].user.avatars} size={{ width: 90, height: 90 }} />
+              <i className="volunteer-rank-top-first-king"></i>
+              <i className="volunteer-rank-top-first-plate"></i>
+            </Link>
+          }
+          {
+            list[2] && <Link to={`/volunteer_rank_qlzy/${list[2].user_id}`} className="volunteer-rank-top-right">
+              <Avatar src={list[2].user && list[2].user.avatars} size={{ width: 72, height: 72 }} />
+              <i className="volunteer-rank-top-third-king"></i>
+              <i className="volunteer-rank-top-third-plate"></i>
+            </Link>
+          }
+        </div>
+        <div className="volunteer-rank-top-name">
+          {
+            list[1] && <Link to={`/volunteer_rank_qlzy/${list[1].user_id}`}>
+              <p>{list[1].real_name.length ? list[1].real_name : list[1].user.username}</p>
+              <p className="volunteer-rank-top-name-time">{Number(list[1].reward_time).toFixed(2)}{t('时')}</p>
+            </Link>
+          }
+          {
+            list[0] && <Link to={`/volunteer_rank_qlzy/${list[0].user_id}`}>
+              <p>{list[0].real_name.length ? list[0].real_name : list[0].user.username}</p>
+              <p className="volunteer-rank-top-name-time">{Number(list[0].reward_time).toFixed(2)}{t('时')}</p>
+            </Link>
+          }
+          {
+            list[2] && <Link to={`/volunteer_rank_qlzy/${list[2].user_id}`}>
+              <p>{list[2].real_name.length ? list[2].real_name : list[2].user.username}</p>
+              <p className="volunteer-rank-top-name-time">{Number(list[2].reward_time).toFixed(2)}{t('时')}</p>
+            </Link>
+          }
+        </div>
+      </div>)
+    }else{
+      return (<div className="volunteer-rank-top">
+
+        <div className="volunteer-rank-top-avatar">
+          {
+            list[1] && <Link to={`/volunteer_rank/${list[1].user_id}`} className="volunteer-rank-top-left">
+              <Avatar src={list[1].user && list[1].user.avatars} size={{ width: 72, height: 72 }} />
+              <i className="volunteer-rank-top-second-king"></i>
+              <i className="volunteer-rank-top-second-plate"></i>
+            </Link>
+          }
+          {
+            list[0] && <Link to={`/volunteer_rank/${list[0].user_id}`} className="volunteer-rank-top-center">
+              <Avatar src={list[0].user && list[0].user.avatars} size={{ width: 90, height: 90 }} />
+              <i className="volunteer-rank-top-first-king"></i>
+              <i className="volunteer-rank-top-first-plate"></i>
+            </Link>
+          }
+          {
+            list[2] && <Link to={`/volunteer_rank/${list[2].user_id}`} className="volunteer-rank-top-right">
+              <Avatar src={list[2].user && list[2].user.avatars} size={{ width: 72, height: 72 }} />
+              <i className="volunteer-rank-top-third-king"></i>
+              <i className="volunteer-rank-top-third-plate"></i>
+            </Link>
+          }
+        </div>
+        <div className="volunteer-rank-top-name">
+          {
+            list[1] && <Link to={`/volunteer_rank/${list[1].user_id}`}>
+              <p>{list[1].real_name.length ? list[1].real_name : list[1].user.username}</p>
+              <p className="volunteer-rank-top-name-time">{Number(list[1].reward_time).toFixed(2)}{t('时')}</p>
+            </Link>
+          }
+          {
+            list[0] && <Link to={`/volunteer_rank/${list[0].user_id}`}>
+              <p>{list[0].real_name.length ? list[0].real_name : list[0].user.username}</p>
+              <p className="volunteer-rank-top-name-time">{Number(list[0].reward_time).toFixed(2)}{t('时')}</p>
+            </Link>
+          }
+          {
+            list[2] && <Link to={`/volunteer_rank/${list[2].user_id}`}>
+              <p>{list[2].real_name.length ? list[2].real_name : list[2].user.username}</p>
+              <p className="volunteer-rank-top-name-time">{Number(list[2].reward_time).toFixed(2)}{t('时')}</p>
+            </Link>
+          }
+        </div>
+      </div>)
+    }
   }
 
   basicBotComponent(list) {
@@ -146,9 +196,11 @@ class Index extends React.Component {
     if (!list.length) {
       return null;
     }
+    if(orgCode == 'yMYer06bOB'){
+
     return (<div className="volunteer-rank-bot">
       {
-        list.map((item, index) => (<Link to={`/volunteer_rank/${item.user_id}`} key={index} className="volunteer-rank-bot-box">
+        list.map((item, index) => (<Link to={`/volunteer_rank_qlzy/${item.user_id}`} key={index} className="volunteer-rank-bot-box">
           <div className="volunteer-rank-bot-box-sort">{index + 4}</div>
           <Avatar size={{ width: 50, height: 50 }} src={item.user && item.user.avatars} />
           <div className="volunteer-rank-bot-box-detail">
@@ -158,6 +210,20 @@ class Index extends React.Component {
         </Link>))
       }
     </div>)
+    }else{
+      return (<div className="volunteer-rank-bot">
+        {
+          list.map((item, index) => (<Link to={`/volunteer_rank/${item.user_id}`} key={index} className="volunteer-rank-bot-box">
+            <div className="volunteer-rank-bot-box-sort">{index + 4}</div>
+            <Avatar size={{ width: 50, height: 50 }} src={item.user && item.user.avatars} />
+            <div className="volunteer-rank-bot-box-detail">
+              <div className="volunteer-rank-bot-box-detail-name">{item.real_name && item.real_name.length ? item.real_name : (item.user ? item.user.username : '')}</div>
+              <div className="volunteer-rank-bot-box-detail-time">{Number(item.reward_time).toFixed(2)}{t('时')}</div>
+            </div>
+          </Link>))
+        }
+      </div>)
+    }
   }
 
   render() {

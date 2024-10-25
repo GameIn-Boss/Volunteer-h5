@@ -240,7 +240,11 @@ class Profile extends React.Component {
                 }
                 {this.renderRealInfoExtends()}
                 <Link to={bindlink} style={{ marginTop: '41px', width: '100%', display: 'inline-block' }}>
-                    <div className="page-profile-apply-alert">{t('修改资料')}</div>
+                {orgCode == 'yMYer06bOB' ?  
+         <div className="page-profile-apply-alert-qlzy">{t('修改资料')}</div>:
+         <div className="page-profile-apply-alert">{t('修改资料')}</div>
+  }
+                    
                 </Link>
                 <Link to="/my/profile/applyAlert">
                     <div style={{ textAlign: 'center', marginTop: '10px', textDecoration: 'underline' }}><a href="javascript:;">{t('需要帮助')}？</a></div>
@@ -421,36 +425,27 @@ class Profile extends React.Component {
                         <div className="page-profile-fonts">{t('账号')}</div>
                         <div className="page-profile-edit-box">
                             <div className="page-profile-initial-fonts">
-                                {user.username ? (language === 'zh-CN' ? user.username :user.username.replace('用户', 'user')) : ''}
+                                {user.username ? (language === 'zh-CN' ? user.real_name :user.username.replace('用户', 'user')) : ''}
                             </div>
                             <div className="page-profile-initial-fonts-take-up" />
                         </div>
                     </div>}
                 {this.realRegister !== null && this.realRegister.real_name_register ? null : <div className="line1px" />}
 
-                <Link to="/my/profile/bind/phone">
+                {/* <Link to="/my/profile/bind/phone"> */}
                     <div className="page-profile-header-box">
                         <div className="page-profile-fonts">{t('手机号')}</div>
                         <div className="page-profile-edit-box">
                             <div className="page-profile-initial-fonts">
                                 {user.phone || ""}
                             </div>
-                            <div className="page-profile-edit-icon" />
+                            {/* <div className="page-profile-edit-icon" /> */}
                         </div>
                     </div>
-                </Link>
+                {/* </Link> */}
                 <div className="line1px" />
 
-                {orgCode === "yJrb2kKdWL" ?       
-                <div className="page-profile-header-box">
-                    <div className="page-profile-fonts">{t('邮箱')}</div>
-                    <div className="page-profile-edit-box">
-                        <div className="page-profile-initial-fonts">
-                        {user.email || ""}
-                        </div>
-                        <div className="page-profile-initial-fonts-take-up" />
-                    </div>
-                </div>
+                {orgCode === "yJrb2kKdWL" ||orgCode === "yMYer06bOB" ?       null
                 :(
                 <Link to="/my/profile/bind/mail">
                     <div className="page-profile-header-box">
@@ -467,7 +462,7 @@ class Profile extends React.Component {
 
                 <div className="line1px" />
 
-                {orgCode === "yJrb2kKdWL" ? null :(
+                {orgCode === "yJrb2kKdWL" ||orgCode === "yMYer06bOB" ? null :(
 
                 <div className="page-profile-header-box">
                     <div className="page-profile-fonts">{t('志愿者编号')}</div>
@@ -520,7 +515,7 @@ class Profile extends React.Component {
                 )}
                 <div className="line1px" />
                 {/* TODO: user.good_at == null*/}
-                {orgCode === "yJrb2kKdWL" ? null :(
+                {orgCode == "yJrb2kKdWL" ||orgCode === "yMYer06bOB" ? null :(
 
                 <Link to="" onClick={() => {
                     user.good_at != null && localStorage.setItem("goodAt", `${JSON.stringify(user.good_at)}`);
@@ -565,7 +560,7 @@ class Profile extends React.Component {
 
             {/* 通过开关判断用户是否实名注册显示渲染列表，或进去BTN */}
 
-            {orgCode === "yJrb2kKdWL" ? null :(
+            {orgCode == "yJrb2kKdWL" ? null :(
                 <div>
                 <div className={cx({
                     "page-profile-bottom": true,
