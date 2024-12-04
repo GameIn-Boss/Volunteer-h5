@@ -1,3 +1,8 @@
+:root {
+  --tab-bg: url(/images/tab_home.png);
+  --text_color:#FFFFFF ;
+
+}
 .page-login{
   width: 100%;
   padding:40px;
@@ -52,7 +57,7 @@
   background: #6AC6F8;
   border-radius: 100px;
   font-size: 16px;
-  color: #FFFFFF;
+  color: var(--text_color);
 }
 .page-login-entry-qlzy{
   width: 300px;

@@ -550,7 +550,7 @@ class BindInfo extends React.Component {
         const township = this.props.address.data.township;
 
         let shouldShowAddressDetail = false;
-        if (window.orgCode !== 'kQBeXDWeyK'  && window.orgCode !== "Wpmbk5XezJ" && window.orgCode !== "4openZle7A") {
+        if (window.orgCode !== 'kQBeXDWeyK'  && window.orgCode !== "Wpmbk5XezJ" && window.orgCode !== "4openZle7A" && window.orgCode !== "yMYer06bOB" ) {
             shouldShowAddressDetail = true;
         }
         return (
@@ -1235,6 +1235,11 @@ class BindInfo extends React.Component {
                   ...subTypeItem,
                   is_required: 1,
                 })
+                const userNumberItem = this.filterItemByKey(orgInfoArr, '齐鲁工号');
+                if (subTypeItem) infoArr.push({
+                  ...userNumberItem,
+                  is_required: 1,
+                })
               }
           }else{
             infoArr = orgInfoArr;
@@ -1316,7 +1321,7 @@ class BindInfo extends React.Component {
         const { t } = this.props;
 
         let shouldShowNation = false;
-        if (window.orgCode !== 'kQBeXDWeyK' && window.orgCode !== "Wpmbk5XezJ" && window.orgCode !== "4openZle7A") {
+        if (window.orgCode !== 'kQBeXDWeyK' && window.orgCode !== "Wpmbk5XezJ" && window.orgCode !== "4openZle7A"&& window.orgCode !== "yMYer06bOB") {
             shouldShowNation = true;
         }
         return (

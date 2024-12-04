@@ -38,7 +38,9 @@ class Login extends React.Component {
       timer: null,
       countDownTrigger: true,
       checked: false,
+      isClick: true
     };
+
   }
 
   componentWillMount() {
@@ -48,6 +50,8 @@ class Login extends React.Component {
   }
 
   componentDidMount() {
+
+
     const tabIndex = this.props.login.idx;
     this.props.changeIndex(tabIndex);
   }
@@ -119,14 +123,18 @@ class Login extends React.Component {
             }
           })
         }
-          
+    console.log(nLogin.data.have_pwd);
         if (isVerify && nLogin.data.have_pwd == 1) {
+
           let bindlink = '/my/profile/verify?target=/my';
           if (window.orgCode === 'oBDbDkxal2') {
             bindlink = '/my/profile/bind_profile_starbucks/alert';
           }
           if (window.orgCode === 'mWZdPNwaKg') {
             bindlink = '/my/profile/bind_profile_BMW/alert';
+          }
+          if (window.orgCode === 'yMYer06bOB') {
+            bindlink = '/my/profile/bind_profile/alert';
           }
           window.location.replace(bindlink);
           return;
@@ -138,6 +146,8 @@ class Login extends React.Component {
           if (window.orgCode === 'mWZdPNwaKg') {
             bindlink = `/my/profile/verifyBMW?target=${target}`;
           }
+      
+          
           window.location.replace(bindlink);
         } else {
           if (from) {
@@ -274,33 +284,48 @@ class Login extends React.Component {
     const { t } = this.props;
     const tabIndex = this.props.login.idx;
     const data = {};
-    if (tabIndex == 0) {
-      const username = this.state.username;
-      const pwd = this.state.pwd;
-      data.phone = username;
+    const  isClick  = this.state.isClick
+    console.log(isClick)
+      if (isClick) {   //如果为true 开始执行
+      this.setState({ isClick: false })   //将isClick 变成false，将不会执行处理事件
+      const that = this  
+      setTimeout(function () {      
+        that.setState({ isClick: true }) 
+        }, 1000);
+      if (tabIndex == 0) {
+        const username = this.state.username;
+        const pwd = this.state.pwd;
+        data.phone = username;
 
-      data.verify_code = pwd;
-      data.type = tabIndex;
+        data.verify_code = pwd;
+        data.type = tabIndex;
 
 
-    } else if (tabIndex == 1) {
-      const username = this.state.username;
-      const pwd = this.state.pwd;
-      // if (pwd.length <= 5 || pwd.length >= 20) {
-      //     Alert.warning('密码范围6-20位数字字母组成');
-      //     return;
-      // }
-      data.username = username;
-      data.pwd = pwd;
-      data.type = tabIndex;
+      } else if (tabIndex == 1) {
+        const username = this.state.username;
+        const pwd = this.state.pwd;
+        // if (pwd.length <= 5 || pwd.length >= 20) {
+        //     Alert.warning('密码范围6-20位数字字母组成');
+        //     return;
+        // }
+        data.username = username;
+        data.pwd = pwd;
+        data.type = tabIndex;
+      }
+      if (this.shouldCheckboxAgree() && !this.state.checked && this.props.login.idx === 0) {
+        Alert.warning(t('请先阅读协议'));
+        return;
+      }
+      this.props.loginAction(data);
+    }else{
+      Alert.warning(t('同一时间内不能多次点击'));
     }
-    if (this.shouldCheckboxAgree() && !this.state.checked && this.props.login.idx === 0) {
-      Alert.warning(t('请先阅读协议'));
-      return;
-    }
-    this.props.loginAction(data);
   }
   renderLogin() {
+    if (window.orgInfo.tab_status == 1) {
+      console.log("tab-png",window.orgInfo.text_color);
+      document.documentElement.style.setProperty('--text_color', 'red');
+    }
     const { t } = this.props;
     return (
       <div className="page-login-box">

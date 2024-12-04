@@ -1261,6 +1261,11 @@ class Verify extends React.Component {
             ...subTypeItem,
             is_required: 1,
           })
+          const userNumberItem = this.filterItemByKey(orgInfoArr, '齐鲁工号');
+          if (subTypeItem) infoArr.push({
+            ...userNumberItem,
+            is_required: 1,
+          })
         }
 
     }else{

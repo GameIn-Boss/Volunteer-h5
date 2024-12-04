@@ -57,12 +57,13 @@ class SignUpPage extends React.Component {
 const { t } = this.props;
 
     return (
-      <div className="page-project-success">
-        <div className="logo"></div>
-
-        <div  className="fonts">{t('报名成功')}</div>
-        <div className="btn project" onClick={this.goBackProject}>{t('返回项目详情')}</div>
-        <div className="btn index" onClick={this.goBackIndex}>{t('返回首页')}</div>
+      <div>
+     
+      {orgCode === "yMYer06bOB" ?
+        <div className="page-project-success"><div className="logo-qlzy"></div><div className="fonts-qlzy">{t('报名成功')}</div><div className="btn project-qlzy" onClick={this.goBackProject}>{t('返回项目详情')}</div><div className="btn index-qlzy" onClick={this.goBackIndex}>{t('返回首页')}</div></div>
+        : 
+        <div className="page-project-success"><div className="logo"></div><div className="fonts">{t('报名成功')}</div><div className="btn project" onClick={this.goBackProject}>{t('返回项目详情')}</div><div className="btn index" onClick={this.goBackIndex}>{t('返回首页')}</div></div>
+        }
       </div>
     );
   }

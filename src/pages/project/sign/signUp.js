@@ -1212,7 +1212,8 @@ renderOtherDateInfoCheckbox(item1) {
 
                 <div className="page-project-signUp-bottom-btn">
                     <div className="line1px" />
-                    <div className="page-project-signUp-bottom-btn-contain">
+                    
+                    {orgCode == 'yMYer06bOB' ?    <div className="page-project-signUp-bottom-btn-contain-qlzy">
                         {
                             this.state.data ?
                                 <div className={classnames({
@@ -1231,7 +1232,30 @@ renderOtherDateInfoCheckbox(item1) {
                         }
 
                         <div className="btn" onClick={this.onSubmmit}>{t('提交')}</div>
-                    </div>
+                    </div>:  
+                      <div className="page-project-signUp-bottom-btn-contain">
+                        {
+                            this.state.data ?
+                                <div className={classnames({
+                                    'alltrue': this.state.checkeAll,
+                                    'all': !this.state.checkeAll,
+                                })} onClick={this.onCheckedAll}>
+                                    <i className="checkall" onClick={this.onCheckedAll} />
+                                  {t('全选')}
+                  </div>
+                                : null
+                        }
+                        {
+                            this.state.data ?
+                                <div className="total">{t('合计')}：<span>¥{getnum(this.state.total || 0)}</span></div>
+                                : null
+                        }
+
+                        <div className="btn" onClick={this.onSubmmit}>{t('提交')}</div>
+                    </div>}
+
+                 
+
                 </div>
                 <Dialog
                     type="ios"

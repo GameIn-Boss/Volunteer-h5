@@ -25,8 +25,9 @@ text-justify:inter-ideograph;
 .page-project-signUp .am-list-header {
     min-height: 50px;
     color: #666666;
-    font-size: 15px;
-    line-height: 30px;
+    font-size: 13px;
+    /* line-height: 30px; */
+    margin-left: 39px;
   }
   .page-project-signUp select {
 
@@ -89,6 +90,16 @@ text-justify:inter-ideograph;
     font-size: 17px;
     color: #FFFFFF;
 }
+.page-project-signUp-bottom-btn-contain-qlzy .btn{
+    flex: 1;
+    background: #D2251D;
+    height: 49px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    color: #FFFFFF;
+}
 .page-project-signUp-bottom-btn-contain .total{
     width: 158px;
     display: flex;
@@ -130,7 +141,8 @@ text-justify:inter-ideograph;
 }
 
 .page-project-signUp-verify-header-other-start-date {
-    top: 36px;
+    top: 32px;
+    margin-left: 39px;
 }
 
 .page-project-signUp-verify-header-box-pic-fonts {

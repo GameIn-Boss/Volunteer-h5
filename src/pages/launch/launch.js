@@ -24,7 +24,6 @@ class LaunchPage extends React.Component {
   constructor(props) {
     super(props);
     autoBind(this);
-
     this.state = {
       page: this.getTabName(this.props)
     };
@@ -41,8 +40,8 @@ class LaunchPage extends React.Component {
       this.props.requestUserInfo(true);
     }
   }
-
   componentDidMount() {
+
     if (window.userAgent) {
       wx.ready(() => {
         WXShare();
@@ -79,11 +78,9 @@ class LaunchPage extends React.Component {
     if (window.orgCode === "mxkazpYdJ0") {
       daduhui = true;
     }
-
     if (window.orgCode === 'kQBeXDWeyK') {
       zhongjin = true;
     }
-
     if (window.orgCode === 'EKQe1wRbJY') {
       vitasoy = true;
     }
