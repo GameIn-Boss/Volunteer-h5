@@ -106,18 +106,19 @@ class SignPage extends React.Component {
     const { clock_info: data, user_clock_info: userData, clock_info: user_data } = detaildata;
     // userData.type = 1
     // userData.type = 2 && userData.ori_clock_end_time && userData.ori_clock_end_time.length
-    if (user_data.type == 1) {
+    // console.log(user_data.type)
+    // if (user_data.type == 1) {
+    //   this.setState({
+    //     proData: clock_data_back,
+    //     visible: true
+    //   })
+    // }
+    // if (userData.type == 2 && userData.ori_clock_end_time && userData.ori_clock_end_time == "0000-00-00 00:00:00") {
       this.setState({
         proData: clock_data_back,
         visible: true
       })
-    }
-    if (userData.type == 2 && userData.ori_clock_end_time && userData.ori_clock_end_time == "0000-00-00 00:00:00") {
-      this.setState({
-        proData: clock_data_back,
-        visible: true
-      })
-    }
+    // }
   }
   componentWillUnmount() {
 
@@ -1060,6 +1061,7 @@ class SignPage extends React.Component {
   render = () => {
     const { turnMap } = this.state;
     const { type } = this.state;
+    console.log(this.state.proData)
     return (
       <div>
         {!turnMap
@@ -1068,8 +1070,10 @@ class SignPage extends React.Component {
             : this.renderSignInSignOff()
           : this.renderMap()
         }
+      
         {
-          this.state.proData && this.state.proData ? this.renderModal(this.state.proData) : null
+          
+        this.renderModal(this.state.proData) 
         }
       </div>
     );
