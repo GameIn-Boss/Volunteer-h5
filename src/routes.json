@@ -34,6 +34,12 @@
     "page": "./pages/launch/launch",
     "chunk": "main"
   },
+  {
+    "path": "/off",
+    "page": "./pages/off/sign",
+    "chunk": "main"
+  },
+  
     {
       "path": "/sign/signclass/:Id",
       "page": "./pages/launch/launch",
