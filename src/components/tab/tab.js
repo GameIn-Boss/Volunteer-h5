@@ -53,7 +53,7 @@ class Tab extends React.Component {
   render() {
     const { selectedIndex } = this.state;
     const { tabs } = this.props;
-    if (window.orgCode === 'yMYer06bOB') {
+    if (window.orgCode === 'yMYer06bOB'||  orgCode === "LYqaQWldnj") {
       return (
         <div className="component-tab-qlzy">
           <div className="tab-header">

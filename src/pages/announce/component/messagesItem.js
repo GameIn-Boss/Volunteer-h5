@@ -62,8 +62,13 @@ class MessagesItem extends React.Component {
               <div className="main">
                 <div>
                   <div className="page-announceitem-title">{item.title}</div>
+                  {item.classify ? 
+                  <div className="page-announceitem-classify">
+                  {item.classify}
+                  </div>
+                  : null }
                   <div className="page-announceitem-date">
-                    {new Date(Date.parse(item.publish_time.replace(/-/g, '/'))).Format('yyyy年MM月dd日')}
+                    {new Date(Date.parse(item.created_at.replace(/-/g, '/'))).Format('yyyy年MM月dd日')}
                   </div>
                 </div>
                 <Images className="page-announceitem-img" resize={{ width: 109, height: 73 }} src={item.photo} defaultSrc="/images/doctor/hospital_default@2x.png" />

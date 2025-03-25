@@ -127,7 +127,7 @@ class ShopDetailPage extends React.Component {
                     <div className="page-shop-goods-content-top-title">{data.g_name}</div>
                     <div className="page-shop-goods-content-top-price-container">
                         <div className="price-container">
-                        {orgCode == 'yMYer06bOB' ?   <div className="price-qlzy"><span>{data.points}</span>{t(scoreName) || t('星币')}</div>:  <div className="price"><span>{data.points}</span>{t(scoreName) || t('星币')}</div>}
+                        {orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"?   <div className="price-qlzy"><span>{data.points}</span>{t(scoreName) || t('星币')}</div>:  <div className="price"><span>{data.points}</span>{t(scoreName) || t('星币')}</div>}
 
                            
 
@@ -183,7 +183,7 @@ class ShopDetailPage extends React.Component {
         let action = '';
         if (user.isLogin) {
             if((data.g_num>0|| data.g_num == null) && data.change_num == 1){
-                if(orgCode == 'yMYer06bOB' ){
+                if(orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ){
                     actionClassName = 'page-shop-goods-main-btn-qlzy';
                 }else{
                     actionClassName = 'page-shop-goods-main-btn';
@@ -200,7 +200,7 @@ class ShopDetailPage extends React.Component {
                 action = ''
             }
         } else {
-            if(orgCode == 'yMYer06bOB' ){
+            if(orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ){
                 actionClassName = 'page-shop-goods-main-btn-qlzy';
             }else{
                 actionClassName = 'page-shop-goods-main-btn';

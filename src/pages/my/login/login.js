@@ -340,11 +340,11 @@ class Login extends React.Component {
           </div>
           <div className="page-login-forget">
             <Link to="/my/forget">
-   {orgCode == 'yMYer06bOB' ?  <span className="page-login-forget-item-qlzy">{t('忘记密码')}</span>:  <span className="page-login-forget-item">{t('忘记密码')}</span>}
+   {orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ?  <span className="page-login-forget-item-qlzy">{t('忘记密码')}</span>:  <span className="page-login-forget-item">{t('忘记密码')}</span>}
 
             </Link>
           </div>
-          {orgCode == 'yMYer06bOB' ? <div className="page-login-entry-qlzy" onClick={this.submit}>{t('登录')}</div> :  <div className="page-login-entry" onClick={this.submit}>{t('登录')}</div>}
+          {orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"? <div className="page-login-entry-qlzy" onClick={this.submit}>{t('登录')}</div> :  <div className="page-login-entry" onClick={this.submit}>{t('登录')}</div>}
          
         </div>
       </div>
@@ -372,7 +372,8 @@ class Login extends React.Component {
   </Link>
 
 </div> 
-: <span className="page-login-agreement">《{userAgreeText}》</span>}
+
+: orgCode == 'LYqaQWldnj' ? <span className="page-login-agreement-qlzy">《{userAgreeText}》</span> : <span className="page-login-agreement">《{userAgreeText}》</span>}
       
       
 
@@ -492,11 +493,11 @@ class Login extends React.Component {
             <input type="number" ref={(c) => { this.usercode = c; }} onChange={this.onTextChanged}
               placeholder={t('手机验证码')} className="page-login-item-input" />
            
-            {orgCode == 'yMYer06bOB' ?  <div className="page-login-item-code-qlzy" onClick={this.onSend}>{this.state.buttonString}</div> :   <div className="page-login-item-code" onClick={this.onSend}>{this.state.buttonString}</div>}
+            {orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ?  <div className="page-login-item-code-qlzy" onClick={this.onSend}>{this.state.buttonString}</div> :   <div className="page-login-item-code" onClick={this.onSend}>{this.state.buttonString}</div>}
 
 
           </div>
-          {orgCode == 'yMYer06bOB' ? <div className="page-login-entry-qlzy" onClick={this.submit}>{t('登录/注册')}</div> :  <div className="page-login-entry page-login-quick-login" onClick={this.submit}>{t('登录/注册')}</div>}
+          {orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ? <div className="page-login-entry-qlzy" onClick={this.submit}>{t('登录/注册')}</div> :  <div className="page-login-entry page-login-quick-login" onClick={this.submit}>{t('登录/注册')}</div>}
 
          
         </div>

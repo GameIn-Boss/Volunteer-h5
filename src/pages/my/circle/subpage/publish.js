@@ -124,7 +124,7 @@ class CirclePublish extends React.Component {
         <div className="page-circlepublish-images-container">
             <UploadPhoto onChange={this.onPhotoChange} multiple={false} length={3} totle={9} />
         </div>
-        {orgCode == 'yMYer06bOB' ?  
+        {orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"?  
 
 <div className="page-circlepublish-btn-qlzy" onClick={this.onPublish}>{t('发表')}</div>
 :

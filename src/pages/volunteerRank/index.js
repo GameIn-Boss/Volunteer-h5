@@ -91,7 +91,7 @@ class Index extends React.Component {
     if (!list.length) {
       return null;
     }
-    if(orgCode == 'yMYer06bOB'){
+    if(orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"){
       return (<div className="volunteer-rank-top">
 
         <div className="volunteer-rank-top-avatar">
@@ -196,7 +196,7 @@ class Index extends React.Component {
     if (!list.length) {
       return null;
     }
-    if(orgCode == 'yMYer06bOB'){
+    if(orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj"){
 
     return (<div className="volunteer-rank-bot">
       {

@@ -36,7 +36,7 @@ class homesearch extends React.Component {
     });
   }
   currentClass(index) {
-  if(orgCode == 'yMYer06bOB' ){
+  if(orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ){
     return this.state.current === index ? 'page-homesearch-tab-current-li-qlzy' : '';
   }else{
     return this.state.current === index ? 'page-homesearch-tab-current-li' : '';

@@ -11,6 +11,10 @@ import "slick-carousel/slick/slick-theme.css";
 import { Dialog, ActionSheet } from "react-weui";
 import "weui/dist/style/weui.css";
 import "react-weui/build/packages/react-weui.css";
+// import MessagesItem from '../../announce/component/messagesItem';
+import MessagesItemProject from '../../announce/component/messagesitemproject';
+
+import Rank from './rank';
 
 import { connect } from "react-redux";
 import classnames from "classnames";
@@ -32,6 +36,8 @@ import {
     feelingAction,
     observeAction,
     unObserveAction,
+    announceAction,
+    rankAction,
     deleteFeelingAction
 } from "../../my/circle/circle.store";
 import {
@@ -141,7 +147,7 @@ class ProjectDetailContent extends React.Component {
                                     var temphref = `tel:${item.value}`;
                                     return (
                                         <li>
-                                            {orgCode == 'yMYer06bOB' ?  
+                                            {orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"?  
                                             <div className="item-point-qlzy" />
                                                 :
                                                 <div className="item-point" />
@@ -157,7 +163,7 @@ class ProjectDetailContent extends React.Component {
                                 }
                                 return (
                                     <li>
-                                    {orgCode == 'yMYer06bOB' ?  
+                                    {orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ?  
                                             <div className="item-point-qlzy" />
                                                 :
                                                 <div className="item-point" />
@@ -297,6 +303,7 @@ class ProjectDetailPage extends React.Component {
                 }
             ]
         };
+
     }
 
     componentWillMount() {
@@ -353,7 +360,6 @@ class ProjectDetailPage extends React.Component {
                     {
                         label: t('保存海报'),
                         onClick: () => {
-                            console.log(1222)
                             this.setState(
                                 {
                                     actionSheet: false,
@@ -375,13 +381,18 @@ class ProjectDetailPage extends React.Component {
             user
         } = this.props;
         if (user.isLogin) {
+            
             this.props.requestUserInfo();
         }
         this.props.feelingAction({
             type: 2,
             relation_id: this.projectId,
             page_size: 1000
-        });
+        });  
+        this.props.announceAction(this.projectId);
+        this.props.rankAction(this.projectId);
+        
+        
         this.props.requestProjectDetail(this.projectId);
         if (lastProjectId === 0) {
             this.props.saveProjectTabIndex(0, this.projectId);
@@ -447,6 +458,9 @@ class ProjectDetailPage extends React.Component {
                 relation_id: this.projectId,
                 page_size: 1000
             });
+            this.props.announceAction(this.projectId);
+            this.props.rankAction(this.projectId);
+
         }
         if (LunObserve.fetching && !NunObserve.fetching && !NunObserve.failed) {
             this.props.feelingAction({
@@ -454,7 +468,11 @@ class ProjectDetailPage extends React.Component {
                 relation_id: this.projectId,
                 page_size: 1000
             });
+            this.props.rankAction(this.projectId);
+            this.props.announceAction(this.projectId);
         }
+       
+        
     }
     componentDidMount() {
         console.log(getQueryString('visible'));
@@ -558,6 +576,7 @@ class ProjectDetailPage extends React.Component {
         return () => {
             // in_blacklist 黑名单 0不在，1在
             // realRegister 机构实名 1 要求  0 否
+            console.log(111)
 
             if (!user.isLogin) {
                 this.props.storeLoginSource(`/project/detail/${this.projectId}`);
@@ -784,7 +803,7 @@ class ProjectDetailPage extends React.Component {
             actionClassName = "project-action-full";
         } else if (!joined) {
             actionLabel = t('我要报名');
-            if (window.orgCode === 'yMYer06bOB') {
+            if (window.orgCode === 'yMYer06bOB' ||  orgCode === "LYqaQWldnj") {
                 actionClassName = "project-action-available-qlzy";
               }else{
                 actionClassName = "project-action-available";
@@ -877,7 +896,7 @@ class ProjectDetailPage extends React.Component {
                     </div>
 
                     <div className="project-description-backhome">
-                    {orgCode == 'yMYer06bOB' ?  <Link to="/" style={{
+                    {orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"?  <Link to="/" style={{
                             backgroundImage: `url(/images/my/backhome-qlzy.png)`,
                             backgroundSize: 'cover',
                             backgroundRepeat: 'no-repeat',
@@ -958,6 +977,66 @@ class ProjectDetailPage extends React.Component {
     unOnParse(id) {
         this.props.unObserveAction(id);
     }
+    renderRank(){
+        const { t } = this.props;
+        const rankData = this.props.rank.data;
+console.log(rankData)
+        return (
+            <div>
+                {/* { (
+                        <MessagesItem data={listData ? listData.list : null} />
+
+                    ) : (
+                        <div className="page-circle-rendercommunity-container">
+                            {orgCode == 'yMYer06bOB' ?  
+            <img src="/images/my/information-qlzy.png" className="page-circle-rendercommunity-img" />:
+            <img src="/images/my/information.png" className="page-circle-rendercommunity-img" />
+          }
+                            <div className="page-circle-rendercommunity-info">
+                                {t('还没有动态信息')}
+                            </div>
+                        </div>
+                    )} */}
+
+{rankData ? <Rank data={rankData} /> :  <div className="page-circle-rendercommunity-info">
+                                {t('还没有时长')}
+                            </div> }
+
+
+               
+            </div>
+        );
+
+    }
+    renderprojectnew() {
+        const { t } = this.props;
+        const newsData = this.props.news && this.props.news.data ? this.props.news.data.list : null;
+        return (
+            <div>
+                {/* { (
+                        <MessagesItem data={listData ? listData.list : null} />
+
+                    ) : (
+                        <div className="page-circle-rendercommunity-container">
+                            {orgCode == 'yMYer06bOB' ?  
+            <img src="/images/my/information-qlzy.png" className="page-circle-rendercommunity-img" />:
+            <img src="/images/my/information.png" className="page-circle-rendercommunity-img" />
+          }
+                            <div className="page-circle-rendercommunity-info">
+                                {t('还没有动态信息')}
+                            </div>
+                        </div>
+                    )} */}
+
+{newsData ? <MessagesItemProject data={newsData} /> :  <div className="page-circle-rendercommunity-info">
+                                {t('还没有公告信息')}
+                            </div> }
+
+
+               
+            </div>
+        );
+    }
     renderCommunity() {
         const { t } = this.props;
         return (
@@ -980,7 +1059,7 @@ class ProjectDetailPage extends React.Component {
                         ))
                     ) : (
                         <div className="page-circle-rendercommunity-container">
-                            {orgCode == 'yMYer06bOB' ?  
+                            {orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ?  
             <img src="/images/my/information-qlzy.png" className="page-circle-rendercommunity-img" />:
             <img src="/images/my/information.png" className="page-circle-rendercommunity-img" />
           }
@@ -989,7 +1068,7 @@ class ProjectDetailPage extends React.Component {
                             </div>
                         </div>
                     )}
-         {orgCode == 'yMYer06bOB' ?  
+         {orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ?  
                 <div
                 className="page-project-detail-community-link-qlzy"
                 onClick={this.onPublish}
@@ -1023,7 +1102,9 @@ class ProjectDetailPage extends React.Component {
                 <Tab
                     tabs={[
                         { label: t('活动详情'), component: this.renderBasic() },
-                        { label: t('活动社区'), component: this.renderCommunity() }
+                        { label: t('活动社区'), component: this.renderCommunity() },
+                        { label: t('时长公示'), component: this.renderRank() },
+                        { label: t('活动动态'), component: this.renderprojectnew() }
                     ]}
                     onChange={this.onTabChange}
                     selectedIndex={tabIndex}
@@ -1079,6 +1160,8 @@ class ProjectDetailPage extends React.Component {
 ProjectDetailPage.propTypes = {
     requestProjectDetail: PropTypes.func,
     feelingAction: PropTypes.func,
+    announceAction: PropTypes.func,
+    rankAction: PropTypes.func,
     collectProject: PropTypes.func,
     unCollectProject: PropTypes.func,
     joinProject: PropTypes.func,
@@ -1106,6 +1189,8 @@ export default connect(
     state => ({
         detail: state.project.detail,
         user: state.user,
+        news: state.circle.announce,
+        rank: state.circle.rank,
         feeling: state.circle.feeling,
         observe: state.circle.observe,
         unObserve: state.circle.unObserve,
@@ -1121,6 +1206,8 @@ export default connect(
                 quitProject,
                 saveProjectTabIndex,
                 feelingAction,
+                announceAction,
+                rankAction,
                 observeAction,
                 unObserveAction,
                 userCenterAction,

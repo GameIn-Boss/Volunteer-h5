@@ -60,7 +60,7 @@ class Projects extends React.Component {
     const { route: { path }, t } = this.props;
     return (
       <div className="page-projects-container">
-  {orgCode == 'yMYer06bOB' ?          <div style={{ width: '100%', height: '50px' }}>
+  {orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"?          <div style={{ width: '100%', height: '50px' }}>
           <ul className="page-projects-tab-container">
             <li>
               <Link to="/my/projects/">

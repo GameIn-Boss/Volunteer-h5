@@ -54,7 +54,7 @@ class ApplyItem extends React.Component {
 
               <div className="line1px" />
               <div className="page-apply-components-content-bottom">
-              {orgCode == 'yMYer06bOB' ?  
+              {orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"?  
                 <div>
                   {t('预计最多可获得服务时长')}                 <span style={{ color: "#D2251D" }}>
                   {item.reward_time}{t('小时')}</span>
@@ -97,7 +97,7 @@ class Apply extends React.Component {
           <div className="page-apply-take-up" />
         </div>
         <Link to="/sign/replacement/proid/class" className="page-apply-bottom-btn">
-        {orgCode == 'yMYer06bOB' ?  
+        {orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ?  
           <div className="page-apply-main-qlzy">{t('申请补卡')}</div>
           :
           <div className="page-apply-main">{t('申请补卡')}</div>

@@ -63,7 +63,7 @@ class Collects extends React.Component {
         <div style={{ width: '100%', height: '50px' }}>
           <ul className="page-collects-tab-ul-container">
             <li>
-            {orgCode == 'yMYer06bOB' ?  
+            {orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"?  
               <Link to="/my/collects/">
                 <div
                   className={classnames({
@@ -84,7 +84,7 @@ class Collects extends React.Component {
               }
             </li>
             <li>
-            {orgCode == 'yMYer06bOB' ?  
+            {orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ?  
 
               <Link to="/my/collects/project">
                 <div

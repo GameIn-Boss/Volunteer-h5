@@ -62,7 +62,7 @@ class PointItem extends React.Component {
                 <div className="component-point-item-income">
                   <span>{t(item.remark)}</span>
                   <span>{new Date(Date.parse(item.created_at.replace(/-/g, '/'))).Format('yyyy-MM-dd')}</span>
-                  {orgCode === "yMYer06bOB" ? 
+                  {orgCode === "yMYer06bOB" ||  orgCode === "LYqaQWldnj"? 
                   <span style={{ color: "#D2251D" }}>+{item.score}</span>: <span>+{item.score}</span>}
                 </div>
                 <div className="line1px" />

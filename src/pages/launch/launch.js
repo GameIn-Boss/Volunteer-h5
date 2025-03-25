@@ -72,6 +72,7 @@ class LaunchPage extends React.Component {
     let sanyi = false;
     let yangguang = false;
     let qlzy = false;
+    let bjzy = false;
     // VWPe9xdLyw 星巴克
     // mxkazpYdJ0 大都会
     // EKQe1wRbJY 维他奶
@@ -93,9 +94,125 @@ class LaunchPage extends React.Component {
     if (window.orgCode === 'yMYer06bOB') {
       qlzy = true;
     }
+    if (window.orgCode === 'LYqaQWldnj') {
+      bjzy = true;
+    }
     return (
       <div className="page-launch">
         <div className="content">{page}</div>
+        {window.orgCode === 'LYqaQWldnj'?
+<ul className="bjzytabs">
+<li>
+  <Link to="/">
+    <div
+      className={classnames({
+        'tab-icon': true,
+        'tab-icon-home': true,
+        active: path === '/' || path === "/home",
+        daduhui : daduhui,
+        zhongjin: zhongjin,
+        vitasoy: vitasoy,
+        sanyi: sanyi,
+        yangguang: yangguang,
+        qlzy: qlzy,
+        bjzy: bjzy,
+        
+        
+
+      })}
+    />
+    <span   className={classnames({
+        'tab-icontext': true,
+        'tab-icon-hometext': true,
+        active: path === '/' || path === "/home",
+        daduhui : daduhui,
+        zhongjin: zhongjin,
+        vitasoy: vitasoy,
+        sanyi: sanyi,
+        yangguang: yangguang,
+        qlzy: qlzy,
+        bjzy: bjzy,
+        
+        
+
+      })} >{t('首页')}</span>
+  </Link>
+</li>
+<li>
+  <Link to="/sign">
+    <div
+      className={classnames({
+        'tab-icon': true,
+        'tab-icon-signin': true,
+        active: path === '/signin' || path === '/sign',
+        "daduhui" : daduhui,
+        zhongjin: zhongjin,
+        vitasoy: vitasoy,
+        sanyi: sanyi,
+        yangguang: yangguang,
+        qlzy: qlzy,
+        bjzy: bjzy,
+
+
+
+      })}
+    />
+    {
+        
+          <span  className={classnames({
+            'tab-icontext': true,
+            'tab-icon-signintext': true,
+            active: path === '/signin' || path === '/sign',
+            "daduhui" : daduhui,
+            zhongjin: zhongjin,
+            vitasoy: vitasoy,
+            sanyi: sanyi,
+            yangguang: yangguang,
+            qlzy: qlzy,
+            bjzy: bjzy,
+    
+    
+    
+          })}>{t('签到打卡')}</span>
+      
+    }
+
+
+
+  </Link>
+</li>
+<li>
+  <Link to="/my">
+    <div
+      className={classnames({
+        'tab-icon': true,
+        'tab-icon-me': true,
+        active: path === '/my',
+        "daduhui" : daduhui,
+        zhongjin: zhongjin,
+        vitasoy,
+        sanyi: sanyi,
+        yangguang: yangguang,
+        qlzy: qlzy,
+        bjzy: bjzy,
+      })}
+    />
+    <span  className={classnames({
+        'tab-icontext': true,
+        'tab-icon-metext': true,
+        active: path === '/my',
+        "daduhui" : daduhui,
+        zhongjin: zhongjin,
+        vitasoy,
+        sanyi: sanyi,
+        yangguang: yangguang,
+        qlzy: qlzy,
+        bjzy: bjzy,
+      })} >{t('个人中心')}</span>
+  </Link>
+</li>
+</ul>:
+        
         <ul className="tabs">
           <li>
             <Link to="/">
@@ -110,8 +227,7 @@ class LaunchPage extends React.Component {
                   sanyi: sanyi,
                   yangguang: yangguang,
                   qlzy: qlzy,
-                  
-
+                  bjzy: bjzy,
                 })}
               />
               <span>{t('首页')}</span>
@@ -130,6 +246,8 @@ class LaunchPage extends React.Component {
                   sanyi: sanyi,
                   yangguang: yangguang,
                   qlzy: qlzy,
+                  bjzy: bjzy,
+
 
 
                 })}
@@ -159,23 +277,27 @@ class LaunchPage extends React.Component {
                   sanyi: sanyi,
                   yangguang: yangguang,
                   qlzy: qlzy,
-
-
+                  bjzy: bjzy,
                 })}
               />
               <span>{t('个人中心')}</span>
             </Link>
           </li>
         </ul>
+        }
+
+{window.orgCode === 'LYqaQWldnj'?
+       null
+        :
         <div
-          className="line1px"
-          style={{
-            width: "100%",
-            position: "absolute",
-            bottom: "49px",
-            left: "0"
-          }}
-        />
+        className="line1px"
+        style={{
+          width: "100%",
+          position: "absolute",
+          bottom: "49px",
+          left: "0"
+        }}
+      />}
       </div>
     );
   }

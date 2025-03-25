@@ -113,7 +113,7 @@ class DurationProjects extends React.Component {
                             </div>
                           </Link>
                         </div>
-                        {orgCode === "yMYer06bOB" ? 
+                        {orgCode === "yMYer06bOB" ||  orgCode === "LYqaQWldnj"? 
                         <div style={{ display: "flex",color: "#D2251D", justifyContent: "center", alignItems: "center" }}>
                      
 
@@ -144,7 +144,7 @@ class DurationProjects extends React.Component {
                           </div>
                           {team.name}
                         </div>
-                        {orgCode === "yMYer06bOB" ? 
+                        {orgCode === "yMYer06bOB" ||  orgCode === "LYqaQWldnj"? 
                         <div className="component-duration-projects-footer-date-box">
                           {t('已获得时长')}：
                           <span style={{color:"#D2251D"}}>{project.my_reward_time}{t('小时')}</span>

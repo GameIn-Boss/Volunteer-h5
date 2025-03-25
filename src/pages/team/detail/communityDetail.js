@@ -98,7 +98,7 @@ class CommunityDetailPage extends React.Component {
                             </div>
                         </div>
                     )}
-                 {orgCode == 'yMYer06bOB' ?  
+                 {orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"?  
 
                 <div className="page-team-detail-community-link-qlzy" onClick={this.onPublish} />
                 :

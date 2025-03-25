@@ -48,6 +48,42 @@
   background-position: center;
 }
 
+
+
+
+.page-launch .bjzytabs{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  margin-bottom: -10px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  height: 35px;
+
+}
+.page-launch .bjzytabs li{
+  flex: 1;
+  list-style: none;
+  text-align: center;
+}
+
+.page-launch .bjzytabs li a{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+}
+
+.page-launch .bjzytabs li .tab-icon {
+  height: 25px;
+  width: 25px;
+  background-size: contain;
+  background-position: center;
+}
+
+
+
 .page-launch .tabs li .tab-icon-home {
   background-image: url(/images/tab_home.png);
 }
@@ -227,7 +263,83 @@
   background-image: url(/images/qlzy-me.png);
 
 }
-.page-launch .tabs li a span {
+
+
+/*阳光保险*/
+.page-launch .bjzytabs li .tab-icon-home.bjzy  {
+
+}
+.page-launch .bjzytabs li .tab-icon-hometext.bjzy  {
+  position: absolute;
+  color: #000000;
+  font-size: 15px;
+}
+
+.page-launch .bjzytabs li .tab-icon-home.active.bjzy{
+  position: absolute;
+
+  width: 96.5px;
+  height:50px;
+
+  opacity: 1;
+  background: #CE2F57;
+}.page-launch .bjzytabs li .tab-icon-hometext.active.bjzy{
+  position: absolute;
+  margin-top: -10px;
+  color: #FFFFFF;
+  font-size: 15px;
+}
+
+.page-launch .bjzytabs li .tab-icon-signin.bjzy{
+
+}
+.page-launch .bjzytabs li .tab-icon-signintext.bjzy{
+  position: absolute;
+  color: #000000;
+  font-size: 15px;
+}
+.page-launch .bjzytabs li .tab-icon-signin.active.bjzy{
+  position: absolute;
+
+  width: 96.5px;
+  height:50px;
+  opacity: 1;
+  background: #CE2F57;
+}
+.page-launch .bjzytabs li .tab-icon-signintext.active.bjzy{
+  position: absolute;
+  margin-top: -10px;
+  color: #FFFFFF;
+  font-size: 15px;
+}
+
+.page-launch .bjzytabs li .tab-icon-me.bjzy{
+
+
+}.page-launch .bjzytabs li .tab-icon-metext.bjzy{
+
+  position: absolute;
+  color: #000000;
+  font-size: 15px;
+}
+
+
+.page-launch .bjzytabs li .tab-icon-me.active.bjzy{
+
+  position: absolute;
+  width: 96.5px;
+  height:50px;
+
+  opacity: 1;
+  background: #CE2F57;
+}
+.page-launch .bjzytabs li .tab-icon-metext.active.bjzy{
+  position: absolute;
+  margin-top: -10px;
+  color: #FFFFFF;
+  font-size: 15px;
+}
+.page-launch .bjzytabs li a span {
   font-size: 10px;
   color: #333333;
 }

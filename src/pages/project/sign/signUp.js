@@ -1213,7 +1213,7 @@ renderOtherDateInfoCheckbox(item1) {
                 <div className="page-project-signUp-bottom-btn">
                     <div className="line1px" />
                     
-                    {orgCode == 'yMYer06bOB' ?    <div className="page-project-signUp-bottom-btn-contain-qlzy">
+                    {orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj"?    <div className="page-project-signUp-bottom-btn-contain-qlzy">
                         {
                             this.state.data ?
                                 <div className={classnames({

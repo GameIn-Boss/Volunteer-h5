@@ -117,7 +117,7 @@ class PointPage extends React.Component {
             </tbody>
           </table>
         </div>
-        {orgCode === "yMYer06bOB" ?         <div
+        {orgCode === "yMYer06bOB"||  orgCode === "LYqaQWldnj" ?         <div
           className="commonweal-box-instruction-btn-qlzy"
           onClick={this.closeModalNewInstruction}
         >
@@ -153,7 +153,7 @@ class PointPage extends React.Component {
     console.log(page);
     return (
       <div className="page-ponit">
-       {orgCode === "yMYer06bOB" ?    
+       {orgCode === "yMYer06bOB"||  orgCode === "LYqaQWldnj" ?    
 
         <div className="page-ponit-pic-container-qlzy">
           <div className="page-ponit-pic-title">
@@ -185,7 +185,7 @@ class PointPage extends React.Component {
           </span>
         </div>
         </div>}
-        {orgCode === "yMYer06bOB" ?    
+        {orgCode === "yMYer06bOB" ||  orgCode === "LYqaQWldnj"?    
         <div className="page-ponit-tab-container">
           <div className="page-ponit-tab-container-qlzy-li">
             <Link to="/my/point">

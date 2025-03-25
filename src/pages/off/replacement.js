@@ -310,7 +310,7 @@ class Replacement extends React.Component {
                     <UploadPhoto onChange={this.onPhotoChange} multiple={false} length={3} totle={3} />
                 </div>
             </div>
-            {orgCode == 'yMYer06bOB' ?  
+            {orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ?  
             <div className="pages-sign-project-apply-line-submit-qlzy" onClick={this.onSubmit}>{t('提交')}</div>
             :
             <div className="pages-sign-project-apply-line-submit" onClick={this.onSubmit}>{t('提交')}</div>

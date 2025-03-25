@@ -41,7 +41,7 @@ class Duration extends React.Component {
     const { reward: { data: listData }, t } = this.props;
     return (
       <div className="page-duration">
-           {orgCode === "yMYer06bOB" ? 
+           {orgCode === "yMYer06bOB" ||  orgCode === "LYqaQWldnj"? 
         <div className="page-duration-top-area-view">
           <div className="page-duration-top-area-view-duration-box-qlzy">
             <p>

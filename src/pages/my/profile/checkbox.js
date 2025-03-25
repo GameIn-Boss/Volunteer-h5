@@ -123,7 +123,7 @@ class Checkbox extends React.Component {
             </li>,
           )}
         </ul>
-        {orgCode == 'yMYer06bOB' ?  
+        {orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"?  
          <div className="page-profile-checkbox-btn-qlzy" onClick={this.onSubmit}>{t('提交')}</div>
         :
          <div className="page-profile-checkbox-btn" onClick={this.onSubmit}>{t('提交')}</div>

@@ -240,7 +240,7 @@ class Profile extends React.Component {
                 }
                 {this.renderRealInfoExtends()}
                 <Link to={bindlink} style={{ marginTop: '41px', width: '100%', display: 'inline-block' }}>
-                {orgCode == 'yMYer06bOB' ?  
+                {orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ?  
          <div className="page-profile-apply-alert-qlzy">{t('修改资料')}</div>:
          <div className="page-profile-apply-alert">{t('修改资料')}</div>
   }

@@ -143,7 +143,7 @@ class Circle extends React.Component {
           </div>
         :
           <div className="page-circle-rendercommunity-container">
-            {orgCode == 'yMYer06bOB' ?  
+            {orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"?  
             <img src="/images/my/information-qlzy.png" className="page-circle-rendercommunity-img" />:
             <img src="/images/my/information.png" className="page-circle-rendercommunity-img" />
           }

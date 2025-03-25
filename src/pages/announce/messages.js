@@ -8,6 +8,7 @@ import autoBind from 'react-autobind';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import './messages.css';
+import NewsFilter, { TYPES_VALUE } from '../../components/newsfilter/newsfilter';
 import MessagesItem from './component/messagesItem';
 import { announceAction } from './announce.store';
 import { isWindowReachBottom } from '../../utils/funcs';
@@ -16,19 +17,80 @@ class Messages extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      isFilterShow: false,
+    };
+
     autoBind(this);
+
+    this.selectedOption = {
+      service_category: '',
+    };
   }
 
   componentWillMount() {
+    let {  category } = this.props.route.params;
+        this.selectedOption = {
+          service_category: category,
+        };
     this.requestList(false);
   }
+  onFilterShow() {
+    this.setState({
+      ...this.state,
+      isFilterShow: true,
+    });
+  }
 
+  onFilterHide() {
+    this.setState({
+      ...this.state,
+      isFilterShow: false,
+    });
+  }
+
+  onFilterChange(selectedOption) {
+    const { category } = selectedOption;
+    let classify = 0;
+
+    // history.push(`/project/list/type/${type}/category/${category}/target/${target}`);
+    if(category == "全部"){
+      classify = 0;
+    }
+    if(category == "志联动态"){
+      classify = 1;
+    }
+    if(category == "团体动态"){
+     classify = 2;
+    }
+    if(category == "通知公告"){
+     classify = 3;
+    }
+    if(category == "媒体报道"){
+     classify = 4;
+    }
+
+    window.location.href = `/announce/category/${classify}`;
+  }
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
   }
-  componentWillReceiveProps(nextProps) {
+componentWillReceiveProps(nextProps) {
+    let { category } = this.props.route.params;
+    const { category: ncategory} = nextProps.route.params;
 
+    if 
+        (category === ncategory) {
+      return;
+    }
+
+    category = parseInt(ncategory, 10);
+    this.selectedOption = {
+      service_category: window.serviceCategory[category],
+    };
+    this.requestList(false, false);
   }
+
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
@@ -39,6 +101,7 @@ class Messages extends React.Component {
     }
   }
   requestList(more) {
+    
     const { announce: { data: listData, fetching } } = this.props;
 
     if (fetching ||
@@ -47,6 +110,7 @@ class Messages extends React.Component {
     }
 
     this.props.announceAction({
+      ...this.selectedOption,
       current_page: more ? listData.page.current_page + 1 : 1,
       more,
     });
@@ -55,8 +119,23 @@ class Messages extends React.Component {
     const { announce: { data: listData } } = this.props;
     const showLoadingMore = listData &&
         listData.page && (listData.page.current_page < listData.page.total_page);
+        let { category } = this.props.route.params;
+        category = parseInt(category, 10);
+    
     return (
       <div className="page-announce">
+{orgCode === "LYqaQWldnj" ? 
+           <div className="project-filter-container" style={{ height: this.state.isFilterShow ? '100%' : 'auto' }}>
+                    <NewsFilter
+                      onFilterChange={this.onFilterChange}
+                      onFilterShow={this.onFilterShow}
+                      onFilterHide={this.onFilterHide}
+                      // type={type}
+                      category={category}
+                      // target={target}
+                    />
+                  </div>
+:null}
         <MessagesItem data={listData ? listData.list : null} />
 
         <div>

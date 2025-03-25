@@ -226,7 +226,7 @@ class COMMUNITYITEM extends React.Component {
               </ul>
               {
                 this.props.isDetailEntry && data.team_info && data.team_info.name ? <Link to={`/team/detail/${data.team_info.id}`}> 
-                 {orgCode == 'yMYer06bOB' ?  
+                 {orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ?  
                 <div className="components-community-item-business-container-qlzy" style={{color:'#D82229'}}># {data.team_info.name }</div>                  :
                 <div className="components-community-item-business-container"># {data.team_info.name }</div>          
                   } </Link> : null
@@ -235,7 +235,7 @@ class COMMUNITYITEM extends React.Component {
 
               {
                 this.props.isDetailEntry && data.project_info && data.project_info.name ? <Link to={`/project/detail/${data.project_info.id}`}>
-                 {orgCode == 'yMYer06bOB' ?  
+                 {orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"?  
     <div className="components-community-item-business-container-qlzy"># {data.project_info.name }</div>                 :
 <div className="components-community-item-business-container"># {data.project_info.name }</div>           
                   } 
@@ -249,7 +249,7 @@ class COMMUNITYITEM extends React.Component {
                 <div className="components-community-item-footer-container">
                   <div className="components-community-item-footer-time">{data.created_at}</div>
                  
-                  {data.user_info.id === this.props.user.id ?  orgCode == 'yMYer06bOB' ?   <div className="components-community-item-footer-del-qlzy" onClick={this.handleDelete} data-info={JSON.stringify(data)}>{t('删除')}</div> 
+                  {data.user_info.id === this.props.user.id ?  orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"?   <div className="components-community-item-footer-del-qlzy" onClick={this.handleDelete} data-info={JSON.stringify(data)}>{t('删除')}</div> 
                   :  <div className="components-community-item-footer-del" onClick={this.handleDelete} data-info={JSON.stringify(data)}>{t('删除')}</div> 
                   : null}
 

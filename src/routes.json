@@ -71,6 +71,22 @@
     "page": "./pages/project/detail/detail",
     "chunk": "main"
   },
+
+
+  {
+    "path": "/fundraisingproject/list",
+    "page": "./pages/fundraisingproject/list/list",
+    "chunk": "main"
+  },
+
+  {
+    "path": "/fundraisingproject/detail/:projectId",
+    "page": "./pages/fundraisingproject/detail/detail",
+    "chunk": "main"
+  },
+
+
+  
   {
     "path": "/special/detail/:projectId",
     "page": "./pages/specialProject/detail/detail",
@@ -87,8 +103,18 @@
     "chunk": "main"
   },
   {
+    "path": "/fundraisingproject/receipt/:sn",
+    "page": "./pages/fundraisingproject/sign/receipt",
+    "chunk": "main"
+  },
+  {
     "path": "/project/signup/:projectId",
     "page": "./pages/project/sign/signUp",
+    "chunk": "main"
+  },
+  {
+    "path": "/fundraisingproject/signup/:projectId",
+    "page": "./pages/fundraisingproject/sign/signUp",
     "chunk": "main"
   },
   {
@@ -499,6 +525,11 @@
     "chunk": "main"
   },
   {
+    "path": "/my/complaintpublish/:typeId",
+    "page": "./pages/team/detail/publish",
+    "chunk": "main"
+  },
+  {
     "path": "/my/circlepublish/:typeId",
     "page": "./pages/my/circle/subpage/publish",
     "chunk": "main"
@@ -544,6 +575,11 @@
     "chunk": "main"
   },
   {
+    "path": "/announce/category/:category/",
+    "page": "./pages/announce/messages",
+    "chunk": "main"
+  },
+  {
     "path": "/announce/fwzs",
     "page": "./pages/announce/fwzs",
     "chunk": "main"
@@ -556,6 +592,11 @@
   {
     "path": "/announcee/detail/:Id",
     "page": "./pages/announce/detail",
+    "chunk": "main"
+  },
+  {
+    "path": "/announcee/projectnewdetail/:Id",
+    "page": "./pages/announce/projectnewdetail",
     "chunk": "main"
   },
   {

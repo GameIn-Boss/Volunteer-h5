@@ -47,7 +47,45 @@ const announceDetailReducer = (state = {
       return state;
   }
 };
-
+export const announceprojectDetailAction = Id => ({
+  type: 'ANNOUNCE_DATA_DETAIL',
+  meta: {
+    id: Id,
+  },
+  payload: fetch(`/projectnewinfo/${Id}`, { method: 'GET' }),
+});
+const announceprojectDetailReducer = (state = {
+  fetching: false,
+  failed: false,
+  data: null,
+}, action) => {
+  switch (action.type) {
+    case 'ANNOUNCE_DATA_DETAIL_PENDING':
+      return {
+        ...state,
+        fetching: true,
+        fetchingId: action.meta.id,
+        failed: false,
+      };
+    case 'ANNOUNCE_DATA_DETAIL_FULFILLED':
+      return {
+        ...state,
+        fetching: false,
+        fetchingId: action.meta.id,
+        failed: false,
+        data: action.payload && action.payload.data,
+      };
+    case 'ANNOUNCE_DATA_DETAIL_REJECTED':
+      return {
+        ...state,
+        failed: true,
+        fetchingId: action.meta.id,
+        fetching: false,
+      };
+    default:
+      return state;
+  }
+};
 export const announceAction = data => ({
   type: 'ANNOUNCE_DATA',
   meta: {
@@ -99,5 +137,6 @@ const announceReducer = (state = {
 const reducer = combineReducers({
   announce: announceReducer,
   announceDetail: announceDetailReducer,
+  announceprojectDetail:announceprojectDetailReducer
 });
 export default reducer;

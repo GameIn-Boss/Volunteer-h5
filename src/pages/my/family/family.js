@@ -87,7 +87,7 @@ class Family extends React.Component {
                         {
                             isHouseholder === '户主' || isHouseholder === ''?
                                 <Link to="/my/family/add">
-                                      {orgCode == 'yMYer06bOB' ?  
+                                      {orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ?  
                                         <div className="pages-family-top-area-btn-qlzy">{t('添加成员')}</div>
                                         :
                                         <div className="pages-family-top-area-btn">{t('添加成员')}</div>
@@ -100,7 +100,7 @@ class Family extends React.Component {
 
                     </div>
                     <div className="page-family-top-area-view">
-                    {orgCode == 'yMYer06bOB' ?  
+                    {orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ?  
                             <div className="page-family-top-area-view-family-box-qlzy">
                                 <p><span>{listData ? listData.data.family_size : 0}</span>{t('人')}</p>
                                 <p>{t('家庭成员')}</p>
@@ -113,7 +113,7 @@ class Family extends React.Component {
                        
                         <div className="page-family-top-area-view-line"/>
                  
-                        {orgCode == 'yMYer06bOB' ?  
+                        {orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ?  
                                    <div className="page-family-top-area-view-family-box-qlzy">
                                    <p><span>{listData ? listData.data.reward_time : 0}</span>{t('小时')}</p>
                                    <p>{t('志愿总时长')}</p>

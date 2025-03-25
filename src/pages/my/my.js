@@ -221,7 +221,7 @@ class MyPage extends React.Component {
     }
     return (
       <div className="page-my-photo-container">
-   {orgCode === "yMYer06bOB" ? 
+   {orgCode === "yMYer06bOB" ||  orgCode === "LYqaQWldnj"? 
 
         <Avatar
           src={user.avatars ? user.avatars : ""}
@@ -324,7 +324,8 @@ class MyPage extends React.Component {
     }
     return (
 
-      orgCode === "yMYer06bOB" ? 
+      orgCode === "" ||  orgCode === "LYqaQWldnj"
+      ? 
         <div className="page-my-record-container-qlzy">
         <Link to="/my/teams">
           <div className="page-my-record-item-qlzy">
@@ -391,7 +392,7 @@ class MyPage extends React.Component {
                     })}
                     </p>         
                     ):(
-                      orgCode === "yMYer06bOB" ? 
+                      orgCode === "yMYer06bOB"  ||  orgCode === "LYqaQWldnj"? 
                     <p className="page-my-record-item-bottom-qlzy">
                     {t('n志愿星币m', {
                       n: n ? (t(n) === 'Volunteer' ? 'My' : t(n)) : t('志愿center'),
@@ -1009,7 +1010,7 @@ class MyPage extends React.Component {
             </tbody>
           </table>
         </div>
-        {orgCode == 'yMYer06bOB' ?  
+        {orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj" ?  
                  <div
                  className="commonweal-box-instruction-btn-qlzy"
                  onClick={this.closeModalNewInstruction}
@@ -1092,7 +1093,7 @@ class MyPage extends React.Component {
         {window.orgCode === 'K4oeERva0B' ? (
           <div>
             <div className="page-my-line" />
-            {orgCode === 'yMYer06bOB' ?  <a className="page-setting-quit-qlzy" onClick={this.props.logoutAction}>
+            {orgCode === 'yMYer06bOB' ||  orgCode === "LYqaQWldnj" ?  <a className="page-setting-quit-qlzy" onClick={this.props.logoutAction}>
               {t('退出登录')}
             </a>:     <a className="page-setting-quit" onClick={this.props.logoutAction}>
               {t('退出登录')}

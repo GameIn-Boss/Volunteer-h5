@@ -192,7 +192,7 @@ class SignPage extends React.Component {
         );
       } else {
         // 没打卡，超出时间显示补卡
-        if(orgCode == 'yMYer06bOB'){
+        if(orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"){
           renderDom = (
             <Link to={`/sign/replacement/${this.proid}/${this.Id}`}>
               <div
@@ -393,7 +393,7 @@ class SignPage extends React.Component {
         <div className="project-detail-list">
           <ul>
             <li>
-              {orgCode == 'yMYer06bOB' ?  <div
+              {orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ?  <div
                 className={`item-point ${firstPoint ? "item-point-color-qlzy" : ""}`}
               />: <div
               className={`item-point ${firstPoint ? "item-point-color" : ""}`}
@@ -417,7 +417,7 @@ class SignPage extends React.Component {
               <div className="detail-content" />
             </li>
             <li>
-            {orgCode == 'yMYer06bOB' ?  <div
+            {orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"?  <div
                 className={`item-point ${firstPoint ? "item-point-color-qlzy" : ""}`}
               />: <div
               className={`item-point ${firstPoint ? "item-point-color" : ""}`}

@@ -347,7 +347,7 @@ class SignBall extends React.Component {
           alignItems: "center"
         }}
       >
-       {orgCode === "yMYer06bOB" ?
+       {orgCode === "yMYer06bOB"||  orgCode === "LYqaQWldnj" ?
         <div
           className={classnames({
             "page-signball-shape": true,

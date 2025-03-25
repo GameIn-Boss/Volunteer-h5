@@ -100,7 +100,7 @@ class Projects extends React.Component {
                                                 <div className="component-shopItem-condition">{item.condition}</div>
                                             </div>
                                             <div className="component-shopItem-price-container">
-                                            {orgCode == 'yMYer06bOB' ?  
+                                            {orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"?  
                                              <div className="new-qlzy">{item.points}</div>:
                                              <div className="new">{item.points}</div>
                                             }
@@ -151,7 +151,7 @@ class Projects extends React.Component {
                                             </div>
 
                                             <div className="component-shopItem-price-container">
-                                            {orgCode == 'yMYer06bOB' ?  
+                                            {orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"?  
                                             <div className="new-qlzy">{item && item.goods_id && item.goods_id.points ? item.goods_id.points : null}</div>:
                                             <div className="new">{item && item.goods_id && item.goods_id.points ? item.goods_id.points : null}</div>
                                             }

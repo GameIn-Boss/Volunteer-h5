@@ -19,7 +19,7 @@ class Off extends React.Component {
     return (
       <div className="no-record">
         <div>
-        {orgCode == 'yMYer06bOB' ?  
+        {orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"?  
             <img src="/images/off.jpg" alt="" />
 
             :
@@ -30,7 +30,7 @@ class Off extends React.Component {
           <p>{t('正在建设中')}</p>
         </div>
         <div className="sign-btn-container">
-        {orgCode === 'yMYer06bOB' ?  <Link to="/" className="sign-btn-qlzy">
+        {orgCode === 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"?  <Link to="/" className="sign-btn-qlzy">
             {t('返回首页')}
           </Link>:     <Link to="/" className="sign-btn">
             {t('返回首页')}

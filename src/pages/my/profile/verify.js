@@ -1385,7 +1385,7 @@ class Verify extends React.Component {
             </div> */}
 
 
-            {orgCode === 'yMYer06bOB' ? <div className="page-my-profile-verify-btn-qlzy" onClick={this.onSubmit}>  提交
+            {orgCode === 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"? <div className="page-my-profile-verify-btn-qlzy" onClick={this.onSubmit}>  提交
                         </div>:     <div className="page-my-profile-verify-btn" onClick={this.onSubmit}>
                             提交
                         </div>}

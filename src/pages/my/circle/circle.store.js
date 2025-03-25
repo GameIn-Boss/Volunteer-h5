@@ -387,10 +387,178 @@ const unObserveReducer = (state = {
   }
 };
 
+//项目时长排行榜
+export const rankAction = (projectId) => {
+  const data = {};
+
+  return {
+    type: 'MORE_FEElING_DATA1',
+    meta: {
+      id: projectId,
+    },
+    payload: fetch(`/projectrank/list/${projectId}`,  { method: 'GET', data, loading: !data.more }),
+  };
+};
+const rankReducer = (state = {
+    fetching: false,
+    failed: false,
+    data: null,
+    type: null,
+  }, action) => {
+    let data;
+    const { more } = action.meta || {};
+    const { data: payloadData } = action.payload || {};
+    switch (action.type) {
+      case 'MORE_FEElING_DATA1_PENDING':
+        return {
+          ...state,
+          fetching: true,
+          failed: false,
+        };
+      case 'MORE_FEElING_DATA1_FULFILLED':
+        if (!more || !state.data) {
+          data = payloadData;
+        } else {
+          data = {
+            list: state.data.list.concat(payloadData.list),
+            page: payloadData.page,
+          };
+        }
+  
+        return {
+          ...state,
+          fetching: false,
+          failed: false,
+          type: action.meta.type,
+          data,
+        };
+      case 'MORE_FEElING_DATA1_REJECTED':
+        return {
+          ...state,
+          failed: true,
+          fetching: false,
+        };
+      default:
+        return state;
+    }
+  };
+
+
+
 // 发布话题评论接口
 // id: 话题id 【必填】
 // •comment: 内容【必填】
 // •parent_id: 如是回复评论，传被评论的内容id【非必填】
+
+export const announceAction = (projectId) => {
+  const data = {};
+
+  return {
+    type: 'MORE_FEElING_DATA',
+    meta: {
+      id: projectId,
+    },
+    payload: fetch(`/projectnews/list/${projectId}`,  { method: 'GET', data, loading: !data.more }),
+  };
+};
+export const fundraisingprojectAction = (projectId) => {
+  const data = {};
+
+  return {
+    type: 'MORE_FEElING_DATA',
+    meta: {
+      id: projectId,
+    },
+    payload: fetch(`/fundraisingprojectnews/list/${projectId}`,  { method: 'GET', data, loading: !data.more }),
+  };
+};
+const fundraisingprojectReducer = (state = {
+  fetching: false,
+  failed: false,
+  data: null,
+  type: null,
+}, action) => {
+  let data;
+  const { more } = action.meta || {};
+  const { data: payloadData } = action.payload || {};
+  switch (action.type) {
+    case 'MORE_FEElING_DATA_PENDING':
+      return {
+        ...state,
+        fetching: true,
+        failed: false,
+      };
+    case 'MORE_FEElING_DATA_FULFILLED':
+      if (!more || !state.data) {
+        data = payloadData;
+      } else {
+        data = {
+          list: state.data.list.concat(payloadData.list),
+          page: payloadData.page,
+        };
+      }
+
+      return {
+        ...state,
+        fetching: false,
+        failed: false,
+        type: action.meta.type,
+        data,
+      };
+    case 'MORE_FEElING_DATA_REJECTED':
+      return {
+        ...state,
+        failed: true,
+        fetching: false,
+      };
+    default:
+      return state;
+  }
+};
+
+const announceReducer = (state = {
+    fetching: false,
+    failed: false,
+    data: null,
+    type: null,
+  }, action) => {
+    let data;
+    const { more } = action.meta || {};
+    const { data: payloadData } = action.payload || {};
+    switch (action.type) {
+      case 'MORE_FEElING_DATA_PENDING':
+        return {
+          ...state,
+          fetching: true,
+          failed: false,
+        };
+      case 'MORE_FEElING_DATA_FULFILLED':
+        if (!more || !state.data) {
+          data = payloadData;
+        } else {
+          data = {
+            list: state.data.list.concat(payloadData.list),
+            page: payloadData.page,
+          };
+        }
+  
+        return {
+          ...state,
+          fetching: false,
+          failed: false,
+          type: action.meta.type,
+          data,
+        };
+      case 'MORE_FEElING_DATA_REJECTED':
+        return {
+          ...state,
+          failed: true,
+          fetching: false,
+        };
+      default:
+        return state;
+    }
+  };
 
 export const postCommentAction = data => ({
   type: 'POSTCOMMENT_DATA',
@@ -464,6 +632,8 @@ const deleteCommentReducer = (state = {
 const reducer = combineReducers({
   feeling: feelingReducer,
   upFeeling: upFeelingReducer,
+  announce: announceReducer,
+  rank: rankReducer,
   deleteFeeling: deleteFeelingReducer,
   myFeeling: myFeelingReducer,
   observe: observeReducer,
@@ -473,5 +643,6 @@ const reducer = combineReducers({
   newComment: newCommentReducer,
   feelingDetail: feelingDetailReducer,
   moreFeeling: moreFeelingReducer,
+  fundraisingproject:fundraisingprojectReducer
 });
 export default reducer;

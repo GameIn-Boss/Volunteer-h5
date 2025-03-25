@@ -193,6 +193,9 @@
   margin-right: 30px;
 }
 
+.page-team-detail .foot .team-action-complaint {
+  margin-right: 30px;
+}
 .page-team-detail .foot .team-action span:first-child {
   width: 24px;
   height: 24px;
@@ -216,6 +219,9 @@
 
 .page-team-detail .foot .team-action-share span:first-child {
   background-image: url(/images/icon_share.png);
+}
+.page-team-detail .foot .team-action-complaint span:first-child {
+  background-image: url(/images/complaint.png);
 }
 
 .page-team-detail .foot .team-action-main {
@@ -256,7 +262,7 @@
   width: 100%;
   position: absolute;
 }
-..page-team-detail-render-project-container-main .component-projects{
+.page-team-detail-render-project-container-main .component-projects{
   width: 100%;
   flex:1;
   overflow-y: scroll;

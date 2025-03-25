@@ -601,7 +601,7 @@ class TeamDetailPage extends React.Component {
             ))
           ) : (
             <div className="page-circle-rendercommunity-no-info-container">
-             {orgCode == 'yMYer06bOB' ?  
+             {orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ?  
             <img src="/images/my/information-qlzy.png" className="page-circle-rendercommunity-img" />:
             <img src="/images/my/information.png" className="page-circle-rendercommunity-img" />
           }
@@ -611,7 +611,7 @@ class TeamDetailPage extends React.Component {
             </div>
           )}
 
-{orgCode == 'yMYer06bOB' ?  
+{orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ?  
 
 <div className="page-team-detail-community-link-qlzy" onClick={this.onPublish} />
 :

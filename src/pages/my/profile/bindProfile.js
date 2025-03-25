@@ -1347,7 +1347,7 @@ class BindInfo extends React.Component {
                                 this.renderOtherInfo()
                             }
                         </div>
-                        {orgCode === 'yMYer06bOB' ? <div className="page-my-profile-verify-btn-qlzy" onClick={this.onSubmit}>  {t('提交')}
+                        {orgCode === 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ? <div className="page-my-profile-verify-btn-qlzy" onClick={this.onSubmit}>  {t('提交')}
                         </div>:     <div className="page-my-profile-verify-btn" onClick={this.onSubmit}>
                             {t('提交')}
                         </div>}

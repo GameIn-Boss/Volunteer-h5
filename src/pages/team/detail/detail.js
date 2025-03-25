@@ -429,7 +429,7 @@ class TeamDetailPage extends React.Component {
 
     if (!joined && !auditing) {
       actionLabel = t('我要加入');
-      if (window.orgCode === 'yMYer06bOB') {
+      if (window.orgCode === 'yMYer06bOB'||  orgCode === "LYqaQWldnj") {
         actionClassName = "team-action-available-qlzy";
       }else{
         actionClassName = "team-action-available";
@@ -588,7 +588,7 @@ class TeamDetailPage extends React.Component {
           </div>
 
           <div className="team-description-backhome">
-          {orgCode == 'yMYer06bOB' ?  
+          {orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ?  
                       <Link to="/" style={{
                             backgroundImage: `url(/images/my/backhome-qlzy.png)`,
                             backgroundSize: 'cover',
@@ -628,7 +628,22 @@ class TeamDetailPage extends React.Component {
               <span />
               <span>{t('分享')}</span>
             </Link>
-
+            {orgCode === "LYqaQWldnj" ? 
+                <Link
+        to={`/my/complaintpublish/${detailData.id}`}
+                // onClick={e =>
+                //   this.setState({
+                //     visible: true
+                //   })
+                // }
+                className="team-action team-action-complaint"
+              >
+                <span />
+                <span>{t('投诉')}</span>
+              </Link>
+              :
+              null
+            }
             <Link
               to=""
               onClick={this.handleActionClick(action)}
@@ -741,7 +756,7 @@ class TeamDetailPage extends React.Component {
             ))
           ) : (
             <div className="page-circle-rendercommunity-no-info-container">
-              {orgCode == 'yMYer06bOB' ?  
+              {orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ?  
             <img src="/images/my/information-qlzy.png" className="page-circle-rendercommunity-img" />:
             <img src="/images/my/information.png" className="page-circle-rendercommunity-img" />
           }
@@ -752,7 +767,7 @@ class TeamDetailPage extends React.Component {
           )}
 
        
-           {orgCode == 'yMYer06bOB' ?  
+           {orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"?  
 
 <div className="page-team-detail-community-link-qlzy" onClick={this.onPublish} />
 :

@@ -45,7 +45,7 @@ class SignItem extends React.Component {
             actionClassName = "project-info-time-reject";
             actionLabel = t('被驳回');
           } else if (record.status == 4) {
-            if(orgCode === "yMYer06bOB" ){
+            if(orgCode === "yMYer06bOB" ||  orgCode === "LYqaQWldnj"){
               actionClassName = "project-info-time-done-qlzy";
             }else{
               actionClassName = "project-info-time-done";
@@ -61,7 +61,7 @@ class SignItem extends React.Component {
             timeDom = (
                   <div className="project-info-time">
                     {t('获得服务时长')}&nbsp;&nbsp;
-                    {orgCode == 'yMYer06bOB' ?  
+                    {orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"?  
                     <span style={{ color: "#D2251D" }}>
                       {record.user_reward_time}{t('小时')}
                     </span>
@@ -76,7 +76,7 @@ class SignItem extends React.Component {
             timeDom = (
               <div className="project-info-time">
                 {t('预计可获得服务时长')}&nbsp;&nbsp;
-                {orgCode == 'yMYer06bOB' ?  
+                {orgCode == 'yMYer06bOB' ||  orgCode === "LYqaQWldnj"?  
                 <span style={{ color: "#D2251D" }}>
                   {record.user_reward_time}{t('小时')}
                 </span>
@@ -91,7 +91,7 @@ class SignItem extends React.Component {
             timeDom = (
               <div className="project-info-time">
                 {t('预计最多可获得服务时长')}&nbsp;&nbsp;
-                {orgCode == 'yMYer06bOB' ?  
+                {orgCode == 'yMYer06bOB'||  orgCode === "LYqaQWldnj" ?  
                  <span style={{ color: "#D2251D" }}>
                  {record.reward_time}{t('小时')}
                </span>
