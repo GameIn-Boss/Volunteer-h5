@@ -562,15 +562,11 @@ class MyPage extends React.Component {
                 <div>
                   <Link to="/my/sanyirescue">
                     <div className="page-my-item-box">
-                      {this.renderPagesanyirescueTemplate()}
-                      {t('应急救护培训公益证书')}
-                      {/*<i className="page-my-item-icon page-my-item-icon-news" />我的消息*/}
+                      {this.renderPagesanyiTemplate()}
+                      {t('万物复书捐赠证书')}
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                      {/* {
-                        this.props.usercenter.data && this.props.usercenter.data.msg_count > 0 ?
-                          <span className="page-my-message-msg_count">{this.props.usercenter.data && this.props.usercenter.data.msg_count}</span> : null
-                      } */}
+                    
                       <span className="page-my-item-big" />
                     </div>
                   </Link>

@@ -66,7 +66,7 @@
   font-size     : 13px;
   color         : #262626;
   letter-spacing: 0;
-  margin-top    :50.5px;
+  margin-top    :23.5px;
   text-align    : left;
   line-height   : 19px;
   min-width     : 80px;
@@ -75,7 +75,7 @@
 
   position      : absolute;
   top           : 144px;
-  left:155px;
+  left:115px;
 }
 
 .page-certificate-container-star {
